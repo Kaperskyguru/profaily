@@ -1,16 +1,13 @@
 # Profaily landing
 
-Marketing site for `useprofaily.com`. The app itself is `frontend/` on `app.useprofaily.com`; this repo shares no code with it.
-
-Next.js 15 App Router, server components only. The single client component is `components/live-status.tsx` (the hero's one status transition). No Tailwind: styles are plain CSS tokens in `app/globals.css`, from the brand guide (Mint `#8DD796`, Deep Green `#0D241F`, Inter).
+Production Next.js app for `useprofaily.com`. The approved marketing site is preserved as complete HTML documents under `public/`, with the shared stylesheet, interaction script, product media, and article assets alongside them. The App Router catch-all route serves these documents unchanged at clean URLs and prerenders all 28 routes during `yarn build`. Existing `.html` URLs remain available from `public/` and declare the clean route as canonical.
 
 ```bash
 yarn            # install
 yarn dev        # http://localhost:3003
 yarn build      # production build
-yarn start      # serve the build on :3003
+yarn start      # serve the build on :3000
 yarn typecheck
 ```
 
-`NEXT_PUBLIC_APP_URL` (see `.env.sample`) sets where Sign in, Get started and the legal links point. Defaults to `https://app.useprofaily.com`.
-# profaily
+`NEXT_PUBLIC_APP_URL` controls sign-in, registration, and policy links. It defaults to `https://app.useprofaily.com`.

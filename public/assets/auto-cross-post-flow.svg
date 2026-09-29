@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="500" viewBox="0 0 1040 500" fill="none">
+  <title>Automatic video cross-posting workflow</title>
+  <desc>A TikTok video post branches simultaneously to selected Facebook, Instagram, YouTube, Pinterest, Twitch, and Snapchat destinations. Other source options shown are Instagram, Facebook, and YouTube.</desc>
+  <defs>
+    <linearGradient id="panel" x1="100" y1="0" x2="900" y2="500" gradientUnits="userSpaceOnUse"><stop stop-color="#0D1214"/><stop offset="1" stop-color="#080D0F"/></linearGradient>
+    <linearGradient id="routeGlow" x1="130" y1="250" x2="850" y2="250" gradientUnits="userSpaceOnUse"><stop stop-color="#9DCEA0"/><stop offset="1" stop-color="#C8EBAD"/></linearGradient>
+    <linearGradient id="instagram" x1="0" y1="48" x2="48" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#FFB13D"/><stop offset=".48" stop-color="#E1306C"/><stop offset="1" stop-color="#833AB4"/></linearGradient>
+    <filter id="softGlow" x="-300%" y="-300%" width="700%" height="700%"><feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="cardGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect x="1" y="1" width="1038" height="498" rx="27" fill="url(#panel)" stroke="#303A3B" stroke-width="2"/>
+  <path d="M2 63H1038" stroke="#263031" stroke-width="1.5"/>
+  <text x="36" y="39" fill="#A6B1B4" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="3">POST ON</text>
+  <g transform="translate(134 22)">
+    <rect width="26" height="26" rx="6" fill="#1B2225" stroke="#394346"/>
+    <path d="M14 4h4c.2 2.1 1.4 3.7 4 4.5v4c-1.7-.1-3.1-.7-4-1.6v5.5a6 6 0 1 1-5-5.9v4.1a2.1 2.1 0 1 0 1 1.8V4Z" fill="#25F4EE" opacity=".9" transform="translate(-1 .5)"/>
+    <path d="M14 4h4c.2 2.1 1.4 3.7 4 4.5v4c-1.7-.1-3.1-.7-4-1.6v5.5a6 6 0 1 1-5-5.9v4.1a2.1 2.1 0 1 0 1 1.8V4Z" fill="#FE2C55" opacity=".9" transform="translate(1 -.3)"/>
+    <path d="M14 4h4c.2 2.1 1.4 3.7 4 4.5v4c-1.7-.1-3.1-.7-4-1.6v5.5a6 6 0 1 1-5-5.9v4.1a2.1 2.1 0 1 0 1 1.8V4Z" fill="#F6F8F6"/>
+  </g>
+  <text x="171" y="40" fill="#F3F6F3" font-family="Arial,sans-serif" font-size="14" font-weight="700">TikTok</text>
+  <rect x="810" y="18" width="194" height="29" rx="8" fill="#141A1C" stroke="#3B4547"/>
+  <text x="907" y="36" text-anchor="middle" fill="#9EAAA9" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1.4">AUTOMATIC CROSS-POSTING</text>
+
+  <text x="36" y="101" fill="#71807B" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1.7">OTHER SOURCE OPTIONS</text>
+  <!-- Other sources are shown as choices, not destinations. -->
+  <g opacity=".3" transform="translate(40 119)">
+    <rect width="60" height="60" rx="15" fill="#172024" stroke="#39484A"/>
+    <rect x="15" y="15" width="30" height="30" rx="8" fill="#fff"/>
+    <rect x="21" y="21" width="18" height="18" rx="5" stroke="url(#instagram)" stroke-width="2.6"/>
+    <circle cx="30" cy="30" r="4" stroke="url(#instagram)" stroke-width="2.2"/><circle cx="36.3" cy="23.8" r="1.4" fill="#E1306C"/>
+    <text x="30" y="75" text-anchor="middle" fill="#A8B1B1" font-family="Arial,sans-serif" font-size="9">Instagram</text>
+  </g>
+  <g opacity=".3" transform="translate(40 316)">
+    <rect width="60" height="60" rx="15" fill="#172024" stroke="#39484A"/>
+    <rect x="15" y="15" width="30" height="30" rx="8" fill="#0866FF"/>
+    <path d="M32.2 42V31h4l.6-4.2h-4.6v-2.7c0-1.2.4-2 2.1-2h2.8v-3.8c-.5-.1-2.3-.2-4.4-.2-4.3 0-7.3 2.6-7.3 7.5v1.2h-4v4.2h4v11h4.8Z" fill="#fff"/>
+    <text x="30" y="75" text-anchor="middle" fill="#A8B1B1" font-family="Arial,sans-serif" font-size="9">Facebook</text>
+  </g>
+  <g opacity=".3" transform="translate(40 414)">
+    <rect width="60" height="60" rx="15" fill="#172024" stroke="#39484A"/>
+    <rect x="15" y="15" width="30" height="30" rx="8" fill="#fff"/>
+    <rect x="20" y="22" width="20" height="14" rx="4" fill="#FF0033"/><path d="m28 25 6 4-6 4v-8Z" fill="#fff"/>
+    <text x="30" y="75" text-anchor="middle" fill="#A8B1B1" font-family="Arial,sans-serif" font-size="9">YouTube</text>
+  </g>
+
+  <path id="route-facebook" d="M132 250H445C563 250 673 101 815 101" stroke="#2D3B3D" stroke-width="2.3"/>
+  <path d="M132 250H445C563 250 673 101 815 101" stroke="#C5E9AD" stroke-width="1" opacity=".12"/>
+  <circle class="motion-dot" r="5.5" fill="#F7FFF1" filter="url(#softGlow)"><animateMotion dur="2.8s" begin="0s" repeatCount="indefinite" calcMode="paced"><mpath href="#route-facebook"/></animateMotion></circle>
+  <path id="route-instagram" d="M132 250H445C563 250 673 171 815 171" stroke="#2D3B3D" stroke-width="2.3"/>
+  <path d="M132 250H445C563 250 673 171 815 171" stroke="#C5E9AD" stroke-width="1" opacity=".12"/>
+  <circle class="motion-dot" r="5.5" fill="#F7FFF1" filter="url(#softGlow)"><animateMotion dur="2.8s" begin="0s" repeatCount="indefinite" calcMode="paced"><mpath href="#route-instagram"/></animateMotion></circle>
+  <path id="route-youtube" d="M132 250H445C563 250 673 241 815 241" stroke="#2D3B3D" stroke-width="2.3"/>
+  <path d="M132 250H445C563 250 673 241 815 241" stroke="#C5E9AD" stroke-width="1" opacity=".12"/>
+  <circle class="motion-dot" r="5.5" fill="#F7FFF1" filter="url(#softGlow)"><animateMotion dur="2.8s" begin="0s" repeatCount="indefinite" calcMode="paced"><mpath href="#route-youtube"/></animateMotion></circle>
+  <path id="route-pinterest" d="M132 250H445C563 250 673 311 815 311" stroke="#2D3B3D" stroke-width="2.3"/>
+  <path d="M132 250H445C563 250 673 311 815 311" stroke="#C5E9AD" stroke-width="1" opacity=".12"/>
+  <circle class="motion-dot" r="5.5" fill="#F7FFF1" filter="url(#softGlow)"><animateMotion dur="2.8s" begin="0s" repeatCount="indefinite" calcMode="paced"><mpath href="#route-pinterest"/></animateMotion></circle>
+  <path id="route-twitch" d="M132 250H445C563 250 673 381 815 381" stroke="#2D3B3D" stroke-width="2.3"/>
+  <path d="M132 250H445C563 250 673 381 815 381" stroke="#C5E9AD" stroke-width="1" opacity=".12"/>
+  <circle class="motion-dot" r="5.5" fill="#F7FFF1" filter="url(#softGlow)"><animateMotion dur="2.8s" begin="0s" repeatCount="indefinite" calcMode="paced"><mpath href="#route-twitch"/></animateMotion></circle>
+  <path id="route-snapchat" d="M132 250H445C563 250 673 451 815 451" stroke="#2D3B3D" stroke-width="2.3"/>
+  <path d="M132 250H445C563 250 673 451 815 451" stroke="#C5E9AD" stroke-width="1" opacity=".12"/>
+  <circle class="motion-dot" r="5.5" fill="#F7FFF1" filter="url(#softGlow)"><animateMotion dur="2.8s" begin="0s" repeatCount="indefinite" calcMode="paced"><mpath href="#route-snapchat"/></animateMotion></circle>
+  <circle cx="445" cy="250" r="11" fill="#C5E9AD" opacity=".17" filter="url(#cardGlow)"/><circle cx="445" cy="250" r="4" fill="#C5E9AD"/>
+  <!-- Selected source tile -->
+  <circle cx="130" cy="250" r="51" fill="#C5E9AD" opacity=".12" filter="url(#cardGlow)"/>
+  <rect x="93" y="213" width="74" height="74" rx="19" fill="#17231B" stroke="#A7D895" stroke-width="3"/>
+  <rect x="112" y="232" width="36" height="36" rx="10" fill="#111719"/>
+  <path d="M127 237h5c.2 2.6 1.7 4.4 4.7 5.4v4.8c-2-.1-3.6-.8-4.7-1.9v6.5a7.1 7.1 0 1 1-5.9-7v4.9a2.5 2.5 0 1 0 1.2 2.1v-24.8Z" fill="#25F4EE" opacity=".9" transform="translate(-1 .5)"/>
+  <path d="M127 237h5c.2 2.6 1.7 4.4 4.7 5.4v4.8c-2-.1-3.6-.8-4.7-1.9v6.5a7.1 7.1 0 1 1-5.9-7v4.9a2.5 2.5 0 1 0 1.2 2.1v-24.8Z" fill="#FE2C55" opacity=".9" transform="translate(1 -.3)"/>
+  <path d="M127 237h5c.2 2.6 1.7 4.4 4.7 5.4v4.8c-2-.1-3.6-.8-4.7-1.9v6.5a7.1 7.1 0 1 1-5.9-7v4.9a2.5 2.5 0 1 0 1.2 2.1v-24.8Z" fill="#fff"/>
+  <circle cx="159" cy="214" r="12" fill="#61D28C" stroke="#0D1214" stroke-width="3"/><path d="m154 214 3.2 3.3 6.2-6.4" stroke="#0D1214" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="130" y="309" text-anchor="middle" fill="#DCE6DD" font-family="Arial,sans-serif" font-size="10" font-weight="700">MAIN PLATFORM</text>
+
+  <!-- Selected destinations -->
+  <g transform="translate(815 75)">
+    <rect width="174" height="52" rx="13" fill="#141B1D" stroke="#3A4846"/>
+    <g transform="translate(12 6)"><rect width="40" height="40" rx="10" fill="#0866FF"/><path d="M25 34V22h4l.7-4H25v-2.6c0-1.2.4-2 2-2h2v-3.8c-.4-.1-1.8-.2-3.3-.2-3.5 0-5.7 2.1-5.7 5.9V18h-3.8v4h3.8v12h5Z" fill="#fff"/></g>
+    <text x="63" y="23" fill="#EAF0EA" font-family="Arial,sans-serif" font-size="11" font-weight="700">Facebook</text>
+    <text x="63" y="37" fill="#89958E" font-family="Arial,sans-serif" font-size="8">Selected destination</text>
+    <circle class="pulse" cx="160" cy="26" r="3.5" fill="#C5E9AD" opacity=".25"><animate attributeName="opacity" values=".2;.2;1;.2" keyTimes="0;.78;.9;1" dur="2.8s" begin="0s" repeatCount="indefinite"/></circle>
+  </g>
+  <g transform="translate(815 145)">
+    <rect width="174" height="52" rx="13" fill="#141B1D" stroke="#3A4846"/>
+    <g transform="translate(12 6)"><rect width="40" height="40" rx="10" fill="#fff"/><rect x="8" y="8" width="24" height="24" rx="8" stroke="url(#instagram)" stroke-width="3.5"/><circle cx="20" cy="20" r="6" stroke="url(#instagram)" stroke-width="3"/><circle cx="27" cy="13" r="2" fill="#E1306C"/></g>
+    <text x="63" y="23" fill="#EAF0EA" font-family="Arial,sans-serif" font-size="11" font-weight="700">Instagram</text>
+    <text x="63" y="37" fill="#89958E" font-family="Arial,sans-serif" font-size="8">Selected destination</text>
+    <circle class="pulse" cx="160" cy="26" r="3.5" fill="#C5E9AD" opacity=".25"><animate attributeName="opacity" values=".2;.2;1;.2" keyTimes="0;.78;.9;1" dur="2.8s" begin="0s" repeatCount="indefinite"/></circle>
+  </g>
+  <g transform="translate(815 215)">
+    <rect width="174" height="52" rx="13" fill="#141B1D" stroke="#3A4846"/>
+    <g transform="translate(12 6)"><rect width="40" height="40" rx="10" fill="#fff"/><rect x="6" y="11" width="28" height="18" rx="6" fill="#FF0033"/><path d="m17 15 9 5-9 5V15Z" fill="#fff"/></g>
+    <text x="63" y="23" fill="#EAF0EA" font-family="Arial,sans-serif" font-size="11" font-weight="700">YouTube</text>
+    <text x="63" y="37" fill="#89958E" font-family="Arial,sans-serif" font-size="8">Selected destination</text>
+    <circle class="pulse" cx="160" cy="26" r="3.5" fill="#C5E9AD" opacity=".25"><animate attributeName="opacity" values=".2;.2;1;.2" keyTimes="0;.78;.9;1" dur="2.8s" begin="0s" repeatCount="indefinite"/></circle>
+  </g>
+  <g transform="translate(815 285)">
+    <rect width="174" height="52" rx="13" fill="#141B1D" stroke="#3A4846"/>
+    <g transform="translate(12 6)"><rect width="40" height="40" rx="10" fill="#fff"/><circle cx="20" cy="20" r="15" fill="#E60023"/><text x="20" y="27" text-anchor="middle" fill="#fff" font-family="Georgia,serif" font-size="23" font-weight="700">P</text></g>
+    <text x="63" y="23" fill="#EAF0EA" font-family="Arial,sans-serif" font-size="11" font-weight="700">Pinterest</text>
+    <text x="63" y="37" fill="#89958E" font-family="Arial,sans-serif" font-size="8">Selected destination</text>
+    <circle class="pulse" cx="160" cy="26" r="3.5" fill="#C5E9AD" opacity=".25"><animate attributeName="opacity" values=".2;.2;1;.2" keyTimes="0;.78;.9;1" dur="2.8s" begin="0s" repeatCount="indefinite"/></circle>
+  </g>
+  <g transform="translate(815 355)">
+    <rect width="174" height="52" rx="13" fill="#141B1D" stroke="#3A4846"/>
+    <g transform="translate(12 6)"><rect width="40" height="40" rx="10" fill="#9146FF"/><path d="M8 7h25v18l-8 8h-6l-5 5v-5H8V7Z" fill="#fff"/><path d="M16 13v9m9-9v9" stroke="#9146FF" stroke-width="3" stroke-linecap="square"/></g>
+    <text x="63" y="23" fill="#EAF0EA" font-family="Arial,sans-serif" font-size="11" font-weight="700">Twitch</text>
+    <text x="63" y="37" fill="#89958E" font-family="Arial,sans-serif" font-size="8">Selected destination</text>
+    <circle class="pulse" cx="160" cy="26" r="3.5" fill="#C5E9AD" opacity=".25"><animate attributeName="opacity" values=".2;.2;1;.2" keyTimes="0;.78;.9;1" dur="2.8s" begin="0s" repeatCount="indefinite"/></circle>
+  </g>
+  <g transform="translate(815 425)">
+    <rect width="174" height="52" rx="13" fill="#141B1D" stroke="#3A4846"/>
+    <g transform="translate(12 6)"><rect width="40" height="40" rx="10" fill="#FFFC00"/><path d="M20 8c-6 0-9 5-9 11 0 2 .4 4.2-2.4 6.2L6 27c1.2 1.3 3 1.6 4.5 1.8.9 2.4 2.8 3.4 4.6 3.6 1.4.1 2.6-.4 4.9-.4s3.5.5 4.9.4c1.8-.2 3.7-1.2 4.6-3.6 1.5-.2 3.3-.5 4.5-1.8l-2.6-1.8c-2.8-2-2.4-4.2-2.4-6.2 0-6-3-11-9-11Z" fill="#111"/></g>
+    <text x="63" y="23" fill="#EAF0EA" font-family="Arial,sans-serif" font-size="11" font-weight="700">Snapchat</text>
+    <text x="63" y="37" fill="#89958E" font-family="Arial,sans-serif" font-size="8">Selected destination</text>
+    <circle class="pulse" cx="160" cy="26" r="3.5" fill="#C5E9AD" opacity=".25"><animate attributeName="opacity" values=".2;.2;1;.2" keyTimes="0;.78;.9;1" dur="2.8s" begin="0s" repeatCount="indefinite"/></circle>
+  </g>
+  <style>@media (prefers-reduced-motion:reduce){.motion-dot,.pulse{display:none}}</style>
+</svg>
