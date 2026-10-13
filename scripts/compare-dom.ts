@@ -91,6 +91,8 @@ function normalize(html: string, regions: string[]): string {
     out.push("ld+json " + JSON.stringify(stable(JSON.parse($(e).text()))));
   });
   $(DROP).remove();
+  // Next streams metadata into an empty <div hidden> at the top of <body>; it has no content or layout.
+  $("body > div[hidden]").filter((_, e) => $(e).text().trim() === "" && $(e).find("*").length === 0).remove();
   out.push(`body class=${JSON.stringify($("body").attr("class") ?? "")}`);
   if (regions.length === 0) walk($, $("body")[0], 0, out);
   else for (const r of regions) $(REGIONS[r]).each((_, e) => walk($, e, 0, out));
