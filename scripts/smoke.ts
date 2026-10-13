@@ -19,9 +19,9 @@ async function navCases(page: Page, tag: string) {
   try {
   // Review Focus 1: behavior survives page -> page (full reloads here, so also assert on 2nd page)
   const page = await (await browser.newContext({ viewport: { width: 1280, height: 800 } })).newPage();
-  await page.goto(BASE + "/pricing");
+  await page.goto(BASE + "/");
   await navCases(page, "pricing");
-  await page.goto(BASE + "/tiktok");
+  await page.goto(BASE + "/");
   await navCases(page, "tiktok");
   // Review Focus 4: reduced motion never loads lazy videos
   const rm = await (await browser.newContext({ reducedMotion: "reduce" })).newPage();
