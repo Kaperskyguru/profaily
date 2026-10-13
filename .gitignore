@@ -7,3 +7,6 @@ out/
 .DS_Store
 next-env.d.ts
 tsconfig.tsbuildinfo
+
+tests/baseline/
+tests/visual/
