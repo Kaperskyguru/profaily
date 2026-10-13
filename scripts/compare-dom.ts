@@ -8,7 +8,7 @@ import { ROUTES } from "./routes";
 const BASE = process.env.BASE_URL ?? "http://localhost:3003";
 const APP_DEFAULT = "https://app.useprofaily.com";
 const APP_ENV = process.env.NEXT_PUBLIC_APP_URL?.replace(/\/$/, "");
-const DROP = "script,style,link,template,noscript,next-route-announcer,nextjs-portal";
+const DROP = "script,style,link,title,meta,template,noscript,next-route-announcer,nextjs-portal";
 const URL_ATTRS = new Set(["src", "href", "srcset", "poster", "data-src", "content"]);
 const REGIONS: Record<string, string> = {
   header: "header.site-header",
@@ -19,6 +19,7 @@ const REGIONS: Record<string, string> = {
 function normUrl(v: string): string {
   let out = v.replaceAll(APP_DEFAULT, "@app");
   if (APP_ENV) out = out.replaceAll(APP_ENV, "@app");
+  if (/^https?:\/\/[^/?#]+\/?$/.test(out)) out = out.replace(/\/$/, ""); // origin-only: slash-insensitive
   return out
     .replace(/(?:\.\.\/)+assets\//g, "/assets/")
     .replace(/(^|[\s,])assets\//g, "$1/assets/");
@@ -76,7 +77,7 @@ function normalize(html: string, regions: string[]): string {
   const $ = cheerio.load(html);
   const out: string[] = [];
   out.push(`html lang=${JSON.stringify($("html").attr("lang") ?? "")}`);
-  out.push(`title ${JSON.stringify($("head title").first().text().trim())}`);
+  out.push(`title ${JSON.stringify($("title").first().text().trim())}`);
   const meta = (sel: string, attr: string) => $(sel).map((_, e) => `${sel} ${JSON.stringify(normUrl($(e).attr(attr) ?? ""))}`).get();
   out.push(...meta('meta[name="description"]', "content"));
   out.push(...meta('link[rel="canonical"]', "href"));
