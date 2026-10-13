@@ -10,12 +10,13 @@ async function navCases(page: Page, tag: string) {
   await page.keyboard.press("Escape");
   check(`${tag}: Escape closes`, await page.locator(".nav-group.open").count() === 0);
   await page.click(".menu-trigger >> nth=0");
-  await page.click("h1");
+  await page.mouse.click(5, 790);
   check(`${tag}: outside click closes`, await page.locator(".nav-group.open").count() === 0);
 }
 
 (async () => {
   const browser = await chromium.launch();
+  try {
   // Review Focus 1: behavior survives page -> page (full reloads here, so also assert on 2nd page)
   const page = await (await browser.newContext({ viewport: { width: 1280, height: 800 } })).newPage();
   await page.goto(BASE + "/pricing");
@@ -31,6 +32,10 @@ async function navCases(page: Page, tag: string) {
   check("reduced-motion: no lazy video loaded", loaded === 0, String(loaded));
   const heroSrc = await rm.locator(".hero-photo").evaluate((i: HTMLImageElement) => i.currentSrc);
   check("reduced-motion: hero is static png", heroSrc.endsWith("profaily-hero-studio.png"), heroSrc);
-  await browser.close();
+  } catch (e) {
+    check("smoke run", false, String(e));
+  } finally {
+    await browser.close();
+  }
   process.exit(results.some(([, ok]) => !ok) ? 1 : 0);
 })();
