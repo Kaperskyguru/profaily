@@ -16,6 +16,13 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  async redirects() {
+    return [
+      { source: "/index.html", destination: "/", permanent: true },
+      { source: "/:path*/index.html", destination: "/:path*", permanent: true },
+      { source: "/:path*.html", destination: "/:path*", permanent: true },
+    ];
+  },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
