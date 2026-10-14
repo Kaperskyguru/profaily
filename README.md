@@ -23,11 +23,11 @@ app/
 components/
   layout/            RootDocument, PageShell, SiteHeader, MegaMenu, SiteFooter
   behavior/          small client islands (nav, video modal, lazy video, reveal, blog filter)
-  sections/          page sections (home, features, pricing, shared)
+  sections/          page sections (home, pricing, shared)
   templates/         data-driven pages: Article, Compare, Feature, Platform, Tool
   ui/                JsonLd, OgUrl, icons
 content/             copy and data (pages, posts, comparisons, tools, platforms)
-lib/                 links, metadata, JSON-LD helpers
+lib/                 links, metadata (the `JsonLd` component is in components/ui; `faqJsonLd` lives in content/comparisons.tsx)
 scripts/             verification oracles
 ```
 
@@ -56,3 +56,16 @@ yarn visual shot final http://localhost:3004 && yarn visual diff baseline final
 ```
 
 `tests/baseline` (gitignored) holds the pre-rebuild static HTML used as the DOM reference. Recover any file with `git show 172f0ba:public/<file>` (e.g. `git show 172f0ba:public/pricing.html`). `tests/visual/baseline` holds the pixel references taken from that old app.
+
+Regenerate the DOM baseline (gitignored):
+
+```bash
+mkdir -p tests/baseline/html && git archive 172f0ba public | tar -x -C tests/baseline && cp -R tests/baseline/public/. tests/baseline/html/ && rm -rf tests/baseline/public
+```
+
+App URL override check: set `NEXT_PUBLIC_APP_URL=https://app.example.test` for both `yarn build` (or `yarn dev`) and `yarn smoke`; without it smoke prints a `SKIP app url override` line.
+
+Gotchas:
+
+- `next.config.js` redirects `/:path*.html` to `/:path*` before `public/` files are served, so a static `.html` dropped into `public/` (e.g. a Google Search Console `googleXXXX.html`) is redirected and 404s. Add an explicit redirects exception or serve it from a route if ever needed.
+- React splits adjacent text nodes with `<!-- -->` in SSR, which changes glyph shaping. Dynamic text next to literal text is therefore written as one template-literal string (`{`${name} `}`). `yarn compare` flags any such split in the rendered page.
