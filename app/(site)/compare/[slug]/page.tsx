@@ -19,13 +19,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params) {
   const { slug } = await params;
   const { meta } = find(slug);
-  return pageMetadata({
-    ...meta,
-    path: `/compare/${slug}`,
-    ogTitle: meta.title,
-    ogDescription: meta.description,
-    ogType: "website",
-  });
+  return pageMetadata({ ...meta, path: `/compare/${slug}` });
 }
 
 export default async function Page({ params }: Params) {

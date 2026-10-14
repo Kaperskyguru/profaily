@@ -1,14 +1,11 @@
 import { PageShell } from "@/components/layout/PageShell";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { OgUrl } from "@/components/ui/OgUrl";
 import { comparisonOrder, comparisons, comparisonsIndexMeta } from "@/content/comparisons";
 import { links } from "@/lib/links";
 import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = pageMetadata({
-  ...comparisonsIndexMeta,
-  ogTitle: comparisonsIndexMeta.title,
-  ogType: "website",
-});
+export const metadata = pageMetadata(comparisonsIndexMeta);
 
 const faqs = [
   {
@@ -79,6 +76,12 @@ const sources = [
 export default function Page() {
   return (
     <PageShell>
+      <OgUrl
+        path={comparisonsIndexMeta.path}
+        type="website"
+        title={comparisonsIndexMeta.title}
+        description={comparisonsIndexMeta.ogDescription}
+      />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "FAQPage",

@@ -87,6 +87,12 @@ function normalize(html: string, regions: string[]): string {
       .get()
       .sort(),
   );
+  out.push(
+    ...$('meta[name^="twitter:"]')
+      .map((_, e) => `${$(e).attr("name")} ${JSON.stringify($(e).attr("content") ?? "")}`)
+      .get()
+      .sort(),
+  );
   $('script[type="application/ld+json"]').each((_, e) => {
     out.push("ld+json " + JSON.stringify(stable(JSON.parse($(e).text()))));
   });

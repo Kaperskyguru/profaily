@@ -2,6 +2,7 @@ import { PageShell } from "@/components/layout/PageShell";
 import { PlatformBand } from "@/components/sections/shared/PlatformBand";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { comparisonOrder, comparisons, faqJsonLd, type ComparisonContent, type ComparisonSlug } from "@/content/comparisons";
+import { OgUrl } from "@/components/ui/OgUrl";
 import { links } from "@/lib/links";
 
 const flow = [
@@ -16,6 +17,7 @@ export function ComparePage({ slug, content: c }: { slug: ComparisonSlug; conten
   const related = comparisonOrder.filter((s) => s !== slug);
   return (
     <PageShell spaced>
+      <OgUrl path={`/compare/${slug}`} type="website" title={c.meta.title} description={c.meta.description} />
       <JsonLd data={faqJsonLd(c.faq)} />
       {" "}
       <main>
