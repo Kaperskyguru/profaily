@@ -53,6 +53,26 @@ async function navCases(page: Page, tag: string) {
   check("blog filter: empty state shown when no card matches", noneVisible === 0 && (await blog.locator("#blog-empty").isVisible()));
   await blog.click('[data-blog-filter="all guides"]');
   check("blog filter: empty state hidden again by All guides", (await blog.locator("#blog-empty").isVisible()) === false);
+  // Review Focus 3: legacy URLs + 404
+  const noFollow = (await browser.newContext()).request;
+  for (const [from, to] of [
+    ["/pricing.html?utm=x", "/pricing?utm=x"],
+    ["/index.html", "/"],
+    ["/blog/index.html", "/blog"],
+    ["/compare/buffer-alternative/index.html", "/compare/buffer-alternative"],
+    ["/tools/smart-repost.html", "/tools/smart-repost"],
+  ] as const) {
+    const r = await noFollow.get(BASE + from, { maxRedirects: 0 });
+    check(`redirect ${from}`, r.status() === 308 && r.headers()["location"] === to, `${r.status()} ${r.headers()["location"]}`);
+  }
+  check("unknown path 404", (await noFollow.get(BASE + "/nope")).status() === 404);
+  // Review Focus 2: no hardcoded app host when overridden (run server with NEXT_PUBLIC_APP_URL=https://app.example.test)
+  if (process.env.NEXT_PUBLIC_APP_URL) {
+    for (const route of ["/", "/pricing", "/blog/one-video-four-platforms", "/contact"]) {
+      const html = await (await noFollow.get(BASE + route)).text();
+      check(`app url override ${route}`, !html.includes("app.useprofaily.com") && html.includes(process.env.NEXT_PUBLIC_APP_URL), "");
+    }
+  }
   } catch (e) {
     check("smoke run", false, String(e));
   } finally {
