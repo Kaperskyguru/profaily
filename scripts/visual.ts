@@ -45,7 +45,7 @@ function diff(a: string, b: string) {
     const B = PNG.sync.read(readFileSync(join("tests/visual", b, f)));
     if (A.width !== B.width || A.height !== B.height) { console.log(`FAIL ${f}: size ${A.width}x${A.height} vs ${B.width}x${B.height}`); failed++; continue; }
     const out = new PNG({ width: A.width, height: A.height });
-    const n = pixelmatch(A.data, B.data, out.data, A.width, A.height, { threshold: 0 });
+    const n = pixelmatch(A.data, B.data, out.data, A.width, A.height, { threshold: 0, includeAA: process.env.VISUAL_AA === "1" });
     if (n) { writeFileSync(join("tests/visual/diff", f), PNG.sync.write(out)); console.log(`FAIL ${f}: ${n}px differ`); failed++; }
     else console.log(`PASS ${f}`);
   }

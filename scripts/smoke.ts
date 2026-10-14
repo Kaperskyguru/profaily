@@ -53,6 +53,57 @@ async function navCases(page: Page, tag: string) {
   check("blog filter: empty state shown when no card matches", noneVisible === 0 && (await blog.locator("#blog-empty").isVisible()));
   await blog.click('[data-blog-filter="all guides"]');
   check("blog filter: empty state hidden again by All guides", (await blog.locator("#blog-empty").isVisible()) === false);
+  // Task 13: interaction cases (wait for network idle so behavior islands are hydrated)
+  const mob = await (await browser.newContext({ viewport: { width: 390, height: 844 } })).newPage();
+  await mob.goto(BASE + "/");
+  await mob.waitForLoadState("networkidle");
+  await mob.waitForTimeout(300);
+  await mob.click(".mobile-menu");
+  check("mobile: hamburger opens nav", await mob.locator(".main-nav.mobile-open").count() === 1);
+  await mob.keyboard.press("Escape");
+  check("mobile: Escape closes nav", await mob.locator(".main-nav.mobile-open").count() === 0);
+  const vid = await (await browser.newContext({ viewport: { width: 1280, height: 800 } })).newPage();
+  await vid.goto(BASE + "/");
+  await vid.waitForLoadState("networkidle");
+  await vid.waitForTimeout(300);
+  const modalOpen = () => vid.locator("#walkthrough-modal").evaluate((d) => d.hasAttribute("open"));
+  await vid.locator("[data-video-open]").first().click();
+  check("video modal: opens", await modalOpen());
+  await vid.locator("#walkthrough-modal [data-video-close]").first().click();
+  check("video modal: closes via [data-video-close]", !(await modalOpen()));
+  await vid.locator("[data-video-open]").first().click();
+  check("video modal: reopens", await modalOpen());
+  await vid.keyboard.press("Escape");
+  check("video modal: closes via Escape", !(await modalOpen()));
+  // The shipped markup (and the pre-rebuild site) contains no .reveal element, so inject one before
+  // hydration (outside <body>, so React is unaffected) to prove RevealBehavior still wires the observer.
+  const rv = await (await browser.newContext({ viewport: { width: 1280, height: 800 } })).newPage();
+  await rv.addInitScript(() => {
+    document.addEventListener("DOMContentLoaded", () => {
+      const sp = document.createElement("div");
+      sp.id = "reveal-probe";
+      sp.className = "reveal";
+      sp.style.cssText = "position:absolute;top:3000px;left:0;width:100px;height:100px";
+      document.documentElement.appendChild(sp);
+    });
+  });
+  await rv.goto(BASE + "/");
+  await rv.waitForLoadState("networkidle");
+  await rv.waitForTimeout(300);
+  const before = await rv.locator("#reveal-probe").evaluate((e) => e.classList.contains("visible"));
+  await rv.evaluate(() => window.scrollTo(0, 2800));
+  await rv.waitForTimeout(600);
+  check("reveal: .reveal gains .visible only once scrolled into view", !before && (await rv.locator("#reveal-probe").evaluate((e) => e.classList.contains("visible"))));
+  // Task 1 hid the crosspost SVG during pixel shots, so verify it really renders here.
+  const cp = await (await browser.newContext({ viewport: { width: 1280, height: 800 } })).newPage();
+  await cp.goto(BASE + "/tools/auto-cross-posting");
+  await cp.waitForLoadState("load");
+  const img = cp.locator(".crosspost-animation-frame img").first();
+  await img.scrollIntoViewIfNeeded();
+  await cp.waitForFunction(() => { const i = document.querySelector<HTMLImageElement>(".crosspost-animation-frame img"); return !!i && i.complete; });
+  const nat = await img.evaluate((i: HTMLImageElement) => i.naturalWidth);
+  const box = await img.boundingBox();
+  check("crosspost svg: loaded with non-zero box", nat > 0 && !!box && box.width > 0 && box.height > 0, `${nat} ${JSON.stringify(box)}`);
   // Review Focus 3: legacy URLs + 404
   const noFollow = (await browser.newContext()).request;
   for (const [from, to] of [
