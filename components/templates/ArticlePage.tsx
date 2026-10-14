@@ -1,6 +1,6 @@
-import { Fragment } from "react";
 import { PageShell } from "@/components/layout/PageShell";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { PostMarkdown } from "@/components/ui/PostMarkdown";
 import { OgUrl } from "@/components/ui/OgUrl";
 import { posts, type PostContent } from "@/content/posts";
 import { ORIGIN } from "@/lib/metadata";
@@ -56,12 +56,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
         <section className="article-main">
           <div className="wrap article-layout">
             <article className="article-content">
-              {post.blocks.map((block, i) => (
-                <Fragment key={i}>
-                  {i > 0 && " "}
-                  {block}
-                </Fragment>
-              ))}
+              <PostMarkdown>{post.body}</PostMarkdown>
               <section className="article-sources" aria-labelledby="article-sources-title">
                 <h2 id="article-sources-title">Sources and further reading</h2>
                 <p>Platform behavior and definitions can change. These primary references were checked on September 29, 2026.</p>
