@@ -31,7 +31,7 @@ export function MegaMenu(props: {
   return (
     <div className="nav-group">
       <button className="menu-trigger" aria-expanded="false" aria-controls={props.id}>
-        {props.label} <Chevron />
+        {`${props.label} `}<Chevron />
       </button>
       <div className={`mega-menu${props.extraClass ? " " + props.extraClass : ""}`} id={props.id}>
         <div className="mega-grid">
@@ -44,8 +44,8 @@ export function MegaMenu(props: {
           {props.children}
         </div>
         <a className="mega-foot" href={props.foot.href}>
-          <span><strong>{props.foot.strong}</strong> {props.foot.rest}</span>
-          <span>{props.foot.cta}&nbsp; →</span>
+          <span><strong>{props.foot.strong}</strong>{` ${props.foot.rest}`}</span>
+          <span>{`${props.foot.cta}\u00a0 →`}</span>
         </a>
       </div>
     </div>

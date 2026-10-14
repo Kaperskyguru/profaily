@@ -66,7 +66,7 @@ export default function Page() {
                   <div className="eyebrow">{t.eyebrow}</div>
                   <h3>{t.name}</h3>
                   <p>{t.body}</p>
-                  <span className="feature-link">See how {t.name} works&nbsp; →</span>
+                  <span className="feature-link">{`See how ${t.name} works\u00a0 →`}</span>
                   <div className="tool-card-platforms">{t.platforms}</div>
                 </a>
               ))}

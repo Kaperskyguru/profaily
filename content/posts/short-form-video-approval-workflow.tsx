@@ -72,11 +72,7 @@ export const post: PostContent = {
       </li>
     </ol>,
     <p>
-      Approval of the source video should not silently approve every destination’s metadata. Review
-      the changes made for each channel while keeping them attached to the same approved source.
-      TikTok’s API, for example, asks an app to query the creator’s current privacy options before
-      presenting the publish flow. That is a concrete reminder that destination choices can depend
-      on the account, not only on the creative brief.{" "}
+      {"Approval of the source video should not silently approve every destination’s metadata. Review the changes made for each channel while keeping them attached to the same approved source. TikTok’s API, for example, asks an app to query the creator’s current privacy options before presenting the publish flow. That is a concrete reminder that destination choices can depend on the account, not only on the creative brief. "}
       <a
         href="https://developers.tiktok.com/docs/en/content-posting-api-reference-query-creator-info"
         target="_blank"
@@ -128,7 +124,7 @@ export const post: PostContent = {
     </p>,
     <p>
       Profaily Teams is designed for shared workspaces, review, roles, and connected publishing and
-      follow-up. <a href="/pricing">Compare Profaily plans</a> or{" "}
+      follow-up. <a href="/pricing">Compare Profaily plans</a>{" or "}
       <a
         href="/feature-content-operations"
       >

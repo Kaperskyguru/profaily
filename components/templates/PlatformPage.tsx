@@ -50,7 +50,7 @@ export function PlatformPage({ content: c }: { content: PlatformContent }) {
                         <b>{f.value}</b>
                       </div>
                     ) : (
-                      <div className="toggle-row" key={f.toggle}>{f.toggle} <span className="toggle"></span></div>
+                      <div className="toggle-row" key={f.toggle}>{`${f.toggle} `}<span className="toggle"></span></div>
                     ),
                   )}
                   <div className="mock-row">
@@ -65,7 +65,7 @@ export function PlatformPage({ content: c }: { content: PlatformContent }) {
         <section className="page-section">
           <div className="wrap">
             <div className="eyebrow">More than cross-posting</div>
-            <h2>Connect every {c.name} video to the bigger workflow.</h2>
+            <h2>{`Connect every ${c.name} video to the bigger workflow.`}</h2>
             <div className="benefit-grid">
               {c.benefits.map((b) => (
                 <article className="benefit" key={b.title}>
@@ -83,7 +83,7 @@ export function PlatformPage({ content: c }: { content: PlatformContent }) {
             <div className="section-head">
               <div className="eyebrow">How it works</div>
               <h2>From connected account to business follow-up.</h2>
-              <p>Keep the steps for {c.name} clear, reviewable, and connected to the video that started them.</p>
+              <p>{`Keep the steps for ${c.name} clear, reviewable, and connected to the video that started them.`}</p>
             </div>
             <div className="workflow-grid">
               {c.steps.map((s, i) => (

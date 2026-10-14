@@ -84,7 +84,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
               <section className="article-aside-card">
                 <h2>Put the workflow to work</h2>
                 <p>Connect video planning, publishing, audience response, and follow-up in one short-form video operation.</p>
-                <a className="feature-link" href={post.cta.href}>{post.cta.label}&nbsp; →</a>
+                <a className="feature-link" href={post.cta.href}>{`${post.cta.label}\u00a0 →`}</a>
                 <a className="button primary" href={links.register}>Start your 5-day free trial&nbsp; →</a>
               </section>
             </aside>

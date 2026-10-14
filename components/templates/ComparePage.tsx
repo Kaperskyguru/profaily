@@ -31,14 +31,14 @@ export function ComparePage({ slug, content: c }: { slug: ComparisonSlug; conten
               <span>›</span>
               <a href="/compare">Compare</a>
               <span>›</span>
-              <span>Profaily vs {c.name}</span>
+              <span>{`Profaily vs ${c.name}`}</span>
             </div>
             {" "}
             <div className="compare-hero-grid">
               {" "}
               <div>
                 {" "}
-                <div className="eyebrow">{c.name} alternative · Research checked September 29, 2026</div>
+                <div className="eyebrow">{`${c.name} alternative · Research checked September 29, 2026`}</div>
                 {" "}
                 <h1>{c.hero.title}</h1>
                 {" "}
@@ -90,7 +90,7 @@ export function ComparePage({ slug, content: c }: { slug: ComparisonSlug; conten
         <section className="page-section" id="comparison">
           <div className="wrap">
             <div className="compare-section-intro">
-              <div className="eyebrow">Profaily vs {c.name}</div>
+              <div className="eyebrow">{`Profaily vs ${c.name}`}</div>
               <h2>At a glance: where each platform fits</h2>
               <p>{c.intro}</p>
             </div>
@@ -122,12 +122,12 @@ export function ComparePage({ slug, content: c }: { slug: ComparisonSlug; conten
           <div className="wrap">
             <div className="compare-section-intro">
               <div className="eyebrow">Choose for your workflow</div>
-              <h2>When {c.name} is the better fit—and when Profaily is</h2>
+              <h2>{`When ${c.name} is the better fit—and when Profaily is`}</h2>
               <p>The best choice depends on the work your team needs to get done every week.</p>
             </div>
             <div className="compare-fit-grid">
               <article className="compare-fit-card fit-competitor">
-                <div className="eyebrow">Choose {c.name} if</div>
+                <div className="eyebrow">{`Choose ${c.name} if`}</div>
                 <h3>{c.model}</h3>
                 <p>{c.fit.competitor}</p>
               </article>
@@ -183,7 +183,7 @@ export function ComparePage({ slug, content: c }: { slug: ComparisonSlug; conten
           <div className="wrap">
             <div className="compare-section-intro">
               <div className="eyebrow">Questions teams ask</div>
-              <h2>Profaily vs {c.name}: frequently asked questions</h2>
+              <h2>{`Profaily vs ${c.name}: frequently asked questions`}</h2>
               <p>Use these answers as a starting point, then confirm any plan-specific requirements with the providers.</p>
             </div>
             <div className="compare-questions">
@@ -228,7 +228,7 @@ export function ComparePage({ slug, content: c }: { slug: ComparisonSlug; conten
             <div className="compare-related-grid">
               {related.map((s) => (
                 <a className="compare-related-card" href={`/compare/${s}`} key={s}>
-                  <strong>Profaily vs {comparisons[s].name}</strong>
+                  <strong>{`Profaily vs ${comparisons[s].name}`}</strong>
                   <p>{comparisons[s].model}</p>
                 </a>
               ))}

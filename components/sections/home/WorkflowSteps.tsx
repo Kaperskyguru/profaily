@@ -15,7 +15,7 @@ export function WorkflowSteps() {
               <span className="step-number">{c.step}</span>
               <h3>{c.title}</h3>
               <p>{c.body}</p>
-              <a className="feature-link" href={c.href}>{c.link}&nbsp; →</a>
+              <a className="feature-link" href={c.href}>{`${c.link}\u00a0 →`}</a>
             </article>
           ))}
         </div>

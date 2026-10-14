@@ -20,7 +20,7 @@ export function Banner({
           <h2>{heading}</h2>
           <p>{body}</p>
         </div>
-        <a className="button primary" href={links.register}>{cta}&nbsp; →</a>
+        <a className="button primary" href={links.register}>{`${cta}\u00a0 →`}</a>
       </div>
     </section>
   );

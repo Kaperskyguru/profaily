@@ -147,8 +147,8 @@ export default function Page() {
             <div className="compare-card-grid">
               {comparisonOrder.map((slug) => (
                 <a className="compare-card" href={`/compare/${slug}`} key={slug}>
-                  <div className="eyebrow">{comparisons[slug].name} alternative guide</div>
-                  <h3>Profaily vs {comparisons[slug].name}</h3>
+                  <div className="eyebrow">{`${comparisons[slug].name} alternative guide`}</div>
+                  <h3>{`Profaily vs ${comparisons[slug].name}`}</h3>
                   <div className="compare-model">{comparisons[slug].model}</div>
                   <p>{comparisons[slug].hero.lede}</p>
                   <span className="feature-link">Read the full comparison&nbsp; →</span>

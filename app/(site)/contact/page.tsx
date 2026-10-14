@@ -27,7 +27,7 @@ export default function Page() {
                   <h3>{c.heading}</h3>
                   <p>{c.body}</p>
                   {c.links.map((l) => (
-                    <a className="feature-link" href={l.href} key={l.href}>{l.label}&nbsp; →</a>
+                    <a className="feature-link" href={l.href} key={l.href}>{`${l.label}\u00a0 →`}</a>
                   ))}
                 </article>
               ))}

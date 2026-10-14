@@ -36,9 +36,7 @@ export const post: PostContent = {
     <p>
       YouTube changed how Shorts views are counted on March 31, 2025: a view counts when a Short
       starts or replays, with no minimum watch time. YouTube retained the previous metric under the
-      name <em>engaged views</em>, which shows how many viewers chose to continue watching. The
-      change can make the top-line view count rise without changing how the underlying video
-      performs with viewers.{" "}
+      name <em>engaged views</em>{", which shows how many viewers chose to continue watching. The change can make the top-line view count rise without changing how the underlying video performs with viewers. "}
       <a
         href="https://support.google.com/youtube/answer/10059070?hl=en-GB"
         target="_blank"
@@ -48,17 +46,14 @@ export const post: PostContent = {
       </a>.
     </p>,
     <p>
-      YouTube Studio also surfaces Shorts-specific signals such as “shown in feed” and “how many
-      chose to view.” Its Analytics API defines measures including views, engaged views, average
-      view duration, shares, and audience-retention ratios. Those definitions belong to YouTube;
-      another network may define or expose its metrics differently.{" "}
+      {"YouTube Studio also surfaces Shorts-specific signals such as “shown in feed” and “how many chose to view.” Its Analytics API defines measures including views, engaged views, average view duration, shares, and audience-retention ratios. Those definitions belong to YouTube; another network may define or expose its metrics differently. "}
       <a
         href="https://support.google.com/youtube/answer/12942217?co=YOUTUBE._YTVideoType%3Dshorts&hl=en"
         target="_blank"
         rel="noopener noreferrer"
       >
         See YouTube’s Shorts analytics tips
-      </a> and{" "}
+      </a>{" and "}
       <a
         href="https://developers.google.com/youtube/analytics/metrics"
         target="_blank"
@@ -143,9 +138,7 @@ export const post: PostContent = {
       meaningful variable at a time so the team can tell what the experiment was.
     </p>,
     <p>
-      Do not let one viral result reset the baseline. Look at a small run of videos with the same
-      job and compare the pattern. Profaily’s video insights are designed to connect publishing
-      records, audience response, and performance evidence to the next publishing decision.{" "}
+      {"Do not let one viral result reset the baseline. Look at a small run of videos with the same job and compare the pattern. Profaily’s video insights are designed to connect publishing records, audience response, and performance evidence to the next publishing decision. "}
       <a
         href="/feature-content-intelligence"
       >

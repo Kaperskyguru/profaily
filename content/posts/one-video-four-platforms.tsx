@@ -39,10 +39,7 @@ export const post: PostContent = {
       for that platform.
     </p>,
     <p>
-      Why check each destination? TikTok’s Direct Post flow requires the app to request current
-      creator information so the publishing screen can show that account’s available privacy and
-      interaction options. The selected options must match what TikTok returns for that creator. A
-      saved default may be stale or unavailable for a different account.{" "}
+      {"Why check each destination? TikTok’s Direct Post flow requires the app to request current creator information so the publishing screen can show that account’s available privacy and interaction options. The selected options must match what TikTok returns for that creator. A saved default may be stale or unavailable for a different account. "}
       <a
         href="https://developers.tiktok.com/docs/en/content-posting-api-reference-query-creator-info"
         target="_blank"
@@ -52,19 +49,14 @@ export const post: PostContent = {
       </a>.
     </p>,
     <p>
-      The video itself also has to fit the destination’s current requirements. Duration, aspect
-      ratio, audio rights, account type, and available publishing surfaces can differ and change.
-      For example, YouTube’s current Shorts guidance describes Shorts up to three minutes, while
-      TikTok’s publishing API returns a maximum video duration for the specific creator. Check the
-      platform and account before you build your schedule; don’t promise that one export fits every
-      destination.{" "}
+      {"The video itself also has to fit the destination’s current requirements. Duration, aspect ratio, audio rights, account type, and available publishing surfaces can differ and change. For example, YouTube’s current Shorts guidance describes Shorts up to three minutes, while TikTok’s publishing API returns a maximum video duration for the specific creator. Check the platform and account before you build your schedule; don’t promise that one export fits every destination. "}
       <a
         href="https://support.google.com/youtube/answer/10059070?hl=en-GB"
         target="_blank"
         rel="noopener noreferrer"
       >
         YouTube’s Shorts guidance
-      </a> and{" "}
+      </a>{" and "}
       <a
         href="https://developers.tiktok.com/docs/en/content-posting-api-reference-query-creator-info"
         target="_blank"
@@ -147,13 +139,12 @@ export const post: PostContent = {
       topic a reason to exist.
     </p>,
     <p>
-      Profaily helps keep this chain visible: one finished video, independent destination details,
-      publishing status, and the audience signals that can inform the next video.{" "}
+      {"Profaily helps keep this chain visible: one finished video, independent destination details, publishing status, and the audience signals that can inform the next video. "}
       <a
         href="/feature-content-operations"
       >
         Explore the publishing workflow
-      </a> or{" "}
+      </a>{" or "}
       <a
         href="/feature-content-intelligence"
       >

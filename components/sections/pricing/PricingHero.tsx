@@ -36,7 +36,7 @@ export function PricingHero() {
                 {" "}
                 <div className="plan-price"><strong>{plan.price}</strong><span>5-day free trial</span></div>
                 {" "}
-                <a className={plan.ctaClass} href={links.register}>{plan.cta}&nbsp; →</a>
+                <a className={plan.ctaClass} href={links.register}>{`${plan.cta}\u00a0 →`}</a>
                 {" "}
                 <ul className="plan-bullets">
                   {" "}

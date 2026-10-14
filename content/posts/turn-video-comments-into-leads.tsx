@@ -93,10 +93,7 @@ export const post: PostContent = {
       universally correct response-time target for every business.
     </p>,
     <p>
-      Platform rules matter. Meta’s Instagram Send API documentation says a conversation begins when
-      the Instagram user messages the professional account, and lists the messaging permission
-      required for API access. Don’t design a flow that sends unsolicited DMs just because a person
-      commented.{" "}
+      {"Platform rules matter. Meta’s Instagram Send API documentation says a conversation begins when the Instagram user messages the professional account, and lists the messaging permission required for API access. Don’t design a flow that sends unsolicited DMs just because a person commented. "}
       <a
         href="https://www.postman.com/meta/instagram/folder/uxudqu0/send-api"
         target="_blank"
@@ -106,10 +103,7 @@ export const post: PostContent = {
       </a>.
     </p>,
     <p>
-      YouTube’s Data API can return comment threads, but the replies included with a thread may be
-      only a subset; retrieving the rest can require a separate request. Comments can also be
-      disabled or unavailable to an account without sufficient authorization. These are operational
-      limits worth reflecting in inbox status, rather than hiding them from the team.{" "}
+      {"YouTube’s Data API can return comment threads, but the replies included with a thread may be only a subset; retrieving the rest can require a separate request. Comments can also be disabled or unavailable to an account without sufficient authorization. These are operational limits worth reflecting in inbox status, rather than hiding them from the team. "}
       <a
         href="https://developers.google.com/youtube/v3/docs/commentThreads"
         target="_blank"
@@ -131,8 +125,7 @@ export const post: PostContent = {
       Feed that learning into the next video brief.
     </p>,
     <p>
-      Profaily connects the inbox to lead qualification, ownership, routing, and follow-up
-      workflows.{" "}
+      {"Profaily connects the inbox to lead qualification, ownership, routing, and follow-up workflows. "}
       <a
         href="/feature-conversation-automation"
       >

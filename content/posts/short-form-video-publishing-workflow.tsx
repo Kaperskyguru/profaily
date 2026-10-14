@@ -38,12 +38,7 @@ export const post: PostContent = {
       separate checks.
     </p>,
     <p>
-      Platform APIs make the difference visible. TikTok’s Content Posting API returns distinct
-      states such as upload processing, processing a video pulled from a URL, an inbox handoff for
-      the creator to finish, published, and failed. TikTok also supports status polling and
-      publishing webhooks. In its upload flow, a delivered inbox notification means the creator
-      still needs to continue in TikTok’s editing flow; it is not the same as a completed public
-      post.{" "}
+      {"Platform APIs make the difference visible. TikTok’s Content Posting API returns distinct states such as upload processing, processing a video pulled from a URL, an inbox handoff for the creator to finish, published, and failed. TikTok also supports status polling and publishing webhooks. In its upload flow, a delivered inbox notification means the creator still needs to continue in TikTok’s editing flow; it is not the same as a completed public post. "}
       <a
         href="https://developers.tiktok.com/docs/en/content-posting-api-reference-get-video-status"
         target="_blank"
@@ -53,9 +48,7 @@ export const post: PostContent = {
       </a>.
     </p>,
     <p>
-      YouTube makes a similar distinction: a successful upload response does not mean the video is
-      immediately visible. The video may need processing, and the Data API exposes processing status
-      so an application can check whether processing succeeded or failed.{" "}
+      {"YouTube makes a similar distinction: a successful upload response does not mean the video is immediately visible. The video may need processing, and the Data API exposes processing status so an application can check whether processing succeeded or failed. "}
       <a
         href="https://developers.google.com/youtube/v3/guides/implementation/videos"
         target="_blank"
@@ -112,10 +105,7 @@ export const post: PostContent = {
       <li>Team review is complete and the final source file matches the approved version.</li>
     </ul>,
     <p>
-      Instagram’s Reels publishing flow also separates creating a media container, checking its
-      status, and publishing it. The Meta-maintained API collection shows a status check before the
-      publish call. That is another reason not to mark a video “live” after the first successful
-      request.{" "}
+      {"Instagram’s Reels publishing flow also separates creating a media container, checking its status, and publishing it. The Meta-maintained API collection shows a status check before the publish call. That is another reason not to mark a video “live” after the first successful request. "}
       <a
         href="https://www.postman.com/meta/workspace/instagram/documentation/23987686-9386f468-7714-490f-9bfc-9442db5c8f00"
         target="_blank"
@@ -137,8 +127,7 @@ export const post: PostContent = {
       adding an audit burden to every post.
     </p>,
     <p>
-      Profaily’s Publishing Guardian is designed around those checks: readiness before publishing, a
-      status per destination, and recovery when a destination needs attention.{" "}
+      {"Profaily’s Publishing Guardian is designed around those checks: readiness before publishing, a status per destination, and recovery when a destination needs attention. "}
       <a
         href="/feature-publishing-guardian"
       >
