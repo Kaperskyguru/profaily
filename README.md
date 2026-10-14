@@ -33,6 +33,24 @@ scripts/             verification oracles
 
 Legacy `*.html` URLs redirect (308) to the clean routes via `next.config`.
 
+## Writing a post
+
+Blog posts are markdown files in `content/posts/<slug>.md`: YAML frontmatter, then the article body.
+
+1. Create `content/posts/<slug>.md` and add the slug to the list in `content/posts/index.ts` (the first
+   slug is the featured post on the blog index). Add the cover image `public/assets/blog-featured-<slug>.svg`.
+2. Frontmatter (all required, strings quoted): `slug` (same as the file name), `category`, `title`,
+   `description`, `readTime`, `datePublished` (ISO date), `dateLabel`, `toc` (`id` + `label` list),
+   `cta` (`href` + `label`), `sources` (`href` + `label` list), `related` (three slugs). The full field
+   notes are at the top of `content/posts/load.ts`.
+3. Body is markdown with no raw HTML:
+   - `## Heading {#same-file}` gives the h2 the id `same-file` (ids are never derived from the text;
+     every `toc` id must match one).
+   - `> **Working rule:** text` renders as the callout box.
+   - A GFM pipe table renders as the article table.
+   - `https://` links open in a new tab; `/internal` links are plain.
+4. Run `yarn typecheck && yarn build`, then check the page at `/blog/<slug>`.
+
 ## Oracles
 
 All oracles take the target from `BASE_URL` (default `http://localhost:3003`).
