@@ -60,7 +60,7 @@ export default function Page() {
                   <span className={`platform-badge platform-icon ${p.platform}-icon`}>
                     <PlatformIcon platform={p.platform} gradientId={p.gradientId} />
                   </span>
-                  <h3>{p.name} <span className="arrow">↗</span></h3>
+                  <h3>{`${p.name} `}<span className="arrow">↗</span></h3>
                   <p>{p.body}</p>
                 </a>
               ))}

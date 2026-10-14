@@ -13,7 +13,7 @@ export function ChannelsGrid() {
           {platformCards.map((c) => (
             <a className="platform-card" href={c.href} key={c.href}>
               <span className={`platform-badge platform-icon ${c.cls}`}>{c.icon}</span>
-              <h3>{c.name} <span className="arrow">↗</span></h3>
+              <h3>{`${c.name} `}<span className="arrow">↗</span></h3>
               <p>{c.body}</p>
             </a>
           ))}

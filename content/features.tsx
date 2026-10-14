@@ -114,7 +114,7 @@ export const features = {
               <span><b>Instagram</b><small>Post status</small></span>
               <span className="status neutral">Scheduled</span>
             </div>
-            <div className="mock-alert">YouTube needs one audience setting before it can be scheduled.{" "}<b>Review details →</b></div>
+            <div className="mock-alert">YouTube needs one audience setting before it can be scheduled. <b>Review details →</b></div>
           </div>
         </div>
       </>

@@ -48,13 +48,23 @@ function stable(value: unknown): unknown {
 function walk($: cheerio.CheerioAPI, node: AnyNode, depth: number, out: string[]) {
   const pad = "  ".repeat(depth);
   let text = "";
+  let commentSeen = false; // a comment sits inside the current text run
+  let split = false; // ...and the run around it has visible text
   const flush = () => {
     const t = text.replace(/\s+/g, " ");
+    // The source HTML has no comment nodes, so this marker can only appear on the rendered side and fails the diff.
+    if (split) out.push(pad + "<!-- text-node split -->");
     if (t) out.push(pad + JSON.stringify(t));
     text = "";
+    commentSeen = split = false;
   };
   for (const child of (node as Element).children ?? []) {
-    if (child.type === "text") text += (child as unknown as { data: string }).data;
+    if (child.type === "comment") commentSeen = true;
+    else if (child.type === "text") {
+      text += (child as unknown as { data: string }).data;
+      // React splits adjacent text nodes with <!-- -->; whitespace-only runs (table rows etc.) are harmless.
+      if (commentSeen && text.trim() !== "") split = true;
+    }
     else if (child.type === "tag") {
       flush();
       const el = child as Element;
@@ -68,7 +78,6 @@ function walk($: cheerio.CheerioAPI, node: AnyNode, depth: number, out: string[]
       out.push(`${pad}<${el.name}${attrs ? " " + attrs : ""}>`);
       walk($, el, depth + 1, out);
     }
-    // comments (React's <!-- -->) are dropped; adjacent text merges
   }
   flush();
 }
