@@ -17,22 +17,36 @@ async function navCases(page: Page, tag: string) {
 (async () => {
   const browser = await chromium.launch();
   try {
-  // Review Focus 1: behavior survives page -> page (full reloads here, so also assert on 2nd page)
+  // Behavior survives page -> page. Plain <a> navigation is a full reload and PageShell remounts per page,
+  // so goto() is equivalent to a link click.
   const page = await (await browser.newContext({ viewport: { width: 1280, height: 800 } })).newPage();
   await page.goto(BASE + "/pricing");
   await navCases(page, "pricing");
   await page.goto(BASE + "/tiktok");
   await navCases(page, "tiktok");
-  // Review Focus 4: reduced motion never loads lazy videos
+  // Reduced motion: hero stays the static png, and lazy videos (only rendered on blog posts) are never loaded.
   const rm = await (await browser.newContext({ reducedMotion: "reduce" })).newPage();
   await rm.goto(BASE + "/");
-  await rm.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-  await rm.waitForTimeout(500);
-  const loaded = await rm.locator("[data-lazy-video][data-video-loaded=true]").count();
-  check("reduced-motion: no lazy video loaded", loaded === 0, String(loaded));
   const heroSrc = await rm.locator(".hero-photo").evaluate((i: HTMLImageElement) => i.currentSrc);
   check("reduced-motion: hero is static png", heroSrc.endsWith("profaily-hero-studio.png"), heroSrc);
-  // Task 10: blog filter. Every real category has a card, so the empty state is proven by
+  const lazyPost = BASE + "/blog/one-video-four-platforms";
+  const lazyCase = async (ctxOpts: Parameters<typeof browser.newContext>[0], tag: string, expectLoaded: boolean) => {
+    const p = await (await browser.newContext(ctxOpts)).newPage();
+    await p.goto(lazyPost);
+    await p.waitForLoadState("networkidle");
+    const present = await p.locator("[data-lazy-video]").count();
+    check(`${tag}: lazy video element present`, present > 0, String(present));
+    await p.locator("[data-lazy-video]").first().scrollIntoViewIfNeeded();
+    await p.waitForTimeout(600);
+    const loaded = await p.locator("[data-lazy-video][data-video-loaded=true]").count();
+    const pending = await p.locator("source[data-src]").count();
+    const srcd = await p.locator("[data-lazy-video] source[src]").count();
+    if (expectLoaded) check(`${tag}: lazy video loads on scroll`, loaded > 0 && pending === 0 && srcd > 0, `loaded=${loaded} pending=${pending} src=${srcd}`);
+    else check(`${tag}: lazy video untouched`, loaded === 0 && pending > 0, `loaded=${loaded} pending=${pending}`);
+  };
+  await lazyCase({ reducedMotion: "reduce", viewport: { width: 1280, height: 800 } }, "reduced-motion", false);
+  await lazyCase({ viewport: { width: 1280, height: 800 } }, "normal-motion", true);
+  // Blog filter. Every real category has a card, so the empty state is proven by
   // re-labelling every card's data-category in the live DOM and clicking a filter again.
   const blog = await (await browser.newContext({ viewport: { width: 1280, height: 800 } })).newPage();
   await blog.goto(BASE + "/blog");
@@ -53,7 +67,7 @@ async function navCases(page: Page, tag: string) {
   check("blog filter: empty state shown when no card matches", noneVisible === 0 && (await blog.locator("#blog-empty").isVisible()));
   await blog.click('[data-blog-filter="all guides"]');
   check("blog filter: empty state hidden again by All guides", (await blog.locator("#blog-empty").isVisible()) === false);
-  // Task 13: interaction cases (wait for network idle so behavior islands are hydrated)
+  // Interaction cases (wait for network idle so behavior islands are hydrated)
   const mob = await (await browser.newContext({ viewport: { width: 390, height: 844 } })).newPage();
   await mob.goto(BASE + "/");
   await mob.waitForLoadState("networkidle");
@@ -94,7 +108,7 @@ async function navCases(page: Page, tag: string) {
   await rv.evaluate(() => window.scrollTo(0, 2800));
   await rv.waitForTimeout(600);
   check("reveal: .reveal gains .visible only once scrolled into view", !before && (await rv.locator("#reveal-probe").evaluate((e) => e.classList.contains("visible"))));
-  // Task 1 hid the crosspost SVG during pixel shots, so verify it really renders here.
+  // The pixel shots hide the crosspost SVG during pixel shots, so verify it really renders here.
   const cp = await (await browser.newContext({ viewport: { width: 1280, height: 800 } })).newPage();
   await cp.goto(BASE + "/tools/auto-cross-posting");
   await cp.waitForLoadState("load");
@@ -104,7 +118,7 @@ async function navCases(page: Page, tag: string) {
   const nat = await img.evaluate((i: HTMLImageElement) => i.naturalWidth);
   const box = await img.boundingBox();
   check("crosspost svg: loaded with non-zero box", nat > 0 && !!box && box.width > 0 && box.height > 0, `${nat} ${JSON.stringify(box)}`);
-  // Review Focus 3: legacy URLs + 404
+  // Legacy URLs + 404
   const noFollow = (await browser.newContext()).request;
   for (const [from, to] of [
     ["/pricing.html?utm=x", "/pricing?utm=x"],
@@ -116,9 +130,11 @@ async function navCases(page: Page, tag: string) {
     const r = await noFollow.get(BASE + from, { maxRedirects: 0 });
     check(`redirect ${from}`, r.status() === 308 && r.headers()["location"] === to, `${r.status()} ${r.headers()["location"]}`);
   }
-  check("unknown path 404", (await noFollow.get(BASE + "/nope")).status() === 404);
-  // Review Focus 2: no hardcoded app host when overridden (run server with NEXT_PUBLIC_APP_URL=https://app.example.test)
-  if (process.env.NEXT_PUBLIC_APP_URL) {
+  for (const path of ["/nope", "/blog/nope", "/tools/nope", "/compare/nope"])
+    check(`unknown path 404 ${path}`, (await noFollow.get(BASE + path)).status() === 404);
+  // No hardcoded app host when overridden (run server with NEXT_PUBLIC_APP_URL=https://app.example.test)
+  if (!process.env.NEXT_PUBLIC_APP_URL) console.log("SKIP app url override (set NEXT_PUBLIC_APP_URL on both build and smoke)");
+  else {
     for (const route of ["/", "/pricing", "/blog/one-video-four-platforms", "/contact"]) {
       const html = await (await noFollow.get(BASE + route)).text();
       check(`app url override ${route}`, !html.includes("app.useprofaily.com") && html.includes(process.env.NEXT_PUBLIC_APP_URL), "");
