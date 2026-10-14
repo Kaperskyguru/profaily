@@ -4,6 +4,7 @@ export const APP_URL = (
 ).replace(/\/$/, "");
 
 export const links = {
+  app: `${APP_URL}/`,
   register: `${APP_URL}/auth/register`,
   login: `${APP_URL}/auth/login`,
   privacy: `${APP_URL}/privacy`,

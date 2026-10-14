@@ -12,12 +12,15 @@ export function PageShell({
 }: {
   children: React.ReactNode;
   toolsIntro?: string;
-  /** Source page has newline text nodes at the start and end of <body> (the compare alternatives). */
-  spaced?: boolean;
+  /**
+   * Source page has newline text nodes at the edges of <body>: `true` for both start and end (the
+   * compare alternatives), `"end"` for only after the footer (pricing).
+   */
+  spaced?: boolean | "end";
 }) {
   return (
     <>
-      {spaced && " "}
+      {spaced === true && " "}
       <SiteHeader toolsIntro={toolsIntro} />
       {children}
       <SiteFooter />
