@@ -2,12 +2,12 @@ import { workflowCards } from "@/content/home";
 
 export function WorkflowSteps() {
   return (
-    <section className="section dark-alt" id="workflow">
+    <section className="section light" id="workflow">
       <div className="wrap">
         <div className="section-head center">
-          <div className="eyebrow">From video to outcome</div>
-          <h2>Five steps from first upload to business outcome.</h2>
-          <p>Move each video through planning, publishing, audience conversations, lead follow-up, and learning.</p>
+          <div className="eyebrow">From upload to publish</div>
+          <h2>One clear workflow for every video.</h2>
+          <p>Prepare each post once, tailor the details by destination, and see what is planned across your channels.</p>
         </div>
         <div className="workflow-grid">
           {workflowCards.map((c) => (
@@ -15,7 +15,6 @@ export function WorkflowSteps() {
               <span className="step-number">{c.step}</span>
               <h3>{c.title}</h3>
               <p>{c.body}</p>
-              <a className="feature-link" href={c.href}>{`${c.link}\u00a0 →`}</a>
             </article>
           ))}
         </div>

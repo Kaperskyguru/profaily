@@ -2,12 +2,12 @@ import { platformCards } from "@/content/home";
 
 export function ChannelsGrid() {
   return (
-    <section className="section dark-alt" id="channels">
+    <section className="section light" id="channels">
       <div className="wrap">
         <div className="section-head">
-          <div className="eyebrow">Connected platforms</div>
-          <h2>One workflow for every channel you publish to.</h2>
-          <p>Keep network-specific controls and business value in view from a single video operation.</p>
+          <div className="eyebrow">Where you can post</div>
+          <h2>Plan videos for the places your audience watches.</h2>
+          <p>Prepare each video for TikTok, Instagram Reels, YouTube Shorts, and Facebook from the same publishing calendar.</p>
         </div>
         <div className="platform-grid">
           {platformCards.map((c) => (

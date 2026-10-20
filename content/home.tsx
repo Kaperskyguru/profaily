@@ -1,146 +1,94 @@
-export const capItems = [
-  ["01", "Plan videos"],
-  ["02", "Publish reliably"],
-  ["03", "Engage your audience"],
-  ["04", "Route leads"],
-  ["05", "Learn and improve"],
-] as const;
-
 export const valueCards = [
   {
     icon: "▦",
-    title: "Keep video operations moving",
-    body: "Bulk video intake, structured review, a shared calendar, and clear publishing history help coordinate a busy video operation.",
+    title: "Creators running a business",
+    body: "You handle the day-to-day and make content when you can. Keep your videos and posting plan together so the next video doesn’t depend on remembering later.",
   },
   {
-    icon: "✓",
-    title: "Publish with confidence",
-    body: "Check account, media, and post readiness. Track each destination and see what needs attention.",
+    icon: "◷",
+    title: "Businesses working across teams",
+    body: "When more than one person is involved, it’s easy to lose track of drafts and approvals. Share one calendar and see what needs a look.",
   },
   {
     icon: "↗",
-    title: "Turn attention into action",
-    body: "Manage eligible conversations, qualify interest, route leads, and connect results back to the video that started them.",
+    title: "Agencies working with clients",
+    body: "Plan videos for your own brand or a client’s, get feedback before publishing, and make it clear who’s handling the next step.",
   },
 ];
 
 export const workflowCards = [
   {
     step: "01",
-    title: "Plan and organize",
-    body: "Bring videos in, review details, and manage the shared calendar and queue.",
-    href: "/feature-content-operations",
-    link: "Explore video planning & publishing",
+    title: "Add your videos",
+    body: "Upload a single video or a batch, or bring in a supported Google Drive file link.",
   },
   {
     step: "02",
-    title: "Publish with confidence",
-    body: "Check readiness, track each platform attempt, and see what needs attention.",
-    href: "/feature-publishing-guardian",
-    link: "Explore publishing protection",
+    title: "Prepare each post",
+    body: "Set the caption and platform-specific details for the channels you choose.",
   },
   {
     step: "03",
-    title: "Handle conversations",
-    body: "Bring eligible comments and supported messages from connected socials into one inbox for response and handoff.",
-    href: "/feature-conversation-automation",
-    link: "Explore the unified inbox",
+    title: "Plan the calendar",
+    body: "Organize drafts and scheduled posts in a shared publishing calendar and queue.",
   },
   {
     step: "04",
-    title: "Qualify and route leads",
-    body: "Capture relevant interest, set ownership, and connect each lead to a clear next action.",
-    href: "/feature-revenue-workflows",
-    link: "Explore revenue workflows",
+    title: "Schedule publishing",
+    body: "Set posts to publish automatically where the connected account and platform allow it.",
   },
   {
     step: "05",
-    title: "Learn and improve",
-    body: "Use performance signals and their context to decide which videos to repeat or what to test next.",
-    href: "/feature-content-intelligence",
-    link: "Explore video performance insights",
+    title: "Follow the status",
+    body: "See which videos are drafted, scheduled, or published, and where attention is needed.",
   },
 ];
 
-export const suiteCards: {
-  href: string;
-  kicker: string;
-  title: string;
-  body: string;
-  all?: boolean;
-  items: { href?: string; label: string }[];
-}[] = [
+export const suiteCards = [
   {
-    href: "/feature-content-operations",
-    kicker: "01 · PLAN & PUBLISH",
-    title: "Video planning & publishing",
-    body: "Bring videos in, check the details, coordinate schedules, and keep every post traceable across channels.",
+    kicker: "01 · ADD THE VIDEO",
+    title: "Start with the videos you already have.",
+    body: "Add one video or a batch and keep the caption, destinations, and schedule close by. You can also import supported Google Drive links.",
     items: [
-      { href: "/feature-content-operations#bulk-upload", label: "Bulk video upload" },
-      { href: "/feature-content-operations#csv-import", label: "Structured CSV intake" },
-      { href: "/feature-content-operations#validation-review", label: "Validation and review" },
-      { href: "/feature-content-operations#calendar-queue", label: "Calendar and queue" },
+      "Upload one video or a batch",
+      "Import supported Google Drive links",
+      "Keep drafts and video details together",
     ],
+    image: "/assets/profaily-product-composer.png",
+    imageAlt:
+      "Profaily's full publishing workspace, with the draft sidebar, connected channels, and post composer visible.",
+    width: 2560,
+    height: 1600,
   },
   {
-    href: "/feature-publishing-guardian",
-    kicker: "02 · PUBLISH & PROTECT",
-    title: "Publishing Guardian",
-    body: "Check the account, media, metadata, schedule, and platform requirements before publishing.",
+    kicker: "02 · MAKE A PLAN",
+    title: "Put the next videos on the calendar.",
+    body: "See what’s coming up, share drafts with your team, and get approvals before a video is scheduled.",
     items: [
-      { href: "/feature-publishing-guardian#preflight", label: "Preflight checks" },
-      { href: "/feature-publishing-guardian#account-health", label: "Account health" },
-      { href: "/feature-publishing-guardian#publishing-lifecycle", label: "Publishing lifecycle" },
-      { href: "/feature-publishing-guardian#safe-retries", label: "Safe retries" },
+      "Plan dates on a shared calendar",
+      "Get feedback and approvals",
+      "See what’s waiting for review",
     ],
+    image: "/assets/profaily-publish-flow.gif",
+    imageAlt:
+      "An animated view of the full Profaily workspace as a video moves through publishing, with the draft sidebar and connected channels in view.",
+    width: 840,
+    height: 475,
   },
   {
-    href: "/feature-conversation-automation",
-    kicker: "03 · ENGAGE & RESPOND",
-    title: "Unified inbox",
-    body: "Bring eligible comments and supported messages from connected socials into one human and automated conversation view.",
+    kicker: "03 · GET IT OUT THERE",
+    title: "Know what went out and what’s next.",
+    body: "Set each video up for its platform, schedule it, and check its status when it goes live.",
     items: [
-      { href: "/feature-conversation-automation#unified-inbox", label: "Unified social inbox" },
-      { href: "/feature-conversation-automation#response-rules", label: "Response rules" },
-      { href: "/feature-conversation-automation#ai-suggestions", label: "AI-suggested answers" },
-      { href: "/feature-conversation-automation#faq-automation", label: "FAQ automation" },
+      "Add each platform’s details",
+      "Schedule across TikTok, Instagram Reels, YouTube Shorts, and Facebook",
+      "Track scheduled and published posts",
     ],
-  },
-  {
-    href: "/feature-revenue-workflows",
-    kicker: "04 · QUALIFY & ROUTE",
-    title: "Revenue workflows",
-    body: "Capture structured interest from comments and messages, qualify it, route it to the right owner, and connect the outcome back to the video that started the conversation.",
-    items: [
-      { href: "/feature-revenue-workflows#lead-capture", label: "Structured lead capture" },
-      { href: "/feature-revenue-workflows#lead-scoring", label: "Lead qualification and scoring" },
-      { href: "/feature-revenue-workflows#lead-routing", label: "Ownership and routing" },
-      { href: "/feature-revenue-workflows#booking-sale", label: "Booking and sale handoff" },
-    ],
-  },
-  {
-    href: "/feature-content-intelligence",
-    kicker: "05 · LEARN & IMPROVE",
-    title: "Video performance insights",
-    body: "Bring performance and audience signals into the publishing workflow.",
-    items: [
-      { href: "/feature-content-intelligence#performance-analytics", label: "Performance analytics" },
-      { href: "/feature-content-intelligence#audience-signals", label: "Video and audience signals" },
-      { href: "/feature-content-intelligence#evidence-recommendations", label: "Evidence-backed recommendations" },
-      { href: "/feature-content-intelligence#sample-confidence", label: "Sample-size context" },
-    ],
-  },
-  {
-    href: "/features",
-    kicker: "06 · EXPLORE ALL FEATURES",
-    title: "Browse all features",
-    body: "Explore every capability and see how Profaily connects the video marketing workflow.",
-    all: true,
-    items: [
-      { label: "Publishing and platform workflows" },
-      { label: "Inbox, leads, and audience follow-up" },
-      { label: "Performance analytics and insights" },
-    ],
+    image: "/assets/profaily-publish-flow-poster.png",
+    imageAlt:
+      "Profaily's full publishing workspace showing a video published successfully to four channels, with the sidebar and channel-by-channel results visible.",
+    width: 840,
+    height: 474,
   },
 ];
 
@@ -152,7 +100,7 @@ export const platformCards = [
     href: "/tiktok",
     cls: "tiktok-icon",
     name: "TikTok",
-    body: "Prepare short-form video for TikTok, review the controls available to your connected account, schedule or publish, and follow its status.",
+    body: "Add TikTok videos to your wider publishing plan.",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path fill="#25F4EE" transform="translate(-.65 .2)" d={TIKTOK_D} />
@@ -165,18 +113,41 @@ export const platformCards = [
     href: "/instagram",
     cls: "instagram-icon",
     name: "Instagram",
-    body: "Keep Instagram Reels in the same video-first operation as your other channels.",
+    body: "Prepare Reels with the rest of your short-form videos.",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <defs>
-          <linearGradient id="ig-mark-3-instagram" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+          <linearGradient
+            id="ig-mark-3-instagram"
+            x1="2"
+            y1="22"
+            x2="22"
+            y2="2"
+            gradientUnits="userSpaceOnUse"
+          >
             <stop stopColor="#FFB13D" />
             <stop offset=".48" stopColor="#E1306C" />
             <stop offset="1" stopColor="#833AB4" />
           </linearGradient>
         </defs>
-        <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="url(#ig-mark-3-instagram)" strokeWidth="2.5" />
-        <circle cx="12" cy="12" r="4.1" fill="none" stroke="url(#ig-mark-3-instagram)" strokeWidth="2.2" />
+        <rect
+          x="3"
+          y="3"
+          width="18"
+          height="18"
+          rx="5"
+          fill="none"
+          stroke="url(#ig-mark-3-instagram)"
+          strokeWidth="2.5"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          r="4.1"
+          fill="none"
+          stroke="url(#ig-mark-3-instagram)"
+          strokeWidth="2.2"
+        />
         <circle cx="17.6" cy="6.7" r="1.25" fill="#E1306C" />
       </svg>
     ),
@@ -185,7 +156,7 @@ export const platformCards = [
     href: "/youtube",
     cls: "youtube-icon",
     name: "YouTube",
-    body: "Prepare the video, title, description, audience details, and visibility for YouTube.",
+    body: "Plan Shorts alongside your other video posts.",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <rect x="2" y="4.5" width="20" height="15" rx="4.4" fill="#FF0033" />
@@ -197,7 +168,7 @@ export const platformCards = [
     href: "/facebook",
     cls: "facebook-icon",
     name: "Facebook",
-    body: "Prepare Reels and videos for the right Facebook Page, set the Page-level details, schedule with the shared video calendar, and track each result.",
+    body: "Keep Facebook videos on the same calendar.",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <rect x="2" y="2" width="20" height="20" rx="5" fill="#0866FF" />
