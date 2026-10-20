@@ -2,20 +2,18 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { OgUrl } from "@/components/ui/OgUrl";
 import { pageMetadata } from "@/lib/metadata";
-import { CapStrip } from "@/components/sections/home/CapStrip";
+import { CustomerProof } from "@/components/sections/home/CustomerProof";
+import { AIWorkflow } from "@/components/sections/home/AIWorkflow";
 import { ChannelsGrid } from "@/components/sections/home/ChannelsGrid";
-import { ChannelsShowcase } from "@/components/sections/home/ChannelsShowcase";
-import { ComposerShowcase } from "@/components/sections/home/ComposerShowcase";
 import { FeatureSuite } from "@/components/sections/home/FeatureSuite";
 import { Hero } from "@/components/sections/home/Hero";
 import { HomeBanner } from "@/components/sections/home/HomeBanner";
 import { ValueCards } from "@/components/sections/home/ValueCards";
-import { WalkthroughModal } from "@/components/sections/home/WalkthroughModal";
-import { WorkflowSteps } from "@/components/sections/home/WorkflowSteps";
+import { ProductScreenshots } from "@/components/sections/home/ProductScreenshots";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Profaily | The operating system for short-form video marketing",
-  description: "Plan, publish, automate conversations, qualify leads, and learn from short-form video performance in one connected workspace.",
+  title: "Profaily | Keep video publishing on track",
+  description: "Plan, prepare, review, and schedule short-form videos for TikTok, Instagram Reels, YouTube Shorts, and Facebook—with your team in one place.",
   path: "/",
 });
 
@@ -23,24 +21,14 @@ export default function HomePage() {
   return (
     <PageShell>
       <OgUrl path="/" />
-      <main>
+      <main className="home-page">
         <Hero />
-        <WalkthroughModal />
-        {"\n"}
-        <CapStrip />
-        {"\n"}
+        <CustomerProof />
         <ValueCards />
-        {"\n"}
-        <ChannelsShowcase />
-        {"\n"}
-        <ComposerShowcase />
-        {"\n"}
-        <WorkflowSteps />
-        {"\n"}
+        <ProductScreenshots />
+        <AIWorkflow />
         <FeatureSuite />
-        {"\n"}
         <ChannelsGrid />
-        {"\n"}
         <HomeBanner />
       </main>
     </PageShell>

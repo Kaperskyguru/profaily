@@ -3,9 +3,9 @@ import { Banner } from "@/components/sections/shared/Banner";
 export function HomeBanner() {
   return (
     <Banner
-      eyebrow="A clearer way to run video marketing"
-      heading="Move from video publishing to measurable business outcomes."
-      body="Plan, publish, protect, engage, and learn in one connected workspace."
+      eyebrow="For creators, businesses, and agencies"
+      heading="Ready to get your next videos on the calendar?"
+      body="Try Profaily free for 5 days. Pro is $9.99; Teams is $25."
       cta="Start your 5-day free trial"
     />
   );
