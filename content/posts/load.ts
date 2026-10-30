@@ -11,7 +11,7 @@ import type { PostContent } from "./types";
  * components/templates/ArticlePage.tsx). Quote every string; an unquoted 2026-09-29 would be parsed
  * as a date instead of text.
  *  slug           route slug (/blog/<slug>), must equal the file name; also names the cover image
- *                 /assets/blog-featured-<slug>.svg
+ *                 /assets/blog-featured-<slug>.svg (plus a .jpg render for pages and sharing)
  *  category       topic label: breadcrumb, meta row, index card badge, related-card badge; its
  *                 lower-case form is the index card's data-category and the blog filter button value
  *  title          article h1 (og:title / <title> append " | Profaily Blog"; also the index card heading)

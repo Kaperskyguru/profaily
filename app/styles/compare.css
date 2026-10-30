@@ -1,0 +1,72 @@
+/* Compare hub (/compare) and the "<Competitor> alternative" pages. Scoped under .pg-compare. */
+
+/* hero quick-take card */
+.pg-compare .cmp-quick { padding: clamp(18px, 2.4vw, 26px); }
+.pg-compare .cmp-quick-h { font-size: 22px; letter-spacing: -0.02em; line-height: 1.2; }
+.pg-compare .cmp-quick-note { margin-top: 8px; color: var(--muted); font-size: 15px; }
+.pg-compare .cmp-quick-rows { margin: 18px 0 0; display: grid; font-size: 14px; }
+.pg-compare .cmp-quick-rows > div { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1fr); gap: 12px; padding: 11px 0;  align-items: start; }
+.pg-compare .cmp-quick-rows > .cmp-quick-head { border-top: 0; padding-top: 0; font-size: 13px; font-weight: 600; color: var(--faint); }
+.pg-compare .cmp-quick-rows dt { font-weight: 600; color: var(--ink); }
+.pg-compare .cmp-quick-rows dd { margin: 0; color: var(--muted); }
+.pg-compare .cmp-quick-rows dd.us { color: var(--mint-ink); font-weight: 600; }
+.pg-compare .cmp-quick-ch { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 4px; padding-top: 14px;  font-size: 13px; color: var(--faint); }
+.pg-compare .cmp-glyphs { display: flex; gap: 8px; }
+.pg-compare .cmp-glyphs .glyph { width: 22px; height: 22px; }
+
+/* hub hero channel line */
+.pg-compare .cmp-hub-ch { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.pg-compare .cmp-hub-ch .glyph { width: 22px; height: 22px; }
+
+/* table: keep the Profaily column readable */
+.pg-compare .cmp-table { margin-top: 48px; }
+.pg-compare .cmp-table thead th:last-child { color: var(--mint-ink); }
+.pg-compare .cmp-table td { color: var(--muted); }
+.pg-compare .cmp-table td.us { color: var(--ink); }
+
+/* fit cards */
+.pg-compare .cmp-fit-us { background: var(--mint-soft); }
+
+/* workflow row: section heading sized like a feature-row title */
+.pg-compare .cmp-fr-h { font-size: clamp(26px, 3vw, 40px); letter-spacing: -0.028em; line-height: 1.08; }
+.pg-compare .fr .sh { min-height: 420px; display: grid; align-items: center; }
+
+/* pricing */
+.pg-compare .cmp-amt { color: var(--muted); font-size: 15px; }
+.pg-compare .cmp-amt b { font: 600 40px/1 var(--display); letter-spacing: -0.03em; color: var(--ink); margin-right: 6px; }
+.pg-compare .cmp-list { list-style: none; display: grid; gap: 6px; margin-top: 4px; font-size: 15px; color: var(--ink); }
+.pg-compare .cmp-list li { padding-left: 22px; position: relative; }
+.pg-compare .cmp-list li::before { content: ""; position: absolute; left: 2px; top: 6px; width: 10px; height: 6px; border-left: 2px solid var(--mint-ink); border-bottom: 2px solid var(--mint-ink); transform: rotate(-45deg); }
+.pg-compare .tile-card p.cmp-small { font-size: 14px; color: var(--faint); }
+.pg-compare .cmp-after { margin-top: 28px; }
+
+/* sources */
+.pg-compare .cmp-sources { list-style: none; display: grid; gap: 12px; margin-top: 40px; }
+.pg-compare .cmp-sources a { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 22px; border-radius: 18px; background: var(--shell); transition: background-color 0.15s; }
+.pg-compare .cmp-sources a:hover { background: var(--shell-2); }
+.pg-compare .cmp-sources a > span:first-child { display: grid; gap: 4px; min-width: 0; }
+.pg-compare .cmp-sources b { font-weight: 600; }
+.pg-compare .cmp-sources a > span:first-child > span { color: var(--muted); font-size: 15px; }
+.pg-compare .cmp-ext { font-size: 20px; color: var(--mint-ink); flex: none; }
+
+/* hub cards */
+.pg-compare .cmp-hub-card .cmp-model { color: var(--ink); font-weight: 600; font-size: 16px; }
+.pg-compare .cmp-hub-card p b { color: var(--ink); font-weight: 600; }
+
+@media (max-width: 1020px) {
+  .pg-compare .fr .sh { min-height: 380px; }
+}
+@media (max-width: 600px) {
+  .pg-compare .cmp-quick-rows > div { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 10px; row-gap: 2px; }
+  .pg-compare .cmp-quick-rows dt { grid-column: 1 / -1; }
+  .pg-compare .cmp-quick-rows > .cmp-quick-head > span:first-child { display: none; }
+  .pg-compare .fr .sh { min-height: 300px; }
+  .pg-compare .cmp-sources a { padding: 16px; }
+}
+
+/* keep "Read the comparison" on one baseline across linked cards */
+.pg-compare a.tile-card { grid-template-rows: auto 1fr auto; }
+.pg-compare a.cmp-hub-card { grid-template-rows: auto auto 1fr auto; }
+@media (max-width: 600px) {
+  .pg-compare .fr .sh .stage4 .fan4 .ph { width: 74px; }
+}

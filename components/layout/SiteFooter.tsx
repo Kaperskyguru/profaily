@@ -1,30 +1,31 @@
 import { footerGroups } from "@/content/nav";
+import { links } from "@/lib/links";
 
+/** Buffer's footer layout (link columns, big wordmark, small print) in Profaily green. */
 export function SiteFooter() {
   return (
-    <footer className="site-footer">
+    <footer className="site-foot">
       <div className="wrap">
-        <div className="footer-layout">
-          <div className="footer-brand-column">
-            <div className="footer-brand">
-              <a href="/"><img src="/assets/profaily-lockup-white.svg" alt="Profaily" /></a>
-              <p>The operating system for short-form video marketing.</p>
+        <nav className="cols" aria-label="Footer">
+          {footerGroups.map((g) => (
+            <div className="lk" key={g.heading}>
+              <h2>{g.heading}</h2>
+              {g.links.map((l) => <a key={`${g.heading}-${l.label}`} href={l.href}>{l.label}</a>)}
             </div>
-            <div className="footer-meta">
-              <span>© 2026 Profaily</span>
-              <span>Platform actions depend on account access and network capabilities.</span>
-            </div>
+          ))}
+        </nav>
+        <div className="bottom">
+          <a href="/" aria-label="Profaily home">
+            <img className="big" src="/assets/profaily-lockup-mint-trim.svg" alt="" width="480" height="105" loading="lazy" />
+          </a>
+          <div className="right">
+            <p className="tag">The Agentic OS for short-form video marketing.</p>
+            <p className="legal">
+              © 2026 Profaily <span aria-hidden="true">|</span> <a href={links.privacy}>Privacy</a>{" "}
+              <span aria-hidden="true">|</span> <a href={links.terms}>Terms</a> <span aria-hidden="true">|</span>{" "}
+              <a href="/contact">Contact</a>
+            </p>
           </div>
-          <nav className="footer-link-grid" aria-label="Footer">
-            {footerGroups.map((g) => (
-              <section className="footer-col footer-link-group" key={g.heading}>
-                <h4>{g.heading}</h4>
-                <div className="footer-link-list">
-                  {g.links.map((l) => <a href={l.href} key={l.href}>{l.label}</a>)}
-                </div>
-              </section>
-            ))}
-          </nav>
         </div>
       </div>
     </footer>

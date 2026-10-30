@@ -1,54 +1,40 @@
-import { Fragment, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 export type FaqItem = { q: string; a: ReactNode };
 
-/** Shared `.faq` section: eyebrow + heading + microcopy on the left, `<details>` list on the right. */
+/** Jobmate's FAQ: heading on the left, question cards on the right; the open card turns mint. */
 export function Faq({
-  eyebrow,
-  heading,
-  microcopy,
-  microcopyClassName = "microcopy",
+  heading = "Questions people ask first",
+  lede,
   items,
-  className = "faq",
-  spaced,
+  id = "faq",
+  open = 0,
 }: {
-  eyebrow: string;
-  heading: string;
-  microcopy: string;
-  /** Tool pages style this line as `section-lede`. */
-  microcopyClassName?: string;
+  heading?: string;
+  lede?: ReactNode;
   items: FaqItem[];
-  className?: string;
-  /** Source has newline text nodes between the wrapper's children (pricing). */
-  spaced?: boolean;
+  id?: string;
+  /** Index of the question open on load; -1 for none. */
+  open?: number;
 }) {
-  const gap = spaced ? " " : null;
   return (
-    <section className={className}>
-      {gap}
-      <div className="wrap faq-grid">
-        {gap}
-        <div>
-          <div className="eyebrow">{eyebrow}</div>
-          <h2>{heading}</h2>
-          <p className={microcopyClassName}>{microcopy}</p>
-        </div>
-        {gap}
-        <div>
-          {gap}
-          {items.map((item) => (
-            <Fragment key={item.q}>
-              <details>
-                <summary>{item.q}</summary>
-                <p>{item.a}</p>
-              </details>
-              {gap}
-            </Fragment>
-          ))}
-        </div>
-        {gap}
+    <section className="wrap faq" id={id} aria-labelledby={`${id}-h`}>
+      <div>
+        <h2 id={`${id}-h`}>{heading}</h2>
+        {lede && <p className="lead">{lede}</p>}
       </div>
-      {gap}
+      <div className="q">
+        {items.map((item, i) => (
+          <details key={item.q} open={i === open}>
+            <summary>
+              <span className="qq" aria-hidden="true">Q</span>
+              {item.q}
+              <span className="pm" aria-hidden="true" />
+            </summary>
+            <div className="ans">{typeof item.a === "string" ? <p>{item.a}</p> : item.a}</div>
+          </details>
+        ))}
+      </div>
     </section>
   );
 }

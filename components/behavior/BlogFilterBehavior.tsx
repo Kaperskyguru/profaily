@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 
+/** Blog index topic chips: show only the cards whose data-category matches the pressed chip ("all" shows every card). */
 export function BlogFilterBehavior() {
   useEffect(() => {
     const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-blog-filter]"));
@@ -10,8 +11,8 @@ export function BlogFilterBehavior() {
       const value = button.dataset.blogFilter;
       buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
       let shown = 0;
-      document.querySelectorAll<HTMLElement>(".blog-card").forEach((card) => {
-        const visible = value === "all guides" || card.dataset.category === value;
+      document.querySelectorAll<HTMLElement>(".bl-index .blog-card").forEach((card) => {
+        const visible = value === "all" || card.dataset.category === value;
         card.hidden = !visible;
         if (visible) shown++;
       });

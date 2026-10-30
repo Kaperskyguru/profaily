@@ -87,3 +87,12 @@ Gotchas:
 
 - `next.config.js` redirects `/:path*.html` to `/:path*` before `public/` files are served, so a static `.html` dropped into `public/` (e.g. a Google Search Console `googleXXXX.html`) is redirected and 404s. Add an explicit redirects exception or serve it from a route if ever needed.
 - React splits adjacent text nodes with `<!-- -->` in SSR, which changes glyph shaping. Dynamic text next to literal text is therefore written as one template-literal string (`{`${name} `}`). `yarn compare` flags any such split in the rendered page.
+
+
+## Regional pricing
+
+The pricing page and the plan cards show naira or dollars the way the app's plans dialog does. `lib/region.ts` asks the API once
+(`GET /api/v1/public/billing/region`, which resolves the visitor's country from the edge header, then the browser's hint, then US)
+and picks the currency; the amounts themselves live in `content/plans.ts` and must match `backend/src/modules/billing/catalog.ts`.
+Set `NEXT_PUBLIC_API_URL` (default `https://api.useprofaily.com`). The API's `CORS_ORIGINS` must include the site's origin when it
+is not `https://useprofaily.com`. If the API cannot be reached the page falls back to dollars.
