@@ -43,7 +43,7 @@ export function CtaBand({
                 </li>
               ))}
             </ul>
-            <span>Creators using Profaily</span>
+            <span>Businesses using Profaily</span>
           </div>
         </div>
         <div className="disc-stack" aria-hidden="true">
