@@ -1,0 +1,51 @@
+/* /pricing and /contact. Scoped under .pg-pricing / .pg-contact. */
+
+/* Plan cards open the page: clear the fixed nav like a page hero does. */
+.pg-pricing .pricing { padding-top: calc(150px + env(safe-area-inset-top, 0px)); padding-bottom: 72px; }
+.pg-pricing .pricing h1 { font-size: clamp(44px, 6vw, 84px); }
+
+.pg-pricing .compare .table-wrap { margin-top: 48px; }
+.pg-pricing .compare table { min-width: 560px; }
+.pg-pricing .compare thead th { vertical-align: bottom; }
+.pg-pricing .compare thead th.plan-col { width: 24%; text-align: center; font-size: 15.5px; color: var(--ink); }
+.pg-pricing .compare thead th.plan-col small { display: block; margin-top: 2px; font-size: 13px; font-weight: 500; color: var(--muted); }
+.pg-pricing .compare thead th.plan-col.rec { background: var(--mint-soft); }
+.pg-pricing .compare tbody th { width: auto; font-weight: 500; }
+.pg-pricing .compare tbody tr.grp th { padding-top: 26px; padding-bottom: 10px; font: 600 17px/1.2 var(--display); letter-spacing: -0.01em; color: var(--ink); }
+.pg-pricing .compare td { text-align: center; color: var(--ink); font-weight: 500; }
+.pg-pricing .compare td.rec { background: color-mix(in srgb, var(--mint-soft) 55%, transparent); }
+.pg-pricing .compare td svg { display: inline-block; width: 20px; height: 20px; color: var(--mint-ink); vertical-align: middle; }
+.pg-pricing .compare td .no { color: var(--faint); }
+.pg-pricing .compare thead th.plan-col .btn { display: flex; margin-top: 12px; padding: 10px 14px; font-size: 14px; }
+.pg-pricing .compare thead { position: sticky; top: 0; z-index: 2; }
+.pg-pricing .compare thead th { background: var(--paper); }
+.pg-pricing .compare tbody tr.grp th span { display: block; margin-top: 4px; font: 500 14px/1.4 var(--text); letter-spacing: 0; color: var(--muted); }
+.pg-pricing .compare .rl { display: flex; gap: 12px; align-items: flex-start; }
+.pg-pricing .compare .rl > svg, .pg-pricing .compare .rl > .glyph { width: 20px; height: 20px; flex: none; margin-top: 1px; color: var(--mint-ink); }
+.pg-pricing .compare .rl em { font-style: normal; margin-left: 8px; font-size: 12.5px; font-weight: 600; color: var(--muted); background: var(--shell); padding: 2px 8px; border-radius: 99px; white-space: nowrap; }
+.pg-pricing .compare .rl small { display: block; margin-top: 3px; font-size: 13.5px; font-weight: 500; color: var(--muted); line-height: 1.45; }
+.pg-pricing .compare .fine { margin-top: 16px; font-size: 14px; color: var(--faint); }
+
+.pg-pricing .faq { padding-block: 96px; }
+
+/* contact */
+.pg-contact .grid-3 { margin-top: 0; }
+.pg-contact .tile-card .mail { font-weight: 600; font-size: 16px; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; user-select: all; overflow-wrap: anywhere; }
+.pg-contact .tile-card .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 6px; }
+.pg-contact .tile-card .tile-ic svg { width: 22px; height: 22px; }
+.pg-contact .more { margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; }
+.pg-contact .page-hero .note { font-size: 15.5px; color: var(--muted); }
+.pg-contact .page-hero .note a { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; user-select: all; }
+
+@media (max-width: 600px) {
+  .pg-pricing .pricing { padding-top: calc(110px + env(safe-area-inset-top, 0px)); padding-bottom: 40px; }
+  .pg-pricing .compare .table-wrap { margin-top: 32px; }
+  .pg-pricing .compare table { min-width: 0; font-size: 14.5px; }
+  .pg-pricing .compare th, .pg-pricing .compare td { padding: 12px 10px; }
+  .pg-pricing .compare thead th.plan-col { width: 27%; font-size: 14.5px; }
+  .pg-pricing .compare tbody tr.grp th { padding-top: 20px; font-size: 16px; }
+  .pg-pricing .compare .rl small { display: none; }
+  .pg-pricing .compare .rl em { display: block; margin: 4px 0 0; width: max-content; }
+  .pg-pricing .compare thead th.plan-col .btn { padding: 8px 10px; font-size: 13px; white-space: normal; }
+  .pg-pricing .faq { padding-block: 72px; }
+}

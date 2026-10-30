@@ -1,27 +1,6 @@
-import { links } from "@/lib/links";
+import { CtaBand } from "./CtaBand";
 
-/** Shared closing `.banner` CTA: eyebrow + heading + line on the left, trial button on the right. */
-export function Banner({
-  eyebrow,
-  heading,
-  body,
-  cta = "Start your free trial",
-}: {
-  eyebrow: string;
-  heading: string;
-  body: string;
-  cta?: string;
-}) {
-  return (
-    <section className="banner">
-      <div className="wrap banner-grid">
-        <div>
-          <div className="eyebrow">{eyebrow}</div>
-          <h2>{heading}</h2>
-          <p>{body}</p>
-        </div>
-        <a className="button primary" href={links.register}>{`${cta}\u00a0 →`}</a>
-      </div>
-    </section>
-  );
+/** Older call sites pass the tool/feature banner copy; it renders as the shared CTA band. */
+export function Banner({ heading, body }: { eyebrow?: string; heading: string; body: string }) {
+  return <CtaBand heading={heading} lede={body} />;
 }

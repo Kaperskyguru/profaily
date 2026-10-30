@@ -6,7 +6,7 @@ import type { Element, ElementContent, Root } from "hast";
  * Renders a post's markdown body as the exact markup the article CSS expects:
  *  - `## Heading {#id}` becomes <h2 id="id">Heading</h2>
  *  - a blockquote becomes <div class="article-callout"> holding its first paragraph's inline content
- *  - a table is wrapped as div.article-table-wrap > table.article-table
+ *  - a table is wrapped as div.table-wrap.article-table-wrap > table.article-table (the shared table primitive)
  *  - http(s) links open in a new tab (target + rel); internal links stay plain
  *  - top-level blocks are separated by a single " " text node, and no whitespace nodes are emitted
  *    inside lists and tables (the template previously did the same with hand-written JSX)
@@ -40,7 +40,7 @@ function transform(node: Element): Element {
   }
   if (node.tagName === "table") {
     node.properties = { ...node.properties, className: ["article-table"] };
-    return { type: "element", tagName: "div", properties: { className: ["article-table-wrap"] }, children: [node] };
+    return { type: "element", tagName: "div", properties: { className: ["table-wrap", "article-table-wrap"] }, children: [node] };
   }
   return node;
 }

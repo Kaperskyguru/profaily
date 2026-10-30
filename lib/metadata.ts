@@ -17,5 +17,14 @@ export function pageMetadata(o: {
     title: { absolute: o.title },
     description: o.description,
     alternates: { canonical: ORIGIN + o.path },
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/icon.svg", type: "image/svg+xml" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      ],
+      apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
+    },
+    manifest: "/site.webmanifest",
   };
 }

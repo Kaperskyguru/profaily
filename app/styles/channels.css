@@ -1,0 +1,60 @@
+/* Channel landing pages (/tiktok, /instagram, /youtube, /facebook): one channel, one product */
+.chp-hero { padding-bottom: 0; }
+.chp-hero h1 { max-width: 16ch; }
+.chp-shot { margin: 64px auto 0; max-width: 1080px; padding: clamp(10px, 1.6vw, 18px); border-radius: 32px 32px 0 0; background: var(--shell); }
+.chp-shot img { width: 100%; height: auto; display: block; }
+
+.pg-channel .chp-how { padding-top: 140px; }
+.pg-channel .chp-how > h2 { text-align: center; max-width: 18ch; margin-inline: auto; }
+.pg-channel .chp-how .fr { padding-block: clamp(56px, 7vw, 96px) 0; }
+.chp-points { list-style: none; display: grid; gap: 10px; margin-top: 24px; color: var(--muted); font-size: 16.5px; }
+.chp-points li { position: relative; padding-left: 20px; }
+.chp-points li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 8px; height: 8px; border-radius: 50%; background: var(--mint); }
+.chp-img { width: 100%; height: auto; border-radius: 14px; box-shadow: 0 0 0 1px var(--line), 0 24px 44px -28px rgba(13, 36, 31, 0.35); background: #fff; }
+.chp-fig { border-radius: 14px; overflow: hidden; box-shadow: 0 0 0 1px var(--line), 0 24px 44px -28px rgba(13, 36, 31, 0.35); background: #fff; }
+.chp-fig .chp-img { display: block; border-radius: 0; box-shadow: none; }
+.chp-fig.zoomcal { aspect-ratio: 1.3; }
+.chp-fig.zoomcal .chp-img { height: 100%; object-fit: cover; transform: scale(1.6); transform-origin: 80% 14%; }
+.chp-crop { aspect-ratio: 1.75; overflow: hidden; border-radius: 18px 18px 0 0; }
+.chp-crop img { box-shadow: none; border-radius: 0; }
+.chp-fig.zoom { aspect-ratio: 1.3; }
+.chp-fig.zoom .chp-img { height: 100%; object-fit: cover; transform: scale(1.7); transform-origin: 62% 38%; }
+.pg-channel .fr .sh { padding: clamp(14px, 2.4vw, 32px); }
+
+.chp-ben { padding-top: 150px; }
+.chp-ben > h2 { text-align: center; max-width: 20ch; margin-inline: auto; }
+.chp-ben-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 48px; }
+.chp-ben-grid .tile-card.shell { padding: clamp(24px, 3vw, 40px); gap: 12px; }
+.chp-ben-grid h3 { font-size: clamp(21px, 2vw, 26px); max-width: 22ch; }
+.chp-ben-grid p { font-size: 17px; max-width: 46ch; }
+
+.chp-spec { padding-top: 150px; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.chp-spec h2 { font-size: clamp(30px, 3.4vw, 44px); }
+.chp-spec .lead { margin-top: 18px; max-width: 40ch; font-size: 16.5px; }
+.chp-spec dl { margin: 0; display: grid; gap: 8px; }
+.chp-spec dl > div { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 20px 24px; border-radius: 16px; background: var(--soft); }
+.chp-spec dt { color: var(--muted); font-size: 16px; }
+.chp-spec dd { margin: 0; font: 600 17px/1.3 var(--text); text-align: right; }
+
+.chp-also { padding-top: 110px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 28px; color: var(--muted); }
+.chp-also a { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 5px; }
+
+@media (max-width: 860px) {
+  .pg-channel .chp-how { padding-top: 96px; }
+  .chp-ben, .chp-spec { padding-top: 96px; }
+  .chp-ben-grid { grid-template-columns: minmax(0, 1fr); }
+  .chp-spec { grid-template-columns: minmax(0, 1fr); }
+  .chp-shot { margin-top: 40px; border-radius: 22px 22px 0 0; }
+  .chp-also { padding-top: 72px; }
+}
+
+.chp-tag { margin-top: 20px; font: 600 clamp(20px, 2vw, 26px)/1.25 var(--display); letter-spacing: -0.02em; color: var(--mint-ink); }
+.chp-hero .chp-tag + .sub { margin-top: 14px; }
+.chp-ben-first { padding-top: 120px; }
+.chp-ben-first + .chp-how { padding-top: 20px; }
+.chp-code { margin: 0; padding: clamp(18px, 2.4vw, 30px); border-radius: 14px; background: var(--forest); color: var(--on-forest); overflow-x: auto; font: 500 13.5px/1.7 ui-monospace, SFMono-Regular, Menlo, monospace; box-shadow: 0 24px 44px -28px rgba(13, 36, 31, 0.45); }
+.chp-code code { font: inherit; white-space: pre; }
+.pg-channel .sh .mcp-card { margin-top: 0; padding: 0; background: transparent; }
+.pg-channel .fr.wide { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+.pg-channel .fr.wide .txt { max-width: 640px; }
+.pg-channel .fr.wide.flip .txt { order: 0; }

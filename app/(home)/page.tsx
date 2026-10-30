@@ -1,36 +1,33 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { OgUrl } from "@/components/ui/OgUrl";
+import { homeMeta } from "@/content/home";
 import { pageMetadata } from "@/lib/metadata";
-import { CustomerProof } from "@/components/sections/home/CustomerProof";
-import { AIWorkflow } from "@/components/sections/home/AIWorkflow";
-import { ChannelsGrid } from "@/components/sections/home/ChannelsGrid";
-import { FeatureSuite } from "@/components/sections/home/FeatureSuite";
-import { Hero } from "@/components/sections/home/Hero";
-import { HomeBanner } from "@/components/sections/home/HomeBanner";
-import { ValueCards } from "@/components/sections/home/ValueCards";
-import { ProductScreenshots } from "@/components/sections/home/ProductScreenshots";
+import { HeroBehavior } from "@/components/behavior/HeroBehavior";
+import { HomeHero } from "@/components/sections/home/HomeHero";
+import { TrustedBy } from "@/components/sections/home/TrustedBy";
+import { FeatureBand } from "@/components/sections/home/FeatureBand";
+import { Testimonials } from "@/components/sections/home/Testimonials";
+import { FeatureGroups } from "@/components/sections/home/FeatureGroups";
+import { McpSection } from "@/components/sections/home/McpCard";
+import { Closing } from "@/components/sections/home/Closing";
 
-export const metadata: Metadata = pageMetadata({
-  title: "Profaily | Keep video publishing on track",
-  description: "Plan, prepare, review, and schedule short-form videos for TikTok, Instagram Reels, YouTube Shorts, and Facebook—with your team in one place.",
-  path: "/",
-});
+export const metadata: Metadata = pageMetadata(homeMeta);
 
 export default function HomePage() {
   return (
     <PageShell>
-      <OgUrl path="/" />
-      <main className="home-page">
-        <Hero />
-        <CustomerProof />
-        <ValueCards />
-        <ProductScreenshots />
-        <AIWorkflow />
-        <FeatureSuite />
-        <ChannelsGrid />
-        <HomeBanner />
+      <OgUrl path="/" title={homeMeta.title} description={homeMeta.description} />
+      <main>
+        <HomeHero />
+        <TrustedBy />
+        <FeatureBand />
+        <McpSection />
+        <FeatureGroups />
+        <Testimonials />
+        <Closing />
       </main>
+      <HeroBehavior />
     </PageShell>
   );
 }

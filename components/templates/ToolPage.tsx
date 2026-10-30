@@ -1,107 +1,114 @@
+import "@/app/styles/tools.css";
 import { PageShell } from "@/components/layout/PageShell";
-import { Banner } from "@/components/sections/shared/Banner";
+import { CtaBand } from "@/components/sections/shared/CtaBand";
 import { Faq } from "@/components/sections/shared/Faq";
+import { PageHero } from "@/components/sections/shared/PageHero";
+import { Arrow, Icon } from "@/components/ui/Glyph";
+import { JsonLd } from "@/components/ui/JsonLd";
 import { OgUrl } from "@/components/ui/OgUrl";
-import type { ToolContent } from "@/content/tools";
-import { links } from "@/lib/links";
+import { faqJsonLd } from "@/content/comparisons";
+import { toolOrder, tools, type ToolContent, type ToolSlug } from "@/content/tools";
 
-export function ToolPage({ content: c }: { content: ToolContent }) {
+/** A tool's card (icon, small app fragment, name, line, link); used on /tools and in "Other tools". */
+export function ToolCard({ slug }: { slug: ToolSlug }) {
+  const t = tools[slug];
+  return (
+    <a className="tile-card tool-card" href={t.meta.path}>
+      <div className="art">{t.card.art}</div>
+      <span className="tile-ic"><Icon name={t.card.icon} /></span>
+      <h3>{t.name}</h3>
+      <p>{t.card.body}</p>
+      <span className="more-link">See how {t.name} works <Arrow /></span>
+    </a>
+  );
+}
+
+export function ToolPage({ slug, content: c }: { slug: ToolSlug; content: ToolContent }) {
+  const others = toolOrder.filter((s) => s !== slug);
   return (
     <PageShell>
       <OgUrl path={c.meta.path} />
-      <main className={c.mainClass}>
-        {" "}
-        <section className="page-hero tools-hero">
-          <div className="wrap page-hero-grid">
-            <div>
-              <div className="breadcrumb">
-                <a href="/">Home</a>
-                <span>·</span>
-                <a href="/tools">Tools</a>
-                <span>·</span>
-                <span>{c.name}</span>
-              </div>
-              <div className="eyebrow">{c.hero.eyebrow}</div>
-              <h1>{c.hero.title}</h1>
-              <p className="lede">{c.hero.lede}</p>
-              <div className="tool-cta-row">
-                <a className="button primary" href={links.register}>Start your free trial&nbsp; →</a>
-                <a className="button secondary" href="/tools">Explore all tools</a>
-              </div>
-              <p className="tool-hero-note">{c.hero.note}</p>
-            </div>
-            {c.visual}
-          </div>
-        </section>
-        {" "}
-        <section className="page-section">
-          <div className="wrap">
-            <div className="section-head">
-              <div className="eyebrow">{c.values.eyebrow}</div>
-              <h2>{c.values.heading}</h2>
-              <p>{c.values.lede}</p>
-            </div>
-            <div className="value-grid">
-              {c.values.cards.map((card) => (
-                <article className="value-card" key={card.title}>
-                  <div className="value-icon">{card.icon}</div>
-                  <h3>{card.title}</h3>
-                  <p>{card.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-        {" "}
-        <section className="page-section dark-alt">
-          <div className="wrap">
-            <div className="section-head">
-              <div className="eyebrow">{c.steps.eyebrow}</div>
-              <h2>{c.steps.heading}</h2>
-              <p>{c.steps.lede}</p>
-            </div>
-            <div className="tool-steps">
-              {c.steps.items.map((s, i) => (
-                <article className="tool-step" key={s.title}>
-                  <span>{String(i + 1).padStart(2, "0")}</span>
-                  <h3>{s.title}</h3>
-                  <p>{s.body}</p>
-                </article>
-              ))}
-            </div>
-            {c.steps.transparency ?? <p className="platform-note">{c.steps.note}</p>}
-          </div>
-        </section>
-        {" "}
-        <section className="page-section">
-          <div className="wrap">
-            <div className="section-head">
-              <div className="eyebrow">{c.uses.eyebrow}</div>
-              <h2>{c.uses.heading}</h2>
-              {c.uses.lede && <p>{c.uses.lede}</p>}
-            </div>
-            <div className="tool-use-grid">
-              {c.uses.items.map((u) => (
-                <article key={u.title}>
-                  {u.label && <span className="smart-repost-use-label">{u.label}</span>}
-                  <h3>{u.title}</h3>
-                  <p>{u.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-        {" "}
-        <Faq
-          eyebrow="FAQ"
-          heading={c.faq.heading}
-          microcopy={c.faq.lede}
-          microcopyClassName="section-lede"
-          items={c.faq.items}
+      <JsonLd data={faqJsonLd(c.faq.items)} />
+      <main className="pg-tool">
+        <PageHero
+          crumbs={[{ href: "/tools", label: "Tools" }, { label: c.name }]}
+          pill={c.hero.pill}
+          title={c.hero.title}
+          lede={c.hero.lede}
+          note={c.hero.note}
+          visual={c.bareVisual ? c.visual : <div className="green-frame">{c.visual}</div>}
         />
-        {" "}
-        <Banner {...c.banner} />
-        {" "}
+
+        <section className="wrap section" aria-labelledby="values-h">
+          <div className="sec-head">
+            <h2 id="values-h">{c.values.heading}</h2>
+            <p className="lead">{c.values.lede}</p>
+          </div>
+          <div className="grid-3 rv">
+            {c.values.cards.map((card) => (
+              <article className="tile-card" key={card.title}>
+                <span className="tile-ic"><Icon name={card.icon} /></span>
+                <h3>{card.title}</h3>
+                <p>{card.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="wrap section tight" aria-labelledby="steps-h">
+          <div className="sec-head">
+            <h2 id="steps-h">{c.steps.heading}</h2>
+            <p className="lead">{c.steps.lede}</p>
+          </div>
+          <ol className={`steps rv${c.steps.items.length === 4 ? " four" : ""}`}>
+            {c.steps.items.map((s) => (
+              <li key={s.title}>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="tool-note rv">
+            <Icon name="alert" />
+            <p>{c.steps.noteTitle && <b>{c.steps.noteTitle} </b>}{c.steps.note}</p>
+          </div>
+        </section>
+
+        <section className="wrap section" aria-labelledby="uses-h">
+          <div className="sec-head">
+            <h2 id="uses-h">{c.uses.heading}</h2>
+            {c.uses.lede && <p className="lead">{c.uses.lede}</p>}
+          </div>
+          <div className="grid-3 rv">
+            {c.uses.items.map((u) => (
+              <article className="tile-card shell" key={u.title}>
+                <h3>{u.title}</h3>
+                <p>{u.body}</p>
+                {u.label && <p className="who">{u.label}</p>}
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <Faq heading={c.faq.heading} lede={c.faq.lede} items={c.faq.items} />
+
+        <section className="wrap section" aria-labelledby="others-h">
+          <div className="sec-head">
+            <h2 id="others-h">Other tools</h2>
+            <p className="lead">Focused tools for the work around your channels.</p>
+          </div>
+          <div className="grid-3 rv">
+            {others.map((s) => <ToolCard slug={s} key={s} />)}
+            <a className="tile-card shell tool-all" href="/tools">
+              <span className="tile-ic"><Icon name="layers" /></span>
+              <h3>All tools</h3>
+              <p>See every Profaily tool side by side and pick the one that fits.</p>
+              <span className="more-link">Explore all tools <Arrow /></span>
+            </a>
+          </div>
+        </section>
+
+        <CtaBand heading={c.banner.heading} lede={c.banner.body} secondary={{ href: "/tools", label: "Explore all tools" }} />
       </main>
     </PageShell>
   );

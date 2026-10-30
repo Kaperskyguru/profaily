@@ -1,8 +1,12 @@
+import "@/app/styles/blog.css";
 import { BlogFilterBehavior } from "@/components/behavior/BlogFilterBehavior";
 import { PageShell } from "@/components/layout/PageShell";
+import { CtaBand } from "@/components/sections/shared/CtaBand";
+import { PageHero } from "@/components/sections/shared/PageHero";
+import { PostCard, PostMeta, postCover } from "@/components/templates/ArticlePage";
+import { Arrow } from "@/components/ui/Glyph";
 import { OgUrl } from "@/components/ui/OgUrl";
 import { postList } from "@/content/posts";
-import { links } from "@/lib/links";
 import { ORIGIN, pageMetadata } from "@/lib/metadata";
 
 const meta = {
@@ -14,8 +18,10 @@ const meta = {
 
 export const metadata = pageMetadata(meta);
 
-const filters = ["All guides", "Publishing", "Publishing operations", "Audience & leads", "Analytics & decisions", "Teams & agencies"];
+const ALL = "All guides";
+const filters = [ALL, ...Array.from(new Set(postList.map((p) => p.category)))];
 const [featured] = postList;
+const empty = postList.length === 0;
 
 export default function Page() {
   return (
@@ -25,90 +31,58 @@ export default function Page() {
         type="website"
         title={meta.title}
         description={meta.ogDescription}
-        image={`${ORIGIN}/assets/blog-featured-${featured.slug}.svg`}
+        image={empty ? undefined : `${ORIGIN}${postCover(featured.slug)}`}
       />
-      <main>
-        <section className="blog-hero">
-          <div className="wrap blog-hero-grid">
-            <div>
-              <div className="eyebrow">Profaily Blog · Field guides</div>
-              <h1>Better systems for every video you publish.</h1>
-              <p>Practical guidance for planning short-form video, publishing across channels, handling audience interest, and learning what to make next. Clear advice for the people responsible for the work.</p>
-              <div className="actions">
-                <a className="button primary" href="#articles">Browse the guides&nbsp; ↓</a>
-                <a className="button secondary" href="/features">Explore Profaily</a>
-              </div>
-            </div>
-            <div className="blog-hero-art">
-              <img src="/assets/profaily-hero-poster.jpg" alt="Profaily publishing workspace with destination-specific video details" />
-            </div>
-          </div>
-        </section>
-        <section className="blog-featured">
+      <main className="pg-blog">
+        <PageHero
+          solo
+          crumbs={[{ label: "Blog" }]}
+          pill={empty ? undefined : "Field guides"}
+          title="Short-form video guides for business"
+          lede={empty ? "New guides are on the way. Until then, see how Profaily works." : "Practical guidance for planning short-form video, publishing across channels, handling audience interest, and learning what to make next."}
+          primary={null}
+          secondary={empty ? { href: "/features", label: "Explore features" } : { href: "#articles", label: "Browse the guides" }}
+        />
+
+        {!empty && (<>
+        <section className="section tight bl-featured" aria-label="Featured guide">
           <div className="wrap">
-            <a className="blog-featured-card" href={`/blog/${featured.slug}`}>
-              <img src={`/assets/blog-featured-${featured.slug}.svg`} alt="" />
-              <div className="blog-featured-copy">
-                <div className="blog-meta">
-                  <span className="blog-category">Featured guide</span>
-                  <span>{featured.category}</span>
-                  <span>{featured.readTime}</span>
-                </div>
+            <a className="bl-feat" href={`/blog/${featured.slug}`}>
+              <img src={postCover(featured.slug)} alt="" width={1200} height={630} loading="eager" />
+              <div className="bl-feat-copy">
                 <h2>{featured.title}</h2>
-                <p>{featured.description}</p>
-                <span className="feature-link">Read the guide&nbsp; →</span>
+                <p className="lead">{featured.description}</p>
+                <PostMeta post={featured} />
+                <span className="more-link">Read the guide <Arrow /></span>
               </div>
             </a>
           </div>
         </section>
-        <section className="blog-index-section" id="articles">
+
+        <section className="section tight bl-index" id="articles" aria-labelledby="bl-index-title">
           <div className="wrap">
-            <div className="blog-section-head">
-              <div>
-                <div className="eyebrow">The Profaily field guide</div>
-                <h2>Useful ideas, ready for the next work session.</h2>
-              </div>
-              <p>Each article starts with a real publishing or operating decision, then gives you a process you can apply with your own team.</p>
+            <div className="sec-head">
+              <h2 id="bl-index-title">Every guide</h2>
+              <p className="lead">Each article starts with a real publishing or operating decision, then gives you a process you can apply with your own team.</p>
             </div>
-            <div className="blog-filter-row" role="group" aria-label="Filter articles by topic">
+            <div className="tabs bl-filters" role="group" aria-label="Filter guides by topic">
               {filters.map((label, i) => (
-                <button className="blog-filter" type="button" data-blog-filter={label.toLowerCase()} aria-pressed={i === 0} key={label}>{label}</button>
+                <button type="button" data-blog-filter={label === ALL ? "all" : label.toLowerCase()} aria-pressed={i === 0} key={label}>{label}</button>
               ))}
             </div>
-            <div className="blog-card-grid">
-              {postList.map((post) => (
-                <article className="blog-card" data-category={post.category.toLowerCase()} key={post.slug}>
-                  <a href={`/blog/${post.slug}`} aria-label={`Read: ${post.title}`}>
-                    <img src={`/assets/blog-featured-${post.slug}.svg`} alt="" loading="lazy" />
-                  </a>
-                  <div className="blog-card-copy">
-                    <div className="blog-meta">
-                      <span className="blog-category">{post.category}</span>
-                      <span>{post.readTime}</span>
-                    </div>
-                    <h3>
-                      <a href={`/blog/${post.slug}`}>{post.title}</a>
-                    </h3>
-                    <p>{post.description}</p>
-                    <a className="feature-link" href={`/blog/${post.slug}`}>Read article&nbsp; →</a>
-                  </div>
-                </article>
-              ))}
+            <div className="grid-3 bl-grid">
+              {postList.map((post) => <PostCard post={post} key={post.slug} />)}
             </div>
-            <p id="blog-empty" hidden>No guides in this topic yet.</p>
+            <p className="bl-empty" id="blog-empty" hidden>No guides in this topic yet.</p>
           </div>
         </section>
-        <section className="blog-final-cta">
-          <div className="wrap">
-            <div className="eyebrow">From reading to doing</div>
-            <h2>Put your video marketing workflow in one place.</h2>
-            <p>Prepare one finished video, manage destination details, follow publishing status, and connect eligible conversations to next steps.</p>
-            <div className="actions">
-              <a className="button primary" href={links.register}>Start your 5-day free trial&nbsp; →</a>
-              <a className="button secondary" href="/features">Explore all features</a>
-            </div>
-          </div>
-        </section>
+        </>)}
+
+        <CtaBand
+          heading="Put your video marketing workflow in one place"
+          lede="Prepare one finished video, manage destination details, follow publishing status, and connect eligible conversations to next steps."
+          secondary={{ href: "/features", label: "Explore all features" }}
+        />
       </main>
       <BlogFilterBehavior />
     </PageShell>

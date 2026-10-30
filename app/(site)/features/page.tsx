@@ -1,72 +1,70 @@
+import "@/app/styles/features.css";
 import { PageShell } from "@/components/layout/PageShell";
+import { CtaBand } from "@/components/sections/shared/CtaBand";
+import { PageHero } from "@/components/sections/shared/PageHero";
+import { ChannelStrip } from "@/components/templates/FeaturePage";
+import { Arrow } from "@/components/ui/Glyph";
 import { OgUrl } from "@/components/ui/OgUrl";
-import { PlatformIcon } from "@/components/ui/icons";
-import { featureGroups, featuresHubMeta, hubPlatforms } from "@/content/features-hub";
-import { links } from "@/lib/links";
+import { featureGroups, featuresHubMeta } from "@/content/features-hub";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(featuresHubMeta);
-
-const pad = (n: number) => String(n).padStart(2, "0");
 
 export default function Page() {
   return (
     <PageShell>
       <OgUrl path={featuresHubMeta.path} />
-      <main>
-        <section className="page-hero">
-          <div className="wrap">
-            <div className="breadcrumb"><a href="/">Home</a><span>›</span><span>Features</span></div>
-            <h1>Everything around short-form video marketing, in one flow.</h1>
-            <p className="lede">Plan the operation, publish with channel-aware checks, respond to audience intent, route leads, and use evidence to improve what comes next.</p>
-            <div className="actions">
-              <a className="button primary" href={links.register}>Start your 5-day free trial&nbsp; →</a>
-              <a className="button secondary" href="/pricing">See pricing</a>
-            </div>
+      <main className="pg-feature pg-features-hub">
+        <PageHero
+          solo
+          crumbs={[{ label: "Features" }]}
+          pill="All features"
+          title="Everything for short-form video, in one place"
+          lede="Plan the operation, publish with channel-aware checks, respond to audience intent, route leads, and use evidence to improve what comes next."
+          secondary={{ href: "/pricing", label: "See pricing" }}
+        />
+
+        <div className="wrap fx-hub-intro">
+          <div className="sec-head center">
+            <h2>Built around the work businesses need to do</h2>
+            <p className="lead">Follow the product journey from video planning to reliable publishing, audience response, lead follow-up, and learning.</p>
           </div>
-        </section>
-        <section className="page-section">
-          <div className="wrap">
-            <div className="section-head">
-              <div className="eyebrow">All features</div>
-              <h2>Built around the work businesses need to do.</h2>
-              <p>Follow the product journey from video planning to reliable publishing, audience response, lead follow-up, and learning.</p>
-            </div>
-            {featureGroups.map((group, i) => (
-              <div className="feature-index-group" key={group.href}>
-                <div className="feature-index-head">
-                  <h3><span className="phase-number">{pad(i + 1)}</span>{group.title}</h3>
-                  <a href={group.href}>Detailed page&nbsp; →</a>
+        </div>
+
+        {featureGroups.map((g, gi) => {
+          const items = g.capabilities.items;
+          const hid = `group-${gi}-h`;
+          return (
+            <section className="section tight fx-group" aria-labelledby={hid} key={g.meta.path}>
+              <div className="wrap">
+                <div className="sec-head fx-head">
+                  <div>
+                    <h2 id={hid}>{g.name}</h2>
+                    <p className="lead">{g.hero.title}</p>
+                  </div>
+                  <a className="more-link" href={g.meta.path}>Learn more<span className="sr-only"> about {g.name}</span> <Arrow /></a>
                 </div>
-                <div className="feature-index-items">
-                  {group.items.map(([anchor, label], j) => (
-                    <a href={`${group.href}#${anchor}`} key={anchor}><span>{pad(j + 1)}</span><b>{label}</b></a>
+                <div className={items.length % 4 === 0 ? "grid-4" : "grid-3"}>
+                  {items.map((it) => (
+                    <a className="tile-card rv" href={`${g.meta.path}#${it.id}`} key={it.id}>
+                      <h3>{it.title}</h3>
+                      <p>{it.body}</p>
+                    </a>
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </section>
-        <section className="page-section alt" id="channels">
-          <div className="wrap">
-            <div className="section-head">
-              <div className="eyebrow">Video-based platforms</div>
-              <h2>Built for TikTok, Instagram, YouTube, and Facebook.</h2>
-              <p>See what the connected workflow delivers for each network and where platform requirements shape available actions.</p>
-            </div>
-            <div className="platform-grid">
-              {hubPlatforms.map((p) => (
-                <a className="platform-card" href={p.href} key={p.href}>
-                  <span className={`platform-badge platform-icon ${p.platform}-icon`}>
-                    <PlatformIcon platform={p.platform} gradientId={p.gradientId} />
-                  </span>
-                  <h3>{`${p.name} `}<span className="arrow">↗</span></h3>
-                  <p>{p.body}</p>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
+            </section>
+          );
+        })}
+
+        <ChannelStrip
+          id="channels"
+          idPrefix="hub"
+          heading="Built for TikTok, Instagram, YouTube, and Facebook"
+          lede="See what the connected workflow delivers for each channel and where channel requirements shape available actions."
+        />
+
+        <CtaBand />
       </main>
     </PageShell>
   );

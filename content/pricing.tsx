@@ -1,161 +1,118 @@
+import { TRIAL_DAYS, YEARLY_SAVING } from "@/content/plans";
+
 export const pricingMeta = {
   title: "Pricing | Profaily",
-  description:
-    "Compare Profaily Pro and Teams for solo creators, businesses, and collaborative video teams. Start with a five-day free trial.",
+  description: `Compare Profaily Creator and Business for creators, businesses, and agencies distributing short-form video. Try Business free for ${TRIAL_DAYS} days.`,
   path: "/pricing",
 };
 
-export const plans = [
+/**
+ * "Compare plans and features", arranged like the app's compare table (frontend/lib/plans.ts
+ * compareSections): same sections, rows, one-line explanations and notes. A cell is `true`
+ * (included), `false` (not included) or a value. Platform rows draw the channel's own logo.
+ */
+export type Cell = boolean | string;
+export type CompareRow = { label: string; tip: string; icon: string; note?: string; creator: Cell; business: Cell };
+export type CompareSection = { title: string; description: string; rows: CompareRow[] };
+
+const both = (label: string, icon: string, tip: string): CompareRow => ({ label, icon, tip, creator: true, business: true });
+const biz = (label: string, icon: string, tip: string, note?: string): CompareRow => ({ label, icon, tip, ...(note ? { note } : {}), creator: false, business: true });
+
+export const compareSections: CompareSection[] = [
   {
-    tag: "For creators",
-    name: "Pro",
-    summary: "For creators and independent operators who manage the whole video workflow themselves.",
-    price: "$9.99",
-    cta: "Start Pro trial",
-    ctaClass: "button secondary",
-    bullets: [
-      "Publish videos to TikTok, Instagram, YouTube, and Facebook",
-      "Bulk upload, calendar, queue, and platform-specific details",
-      "Publishing Guardian checks, status, and safe recovery",
-      "Unified inbox for conversations across connected socials",
-      "Video performance signals, audience insights, and experiments",
+    title: "Scheduling",
+    description: "Plan videos and send them out on time.",
+    rows: [
+      both("Calendar", "calendar", "See everything scheduled, by day and week."),
+      both("Scheduling", "clock", "Pick a time, or take the next queue slot."),
+      both("Queue slots", "queue", "Set a weekly rhythm and videos fill the next free slot."),
+      both("Drafts and tags", "drafts", "Keep videos as drafts and label them with tags."),
+      both("Import videos from a link or CSV", "table", "Bring in many videos at once from links or a CSV file."),
     ],
   },
   {
-    tag: "For businesses and teams",
-    name: "Teams",
-    summary: "For businesses, agencies, and social teams coordinating video across people, brands, and leads.",
-    price: "$25",
-    cta: "Start Teams trial",
-    ctaClass: "button primary",
-    cardClass: "plan-card plan-card-team",
-    bullets: [
-      "Everything in Pro",
-      "Shared workspaces and drafts for teams and brands",
-      "Team roles, permissions, review, and approval workflows",
-      "Assign conversations, route qualified leads, and hand off bookings",
-      "CRM handoff and shared outcome visibility",
+    title: "Channels",
+    description: "Distribute one video to every channel.",
+    rows: [
+      both("TikTok", "tiktok", "Distribute your videos to TikTok."),
+      both("Instagram", "instagram", "Distribute your videos to Instagram."),
+      both("YouTube", "youtube", "Distribute your videos to YouTube."),
+      both("Facebook", "facebook", "Distribute your videos to Facebook."),
     ],
   },
-];
-
-/** Comparison rows: `pro`/`teams` are the cell text; `group` rows are section dividers. */
-export const comparisonRows: ({ group: string } | { feature: string; pro: string; teams: string })[] = [
-  { group: "Plan and publish" },
-  { feature: "TikTok, Instagram, YouTube, and Facebook publishing", pro: "Included", teams: "Included" },
-  { feature: "Bulk video upload, CSV intake, and validation", pro: "Included", teams: "Included" },
-  { feature: "Calendar, queue, and bulk video management", pro: "Included", teams: "Included" },
-  { feature: "Platform-specific captions, titles, and settings", pro: "Included", teams: "Included" },
-  { feature: "Preflight checks, account health, and publishing history", pro: "Included", teams: "Included" },
-  { feature: "Safe recovery and outcome verification where supported", pro: "Included", teams: "Included" },
-  { group: "Engage and grow" },
-  { feature: "Unified inbox across connected social accounts", pro: "Included", teams: "Included" },
   {
-    feature: "Supported conversation rules, AI-suggested replies, FAQ responses, and human handoff",
-    pro: "Included",
-    teams: "Included",
-  },
-  { feature: "Lead capture, qualification, and source attribution", pro: "Included", teams: "Included" },
-  { feature: "Performance insights, audience signals, and experiments", pro: "Included", teams: "Included" },
-  { group: "Team collaboration" },
-  { feature: "Shared workspaces and drafts", pro: "—", teams: "Included" },
-  { feature: "Team roles and permissions", pro: "—", teams: "Included" },
-  { feature: "Shared review, comments, and approvals", pro: "—", teams: "Included" },
-  { feature: "Conversation ownership and lead routing", pro: "—", teams: "Included" },
-  { feature: "CRM handoff, booking status, and team outcome tracking", pro: "—", teams: "Included" },
-];
-
-export const workflowCards = [
-  {
-    href: "/feature-content-operations",
-    step: "01 · PLAN",
-    title: "Bring order to video work",
-    body: "Bulk intake, review, calendar, queue, and editing actions make publishing manageable.",
+    title: "Videos and captions",
+    description: "Get every channel's version right.",
+    rows: [
+      both("A caption per channel", "chat", "Write one caption, then change it for any channel."),
+      both("Titles and variables", "edit", "Add the title YouTube needs, and variables whose value differs per channel."),
+      both("Images as well as videos", "image", "Distribute images too, as a carousel or one per file."),
+      both("Text-only to Facebook", "text", "Send text with no file to a Facebook Page."),
+    ],
   },
   {
-    href: "/feature-publishing-guardian",
-    step: "02 · PROTECT",
-    title: "Publish with confidence",
-    body: "Check readiness, monitor each destination, and recover safely when a platform needs attention.",
+    title: "Limits",
+    description: "What each plan has room for.",
+    rows: [
+      { label: "Brands", icon: "layers", tip: "A brand holds the channels, schedule and history of one business or client.", creator: "1", business: "3" },
+      { label: "Connected channels", icon: "plug", tip: "Accounts you can connect across all your brands.", creator: "4", business: "12" },
+      { label: "Team members", icon: "users", tip: "Everyone who can work in your team, counting invites.", creator: "1", business: "5" },
+      { label: "AI app calls per month", icon: "spark", tip: "Calls Claude or ChatGPT can make for you each month.", creator: "500", business: "10,000" },
+    ],
   },
   {
-    href: "/feature-conversation-automation",
-    step: "03 · ENGAGE",
-    title: "Keep conversations moving",
-    body: "Bring eligible comments and supported messages from connected socials into one inbox.",
+    title: "Collaboration",
+    description: "Plan, review and distribute together with your team.",
+    rows: [
+      biz("Shared team", "users", "Invite people to work in the same videos."),
+      biz("Roles", "roles", "Decide who can view, edit, schedule or manage.", "Viewer, Editor, Producer, Admin"),
+      biz("Approvals before distributing", "seal", "An editor sends a video for review before it goes out."),
+      biz("Choose which brands each team member sees", "eye", "Give each team member access to only some brands."),
+    ],
   },
   {
-    href: "/feature-revenue-workflows",
-    step: "04 · CONVERT",
-    title: "Route interest to action",
-    body: "Qualify leads, assign ownership, and connect conversations to bookings, sales, or CRM handoff.",
+    title: "AI apps",
+    description: "Let Claude or ChatGPT plan and schedule your videos.",
+    rows: [
+      both("AI apps (MCP)", "spark", "Connect Claude or ChatGPT to plan and schedule for you."),
+      both("Plan whole campaigns", "megaphone", "Ask an AI app to lay out and schedule a full campaign."),
+    ],
   },
   {
-    href: "/feature-content-intelligence",
-    step: "05 · LEARN",
-    title: "Make the next video smarter",
-    body: "Use audience signals, performance evidence, and experiments to guide what you publish next.",
+    title: "Branding",
+    description: "Your videos, without our name on them.",
+    rows: [{ label: "Remove the #profaily tag", icon: "tag", tip: "Turn off the #profaily tag added to the end of your videos.", note: "Stays on during the trial", creator: true, business: true }],
   },
 ];
 
-export const testimonials = [
-  {
-    image: "creator",
-    alt: "AI-generated illustrative portrait of a fictional independent video creator",
-    role: "Independent video creator",
-    quote: "“I start with one finished video, tailor the details for each channel, and get everything scheduled from one place.”",
-  },
-  {
-    image: "marketer",
-    alt: "AI-generated illustrative portrait of a fictional social media manager",
-    role: "Social media manager",
-    quote: "“The calendar makes it easier to see what’s planned, what’s ready, and what still needs attention before the week gets busy.”",
-  },
-  {
-    image: "agency",
-    alt: "AI-generated illustrative portrait of a fictional agency strategist",
-    role: "Agency strategist",
-    quote: "“We can keep each platform’s captions and publishing status connected, so a multi-channel launch is easier to coordinate.”",
-  },
-  {
-    image: "founder",
-    alt: "AI-generated illustrative portrait of a fictional small business owner",
-    role: "Small business owner",
-    quote: "“When a video sparks a serious question, the shared inbox helps us bring the conversation to the right person.”",
-  },
-  {
-    image: "team",
-    alt: "AI-generated illustrative portrait of a fictional marketing team lead",
-    role: "Marketing team lead",
-    quote: "“Reviewing the plan together gives everyone a clearer view of what’s going live and who owns the next step.”",
-  },
-  {
-    image: "strategist",
-    alt: "AI-generated illustrative portrait of a fictional content strategist",
-    role: "Content strategist",
-    quote: "“Performance signals help us decide which video ideas to build on and what to experiment with next.”",
-  },
-];
-
+/** Plain-string answers: they feed the FAQPage JSON-LD as well as the page. */
 export const pricingFaq = [
   {
-    q: "Which plan is right for a solo creator?",
-    a: "Pro is designed for creators and independent operators who plan, publish, and manage their own video workflow.",
+    q: "How does the free trial work?",
+    a: `Business comes with a ${TRIAL_DAYS}-day free trial. A card is required to start it, and you are not charged until the trial ends, so cancel before then if it is not for you. Creator has no trial.`,
   },
   {
-    q: "When should a business choose Teams?",
-    a: "Choose Teams when video work is shared across people or brands and you need roles, review, ownership, lead routing, and CRM handoff.",
+    q: "Which currency will I pay in?",
+    a: "Customers billed in Nigeria pay in naira (NGN) through Paystack. Everyone else pays in US dollars (USD).",
   },
   {
-    q: "Do both plans publish to all four supported platforms?",
-    a: "Both plans cover TikTok, Instagram, YouTube, and Facebook. Available publishing options can vary by account permissions and platform support.",
+    q: "How much do I save by paying yearly?",
+    a: `Paying yearly saves ${YEARLY_SAVING}% compared with paying monthly for twelve months.`,
   },
   {
-    q: "Does Profaily edit or resize my video?",
-    a: "No. Upload your finished video. Profaily reuses that source file and lets you customize the available post details for each platform.",
+    q: "Can I switch plans later?",
+    a: "Yes. Move between Creator and Business, or between monthly and yearly billing, from Settings → Billing. You can also cancel there at any time.",
   },
   {
-    q: "Is there a free plan?",
-    a: "No. Pro and Teams both start with a five-day free trial.",
+    q: "What is a brand?",
+    a: "A brand is one business or client with its own channels, schedule and history. Creator includes one brand; Business includes three, so an agency or business can keep separate brands apart.",
+  },
+  {
+    q: "What is an AI call?",
+    a: "Profaily works with AI apps such as Claude and ChatGPT through MCP. Each action one of those apps asks Profaily to take, like drafting or scheduling a video, counts as one call against your monthly allowance.",
+  },
+  {
+    q: "What happens if a payment fails?",
+    a: "You get 7 days of grace to update your payment method with everything still working. After that your workspace becomes read-only until payment goes through.",
   },
 ];
