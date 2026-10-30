@@ -62,7 +62,7 @@ export default function Page() {
                   <tr className="grp">
                     <th scope="colgroup" colSpan={3}>
                       {sec.title}
-                      <span>{sec.description}</span>
+                      {sec.description && <span>{sec.description}</span>}
                     </th>
                   </tr>
                   {sec.rows.map((r) => (

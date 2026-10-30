@@ -13,7 +13,7 @@ export const pricingMeta = {
  */
 export type Cell = boolean | string;
 export type CompareRow = { label: string; tip: string; icon: string; note?: string; creator: Cell; business: Cell };
-export type CompareSection = { title: string; description: string; rows: CompareRow[] };
+export type CompareSection = { title: string; description?: string; rows: CompareRow[] };
 
 const both = (label: string, icon: string, tip: string): CompareRow => ({ label, icon, tip, creator: true, business: true });
 const biz = (label: string, icon: string, tip: string, note?: string): CompareRow => ({ label, icon, tip, ...(note ? { note } : {}), creator: false, business: true });
@@ -21,7 +21,6 @@ const biz = (label: string, icon: string, tip: string, note?: string): CompareRo
 export const compareSections: CompareSection[] = [
   {
     title: "Scheduling",
-    description: "Plan videos and send them out on time.",
     rows: [
       both("Calendar", "calendar", "See everything scheduled, by day and week."),
       both("Scheduling", "clock", "Pick a time, or take the next queue slot."),
@@ -32,7 +31,6 @@ export const compareSections: CompareSection[] = [
   },
   {
     title: "Channels",
-    description: "Distribute one video to every channel.",
     rows: [
       both("TikTok", "tiktok", "Distribute your videos to TikTok."),
       both("Instagram", "instagram", "Distribute your videos to Instagram."),
@@ -42,7 +40,6 @@ export const compareSections: CompareSection[] = [
   },
   {
     title: "Videos and captions",
-    description: "Get every channel's version right.",
     rows: [
       both("A caption per channel", "chat", "Write one caption, then change it for any channel."),
       both("Titles and variables", "edit", "Add the title YouTube needs, and variables whose value differs per channel."),
@@ -52,7 +49,6 @@ export const compareSections: CompareSection[] = [
   },
   {
     title: "Limits",
-    description: "What each plan has room for.",
     rows: [
       { label: "Brands", icon: "layers", tip: "A brand holds the channels, schedule and history of one business or client.", creator: "1", business: "3" },
       { label: "Connected channels", icon: "plug", tip: "Accounts you can connect across all your brands.", creator: "4", business: "12" },
@@ -62,7 +58,6 @@ export const compareSections: CompareSection[] = [
   },
   {
     title: "Collaboration",
-    description: "Plan, review and distribute together with your team.",
     rows: [
       biz("Shared team", "users", "Invite people to work in the same videos."),
       biz("Roles", "roles", "Decide who can view, edit, schedule or manage.", "Viewer, Editor, Producer, Admin"),
@@ -72,7 +67,6 @@ export const compareSections: CompareSection[] = [
   },
   {
     title: "AI apps",
-    description: "Let Claude or ChatGPT plan and schedule your videos.",
     rows: [
       both("AI apps (MCP)", "spark", "Connect Claude or ChatGPT to plan and schedule for you."),
       both("Plan whole campaigns", "megaphone", "Ask an AI app to lay out and schedule a full campaign."),
@@ -80,7 +74,6 @@ export const compareSections: CompareSection[] = [
   },
   {
     title: "Branding",
-    description: "Your videos, without our name on them.",
     rows: [{ label: "Remove the #profaily tag", icon: "tag", tip: "Turn off the #profaily tag added to the end of your videos.", note: "Stays on during the trial", creator: true, business: true }],
   },
 ];
