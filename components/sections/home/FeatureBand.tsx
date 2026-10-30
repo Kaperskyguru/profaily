@@ -32,16 +32,16 @@ const ITEMS: Item[] = [
 ];
 
 const MORE: [IconName, string][] = [
+  ["image", "Media library"],
   ["tag", "Tags"],
   ["braces", "Variables"],
   ["smile", "Emojis"],
   ["gallery", "Carousels"],
   ["resize", "Auto resize"],
   ["retry", "Auto video conversion"],
-  ["image", "Media library"],
-  ["upload", "Drive, Dropbox, OneDrive"],
-  ["queue", "Posting queue"],
   ["clock", "Schedule in plain words"],
+  ["queue", "Posting queue"],
+  ["upload", "Drive, Dropbox, OneDrive"],
   ["layers", "Several brands"],
   ["roles", "Team roles"],
   ["eye", "Shareable review links"],
