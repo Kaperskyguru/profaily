@@ -16,7 +16,7 @@ export const testimonials: Testimonial[] = [];
 
 /** Layout stand-ins so the section can be reviewed before real quotes exist. Only shown when the build sets NEXT_PUBLIC_SAMPLE_TESTIMONIALS=1; never ship these. */
 export const sampleTestimonials: Testimonial[] = [
-  { name: "Sample customer", handle: "@handle", platform: "instagram", text: "One upload, four channels.\n\nI used to export the same video three times. Now @profaily does it and I check the previews." },
+  { name: "Sample customer", handle: "@handle", platform: "instagram", text: "One upload, multiple channels.\n\nI used to export the same video three times. Now @profaily does it and I check the previews." },
   { name: "Sample customer", handle: "@handle", platform: "tiktok", text: "Bulk import changed my Mondays.\n\n- Upload a CSV\n- Fix the two rows it flags\n- Done for the month" },
   { name: "Sample customer", handle: "@handle", platform: "youtube", text: "My producer sends a video for review, I comment, she fixes it, I approve. All inside @profaily." },
   { name: "Sample customer", handle: "@handle", platform: "facebook", text: "The Publishing Center is the page I open first. I can see what posted and where it did not." },

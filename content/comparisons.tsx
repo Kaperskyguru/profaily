@@ -87,7 +87,7 @@ export const comparisons = {
       {
         area: "Channels",
         competitor: "A broad channel list, including TikTok, YouTube Shorts, Instagram, and Facebook; per-channel capabilities vary.",
-        profaily: "Exactly four channels: TikTok, Instagram Reels, YouTube (Shorts and long-form), and Facebook, with per-channel details.",
+        profaily: "Focused on these channels: TikTok, Instagram Reels, YouTube (Shorts and long-form), and Facebook, with per-channel details.",
       },
       {
         area: "Planning and publishing",
@@ -118,7 +118,7 @@ export const comparisons = {
     fit: {
       competitor: "You want a free starting point, manage several kinds of social accounts, or prefer adding channels as your needs grow. Buffer’s pricing page currently lists a free plan for up to three channels; paid plans are priced per channel. Its Team plan lists unlimited users, access levels, and approval workflows.",
       profaily: "Your main publishing work is short-form video across TikTok, Instagram Reels, YouTube, and Facebook, and you want bulk import, per-channel previews, team approvals, and per-channel status and retry in one workflow.",
-      tradeoff: "Buffer supports a wider range of social networks, offers a free plan, and includes community and analytics tools. Profaily is more focused: four channels, no inbox or analytics yet, and it keeps your finished video intact rather than editing or resizing the footage.",
+      tradeoff: "Buffer supports a wider range of social networks, offers a free plan, and includes community and analytics tools. Profaily is more focused: a short list of channels, no inbox or analytics yet, and it keeps your finished video intact rather than editing or resizing the footage.",
     },
     flowSummary: "Buffer gives you a broad social publishing toolkit. Profaily’s distinction is the sequence around a short-form video: import it, adjust each channel’s details, get it approved, schedule it, and follow each channel until it is posted, retrying any channel that fails.",
     faq: [
@@ -168,7 +168,7 @@ export const comparisons = {
       {
         area: "Channels",
         competitor: "Later lists eight platforms, including Instagram, Facebook, TikTok, YouTube, Threads, Pinterest, LinkedIn, and Snapchat.",
-        profaily: "Exactly four channels: TikTok, Instagram Reels, YouTube (Shorts and long-form), and Facebook.",
+        profaily: "Focused on these channels: TikTok, Instagram Reels, YouTube (Shorts and long-form), and Facebook.",
       },
       {
         area: "Planning and publishing",
@@ -199,7 +199,7 @@ export const comparisons = {
     fit: {
       competitor: "You care about a visual calendar, managing a wider set of networks, profile-based planning, best-time recommendations, or built-in media tools. Later’s official plan comparison lists Instagram, Facebook, TikTok, Threads, YouTube, Pinterest, LinkedIn, and Snapchat; post limits, users, and features vary by plan.",
       profaily: "You already have finished videos and need to coordinate the path to posting: bulk import, separate details per channel, validation before scheduling, team approval, and per-channel status with retry.",
-      tradeoff: "Later documents visual planning, multi-profile publishing, post customization, best-time recommendations, and media editing features. Profaily is not an in-app video editor or a broad social calendar for every network, and it has no inbox or analytics yet; it keeps the original finished file and focuses on four channels.",
+      tradeoff: "Later documents visual planning, multi-profile publishing, post customization, best-time recommendations, and media editing features. Profaily is not an in-app video editor or a broad social calendar for every network, and it has no inbox or analytics yet; it keeps the original finished file and focuses on multiple channels.",
     },
     flowSummary: "Later makes visual planning, scheduling, and post refinement central. Profaily starts with the completed video and brings the less visible steps forward: validate it for each channel, get it approved, schedule it, and track every channel until it is posted.",
     faq: [
@@ -249,7 +249,7 @@ export const comparisons = {
       {
         area: "Channels",
         competitor: "Metricool lists many social and ad connections, including Instagram, Facebook, TikTok, YouTube, LinkedIn, and more; availability varies by plan.",
-        profaily: "Exactly four channels: TikTok, Instagram Reels, YouTube (Shorts and long-form), and Facebook.",
+        profaily: "Focused on these channels: TikTok, Instagram Reels, YouTube (Shorts and long-form), and Facebook.",
       },
       {
         area: "Planning and publishing",
@@ -312,7 +312,7 @@ export const comparisons = {
     hero: {
       title: "Looking for a Hootsuite alternative focused on short-form video?",
       lede: "Hootsuite is a broad social management platform for publishing, inbox work, listening, analytics, and team operations. Profaily takes a narrower, video-first approach: one finished video moves through per-channel setup, team approval, scheduling, and per-channel publishing status.",
-      panelNote: "Hootsuite suits broad social operations and listening. Profaily focuses on short-form video delivery to four channels.",
+      panelNote: "Hootsuite suits broad social operations and listening. Profaily focuses on short-form video delivery to multiple channels.",
     },
     quick: [
       { label: "Built for", them: "Broad social management", us: "Short-form video" },
@@ -330,7 +330,7 @@ export const comparisons = {
       {
         area: "Channels",
         competitor: "Hootsuite supports a broad range of social networks; Standard describes up to 10 social accounts.",
-        profaily: "Exactly four channels: TikTok, Instagram Reels, YouTube (Shorts and long-form), and Facebook.",
+        profaily: "Focused on these channels: TikTok, Instagram Reels, YouTube (Shorts and long-form), and Facebook.",
       },
       {
         area: "Planning and publishing",

@@ -36,7 +36,7 @@ export const audiences: Record<AudienceKey, AudienceContent> = {
   creators: {
     key: "creators",
     label: "Creators",
-    nav: "Post every day without living in four apps",
+    nav: "Post every day without living in multiple channels",
     meta: {
       title: "Profaily for creators | Schedule short-form video everywhere",
       description: "Upload a video once and Profaily posts it to TikTok, Instagram Reels, YouTube and Facebook, each with its own caption, on a schedule you set once.",
@@ -44,12 +44,12 @@ export const audiences: Record<AudienceKey, AudienceContent> = {
     },
     hero: {
       title: "Profaily for creators",
-      tagline: "Post every day without living in four apps",
+      tagline: "Post every day without living in multiple channels",
       lede: "Upload a video once. Profaily posts it to TikTok, Instagram Reels, YouTube and Facebook, each with its own caption, on a schedule you set once.",
       image: shot("ch-tiktok-composer", "Profaily composer with a kitten video and its caption in a TikTok preview"),
     },
     benefits: [
-      { title: "One upload, four channels", body: "Send the same video to TikTok, Instagram Reels, YouTube and Facebook without exporting it four times." },
+      { title: "One upload, multiple channels", body: "Send the same video to TikTok, Instagram Reels, YouTube and Facebook without exporting it four times." },
       { title: "See it before it posts", body: "Each channel gets its own caption and its own player preview, so nothing surprises you after it goes live." },
       { title: "A queue that fills itself", body: "Set your posting times once. New videos drop into the next open slot, or say “next Tuesday 6pm”." },
       { title: "Plan from ChatGPT or Claude", body: "Ask your assistant to draft and schedule videos for you. You still see what goes out and when." },
@@ -61,7 +61,7 @@ export const audiences: Record<AudienceKey, AudienceContent> = {
       { verb: "Track", title: "Know what posted and what didn’t", lead: "The Publishing Center lists every video and where it stands on each channel, with a link to the live post.", points: ["If one channel fails, the others still post", "Retry only the one that failed", "Phone alerts when a video posts or needs you"], image: shot("feat-tracking", "Profaily Publishing Center listing a video and its status on each channel") },
     ],
     faq: [
-      { q: "How much does Profaily cost for a creator?", a: "The Creator plan is $15 a month, or $12 a month billed yearly. It includes one brand, four connected channels and a monthly allowance of AI app calls." },
+      { q: "How much does Profaily cost for a creator?", a: "The Creator plan is $15 a month, or $12 a month billed yearly. It includes one brand, multiple connected channels and a monthly allowance of AI app calls." },
       { q: "Which channels can I post to?", a: "TikTok, Instagram Reels, YouTube (Shorts and longer videos) and Facebook Pages. We go deep on these four instead of shallow on twenty." },
       { q: "Does Profaily edit my videos?", a: "No. It posts the file you upload. The previews show how each channel will frame it, and anything a channel won’t accept is flagged before it is scheduled." },
       { q: "Can I use it on my phone?", a: "Yes. Profaily installs to your home screen and can alert you when a video posts or needs you." },
@@ -157,7 +157,7 @@ export const audiences: Record<AudienceKey, AudienceContent> = {
       title: "Profaily for developers",
       tagline: "The publishing layer for whatever you’re building",
       lede: "Profaily’s MCP server gives your agent, script or tool the same publishing workflow the app uses: drafts, review, scheduling and status.",
-      image: shot("mcp-5-queue", "Profaily queue: the Meet Miso video scheduled for Saturday 31 October at 09:00 on four channels"),
+      image: shot("mcp-5-queue", "Profaily queue: the Meet Miso video scheduled for Saturday 31 October at 09:00 on multiple channels"),
     },
     benefits: [
       { title: "The real workflow, not a lookalike", body: "Over 25 tools cover drafts, uploads, review, approval, scheduling, campaigns and status, on the same services the app runs on." },

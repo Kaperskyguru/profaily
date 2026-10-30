@@ -30,7 +30,7 @@ const THREAD: Item[] = [
   { id: "t1", kind: "tool", at: 4.5, done: 5.9, label: "Searching your media library", result: "Found Meet Miso in your library" },
   { id: "t2", kind: "tool", at: 6.1, done: 7.1, label: "Checking connected channels", result: "YouTube, TikTok, Instagram and Facebook" },
   { id: "t3", kind: "tool", at: 7.3, done: 8.7, label: "Creating a draft", result: "Draft created in Profaily" },
-  { id: "a2", kind: "ai", at: 11.2, text: "The draft is ready, with a caption written for each channel. All four channels accept it." },
+  { id: "a2", kind: "ai", at: 11.2, text: "The draft is ready, with a caption written for each channel. All the channels accept it." },
   { id: "u2", kind: "user", at: PROMPTS[1].send, text: PROMPTS[1].text },
   { id: "t4", kind: "tool", at: 14.4, done: 15.6, label: "Sending for review", result: "Sent to Tunde Bello for review" },
   { id: "a3", kind: "ai", at: 16.0, text: "Sent. Nothing is scheduled until Tunde approves it." },
@@ -42,11 +42,11 @@ const THREAD: Item[] = [
 
 /* The real dashboard frames, and when each takes the screen. `z`/`o` = zoom and origin inside the pane. */
 const SHOTS = [
-  { src: "/assets/app/mcp-1-draft.jpg", from: 8.0, z: 1.5, o: "0% 0%", alt: "Profaily composer: the Meet Miso draft ChatGPT created, with four channels selected" },
+  { src: "/assets/app/mcp-1-draft.jpg", from: 8.0, z: 1.5, o: "0% 0%", alt: "Profaily composer: the Meet Miso draft ChatGPT created, with every channel selected" },
   { src: "/assets/app/mcp-2-send.jpg", from: 14.0, z: 1, o: "50% 50%", alt: "Profaily Send for review dialog: tomorrow 9am, Sat 31 Oct 09:00, with YouTube, TikTok, Instagram and Facebook ready" },
   { src: "/assets/app/mcp-3-sent.jpg", from: 15.6, z: 1.5, o: "0% 0%", alt: "Profaily showing the video In review, with the toast Sent for review, for Tomorrow 09:00" },
   { src: "/assets/app/mcp-4-review.jpg", from: 17.4, z: 1.5, o: "100% 0%", alt: "Profaily as the producer: the video In review with Request changes and Approve and schedule" },
-  { src: "/assets/app/mcp-5-queue.jpg", from: 20.4, z: 1.5, o: "0% 0%", alt: "Profaily queue: the video Scheduled for Tomorrow, Sat 31 Oct at 09:00 on four channels" },
+  { src: "/assets/app/mcp-5-queue.jpg", from: 20.4, z: 1.5, o: "0% 0%", alt: "Profaily queue: the video Scheduled for Tomorrow, Sat 31 Oct at 09:00 on multiple channels" },
   { src: "/assets/app/mcp-6-calendar.jpg", from: 25.0, z: 1.12, o: "100% 0%", alt: "Profaily calendar: the Meet Miso video on Saturday 31 October at 09:00" },
 ] as const;
 

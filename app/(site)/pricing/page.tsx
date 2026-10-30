@@ -86,7 +86,7 @@ export default function Page() {
             </table>
           </div>
           <p className="fine">
-            Prices shown monthly in US dollars; yearly and naira prices are in the plan cards above. The {TRIAL_DAYS}-day free trial is on Business.
+            Prices shown are monthly; yearly prices are in the plan cards above. The {TRIAL_DAYS}-day free trial is on Business.
           </p>
         </section>
 

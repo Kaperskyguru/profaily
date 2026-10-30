@@ -47,7 +47,7 @@ const ms = (i: number) => (ITEMS[i].secs ? Math.round((ITEMS[i].secs / rate(i)) 
 const wrap = (i: number, cur: number) => { const n = ITEMS.length; return ((i - cur + n + n / 2) % n) - n / 2; };
 
 function Agents() {
-  return <img className="agents-shot" src="/assets/app/mcp-5-queue.jpg" alt="Profaily queue: a video scheduled for Saturday 31 October at 09:00 on four channels, the result of asking an assistant to schedule it" width="1600" height="1231" loading="lazy" />;
+  return <img className="agents-shot" src="/assets/app/mcp-5-queue.jpg" alt="Profaily queue: a video scheduled for Saturday 31 October at 09:00 on multiple channels, the result of asking an assistant to schedule it" width="1600" height="1231" loading="lazy" />;
 }
 
 /** The feature band: a roller that always keeps the current feature in the middle and loops forever, with the message and a real recording for each. */

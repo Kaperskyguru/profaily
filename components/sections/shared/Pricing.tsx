@@ -78,7 +78,7 @@ export function Pricing({
           </li>
         ))}
       </ul>
-      <p className="fine">Naira prices apply to customers billed in Nigeria. Cancel anytime from Settings → Billing.</p>
+      <p className="fine">Cancel anytime from Settings → Billing.</p>
     </section>
   );
 }

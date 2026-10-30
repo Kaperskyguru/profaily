@@ -6,7 +6,7 @@ import { links } from "@/lib/links";
 const CUSTOMERS = [
   { name: "FastApply", src: "/assets/customer-logos/fastapply-mark.png", flat: true },
   { name: "ApplyScout", src: "/assets/customer-logos/applyscout.svg" },
-  { name: "Mastering Backend", src: "/assets/customer-logos/mastering-backend.png" },
+  { name: "Mastering Backend", src: "/assets/customer-logos/mastering-backend.png", fill: true },
   { name: "Droomwork", src: "/assets/customer-logos/droomwork-mark.svg" },
 ];
 
@@ -39,7 +39,7 @@ export function CtaBand({
             <ul aria-label="Businesses using Profaily">
               {CUSTOMERS.map((c) => (
                 <li key={c.name} title={c.name}>
-                  <img src={c.src} alt="" className={"flat" in c ? "flat" : undefined} loading="lazy" />
+                  <img src={c.src} alt="" className={"flat" in c ? "flat" : "fill" in c ? "fill" : undefined} loading="lazy" />
                 </li>
               ))}
             </ul>
