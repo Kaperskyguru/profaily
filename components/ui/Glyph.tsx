@@ -113,6 +113,13 @@ const ICONS = {
   plug: "M9 3v5M15 3v5M7 8h10v3a5 5 0 0 1-10 0zM12 16v5",
   home: "M4 11 12 4l8 7M6 9.5V20h4v-5h4v5h4V9.5",
   chevronRight: "M9 6l6 6-6 6",
+  braces: "M8 4c-2 0-3 1-3 3v2c0 1.5-1 3-2 3 1 0 2 1.5 2 3v2c0 2 1 3 3 3M16 4c2 0 3 1 3 3v2c0 1.5 1 3 2 3-1 0-2 1.5-2 3v2c0 2-1 3-3 3",
+  smile: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM8.5 14a4.5 4.5 0 0 0 7 0M9 9.5h.01M15 9.5h.01",
+  gallery: "M3 8h13v11H3zM8 4h13v11",
+  resize: "M4 20v-6M4 20h6M4 20l7-7M20 4v6M20 4h-6M20 4l-7 7",
+  monitor: "M3 4h18v12H3zM8 20h8M12 16v4",
+  command: "M9 9V6a3 3 0 1 0-3 3zM9 9h6M15 9V6a3 3 0 1 1 3 3zM9 15v3a3 3 0 1 1-3-3zM15 15v3a3 3 0 1 0 3-3zM9 9v6M15 9v6M9 15h6",
+  moon: "M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z",
 } as const;
 
 export type IconName = keyof typeof ICONS;

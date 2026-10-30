@@ -32,14 +32,24 @@ const ITEMS: Item[] = [
 ];
 
 const MORE: [IconName, string][] = [
-  ["phone", "Installable phone app"],
-  ["bell", "Phone alerts"],
+  ["tag", "Tags"],
+  ["braces", "Variables"],
+  ["smile", "Emojis"],
+  ["gallery", "Carousels"],
+  ["resize", "Auto resize"],
+  ["retry", "Auto video conversion"],
+  ["image", "Media library"],
+  ["upload", "Drive, Dropbox, OneDrive"],
+  ["queue", "Posting queue"],
+  ["clock", "Schedule in plain words"],
   ["layers", "Several brands"],
   ["roles", "Team roles"],
   ["eye", "Shareable review links"],
-  ["upload", "Drive, Dropbox and OneDrive"],
-  ["queue", "Posting queue"],
-  ["clock", "Natural language scheduling"],
+  ["bell", "Phone alerts"],
+  ["phone", "Installable phone app"],
+  ["monitor", "Desktop app"],
+  ["command", "Keyboard shortcuts"],
+  ["moon", "Dark mode"],
 ];
 
 const rate = (i: number) => Math.max(1, (ITEMS[i].secs ?? 0) / MAX);
