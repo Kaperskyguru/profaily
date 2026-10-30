@@ -18,21 +18,21 @@ const GROUPS: Group[] = [
   {
     id: "making",
     title: "Making videos",
-    lead: "Bring videos in once, write the caption once, and see how each channel will show it.",
+    lead: "Bring videos in once, write one caption, and check how each channel will show it.",
     features: [
-      { title: "Upload once", text: "Drop a video, or import it from Google Drive, Dropbox, OneDrive or a CSV.", clip: "upload", rest: 3.2, crop: [36, 4, 50] },
-      { title: "Write captions", text: "Write one caption, then tune it for each channel as you type.", clip: "write", rest: 6, crop: [26, 6, 64] },
-      { title: "Preview every channel", text: "See each video in the player of its channel before it goes out.", clip: "previews", rest: 5, crop: [44, 8, 56] },
+      { title: "Upload once", text: "Drop in a video, or import from Google Drive, Dropbox, OneDrive or a CSV.", clip: "upload", rest: 3.2, crop: [36, 4, 50] },
+      { title: "Write captions", text: "Write once, then adjust a single channel without touching the others.", clip: "write", rest: 6, crop: [26, 6, 64] },
+      { title: "Preview every channel", text: "See each video in its channel’s own player before it goes out.", clip: "previews", rest: 5, crop: [44, 8, 56] },
     ],
   },
   {
     id: "distributing",
     title: "Distributing videos",
-    lead: "Connect your channels, fill the calendar, and get approval before anything goes live.",
+    lead: "Connect your channels, schedule across brands, and get sign-off before anything goes live.",
     features: [
-      { title: "Connect channels", text: "Connect TikTok, Instagram, YouTube and Facebook in one click each.", clip: "connect", rest: 9, crop: [28, 24, 44] },
-      { title: "Fill the calendar", text: "Drag videos onto the days they should go out, across every brand.", clip: "fill", rest: 15, crop: [20, 2, 80] },
-      { title: "Team approval", text: "Comment on a video, request changes or approve it before it is scheduled.", clip: "approve", rest: 7.6, crop: [38, 0, 62] },
+      { title: "Connect channels", text: "Link TikTok, Instagram, YouTube and Facebook to a brand, one click each.", clip: "connect", rest: 9, crop: [28, 24, 44] },
+      { title: "Fill the calendar", text: "Drag videos onto the days they should go out, across every brand in your team.", clip: "fill", rest: 15, crop: [20, 2, 80] },
+      { title: "Team approval", text: "Comment, request changes or approve. Nothing is scheduled until the right person signs off.", clip: "approve", rest: 7.6, crop: [38, 0, 62] },
     ],
   },
 ];

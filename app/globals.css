@@ -321,6 +321,7 @@ html[data-scrolled] .nav { top: calc(12px + env(safe-area-inset-top, 0px)); }
 .more-lt ul { list-style: none; margin: 26px auto 0; padding: 0; max-width: 1000px; display: flex; flex-wrap: wrap; justify-content: center; gap: 22px 38px; }
 .more-lt li { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); font-size: 17px; line-height: 1.3; white-space: nowrap; }
 .more-lt li svg { width: 22px; height: 22px; flex: none; color: var(--faint); }
+@media (max-width: 600px) { .more-lt ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 14px; justify-items: start; margin-top: 22px; } .more-lt li { white-space: normal; font-size: 15.5px; align-items: flex-start; } .more-lt li svg { margin-top: 1px; } }
 
 /* ------------------------------------------------------------------ feature groups */
 .groups { padding-block: 130px 20px; display: grid; gap: 28px; }
@@ -838,4 +839,11 @@ a.tile-card .more-link { margin-top: 6px; text-decoration: none; }
   .disc { grid-template-columns: minmax(0, 1fr); }
   .disc h2 { max-width: 22ch; }
   .disc-stack { max-width: 560px; margin-inline: auto; width: 100%; }
+}
+
+/* Small phones (320–374px): keep the nav on one line and let the sign-in buttons share the row evenly. */
+.nav-cta { white-space: nowrap; }
+@media (max-width: 374px) {
+  .nav-cta { padding: 0 16px; font-size: 14px; }
+  .signup .oauth, .oauth { gap: 8px; }
 }

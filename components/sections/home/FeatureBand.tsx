@@ -21,14 +21,14 @@ type Item = {
 const MAX = 8.5;
 
 const ITEMS: Item[] = [
-  { label: "Built for modern teams", icon: "users", title: "Built for modern teams", text: "Comments, approvals and shared links make collaboration a breeze.", clip: "teams", secs: 15.5, look: "fill", crop: [28, 6, 64] },
+  { label: "Built for modern teams", icon: "users", title: "Built for modern teams", text: "Comments, approvals and shared review links keep every video on brief before it goes out.", clip: "teams", secs: 15.5, look: "fill", crop: [28, 6, 64] },
   { label: "Publish everywhere at once", icon: "upload", title: "Publish everywhere at once", text: "Schedule one video to TikTok, Instagram, YouTube and Facebook, each in its own format.", clip: "publish", secs: 13.1, look: "card", crop: [27, 3, 46] },
-  { label: "A better place to create", icon: "edit", title: "A better place to create", text: "Write one caption and see it on every channel as you type.", clip: "write", secs: 8.5, look: "fill", crop: [27, 8, 62] },
-  { label: "Humans and agents", icon: "plug", title: "A workspace for humans and agents", text: "Claude and ChatGPT can queue drafts and manage your calendar through MCP.", look: "card", crop: [0, 0, 100] },
-  { label: "A calendar for scheduling", icon: "calendar", title: "A calendar built for scheduling", text: "See what is scheduled, in review and ready to ship, across the whole team.", clip: "calendar", secs: 10.4, look: "fill", crop: [48, 0, 52] },
-  { label: "A month in one file", icon: "table", title: "Bring a month of videos in one file", text: "Import a CSV or pull videos from Google Drive, Dropbox and OneDrive.", clip: "import", secs: 5.8, look: "fill", crop: [25, 3, 60] },
-  { label: "Previews before you ship", icon: "phone", title: "Real previews before you ship", text: "Check each video in its own channel’s player before it goes live.", clip: "previews", secs: 10.6, look: "card", crop: [63, 11, 34] },
-  { label: "Every channel, tracked", icon: "queue", title: "Know what happened on every channel", text: "One list of every video you sent out, and where it stands on each channel.", clip: "tracking", secs: 4.3, look: "strip", crop: [27, 20, 68] },
+  { label: "A better place to create", icon: "edit", title: "A better place to create", text: "Write the caption once and see how it reads on every channel as you type.", clip: "write", secs: 8.5, look: "fill", crop: [27, 8, 62] },
+  { label: "Humans and agents", icon: "plug", title: "A workspace for humans and agents", text: "Let Claude or ChatGPT draft, queue and schedule videos for your team through MCP.", look: "card", crop: [0, 0, 100] },
+  { label: "A calendar for scheduling", icon: "calendar", title: "A calendar built for scheduling", text: "See what is scheduled, in review and ready to ship, across every brand and team member.", clip: "calendar", secs: 10.4, look: "fill", crop: [48, 0, 52] },
+  { label: "A month in one file", icon: "table", title: "Bring a month of videos in one file", text: "Import a CSV, or pull videos from Google Drive, Dropbox and OneDrive, and schedule them in one pass.", clip: "import", secs: 5.8, look: "fill", crop: [25, 3, 60] },
+  { label: "Previews before you ship", icon: "phone", title: "Check every channel before you publish", text: "See each video in its own channel’s player, so nothing goes out cropped or cut off.", clip: "previews", secs: 10.6, look: "card", crop: [63, 11, 34] },
+  { label: "Every channel, tracked", icon: "queue", title: "Know where every video stands", text: "One list of every video you sent, with its status and live link on each channel.", clip: "tracking", secs: 4.3, look: "strip", crop: [27, 20, 68] },
 ];
 
 const MORE: [IconName, string][] = [

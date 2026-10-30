@@ -27,7 +27,7 @@ export function Testimonials() {
     <section className="love" aria-labelledby="love-h">
       <div className="wrap">
         <h2 id="love-h">Creators love Profaily</h2>
-        <p className="lead">What people say once their videos go out from one place.</p>
+        <p className="lead">What teams and creators say once their videos go out from one place.</p>
         {pages > 1 && (
           <div className="pager">
             <button type="button" aria-label="Previous quotes" onClick={() => setPage((page + pages - 1) % pages)}><Icon name="chevron" className="prev" /></button>
