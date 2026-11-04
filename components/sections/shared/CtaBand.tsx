@@ -12,7 +12,7 @@ const CUSTOMERS = [
 
 /** The closing card on subpages: the old "Discover Profaily" promo, with real screenshots stacked beside the ask. */
 export function CtaBand({
-  heading = "Put your video marketing workflow in one place",
+  heading = "Run video marketing from one place",
   lede = "Plan and publish across TikTok, Instagram, YouTube and Facebook. Keep each channel’s details in view, then follow every video from one workspace.",
   primary = { href: links.register, label: "Check out Profaily" },
   secondary,

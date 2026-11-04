@@ -11,7 +11,8 @@
 .chp-points li { position: relative; padding-left: 20px; }
 .chp-points li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 8px; height: 8px; border-radius: 50%; background: var(--mint); }
 .chp-img { width: 100%; height: auto; border-radius: 14px; box-shadow: 0 0 0 1px var(--line), 0 24px 44px -28px rgba(13, 36, 31, 0.35); background: #fff; }
-.chp-fig { border-radius: 14px; overflow: hidden; box-shadow: 0 0 0 1px var(--line), 0 24px 44px -28px rgba(13, 36, 31, 0.35); background: #fff; }
+.chp-fig { border-radius: 18px; overflow: hidden; background: var(--shell); padding: 8px; }
+.chp-fig .chp-img { border-radius: 11px; }
 .chp-fig .chp-img { display: block; border-radius: 0; box-shadow: none; }
 .chp-fig.zoomcal { aspect-ratio: 1.3; }
 .chp-fig.zoomcal .chp-img { height: 100%; object-fit: cover; transform: scale(1.6); transform-origin: 80% 14%; }
@@ -52,7 +53,7 @@
 .chp-hero .chp-tag + .sub { margin-top: 14px; }
 .chp-ben-first { padding-top: 120px; }
 .chp-ben-first + .chp-how { padding-top: 20px; }
-.chp-code { margin: 0; padding: clamp(18px, 2.4vw, 30px); border-radius: 14px; background: var(--forest); color: var(--on-forest); overflow-x: auto; font: 500 13.5px/1.7 ui-monospace, SFMono-Regular, Menlo, monospace; box-shadow: 0 24px 44px -28px rgba(13, 36, 31, 0.45); }
+.chp-code { margin: 0; padding: clamp(18px, 2.4vw, 30px); border-radius: 14px; background: var(--forest); color: var(--on-forest); overflow-x: auto; font: 500 13.5px/1.7 ui-monospace, SFMono-Regular, Menlo, monospace;  }
 .chp-code code { font: inherit; white-space: pre; }
 .pg-channel .sh .mcp-card { margin-top: 0; padding: 0; background: transparent; }
 .pg-channel .fr.wide { grid-template-columns: minmax(0, 1fr); gap: 36px; }

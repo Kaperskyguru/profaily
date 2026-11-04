@@ -148,7 +148,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
         </section>
 
         <CtaBand
-          heading="Put your video marketing workflow in one place"
+          heading="Run video marketing from one place"
           lede="Plan and publish across TikTok, Instagram, YouTube, and Facebook. Keep each channel’s details in view, then follow publishing and audience conversations from one workspace."
           secondary={{ href: "/features", label: "Explore features" }}
         />

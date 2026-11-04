@@ -144,7 +144,7 @@ export function McpCard(_: { bare?: boolean } = {}) {
 
         <div className="mcp-chat" aria-hidden="true">
           <div className="mcp-chat-top">
-            <b>ChatGPT</b><small>Illustration of the conversation</small>
+            <b>ChatGPT</b>
           </div>
           <div className="mcp-thread">
             {shown.map((i) =>
@@ -179,7 +179,7 @@ export function McpIntro() {
     <div className="mcp-intro">
       <h2 id="mcp-h">Ask ChatGPT.<br />Profaily schedules it.</h2>
       <p className="lead">Connect ChatGPT or Claude to Profaily and ask for a video to go out. It is drafted, sent to your producer for approval, and placed on the calendar, under your team&rsquo;s own review rules.</p>
-      <OAuthButtons lead="Start your free trial:" />
+      <OAuthButtons />
     </div>
   );
 }
