@@ -80,7 +80,7 @@ const guardianVisual = (
 
 const guardianShowcase = (
   <div className="appimg">
-    <img src="/assets/app/composer-welcome-1600.jpg" alt="Profaily composer: the Welcome to Profaily caption beside its YouTube Shorts preview" width="1600" height="1000" loading="lazy" decoding="async" />
+    <img src="/assets/app/composer-welcome-1600.webp" alt="Profaily composer: the Welcome to Profaily caption beside its YouTube Shorts preview" width="1600" height="1000" loading="lazy" decoding="async" />
   </div>
 );
 

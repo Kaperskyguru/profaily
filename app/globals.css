@@ -234,7 +234,7 @@ html[data-scrolled] .nav { top: calc(12px + env(safe-area-inset-top, 0px)); }
 
 .frame { position: relative; max-width: 1320px; margin: 72px auto 0; padding: 28px 28px 0; border-radius: 36px 36px 0 0; background-color: var(--shell); }
 .frame::after { content: ""; position: absolute; inset: auto 0 0 0; height: clamp(96px, 13%, 170px); pointer-events: none; background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.043) 12.5%, rgba(255, 255, 255, 0.156) 25%, rgba(255, 255, 255, 0.316) 37.5%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.684) 62.5%, rgba(255, 255, 255, 0.844) 75%, rgba(255, 255, 255, 0.957) 87.5%, #fff 100%); }
-.frame .scr { border-radius: 18px 18px 0 0; overflow: hidden; background: #fff; aspect-ratio: 16 / 10; }
+.frame .scr { position: relative; border-radius: 18px 18px 0 0; overflow: hidden; background: #fff; aspect-ratio: 16 / 10; }
 .frame .scr img, .frame .scr video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .send { position: absolute; left: 31%; top: 36%; width: min(330px, 40%); background: var(--paper); border-radius: 16px; padding: 16px; box-shadow: 0 0 0 1px var(--line), 0 30px 50px -24px rgba(0, 0, 0, 0.5); text-align: left; }
 .send h4 { margin: 0 0 4px; font: 600 15px/1.3 var(--text); letter-spacing: 0; }
@@ -304,7 +304,10 @@ html[data-scrolled] .nav { top: calc(12px + env(safe-area-inset-top, 0px)); }
 /* every screenshot sits in the same tinted frame, flush with the band's bottom edge */
 .mf { position: absolute; bottom: 0; padding: 10px 10px 0; background: rgba(234, 245, 236, 0.14); border-radius: 30px 30px 0 0; }
 .mf .in { position: relative; overflow: hidden; container-type: inline-size; background: #fff; border-radius: 21px 21px 0 0; }
-.mf video { position: absolute; max-width: none; height: auto; display: block; }
+.mf video, .mf img.vp { position: absolute; max-width: none; height: auto; display: block; }
+.mf-play { position: absolute; left: 14px; bottom: 14px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px 10px 12px; border: 0; border-radius: 99px; background: var(--forest); color: #fff; font: 600 14px/1 var(--text); cursor: pointer; }
+.mf-play svg { width: 14px; height: 14px; }
+.mf-play:hover { background: var(--forest-2); }
 .mf.fill { left: 0; right: 0; }
 .mf.card { left: 50%; width: 82%; height: 100%; transform: translateX(-50%); }
 .mf.strip { left: 0; right: 0; height: 60%; }
@@ -434,7 +437,8 @@ html[data-scrolled] .nav { top: calc(12px + env(safe-area-inset-top, 0px)); }
 /* no progress bar on the active feature: the recording plays and moves on by itself, and a bar only asks the visitor to watch it fill */
 .gpane { background: var(--paper); padding: 9px; border-radius: 26px; align-self: start; }
 .gpane .in { position: relative; aspect-ratio: 4 / 3; overflow: hidden; container-type: inline-size; background: var(--soft); border-radius: 18px; }
-.gpane video { position: absolute; max-width: none; height: auto; display: block; }
+.gpane video, .gpane img.vp { position: absolute; max-width: none; height: auto; display: block; }
+.gpane .mf-play { left: 16px; bottom: 16px; }
 @media (max-width: 1020px) {
  .gbody { grid-template-columns: 1fr; } .gpane { order: -1; } .groups { padding-block: 90px 10px; } .glist button { padding: 18px 20px; } }
 
@@ -863,6 +867,13 @@ a.tile-card .more-link { margin-top: 6px; text-decoration: none; }
 /* ------------------------------------------------------------------ reveal */
 .rv { transition: opacity 0.9s var(--rise), transform 0.9s var(--rise); transition-delay: var(--d, 0s); }
 .rv.pre { opacity: 0; transform: translateY(18px) scale(0.985); }
+/* directional entrances: the part settles from the side it belongs to, a little further than a rise and slower, so a section reads as arranged rather than dropped */
+.rv.from-l, .rv.from-r, .rv.zoom { transition-duration: 1.05s; }
+.rv.pre.from-l { transform: translateX(-34px); }
+.rv.pre.from-r { transform: translateX(34px); }
+.rv.pre.fade { transform: none; }
+.rv.fade { transition-duration: 0.7s; }
+.rv.pre.zoom { transform: translateY(26px) scale(0.965); }
 
 /* ------------------------------------------------------------------ responsive */
 @media (max-width: 1020px) {
@@ -971,3 +982,45 @@ a.tile-card .more-link { margin-top: 6px; text-decoration: none; }
 /* the founder, shown where he signs off in the ChatGPT walkthrough */
 .founder-av { flex: none; width: 20px; height: 20px; border-radius: 50%; object-fit: cover; }
 .founder-tag { font-style: normal; font-size: 11.5px; font-weight: 600; padding: 2px 8px; margin-left: 6px; border-radius: 99px; background: var(--mint-soft); color: var(--mint-ink); white-space: nowrap; }
+
+.hero-play { left: 18px; bottom: 18px; }
+
+/* below the first screen: the browser skips laying out and painting these until they are near, which keeps the first paint and scrolling light on a slow phone */
+.groups, .dband, .close, .site-foot { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+
+/* ------------------------------------------------------------------ motion layer: transform and opacity only, nothing that moves layout */
+/* the hero arrives in order: label, headline, line, sign-in, then the product rises into the frame */
+@keyframes hero-in { from { opacity: 0; transform: translateY(16px); } }
+@keyframes hero-frame { from { opacity: 0; transform: translateY(36px); } }
+.hero .pill { animation: hero-in 0.7s var(--rise) both; }
+.hero h1 { animation: hero-in 0.8s var(--rise) 0.08s both; }
+.hero .sub { animation: hero-in 0.8s var(--rise) 0.18s both; }
+.hero .signup { animation: hero-in 0.8s var(--rise) 0.28s both; }
+.hero .frame { animation: hero-frame 1s var(--rise) 0.38s both; }
+
+/* where the browser can tie motion to scroll without script, the hero's product drifts up a little as the page moves, and the ChatGPT demo settles in */
+@supports (animation-timeline: view()) {
+  @keyframes frame-drift { to { transform: translateY(-34px); } }
+  .hero .frame { animation: hero-frame 1s var(--rise) 0.38s both, frame-drift linear both; animation-timeline: auto, scroll(root); animation-range: normal, 0 700px; }
+}
+
+/* a recording or still swapping inside its frame fades in rather than snapping */
+@keyframes pane-in { from { opacity: 0; transform: scale(1.015); } }
+.gpane .in > video, .gpane .in > img.vp { animation: pane-in 0.5s var(--rise) both; }
+
+/* controls answer the pointer: tiles, list items and cards lift a little */
+.gtile, .gicon > *, .arc button .ic, .more-lt li svg { transition: transform 0.35s var(--rise), background-color 0.35s var(--out), color 0.35s var(--out); }
+.glist button:hover .gtile, .glist button:focus-visible .gtile { transform: translateY(-2px) scale(1.06); }
+.gbody.cards .glist button:hover .gicon > * { transform: translateY(-2px); }
+.arc button:hover .ic { transform: scale(1.1); }
+.more-lt li:hover svg { transform: translateY(-2px); color: var(--mint-ink); }
+.glist button { transition: background-color 0.35s var(--out), color 0.35s var(--out), transform 0.35s var(--rise); }
+.glist button:active { transform: scale(0.985); }
+.oauth .btn:active, .btn:active { transform: translateY(1px) scale(0.985); }
+
+/* a weak connection or Save-Data asks for less: no entrance choreography, no scroll-tied motion */
+@media (prefers-reduced-data: reduce) {
+  .hero .pill, .hero h1, .hero .sub, .hero .signup, .hero .frame, .gpane .in > video, .gpane .in > img.vp { animation: none !important; }
+  .hero .frame { animation: none !important; }
+  .rv.pre { opacity: 1; transform: none; }
+}

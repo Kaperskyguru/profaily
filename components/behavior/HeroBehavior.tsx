@@ -2,18 +2,12 @@
 import { useEffect } from "react";
 
 /**
- * Home hero motion: integration tiles drift away from the cursor (Buffer), and the product recording
- * plays on a loop. Under reduced motion the tiles stay put and the recording shows its finished frame.
+ * Home hero motion: integration tiles drift away from the cursor (Buffer). Under reduced motion the tiles stay put.
+ * The product recording is HeroVideo's.
  */
 export function HeroBehavior() {
   useEffect(() => {
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    // The product recording: still on its last frame ("Done. 4 of 4 posted") for reduced motion.
-    const video = document.querySelector<HTMLVideoElement>("[data-hero-video]");
-    if (video && reduce) {
-      video.removeAttribute("autoplay"); video.pause();
-      video.poster = "/assets/app/hero-publish-done.jpg";
-    }
     const timers: number[] = [];
 
     const tiles = Array.from(document.querySelectorAll<HTMLElement>("[data-tile]"));

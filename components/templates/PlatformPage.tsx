@@ -11,8 +11,8 @@ import { platformOrder, platforms, type PlatformContent, type StepImage } from "
 
 /** Real Profaily captures. The channel's own two are in its content; approval and calendar are shared. */
 const SHARED: Record<"review" | "calendar", { src: string; alt: string }> = {
-  review: { src: "/assets/app/mcp-4-review.jpg", alt: "Profaily as the producer: the Launch day video in review with Request changes and Approve and schedule" },
-  calendar: { src: "/assets/app/mcp-6-calendar.jpg", alt: "Profaily calendar with the Launch day video scheduled for tomorrow at 09:00" },
+  review: { src: "/assets/app/mcp-4-review.webp", alt: "Profaily as the producer: the Launch day video in review with Request changes and Approve and schedule" },
+  calendar: { src: "/assets/app/mcp-6-calendar.webp", alt: "Profaily calendar with the Launch day video scheduled for tomorrow at 09:00" },
 };
 
 /** A landing page for one channel, written as if it were the only product: preview, schedule, approve, track. */

@@ -1,9 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Glyph, Icon, type IconName } from "@/components/ui/Glyph";
-
-/** Bump when a recording is replaced, so browsers drop the old file instead of showing it from cache. */
-const REC_V = "12";
+import { clipUrl, posterUrl, useLite, useNarrow, useNear } from "@/lib/media";
 
 type Feature = {
   title: string;
@@ -85,6 +83,11 @@ function Group({ g }: { g: Group }) {
   const [held, setHeld] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   const vid = useRef<HTMLVideoElement>(null);
+  const lite = useLite();
+  const narrow = useNarrow();
+  const near = useNear(root, "500px");
+  const [forced, setForced] = useState(false);
+  const playable = near && (!lite || forced);
   useEffect(() => { setMotion(!matchMedia("(prefers-reduced-motion: reduce)").matches); }, []);
   useEffect(() => {
     const el = root.current;
@@ -99,7 +102,7 @@ function Group({ g }: { g: Group }) {
     if (!v || !motion) return;
     if (running) v.play().catch(() => {});
     else v.pause();
-  }, [running, i, motion]);
+  }, [running, i, motion, playable]);
   const f = g.features[i];
   const pick = (n: number) => { setI(n); setP(0); };
 
@@ -127,17 +130,30 @@ function Group({ g }: { g: Group }) {
         </ul>
         <div className="gpane">
           <div className="in" role="tabpanel">
-            <video
-              ref={vid}
-              key={`${g.id}-${f.clip}`}
-              src={`/assets/app/feat-${f.clip}.mp4?v=${REC_V}`}
-              poster={`/assets/app/feat-${f.clip}.jpg?v=${REC_V}`}
-              muted playsInline preload="auto"
-              onTimeUpdate={(e) => { const v = e.currentTarget; if (v.duration) setP(v.currentTime / v.duration); }}
-              onEnded={() => { if (motion) pick((i + 1) % g.features.length); }}
-              aria-label={`${f.title}: recording of the app`}
-              style={{ width: `${10000 / f.crop[2]}cqw`, left: `${-(100 * f.crop[0]) / f.crop[2]}cqw`, top: `${-(f.crop[1] / 100) * (10000 / f.crop[2]) * (f.ar ?? 0.625)}cqw` }}
-            />
+            {playable ? (
+              <video
+                ref={vid}
+                key={`${g.id}-${f.clip}`}
+                src={clipUrl(`feat-${f.clip}`, narrow)}
+                poster={posterUrl(`feat-${f.clip}`, narrow)}
+                muted playsInline preload="metadata"
+                onTimeUpdate={(e) => { const v = e.currentTarget; if (v.duration) setP(v.currentTime / v.duration); }}
+                onEnded={() => { if (motion) pick((i + 1) % g.features.length); }}
+                aria-label={`${f.title}: recording of the app`}
+                style={{ width: `${10000 / f.crop[2]}cqw`, left: `${-(100 * f.crop[0]) / f.crop[2]}cqw`, top: `${-(f.crop[1] / 100) * (10000 / f.crop[2]) * (f.ar ?? 0.625)}cqw` }}
+              />
+            ) : (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element -- the recording's finished frame, until the recording is allowed to load */}
+                <img key={`${g.id}-${f.clip}`} className="vp" src={posterUrl(`feat-${f.clip}`, narrow)} alt={`${f.title}: the app`} decoding="async" loading="lazy" style={{ width: `${10000 / f.crop[2]}cqw`, left: `${-(100 * f.crop[0]) / f.crop[2]}cqw`, top: `${-(f.crop[1] / 100) * (10000 / f.crop[2]) * (f.ar ?? 0.625)}cqw` }} />
+                {lite && !forced && (
+                  <button type="button" className="mf-play" onClick={() => setForced(true)}>
+                    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L13 8z" fill="currentColor" /></svg>
+                    Play demo
+                  </button>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>

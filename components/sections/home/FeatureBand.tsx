@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { OAuthButtons } from "@/components/sections/shared/OAuthButtons";
 import { FeatureTip } from "@/components/ui/FeatureTip";
+import { clipUrl, posterUrl, useLite, useNarrow, useNear } from "@/lib/media";
 import { Glyph, Icon, type IconName } from "@/components/ui/Glyph";
 
 type Look = "fill" | "card" | "strip";
@@ -23,8 +24,6 @@ type Item = {
 };
 
 const MAX = 20;
-/** Bump when a recording is replaced, so browsers drop the old file instead of showing it from cache. */
-const REC_V = "12";
 
 const ITEMS: Item[] = [
   {
@@ -149,7 +148,7 @@ type Line = { k: "me" | "ai" | "tool"; t: string };
 /** The walkthrough on the "humans and agents" item: what is said in ChatGPT on top, and what that did in Profaily below, one step at a time. */
 const AGENT_STEPS: { src: string; alt: string; lines: Line[] }[] = [
   {
-    src: "/assets/app/mcp-1-draft.jpg",
+    src: "/assets/app/mcp-1-draft.webp",
     alt: "Profaily composer: the Launch day draft ChatGPT created, with every channel selected",
     lines: [
       { k: "me", t: "Schedule the Launch day video for tomorrow at 9am on every channel. Write the caption." },
@@ -158,7 +157,7 @@ const AGENT_STEPS: { src: string; alt: string; lines: Line[] }[] = [
     ],
   },
   {
-    src: "/assets/app/mcp-2-send.jpg",
+    src: "/assets/app/mcp-2-send.webp",
     alt: "Profaily Send for review window: tomorrow 9am, with YouTube, TikTok, Instagram and Facebook ready",
     lines: [
       { k: "tool", t: "Draft created in Profaily" },
@@ -167,7 +166,7 @@ const AGENT_STEPS: { src: string; alt: string; lines: Line[] }[] = [
     ],
   },
   {
-    src: "/assets/app/mcp-3-sent.jpg",
+    src: "/assets/app/mcp-3-sent.webp",
     alt: "Profaily showing the video In review, with the message Sent for review",
     lines: [
       { k: "me", t: "Send it to Solomon for approval." },
@@ -176,7 +175,7 @@ const AGENT_STEPS: { src: string; alt: string; lines: Line[] }[] = [
     ],
   },
   {
-    src: "/assets/app/mcp-4-review.jpg",
+    src: "/assets/app/mcp-4-review.webp",
     alt: "Profaily as the producer: the video In review with Request changes and Approve and schedule",
     lines: [
       { k: "ai", t: "Sent. Nothing is scheduled until Solomon approves it." },
@@ -184,7 +183,7 @@ const AGENT_STEPS: { src: string; alt: string; lines: Line[] }[] = [
     ],
   },
   {
-    src: "/assets/app/mcp-5-queue.jpg",
+    src: "/assets/app/mcp-5-queue.webp",
     alt: "Profaily queue: the video scheduled for tomorrow at 09:00 on every channel",
     lines: [
       { k: "tool", t: "Approved by Solomon Eseme" },
@@ -219,7 +218,7 @@ function Agents() {
               <p className="ad-tool" key={i} style={{ animationDelay: `${i * 160}ms` }}>
                 {l.t.includes("Solomon Eseme") ? (
                   // eslint-disable-next-line @next/next/no-img-element -- the founder, who signs off in this walkthrough
-                  <img className="founder-av" src="/assets/founder-solomon-eseme.jpg" alt="" width="20" height="20" />
+                  <img className="founder-av" src="/assets/founder-solomon-eseme.webp" alt="" width="20" height="20" />
                 ) : (
                   <span className="ad-mark"><img src="/icon.svg" alt="" width="12" height="12" /></span>
                 )}
@@ -253,6 +252,12 @@ export function FeatureBand({ light = false }: { light?: boolean } = {}) {
   const seen = useRef(false);
   const reduce = useRef(false);
   const [tick, setTick] = useState(0);
+  const lite = useLite();
+  const narrow = useNarrow();
+  const near = useNear(root, "700px");
+  /** On a weak connection the visitor chooses to load the recording. */
+  const [forced, setForced] = useState(false);
+  const playable = near && (!lite || forced);
 
   useEffect(() => {
     reduce.current = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -279,16 +284,21 @@ export function FeatureBand({ light = false }: { light?: boolean } = {}) {
   });
 
   useEffect(() => {
-    if (reduce.current || !seen.current) return;
+    if (reduce.current || !seen.current || (lite && !forced)) return;
     const t = window.setTimeout(
       () => setCur((c) => (c + 1) % ITEMS.length),
       ms(cur),
     );
     return () => clearTimeout(t);
-  }, [cur, tick]);
+  }, [cur, tick, lite, forced]);
 
   const it = ITEMS[cur];
   const c = it.crop;
+  const mediaStyle = {
+    width: `${10000 / c[2]}cqw`,
+    left: `${-(100 * c[0]) / c[2]}cqw`,
+    top: `${-(c[1] / 100) * (10000 / c[2]) * (it.ar ?? 0.625)}cqw`,
+  };
 
   return (
     <>
@@ -314,24 +324,33 @@ export function FeatureBand({ light = false }: { light?: boolean } = {}) {
                       <div className={`mf ${x.look}`}>
                         <div className="in" style={{ aspectRatio: String(c[2] / (it.ar ?? 0.625) / c[3]) }}>
                           {x.clip ? (
-                            <video
-                              key={`${i}-${tick}`}
-                              src={`/assets/app/feat-${x.clip}.mp4?v=${REC_V}`}
-                              poster={`/assets/app/feat-${x.clip}.jpg?v=${REC_V}`}
-                              autoPlay
-                              muted
-                              loop
-                              playsInline
-                              preload="auto"
-                              style={{
-                                width: `${10000 / c[2]}cqw`,
-                                left: `${-(100 * c[0]) / c[2]}cqw`,
-                                top: `${-(c[1] / 100) * (10000 / c[2]) * (it.ar ?? 0.625)}cqw`,
-                              }}
-                              ref={(v) => {
-                                if (v) v.playbackRate = rate(i);
-                              }}
-                            />
+                            playable ? (
+                              <video
+                                key={`${i}-${tick}`}
+                                src={clipUrl(`feat-${x.clip}`, narrow)}
+                                poster={posterUrl(`feat-${x.clip}`, narrow)}
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                                style={mediaStyle}
+                                ref={(v) => {
+                                  if (v) v.playbackRate = rate(i);
+                                }}
+                              />
+                            ) : (
+                              <>
+                                {/* eslint-disable-next-line @next/next/no-img-element -- the recording's finished frame, until the recording is allowed to load */}
+                                <img className="vp" src={posterUrl(`feat-${x.clip}`, narrow)} alt="" decoding="async" style={mediaStyle} />
+                                {lite && !forced && (
+                                  <button type="button" className="mf-play" onClick={() => setForced(true)}>
+                                    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L13 8z" fill="currentColor" /></svg>
+                                    Play demo
+                                  </button>
+                                )}
+                              </>
+                            )
                           ) : (
                             <Agents />
                           )}

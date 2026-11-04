@@ -41,12 +41,12 @@ const THREAD: Item[] = [
 
 /* The real dashboard frames, and when each takes the screen. `z`/`o` = zoom and origin inside the pane. */
 const SHOTS = [
-  { src: "/assets/app/mcp-1-draft.jpg", from: 8.0, z: 1.5, o: "0% 0%", alt: "Profaily composer: the Launch day draft ChatGPT created, with every channel selected" },
-  { src: "/assets/app/mcp-2-send.jpg", from: 14.0, z: 1, o: "50% 50%", alt: "Profaily Send for review dialog: tomorrow 9am, tomorrow 09:00, with YouTube, TikTok, Instagram and Facebook ready" },
-  { src: "/assets/app/mcp-3-sent.jpg", from: 15.6, z: 1.5, o: "0% 0%", alt: "Profaily showing the video In review, with the toast Sent for review, for Tomorrow 09:00" },
-  { src: "/assets/app/mcp-4-review.jpg", from: 17.4, z: 1.5, o: "100% 0%", alt: "Profaily as the producer: the video In review with Request changes and Approve and schedule" },
-  { src: "/assets/app/mcp-5-queue.jpg", from: 20.4, z: 1.5, o: "0% 0%", alt: "Profaily queue: the video Scheduled for tomorrow at 09:00 on multiple channels" },
-  { src: "/assets/app/mcp-6-calendar.jpg", from: 25.0, z: 1.12, o: "100% 0%", alt: "Profaily calendar: the Launch day video on tomorrow at 09:00" },
+  { src: "/assets/app/mcp-1-draft.webp", from: 8.0, z: 1.5, o: "0% 0%", alt: "Profaily composer: the Launch day draft ChatGPT created, with every channel selected" },
+  { src: "/assets/app/mcp-2-send.webp", from: 14.0, z: 1, o: "50% 50%", alt: "Profaily Send for review dialog: tomorrow 9am, tomorrow 09:00, with YouTube, TikTok, Instagram and Facebook ready" },
+  { src: "/assets/app/mcp-3-sent.webp", from: 15.6, z: 1.5, o: "0% 0%", alt: "Profaily showing the video In review, with the toast Sent for review, for Tomorrow 09:00" },
+  { src: "/assets/app/mcp-4-review.webp", from: 17.4, z: 1.5, o: "100% 0%", alt: "Profaily as the producer: the video In review with Request changes and Approve and schedule" },
+  { src: "/assets/app/mcp-5-queue.webp", from: 20.4, z: 1.5, o: "0% 0%", alt: "Profaily queue: the video Scheduled for tomorrow at 09:00 on multiple channels" },
+  { src: "/assets/app/mcp-6-calendar.webp", from: 25.0, z: 1.12, o: "100% 0%", alt: "Profaily calendar: the Launch day video on tomorrow at 09:00" },
 ] as const;
 
 
@@ -153,7 +153,7 @@ export function McpCard(_: { bare?: boolean } = {}) {
                 <div className={`mcp-tool mcp-in${t >= i.done ? " done" : ""}`} key={i.id}>
                   {t >= i.done && i.result.includes("Solomon Eseme") ? (
                     // eslint-disable-next-line @next/next/no-img-element -- the founder, who signs off in this walkthrough
-                    <img className="founder-av" src="/assets/founder-solomon-eseme.jpg" alt="" width="20" height="20" />
+                    <img className="founder-av" src="/assets/founder-solomon-eseme.webp" alt="" width="20" height="20" />
                   ) : (
                     <span className="mcp-mark"><img src="/assets/profaily-mark-white-trim.svg" alt="" width="12" height="12" /></span>
                   )}

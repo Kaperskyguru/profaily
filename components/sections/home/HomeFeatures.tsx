@@ -39,7 +39,7 @@ function Group({ id, title, lede }: { id: string; title: string; lede: string })
   );
 }
 
-const thumb = <span className="th"><img src="/assets/app/welcome-frame.jpg" alt="" width="540" height="960" loading="lazy" /></span>;
+const thumb = <span className="th"><img src="/assets/app/welcome-frame.webp" alt="" width="540" height="960" loading="lazy" /></span>;
 const blank = <span className="th" />;
 const dots = (n: number) => <span className="dots">{Array.from({ length: n }, (_, i) => <i key={i} />)}</span>;
 function Ev({ title, n = 4, me, pending }: { title: string; n?: number; me?: boolean; pending?: boolean }) {
@@ -111,7 +111,7 @@ const publishingCenter = (
   <div className="pc" data-ui>
     <div className="pc-top"><b>Publishing Center</b><span className="pc-tabs"><span className="on">All 2</span><span>Published 1</span><span>Failed 1</span></span></div>
     <div className="pc-item">
-      <div className="pc-h"><span className="pc-th"><img src="/assets/app/welcome-frame.jpg" alt="" width="540" height="960" loading="lazy" /></span><div><b>Welcome to Profaily</b><span>Wed 28 Oct, 10:00</span></div></div>
+      <div className="pc-h"><span className="pc-th"><img src="/assets/app/welcome-frame.webp" alt="" width="540" height="960" loading="lazy" /></span><div><b>Welcome to Profaily</b><span>Wed 28 Oct, 10:00</span></div></div>
       <div className="row"><Glyph name="tiktok" id="pc-tt" /><span className="nm">TikTok <small>tiktok.com/@profaily/…</small></span><span className="st ok">Posted</span></div>
       <div className="row"><Glyph name="instagram" id="pc-ig" /><span className="nm">Instagram <small>instagram.com/p/…</small></span><span className="st ok">Posted</span></div>
       <div className="row"><Glyph name="youtube" id="pc-yt" /><span className="nm">YouTube <small>youtube.com/shorts/…</small></span><span className="st ok">Posted</span></div>
@@ -138,7 +138,7 @@ export function HomeFeatures() {
         lead="One caption, one upload, real player previews. Change what you need for one channel and the others stay as they are."
         bullets={[["phone", "Real player previews:", "TikTok, Reels, Shorts and Facebook, framed the way they’ll appear."], ["edit", "Change one, keep the rest:", "a shorter caption for TikTok, a title for YouTube."], ["alert", "Caught while you write:", "too long, too big, missing a title, before anything posts."]]}
         cta="Publish my first video" more={{ href: "/feature-publishing-guardian", label: "Learn more" }}
-        visual={<div className="appimg zoom"><img src="/assets/app/composer-welcome-1600.jpg" alt="Profaily composer: the Welcome to Profaily caption beside its YouTube Shorts preview" width="1600" height="1000" loading="lazy" decoding="async" /></div>} />
+        visual={<div className="appimg zoom"><img src="/assets/app/composer-welcome-1600.webp" alt="Profaily composer: the Welcome to Profaily caption beside its YouTube Shorts preview" width="1600" height="1000" loading="lazy" decoding="async" /></div>} />
       <LiveCaption />
       <Row id="review" verb="Review" title="Nothing goes out until the right person says yes"
         lead="Your editor sends the video for review. You comment on it, ask for changes or approve it, and it goes into the schedule."

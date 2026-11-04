@@ -30,7 +30,7 @@ export type AudienceContent = {
   close: { heading: string; lede: string };
 };
 
-const shot = (name: string, alt: string) => ({ src: `/assets/app/${name}.jpg`, alt });
+const shot = (name: string, alt: string) => ({ src: `/assets/app/${name}.webp`, alt });
 
 export const audiences: Record<AudienceKey, AudienceContent> = {
   creators: {

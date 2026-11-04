@@ -61,7 +61,7 @@ export const navMenus: NavMenu[] = [
       href: "/#ask-chatgpt",
       title: "Ask ChatGPT. Profaily schedules it.",
       text: "Draft, review and schedule from a conversation, under your team’s approval rules.",
-      image: "/assets/app/mcp-4-review.jpg",
+      image: "/assets/app/mcp-4-review.webp",
       alt: "Profaily showing a video waiting for a producer’s approval",
     },
     foot: { href: "/features", label: "See everything Profaily does" },

@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { tipFor } from "@/content/tips";
+import { useLite } from "@/lib/media";
 
 const GAP = 10;
 const EDGE = 12;
@@ -19,6 +20,7 @@ const CLOSE_MS = 140;
  */
 export function FeatureTip({ label, children }: { label: string; children?: ReactNode }) {
   const tip = tipFor(label);
+  const lite = useLite();
   const uid = useId();
   const trigger = useRef<HTMLSpanElement>(null);
   const card = useRef<HTMLDivElement>(null);
@@ -130,11 +132,11 @@ export function FeatureTip({ label, children }: { label: string; children?: Reac
             </div>
             {m && (
               <div className="tipcard-m">
-                {m.kind === "video" ? (
-                  <video src={m.src} poster={m.poster} width={m.w} height={m.h} autoPlay muted loop playsInline preload="auto" aria-label={m.alt} />
+                {m.kind === "video" && !lite ? (
+                  <video src={m.src} poster={m.poster} width={m.w} height={m.h} autoPlay muted loop playsInline preload="metadata" aria-label={m.alt} />
                 ) : (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={m.src} width={m.w} height={m.h} alt={m.alt} decoding="async" />
+                  <img src={m.kind === "video" ? (m.poster ?? m.src) : m.src} width={m.w} height={m.h} alt={m.alt} decoding="async" />
                 )}
               </div>
             )}

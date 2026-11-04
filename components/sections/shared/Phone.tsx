@@ -5,7 +5,7 @@ export function Phone({ label, chip, children, style }: { label?: string; chip?:
   return (
     <div className="ph" style={style}>
       <div className="s">
-        <img src="/assets/app/welcome-frame.jpg" alt="" width="540" height="960" loading="lazy" decoding="async" />
+        <img src="/assets/app/welcome-frame.webp" alt="" width="540" height="960" loading="lazy" decoding="async" />
         {label && <span className="lbl" data-ui>{label}</span>}
         {chip && <span className="chip" data-ui>{chip}</span>}
         {children}

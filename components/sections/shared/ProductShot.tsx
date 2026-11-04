@@ -2,8 +2,8 @@
 export function ProductShot({ alt, eager }: { alt: string; eager?: boolean }) {
   return (
     <img
-      src="/assets/app/composer-welcome-1600.jpg"
-      srcSet="/assets/app/composer-welcome-1600.jpg 1600w, /assets/app/composer-welcome-3200.jpg 3200w"
+      src="/assets/app/composer-welcome-1600.webp"
+      srcSet="/assets/app/composer-welcome-1600.webp 1600w, /assets/app/composer-welcome-3200.webp 2400w"
       sizes="(min-width: 1320px) 1264px, 94vw"
       alt={alt}
       width="1600"

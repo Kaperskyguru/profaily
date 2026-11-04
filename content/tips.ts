@@ -21,7 +21,7 @@ export type Tip = { title: string; text: string; media?: TipMedia; learn?: strin
 const T = "/assets/tips/";
 const A = "/assets/app/";
 
-const img = (file: string, w: number, h: number, alt: string): TipMedia => ({ src: `${T}${file}.jpg`, w, h, alt });
+const img = (file: string, w: number, h: number, alt: string): TipMedia => ({ src: `${T}${file}.webp`, w, h, alt });
 
 const library = img("library", 880, 459, "The Media Library: every video in the brand as a card showing its cover, with search, filters and status tabs");
 const tags = img("tags", 880, 764, "A video's tag menu with the tag launch typed and the option to create it");
@@ -38,11 +38,11 @@ const appearance = img("appearance", 880, 792, "Appearance settings: light, dark
 const calendar = img("calendar", 880, 425, "December on the calendar with scheduled videos on several days");
 const agents = img("agents", 880, 532, "AI & Integrations settings: Claude, ChatGPT and MCP");
 
-const importMenu = { src: `${A}feat-dupload.jpg`, w: 1000, h: 1000, alt: "The Import menu on a new video: From device, Camera, Import CSV, Google Drive, Dropbox and OneDrive" } satisfies TipMedia;
-const approve = { src: `${A}feat-dapprove.jpg`, w: 1000, h: 1000, alt: "A video waiting for approval with the activity panel beside it, and Request changes and Approve and schedule at the top" } satisfies TipMedia;
-const connect = { src: `${A}feat-dconnect.jpg`, w: 720, h: 720, alt: "The Connect a channel window with TikTok, Instagram, YouTube and Facebook" } satisfies TipMedia;
-const perChannel: TipMedia = { src: `${A}feat-dwrite.mp4`, poster: `${A}feat-dwrite.jpg`, kind: "video", w: 1000, h: 1000, alt: "A caption being edited for one channel while the others keep the original" };
-const previews: TipMedia = { src: `${A}feat-dpreviews.mp4`, poster: `${A}feat-dpreviews.jpg`, kind: "video", w: 1000, h: 1000, alt: "The same video previewed in the TikTok, Instagram, Facebook and YouTube players" };
+const importMenu = { src: `${A}feat-dupload.webp`, w: 1280, h: 960, alt: "The Import menu on a new video: From device, Camera, Import CSV, Google Drive, Dropbox and OneDrive" } satisfies TipMedia;
+const approve = { src: `${A}feat-dapprove.webp`, w: 1280, h: 1280, alt: "A video waiting for approval with the activity panel beside it, and Request changes and Approve and schedule at the top" } satisfies TipMedia;
+const connect = { src: `${A}feat-dconnect.webp`, w: 720, h: 720, alt: "The Connect a channel window with TikTok, Instagram, YouTube and Facebook" } satisfies TipMedia;
+const perChannel: TipMedia = { src: `${A}feat-dwrite.mp4`, poster: `${A}feat-dwrite.webp`, kind: "video", w: 1280, h: 962, alt: "A caption being edited for one channel while the others keep the original" };
+const previews: TipMedia = { src: `${A}feat-dpreviews.mp4`, poster: `${A}feat-dpreviews.webp`, kind: "video", w: 1280, h: 962, alt: "The same video previewed in the TikTok, Instagram, Facebook and YouTube players" };
 
 const tipList: Tip[] = [
   // --- the home page's "And much more" list

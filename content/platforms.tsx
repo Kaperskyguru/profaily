@@ -8,7 +8,7 @@
  *  meta      title, description, path
  *  hero      the h1 and the line under it
  *  shots     real Profaily captures for this channel: the composer with its player preview, and the scheduling
- *            dialog with only this channel switched on (public/assets/app/ch-<key>-*.jpg)
+ *            dialog with only this channel switched on (public/assets/app/ch-<key>-*.webp)
  *  steps[4]  preview, schedule, approve, track: title, lead, two points, and which capture sits beside it
  *  benefits  four plain statements
  *  specs     the limits the app checks for this channel (backend/src/extensions/platforms/limits.ts)
@@ -64,8 +64,8 @@ export const platforms = {
       lede: "Plan, preview and publish TikTok videos from one calendar. Set who can see each post, get a yes from your team, and see where every video stands.",
     },
     shots: {
-      composer: { src: "/assets/app/ch-tiktok-composer.jpg", alt: "Profaily composer showing a kitten video and its caption in a TikTok player preview" },
-      dialog: { src: "/assets/app/ch-tiktok-dialog.jpg", alt: "Profaily scheduling dialog with only TikTok switched on: who can see the post, comments, duet and stitch" },
+      composer: { src: "/assets/app/ch-tiktok-composer.webp", alt: "Profaily composer showing a video and its caption in a TikTok player preview" },
+      dialog: { src: "/assets/app/ch-tiktok-dialog.webp", alt: "Profaily scheduling dialog with only TikTok switched on: who can see the post, comments, duet and stitch" },
     },
     steps: [
       { verb: "Preview", title: "See it in the TikTok player first", lead: "Upload your video and write the caption. Profaily shows it in a TikTok preview, so you can check the caption before anything is scheduled.", points: ["A TikTok caption of its own; your other channels keep theirs", "Import from Google Drive, Dropbox, OneDrive or a CSV"], image: "composer" },
@@ -109,8 +109,8 @@ export const platforms = {
       lede: "Plan, preview and publish Instagram Reels from one calendar. Set the caption and cover, get a yes from your team, and keep Reels in step with your other channels.",
     },
     shots: {
-      composer: { src: "/assets/app/ch-instagram-composer.jpg", alt: "Profaily composer showing a puppy video and its caption in an Instagram Reels preview" },
-      dialog: { src: "/assets/app/ch-instagram-dialog.jpg", alt: "Profaily scheduling dialog with only Instagram switched on and marked Ready" },
+      composer: { src: "/assets/app/ch-instagram-composer.webp", alt: "Profaily composer showing a video and its caption in an Instagram Reels preview" },
+      dialog: { src: "/assets/app/ch-instagram-dialog.webp", alt: "Profaily scheduling dialog with only Instagram switched on and marked Ready" },
     },
     steps: [
       { verb: "Preview", title: "See the Reel before it posts", lead: "Upload the video and write the caption. Profaily shows it in an Instagram Reels preview, caption included.", points: ["An Instagram caption of its own, up to 2,200 characters", "Choose the cover frame from the video"], image: "composer" },
@@ -154,8 +154,8 @@ export const platforms = {
       lede: "Prepare the title, description and visibility, preview the Short, and schedule it with the rest of your short-form videos. Get a yes from your team first.",
     },
     shots: {
-      composer: { src: "/assets/app/ch-youtube-composer.jpg", alt: "Profaily composer showing a puppy video and its title in a YouTube Shorts preview" },
-      dialog: { src: "/assets/app/ch-youtube-dialog.jpg", alt: "Profaily scheduling dialog with only YouTube switched on and marked Ready" },
+      composer: { src: "/assets/app/ch-youtube-composer.webp", alt: "Profaily composer showing a video and its title in a YouTube Shorts preview" },
+      dialog: { src: "/assets/app/ch-youtube-dialog.webp", alt: "Profaily scheduling dialog with only YouTube switched on and marked Ready" },
     },
     steps: [
       { verb: "Preview", title: "Write the title, see the Short", lead: "Upload the video and write the caption. The first sentence becomes the YouTube title, and Profaily shows it in a Shorts preview.", points: ["Title up to 100 characters, description up to 5,000", "A YouTube version of its own; other channels keep theirs"], image: "composer" },
@@ -199,8 +199,8 @@ export const platforms = {
       lede: "Prepare Reels and videos for your Page, preview them, and schedule with the rest of your channels. Get a yes from your team before anything goes out.",
     },
     shots: {
-      composer: { src: "/assets/app/ch-facebook-composer.jpg", alt: "Profaily composer showing a kitten video and its caption in a Facebook Reels preview" },
-      dialog: { src: "/assets/app/ch-facebook-dialog.jpg", alt: "Profaily scheduling dialog with only Facebook switched on and marked Ready" },
+      composer: { src: "/assets/app/ch-facebook-composer.webp", alt: "Profaily composer showing a video and its caption in a Facebook Reels preview" },
+      dialog: { src: "/assets/app/ch-facebook-dialog.webp", alt: "Profaily scheduling dialog with only Facebook switched on and marked Ready" },
     },
     steps: [
       { verb: "Preview", title: "See the post the way Facebook shows it", lead: "Upload the video and write the title and description. Profaily shows it in a Facebook preview before anything is scheduled.", points: ["A Facebook title and description of their own", "Import from Google Drive, Dropbox, OneDrive or a CSV"], image: "composer" },
