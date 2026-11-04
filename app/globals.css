@@ -297,27 +297,40 @@ html[data-scrolled] .nav { top: calc(12px + env(safe-area-inset-top, 0px)); }
 .band .lead { text-wrap: pretty; color: var(--on-forest-muted); margin-top: 18px; max-width: 42ch; font-size: 17px; line-height: 1.5; }
 .msgbox { height: 248px; display: flex; flex-direction: column; justify-content: flex-end; animation: msg-in 0.55s var(--out) both; }
 @keyframes msg-in { from { opacity: 0; transform: translateY(10px); } }
-.panels { position: relative; margin-top: 36px; height: 560px; }
+.panels { position: relative; margin-top: 36px; height: 720px; }
 @media (min-width: 1021px) { .band .panels { width: 127%; } .mf.card { width: 86%; } }
 .panel { position: absolute; inset: 0; opacity: 0; transform: translateY(24px); transition: opacity 0.5s var(--out), transform 0.7s var(--out); pointer-events: none; }
 .panel.on { opacity: 1; transform: none; pointer-events: auto; }
 /* every screenshot sits in the same tinted frame, flush with the band's bottom edge */
 .mf { position: absolute; bottom: 0; padding: 10px 10px 0; background: rgba(234, 245, 236, 0.14); border-radius: 30px 30px 0 0; }
-.mf .in { position: relative; height: 100%; overflow: hidden; container-type: inline-size; background: #fff; border-radius: 21px 21px 0 0; }
+.mf .in { position: relative; overflow: hidden; container-type: inline-size; background: #fff; border-radius: 21px 21px 0 0; }
 .mf video { position: absolute; max-width: none; height: auto; display: block; }
-.mf.fill { left: 0; right: 0; height: 100%; }
+.mf.fill { left: 0; right: 0; }
 .mf.card { left: 50%; width: 82%; height: 100%; transform: translateX(-50%); }
 .mf.strip { left: 0; right: 0; height: 60%; }
 .agents { height: 100%; padding: 28px; display: grid; align-content: center; gap: 12px; color: var(--ink); }
 .agents .msg { display: grid; grid-template-columns: 22px 1fr; gap: 12px; font-size: 15.5px; line-height: 1.45; color: var(--muted); padding: 14px 16px; border-radius: 14px; background: var(--soft); }
 .agents .msg b { display: block; color: var(--ink); font-size: 13px; margin-bottom: 2px; }
 .agents .msg .glyph { width: 22px; height: 22px; margin-top: 2px; }
-.agents-shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 0 0; opacity: 0; transition: opacity 0.6s var(--out); }
-.agents-shot.on { opacity: 1; }
-@media (max-width: 1020px) { .agents-shot { object-position: 22% 0; } }
 .agents .done { justify-self: start; white-space: nowrap; background: var(--mint); color: var(--forest); font-weight: 600; font-size: 13.5px; padding: 6px 12px; border-radius: 99px; }
+.ad { position: absolute; inset: 0; display: grid; grid-template-rows: 33% 1fr; background: #fff; color: var(--ink); }
+.ad-chat { display: flex; flex-direction: column; min-height: 0; padding: 16px 20px 0; background: #fff; }
+.ad-chat > b { font: 600 14.5px var(--text); color: var(--ink); }
+.ad-thread { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 9px; padding-bottom: 14px; overflow: hidden; }
+.ad-thread p { margin: 0; font-size: 14.5px; line-height: 1.4; opacity: 0; animation: ad-in 0.45s var(--out) both; }
+@keyframes ad-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.ad-me { align-self: flex-end; max-width: 88%; padding: 8px 13px; border-radius: 15px; background: var(--shell); }
+.ad-ai { color: var(--ink); }
+.ad-tool { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13.5px !important; }
+.ad-tool svg { width: 14px; height: 14px; color: var(--mint-ink); }
+.ad-mark { flex: none; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 6px; background: var(--forest); }
+.ad-mark img { width: 12px; height: 12px; }
+.ad-app { position: relative; overflow: hidden; background: var(--soft); border-top: 1px solid var(--line); }
+.ad-app img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 0 0; opacity: 0; transition: opacity 0.6s var(--out); }
+.ad-app img.on { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .ad-thread p { animation: none; opacity: 1; } .ad-app img { transition: none; } }
 .arc { position: relative; height: 440px; align-self: center; margin-top: -40px; padding-left: 0; }
-.arc button { position: absolute; left: 38%; top: 50%; display: flex; align-items: center; gap: 14px; background: transparent; border: 0; color: var(--on-forest); font: 500 18px/1 var(--display); letter-spacing: -0.01em; padding: 12px 24px 12px 12px; border-radius: 999px; cursor: pointer; transition: transform 0.7s var(--out), opacity 0.5s, filter 0.5s, background-color 0.5s, color 0.5s; white-space: nowrap; }
+.arc button { position: absolute; left: 38%; top: 50%; display: flex; align-items: center; gap: 14px; background: transparent; border: 0; color: var(--on-forest); font: 500 18px/1 var(--display); letter-spacing: -0.01em; padding: 12px 24px 12px 12px; border-radius: 999px; cursor: pointer; transition: transform 0.7s var(--out), opacity 0.5s, filter 0.5s, background-color 0.5s, color 0.5s; white-space: normal; text-align: left; line-height: 1.2; max-width: min(380px, 27vw); }
 .arc button .ic { width: 44px; height: 44px; border-radius: 99px; display: grid; place-items: center; background: rgba(234, 245, 236, 0.12); flex: none; }
 .arc button .ic svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; }
 .arc button.on { background: var(--on-forest); color: var(--forest); }
@@ -326,8 +339,26 @@ html[data-scrolled] .nav { top: calc(12px + env(safe-area-inset-top, 0px)); }
 .more-lt p { color: var(--faint); font-size: 17px; }
 .more-lt ul { list-style: none; margin: 26px auto 0; padding: 0; max-width: 1000px; display: flex; flex-wrap: wrap; justify-content: center; gap: 22px 38px; }
 .more-lt li { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); font-size: 17px; line-height: 1.3; white-space: nowrap; }
+.more-lt .signup { margin-top: 64px; }
 .more-lt li svg { width: 22px; height: 22px; flex: none; color: var(--faint); }
-@media (max-width: 600px) { .more-lt ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 14px; justify-items: start; margin-top: 22px; } .more-lt li { white-space: normal; font-size: 15.5px; align-items: flex-start; } .more-lt li svg { margin-top: 1px; } }
+@media (max-width: 600px) { .more-lt ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 14px; justify-items: start; margin-top: 22px; } .more-lt li { white-space: normal; font-size: 15.5px; align-items: flex-start; text-align: left; } .more-lt li svg { margin-top: 1px; } }
+
+/* ------------------------------------------------------------------ feature hover cards (components/ui/FeatureTip.tsx) */
+.tip-t { cursor: help; text-decoration: underline dashed; text-decoration-color: color-mix(in srgb, currentColor 38%, transparent); text-decoration-thickness: 1px; text-underline-offset: 6px; border-radius: 4px; transition: text-decoration-color 0.15s; }
+.tip-t:hover, .tip-t[aria-expanded="true"] { text-decoration-color: currentColor; }
+.tipcard { position: fixed; z-index: 200; width: 300px; max-width: calc(100vw - 24px); background: #fff; color: var(--ink); border-radius: 18px; box-shadow: 0 0 0 1px var(--line), 0 30px 60px -24px rgba(13, 36, 31, 0.42), 0 12px 24px -14px rgba(13, 36, 31, 0.2); overflow: hidden; text-align: left; white-space: normal; animation: tip-in 0.16s var(--out) both; }
+.tipcard.has-media { width: 420px; }
+@keyframes tip-in { from { opacity: 0; transform: translateY(4px); } }
+.tipcard-b { padding: 18px 20px 18px; display: grid; gap: 6px; }
+.tipcard-h { margin: 0; font: 600 17px/1.25 var(--display); letter-spacing: -0.015em; color: var(--ink); }
+.tipcard-p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted); text-wrap: pretty; }
+.tipcard-learn { justify-self: stretch; margin-top: 10px; display: flex; justify-content: center; align-items: center; padding: 10px 14px; border-radius: 12px; background: var(--soft); box-shadow: inset 0 0 0 1px var(--line); font-size: 14.5px; font-weight: 600; color: var(--ink); text-decoration: none; transition: background-color 0.15s; }
+.tipcard-learn:hover { background: var(--mint-soft); }
+/* Typefully's arrangement: a coloured field fills the bottom of the card and the capture sits inset on it, running off the bottom edge */
+.tipcard-m { background: var(--forest-2); padding: 26px 26px 0; overflow: hidden; line-height: 0; }
+.tipcard-m img, .tipcard-m video { display: block; width: 100%; height: auto; border-radius: 10px 10px 0 0; background: #fff; box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.4); }
+@media (max-width: 600px) { .tipcard-m { padding: 18px 18px 0; max-height: 46vh; } }
+@media (prefers-reduced-motion: reduce) { .tipcard { animation: none; } .tip-t { transition: none; } }
 
 /* ------------------------------------------------------------------ feature groups */
 .groups { padding-block: 130px 20px; display: grid; gap: 28px; }
@@ -357,11 +388,26 @@ html[data-scrolled] .nav { top: calc(12px + env(safe-area-inset-top, 0px)); }
 .gbody.cards .glist button.on { background: var(--on-forest); }
 .gbody.cards .glist button.on b { color: var(--forest); }
 .gbody.cards .glist button.on .gtext { color: var(--muted); }
-.gbody.cards .glist button.on::after { left: 22px; right: 22px; bottom: 8px; background: var(--mint-ink); }
+.gbody.cards .glist button.on::after { display: none; left: 22px; right: 22px; bottom: 8px; background: var(--mint-ink); }
+.glist button .gtile { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 15px; background: var(--forest); color: var(--mint); transition: background-color 0.35s var(--out), color 0.35s var(--out); }
+.gtile svg { width: 23px; height: 23px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.glist button.on .gtile { background: var(--mint); color: var(--forest); }
+.glist button .gtile { max-width: none; }
+.gicon { display: flex; align-items: center; justify-content: center; gap: 14px; aspect-ratio: 16 / 6; border-radius: 16px; background: var(--forest); }
+.gbody.cards .glist button.on .gicon { background: var(--forest-2); }
+/* one quiet language for all three tiles: white marks on the brand's green, nothing else */
+.ga-chip { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: #fff; }
+.ga-chip .glyph { width: 26px; height: 26px; display: grid; filter: grayscale(1) brightness(0.28); }
+.ga-cal { display: grid; grid-template-columns: repeat(7, 18px); gap: 7px; }
+.ga-cal i { width: 18px; height: 18px; border-radius: 6px; background: rgba(234, 245, 236, 0.14); }
+.ga-cal i.on { background: #fff; }
+.glist button .ga-av { max-width: none; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: #fff; color: var(--forest); font: 600 19px var(--display); }
+.glist button .ga-ok { display: inline-flex; max-width: none; align-items: center; gap: 8px; padding: 14px 20px 14px 15px; border-radius: 99px; background: #fff; color: var(--forest); font: 600 15px/1 var(--text); white-space: nowrap; }
+.ga-ok svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.8; }
 .gthumb { display: block; position: relative; aspect-ratio: 16 / 5.4; overflow: hidden; container-type: inline-size; border-radius: 14px; background: #fff; }
 .gthumb img { position: absolute; max-width: none; height: auto; display: block; }
 .gbody.cards .gpane { background: rgba(234, 245, 236, 0.14); }
-@media (max-width: 1020px) { .gbody.cards .gthumb { display: none; } .gbody.cards .glist button { padding-top: 18px; } }
+@media (max-width: 1020px) { .gbody.cards .gthumb, .gbody.cards .gicon { display: none; } .gbody.cards .glist button { padding-top: 18px; } }
 .gbody.cards .gpane { padding: 10px; border-radius: 32px; }
 .gbody.cards .gpane .in { aspect-ratio: 1 / 1; border-radius: 23px; }
 /* the same section on the white page */
@@ -376,18 +422,18 @@ html[data-scrolled] .nav { top: calc(12px + env(safe-area-inset-top, 0px)); }
 .dband.light .gbody.cards .glist button.on { background: var(--forest); }
 .dband.light .gbody.cards .glist button.on b { color: var(--on-forest); }
 .dband.light .gbody.cards .glist button.on .gtext { color: var(--on-forest-muted); }
-.dband.light .gbody.cards .glist button.on::after { background: var(--mint); }
+.dband.light .gbody.cards .glist button.on::after { display: none; background: var(--mint); }
 .dband.light .gbody.cards .gpane { background: var(--shell); }
 .gbody.cards .glist button:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
 .gbody.cards .glist button b { padding: 8px 10px 0; font-size: 18px; }
 .gbody.cards .glist button .gtext { padding: 0 10px; font-size: 15px; max-width: none; }
-.gbody.cards .glist button.on::after { left: 22px; right: 22px; bottom: 6px; background: var(--mint); }
+.gbody.cards .glist button.on::after { display: none; left: 22px; right: 22px; bottom: 6px; background: var(--mint); }
 .glist button:hover { background: rgba(255, 255, 255, 0.55); }
 .glist button.on { background: var(--paper); }
-.glist button.on::after { content: ""; position: absolute; left: 24px; right: 24px; bottom: 0; height: 3px; border-radius: 3px 3px 0 0; background: var(--mint); transform: scaleX(var(--p, 0)); transform-origin: 0 50%; }
-@media (prefers-reduced-motion: reduce) { .glist button.on::after { display: none; } }
+.glist button.on::after { display: none; content: ""; position: absolute; left: 24px; right: 24px; bottom: 0; height: 3px; border-radius: 3px 3px 0 0; background: var(--mint); transform: scaleX(var(--p, 0)); transform-origin: 0 50%; }
+/* no progress bar on the active feature: the recording plays and moves on by itself, and a bar only asks the visitor to watch it fill */
 .gpane { background: var(--paper); padding: 9px; border-radius: 26px; align-self: start; }
-.gpane .in { position: relative; aspect-ratio: 3 / 2; overflow: hidden; container-type: inline-size; background: var(--soft); border-radius: 18px; }
+.gpane .in { position: relative; aspect-ratio: 4 / 3; overflow: hidden; container-type: inline-size; background: var(--soft); border-radius: 18px; }
 .gpane video { position: absolute; max-width: none; height: auto; display: block; }
 @media (max-width: 1020px) {
  .gbody { grid-template-columns: 1fr; } .gpane { order: -1; } .groups { padding-block: 90px 10px; } .glist button { padding: 18px 20px; } }
@@ -422,9 +468,27 @@ html[data-scrolled] .nav { top: calc(12px + env(safe-area-inset-top, 0px)); }
 
 /* Ask ChatGPT demo card (McpCard.tsx): the real dashboard beside a scripted ChatGPT */
 .mcp-section { padding-bottom: 40px; }
-.mcp-intro { padding-block: 150px 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+/* the section on the brand's deep green (page.tsx MCP_FIRST); the white feature band that follows slides up over its lower edge */
+.band.light { background: #fff; color: var(--ink); position: relative; z-index: 1; margin-top: -44px; border-radius: 44px 44px 0 0; }
+.band.light h2 { color: var(--ink); }
+.band.light .lead { color: var(--muted); }
+.band.light .arc button { color: var(--ink); }
+.band.light .arc button .ic { background: var(--shell); }
+.band.light .arc button.on { background: var(--forest); color: #fff; }
+.band.light .arc button.on .ic { background: var(--mint); color: var(--forest); }
+.band.light .mf { background: var(--forest); }
+.mcp-band { background: var(--forest); color: var(--on-forest); }
+.mcp-band .mcp-section { padding-bottom: 154px; }
+.mcp-band .mcp-intro { padding-block: 110px 0; }
+@media (max-width: 860px) { .mcp-intro, .mcp-band .mcp-intro { grid-template-columns: 1fr; gap: 20px; } .mcp-intro .lead { padding-bottom: 0; } }
+.mcp-band .mcp-intro h2 { color: var(--on-forest); }
+.mcp-band .mcp-intro .lead { color: var(--on-forest-muted); }
+.mcp-band .signup > p { color: var(--on-forest-muted); }
+.mcp-band .signup > p a { color: var(--on-forest); }
+.mcp-band .mcp-card.sh { background: var(--forest-2); box-shadow: none; color: var(--ink); }
+.mcp-intro { padding-block: 150px 0; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(28px, 6vw, 96px); align-items: end; text-align: left; }
 .mcp-intro h2 { font-size: clamp(36px, 5.2vw, 64px); }
-.mcp-intro .lead { margin: 22px auto 0; max-width: 600px; }
+.mcp-intro .lead { margin: 0; max-width: 46ch; padding-bottom: 8px; }
 .mcp-intro .signup { margin-top: 32px; }
 .mcp-card { margin-top: 56px; padding: clamp(12px, 2.2vw, 32px); }
 .mcp-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 14px; align-items: start; }
@@ -432,7 +496,14 @@ html[data-scrolled] .nav { top: calc(12px + env(safe-area-inset-top, 0px)); }
 .mcp-pane { position: absolute; inset: 0; }
 .mcp-zoom { position: absolute; inset: 0; transition: transform 1.1s var(--out); will-change: transform; }
 .mcp-zoom img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.5s; }
-.mcp-empty { position: absolute; inset: 0; z-index: 1; display: grid; place-content: center; justify-items: center; gap: 12px; background: var(--soft); color: var(--forest); font: 600 19px var(--display); letter-spacing: -0.02em; transition: opacity 0.4s; pointer-events: none; }
+.mcp-glow { position: relative; display: grid; place-items: center; width: 96px; height: 96px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px var(--line), 0 0 34px 6px rgba(141, 215, 150, 0.55); animation: mcp-breathe 2.4s ease-in-out infinite; }
+.mcp-glow::before, .mcp-glow::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--mint); opacity: 0; animation: mcp-ring 2.4s ease-out infinite; }
+.mcp-glow::after { animation-delay: 1.2s; }
+.mcp-glow img { position: relative; display: block; width: 72px; height: 72px; }
+@keyframes mcp-breathe { 50% { box-shadow: 0 0 0 1px var(--line), 0 0 54px 14px rgba(141, 215, 150, 0.8); transform: scale(1.04); } }
+@keyframes mcp-ring { from { opacity: 0.7; transform: scale(1); } to { opacity: 0; transform: scale(2); } }
+@media (prefers-reduced-motion: reduce) { .mcp-glow, .mcp-glow::before, .mcp-glow::after { animation: none; } .mcp-glow::before, .mcp-glow::after { display: none; } }
+.mcp-empty { position: absolute; inset: 0; z-index: 1; display: grid; place-content: center; justify-items: center; gap: 22px; background: var(--soft); color: var(--forest); font: 600 24px var(--display); letter-spacing: -0.02em; transition: opacity 0.4s; pointer-events: none; }
 .mcp-end { position: absolute; inset: 0; z-index: 4; display: grid; place-items: center; background: rgba(13, 36, 31, 0.52); animation: mcp-fade 0.35s var(--out) both; }
 .mcp-again { display: inline-flex; align-items: center; gap: 10px; border: 0; border-radius: 999px; padding: 14px 22px 14px 18px; background: #fff; color: var(--forest); font: 600 16px/1 var(--text); cursor: pointer; transition: transform 0.15s var(--out), background-color 0.2s; }
 .mcp-again svg { width: 18px; height: 18px; transition: transform 0.4s var(--out); }
@@ -806,6 +877,7 @@ a.tile-card .more-link { margin-top: 6px; text-decoration: none; }
   .arc { height: auto; margin-top: 0; display: flex; flex-wrap: wrap; gap: 8px; }
   .arc button { position: static; transform: none !important; opacity: 1 !important; filter: none !important; font-size: 17px; padding: 8px 16px 8px 8px; }
   .arc button .ic { width: 32px; height: 32px; }
+  .arc button { max-width: none; }
   .fr, .fr.flip { grid-template-columns: 1fr; padding-block: 56px; }
   .fr.flip .txt { order: 0; }
   .faq > div:first-child { position: static; }
@@ -895,3 +967,7 @@ a.tile-card .more-link { margin-top: 6px; text-decoration: none; }
   .nav-cta { padding: 0 16px; font-size: 14px; }
   .signup .oauth, .oauth { gap: 8px; }
 }
+
+/* the founder, shown where he signs off in the ChatGPT walkthrough */
+.founder-av { flex: none; width: 20px; height: 20px; border-radius: 50%; object-fit: cover; }
+.founder-tag { font-style: normal; font-size: 11.5px; font-weight: 600; padding: 2px 8px; margin-left: 6px; border-radius: 99px; background: var(--mint-soft); color: var(--mint-ink); white-space: nowrap; }

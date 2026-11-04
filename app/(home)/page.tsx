@@ -19,6 +19,14 @@ const DISTRIBUTING_AS_BAND = true;
 /** The band's ground: "forest" (deep green, like the feature band) or "light" (white page, like the grey groups). */
 const DISTRIBUTING_TONE: "forest" | "light" = "light";
 
+/**
+ * The ChatGPT section sits straight under the hero's proof strip, on a deep-green ground (true), or after the feature band on the page ground (false).
+ * TO REVERT, set this to false.
+ */
+const MCP_FIRST = true;
+/** The feature band on the white page ground (true), or on deep green (false). TO REVERT, set this to false. */
+const BAND_LIGHT = true;
+
 export const metadata: Metadata = pageMetadata(homeMeta);
 
 export default function HomePage() {
@@ -28,8 +36,9 @@ export default function HomePage() {
       <main>
         <HomeHero />
         <TrustedBy />
-        <FeatureBand />
-        <McpSection />
+        {MCP_FIRST && <McpSection dark />}
+        <FeatureBand light={BAND_LIGHT} />
+        {!MCP_FIRST && <McpSection />}
         {DISTRIBUTING_AS_BAND ? (
           <>
             <FeatureGroups only="making" />

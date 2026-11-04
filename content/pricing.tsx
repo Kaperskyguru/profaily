@@ -1,3 +1,4 @@
+import type { Integration } from "@/components/ui/Glyph";
 import { TRIAL_DAYS, YEARLY_SAVING } from "@/content/plans";
 
 export const pricingMeta = {
@@ -12,7 +13,7 @@ export const pricingMeta = {
  * (included), `false` (not included) or a value. Platform rows draw the channel's own logo.
  */
 export type Cell = boolean | string;
-export type CompareRow = { label: string; tip: string; icon: string; note?: string; creator: Cell; business: Cell };
+export type CompareRow = { label: string; tip: string; icon: string; note?: string; /** Brand marks and a file type drawn beside the label. */ sources?: { logos: Integration[]; chip?: string }; creator: Cell; business: Cell };
 export type CompareSection = { title: string; description?: string; rows: CompareRow[] };
 
 const both = (label: string, icon: string, tip: string): CompareRow => ({ label, icon, tip, creator: true, business: true });
@@ -26,7 +27,7 @@ export const compareSections: CompareSection[] = [
       both("Scheduling", "clock", "Pick a time, or take the next queue slot."),
       both("Queue slots", "queue", "Set a weekly rhythm and videos fill the next free slot."),
       both("Drafts and tags", "drafts", "Keep videos as drafts and label them with tags."),
-      both("Import videos from a link or CSV", "table", "Bring in many videos at once from links or a CSV file."),
+      { ...both("Import videos", "table", "Bring in many videos at once from Drive, OneDrive, Dropbox or a CSV file."), sources: { logos: ["gdrive", "onedrive", "dropbox"], chip: "CSV" } },
     ],
   },
   {
@@ -60,7 +61,7 @@ export const compareSections: CompareSection[] = [
     title: "Collaboration",
     rows: [
       biz("Shared team", "users", "Invite people to work in the same videos."),
-      biz("Roles", "roles", "Decide who can view, edit, schedule or manage.", "Viewer, Editor, Producer, Admin"),
+      biz("Roles", "roles", "Decide who can view, edit, schedule or manage."),
       biz("Approvals before distributing", "seal", "An editor sends a video for review before it goes out."),
       biz("Choose which brands each team member sees", "eye", "Give each team member access to only some brands."),
     ],
@@ -74,7 +75,7 @@ export const compareSections: CompareSection[] = [
   },
   {
     title: "Branding",
-    rows: [{ label: "Remove the #profaily tag", icon: "tag", tip: "Turn off the #profaily tag added to the end of your videos.", note: "Stays on during the trial", creator: true, business: true }],
+    rows: [{ label: "Remove the #profaily tag", icon: "tag", tip: "Turn off the #profaily tag added to the end of your videos.", creator: true, business: true }],
   },
 ];
 

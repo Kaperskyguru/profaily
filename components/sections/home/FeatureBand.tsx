@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { OAuthButtons } from "@/components/sections/shared/OAuthButtons";
+import { FeatureTip } from "@/components/ui/FeatureTip";
 import { Glyph, Icon, type IconName } from "@/components/ui/Glyph";
 
 type Look = "fill" | "card" | "strip";
@@ -14,25 +16,27 @@ type Item = {
   clip?: string;
   secs?: number;
   look: Look;
-  /** The part of the recording the frame keeps: left, top and width, in percent of the 1440 x 900 source. */
-  crop: [number, number, number];
-  /** The same, tighter, for the narrow frame on a phone. */
-  mcrop?: [number, number, number];
+  /** The part of the 1440 x 900 recording the frame shows: left, top, width and height in percent. The frame takes this rectangle's own proportions, so at any width it shows exactly this and nothing is trimmed. Edges sit on the app's own boundaries. */
+  crop: [number, number, number, number];
+  /** Height over width of the recording itself; 0.625 (1440 x 900) unless it was recorded at another size. */
+  ar?: number;
 };
 
-const MAX = 14;
+const MAX = 20;
+/** Bump when a recording is replaced, so browsers drop the old file instead of showing it from cache. */
+const REC_V = "12";
 
 const ITEMS: Item[] = [
   {
     label: "Publish everywhere at once",
     icon: "upload",
-    title: "Upload Once. Publish everywhere.",
+    title: "Upload once. Publish everywhere.",
     text: "Add a video once, then schedule it to TikTok, Instagram, YouTube and Facebook in each channel’s own format.",
     clip: "publish",
-    secs: 16.9,
+    secs: 17.4,
     look: "fill",
-    crop: [27, 3, 68],
-    mcrop: [28, 2, 46],
+    crop: [0, 0, 100, 100],
+    ar: 1.1053,
   },
   {
     label: "Built for modern teams",
@@ -40,141 +44,208 @@ const ITEMS: Item[] = [
     title: "Built for modern teams",
     text: "Comments, approvals and shared review links keep every video on brief before it goes out.",
     clip: "teams",
-    secs: 17.2,
+    secs: 14.2,
     look: "fill",
-    crop: [40, 0, 60],
-    mcrop: [44, 0, 56],
+    crop: [0, 0, 100, 100],
+    ar: 0.9071,
   },
   {
-    label: "A better place to create",
+    label: "Write one caption, adjust it per channel",
     icon: "edit",
-    title: "A better place to create",
+    title: "Write one caption, adjust it per channel",
     text: "Write the caption once and see how it reads on every channel as you type.",
     clip: "write",
-    secs: 8.5,
+    secs: 13,
     look: "fill",
-    crop: [26, 0, 70],
-    mcrop: [28, 0, 60],
+    crop: [0, 0, 100, 100],
+    ar: 1.0214,
   },
   {
-    label: "Humans and agents",
+    label: "Let ChatGPT draft it, your team approve it",
     icon: "plug",
     title: "A workspace for humans and agents",
     text: "Let Claude or ChatGPT draft, queue and schedule videos for your team through MCP.",
     look: "fill",
-    crop: [0, 0, 100],
+    crop: [0, 0, 100, 100],
+    ar: 1.1,
   },
   {
-    label: "A calendar for scheduling",
+    label: "Every brand’s videos on one calendar",
     icon: "calendar",
     title: "A calendar built for scheduling",
     text: "See what is scheduled, in review and ready to ship, across every brand and team member.",
     clip: "calendar",
-    secs: 10.1,
+    secs: 14.6,
     look: "fill",
-    crop: [0, 0, 70],
-    mcrop: [0, 0, 62],
+    crop: [0, 0, 100, 100],
+    ar: 0.65,
   },
   {
-    label: "A month in one file",
+    label: "Schedule a month of videos from one CSV",
     icon: "table",
     title: "Bring a month of videos in one file",
     text: "Import a CSV, or pull videos from Google Drive, Dropbox and OneDrive, and schedule them in one pass.",
     clip: "import",
-    secs: 5.8,
+    secs: 9,
     look: "fill",
-    crop: [0, 0, 80],
-    mcrop: [18, 0, 66],
+    crop: [0, 0, 100, 100],
+    ar: 0.9088,
   },
   {
-    label: "Previews before you ship",
+    label: "See it in each channel’s player before it goes out",
     icon: "phone",
     title: "Check every channel before you publish",
     text: "See each video in its own channel’s player, so nothing goes out cropped or cut off.",
     clip: "previews",
-    secs: 10.6,
+    secs: 13.2,
     look: "fill",
-    crop: [26, 0, 70],
-    mcrop: [28, 0, 60],
+    crop: [0, 0, 100, 100],
+    ar: 1.0214,
   },
   {
-    label: "Every channel, tracked",
+    label: "Know which videos went live, and fix what failed",
     icon: "queue",
     title: "Know where every video stands",
     text: "One list of every video you sent, with its status and live link on each channel.",
     clip: "tracking",
-    secs: 7.9,
+    secs: 11.7,
     look: "fill",
-    crop: [22, 6, 76],
-    mcrop: [24, 8, 60],
+    crop: [0, 0, 100, 100],
+    ar: 0.9414,
   },
 ];
 
+/** Ordered by value to a business: brands, review, queue and imports first; conveniences last. */
 const MORE: [IconName, string][] = [
+  ["layers", "Several brands"],
+  ["eye", "Shareable review links"],
+  ["queue", "Posting queue"],
+  ["upload", "Drive, Dropbox, OneDrive"],
+  ["bell", "Phone alerts"],
+  ["roles", "Team roles"],
+  ["clock", "Schedule in plain words"],
   ["image", "Media library"],
   ["tag", "Tags"],
   ["braces", "Variables"],
-  ["smile", "Emojis"],
   ["gallery", "Carousels"],
   ["resize", "Auto resize"],
   ["retry", "Auto video conversion"],
-  ["clock", "Schedule in plain words"],
-  ["queue", "Posting queue"],
-  ["upload", "Drive, Dropbox, OneDrive"],
-  ["layers", "Several brands"],
-  ["roles", "Team roles"],
-  ["eye", "Shareable review links"],
-  ["bell", "Phone alerts"],
   ["phone", "Installable phone app"],
   ["monitor", "Desktop app"],
-  ["command", "Keyboard shortcuts"],
+  ["smile", "Emojis"],
   ["moon", "Dark mode"],
+  ["command", "Keyboard shortcuts"],
 ];
 
 const rate = (i: number) => Math.max(1, (ITEMS[i].secs ?? 0) / MAX);
 const ms = (i: number) =>
-  ITEMS[i].secs ? Math.round((ITEMS[i].secs / rate(i)) * 1000) + 400 : AGENT_STEPS.length * AGENT_STEP_MS + 400;
+  ITEMS[i].secs ? Math.max(7000, Math.round((ITEMS[i].secs / rate(i)) * 1000) + 400) : AGENT_STEPS.length * AGENT_STEP_MS;
 const wrap = (i: number, cur: number) => {
   const n = ITEMS.length;
   return ((i - cur + n + n / 2) % n) - n / 2;
 };
 
-const AGENT_STEPS = [
-  { src: "/assets/app/mcp-1-draft.jpg", alt: "Profaily composer: the Meet Miso draft an assistant created, with every channel selected" },
-  { src: "/assets/app/mcp-2-send.jpg", alt: "Profaily Send for review dialog: tomorrow 9am, with YouTube, TikTok, Instagram and Facebook ready" },
-  { src: "/assets/app/mcp-4-review.jpg", alt: "Profaily as the producer: the video In review with Request changes and Approve and schedule" },
-  { src: "/assets/app/mcp-5-queue.jpg", alt: "Profaily queue: the video Scheduled for Saturday 31 October at 09:00 on multiple channels" },
+type Line = { k: "me" | "ai" | "tool"; t: string };
+/** The walkthrough on the "humans and agents" item: what is said in ChatGPT on top, and what that did in Profaily below, one step at a time. */
+const AGENT_STEPS: { src: string; alt: string; lines: Line[] }[] = [
+  {
+    src: "/assets/app/mcp-1-draft.jpg",
+    alt: "Profaily composer: the Launch day draft ChatGPT created, with every channel selected",
+    lines: [
+      { k: "me", t: "Schedule the Launch day video for tomorrow at 9am on every channel. Write the caption." },
+      { k: "tool", t: "Found Launch day in your library" },
+      { k: "tool", t: "Draft created in Profaily" },
+    ],
+  },
+  {
+    src: "/assets/app/mcp-2-send.jpg",
+    alt: "Profaily Send for review window: tomorrow 9am, with YouTube, TikTok, Instagram and Facebook ready",
+    lines: [
+      { k: "tool", t: "Draft created in Profaily" },
+      { k: "ai", t: "The draft is ready, with a caption written for each channel." },
+      { k: "me", t: "Send it to Solomon for approval." },
+    ],
+  },
+  {
+    src: "/assets/app/mcp-3-sent.jpg",
+    alt: "Profaily showing the video In review, with the message Sent for review",
+    lines: [
+      { k: "me", t: "Send it to Solomon for approval." },
+      { k: "tool", t: "Sent to Solomon Eseme for review" },
+      { k: "ai", t: "Sent. Nothing is scheduled until Solomon approves it." },
+    ],
+  },
+  {
+    src: "/assets/app/mcp-4-review.jpg",
+    alt: "Profaily as the producer: the video In review with Request changes and Approve and schedule",
+    lines: [
+      { k: "ai", t: "Sent. Nothing is scheduled until Solomon approves it." },
+      { k: "tool", t: "Solomon is reviewing in Profaily" },
+    ],
+  },
+  {
+    src: "/assets/app/mcp-5-queue.jpg",
+    alt: "Profaily queue: the video scheduled for tomorrow at 09:00 on every channel",
+    lines: [
+      { k: "tool", t: "Approved by Solomon Eseme" },
+      { k: "tool", t: "Scheduled for tomorrow, 09:00" },
+      { k: "ai", t: "Approved. Launch day goes out tomorrow at 9:00 on every channel." },
+    ],
+  },
 ];
-const AGENT_STEP_MS = 2800;
+const AGENT_STEP_MS = 3300;
 
-/** What an assistant leaves behind in the app: the draft, the review request, the sign-off and the scheduled video, one after another. */
+/** ChatGPT's side of the walkthrough above, and Profaily's side below it, in step. */
 function Agents() {
   const [step, setStep] = useState(0);
   useEffect(() => {
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setStep(AGENT_STEPS.length - 1);
+      return;
+    }
     const t = window.setInterval(() => setStep((n) => (n + 1) % AGENT_STEPS.length), AGENT_STEP_MS);
     return () => clearInterval(t);
   }, []);
+  const cur = AGENT_STEPS[step];
   return (
-    <>
-      {AGENT_STEPS.map((x, i) => (
-        <img
-          key={x.src}
-          className={`agents-shot${i === step ? " on" : ""}`}
-          src={x.src}
-          alt={i === step ? x.alt : ""}
-          aria-hidden={i === step ? undefined : true}
-          width="1600"
-          height="1231"
-          loading="lazy"
-        />
-      ))}
-    </>
+    <div className="ad" role="img" aria-label="ChatGPT drafts a video in Profaily and sends it to a producer for approval; once approved, it is scheduled.">
+      <div className="ad-chat" aria-hidden="true">
+        <b>ChatGPT</b>
+        <div className="ad-thread" key={step}>
+          {cur.lines.map((l, i) =>
+            l.k === "me" ? (
+              <p className="ad-me" key={i} style={{ animationDelay: `${i * 160}ms` }}>{l.t}</p>
+            ) : l.k === "tool" ? (
+              <p className="ad-tool" key={i} style={{ animationDelay: `${i * 160}ms` }}>
+                {l.t.includes("Solomon Eseme") ? (
+                  // eslint-disable-next-line @next/next/no-img-element -- the founder, who signs off in this walkthrough
+                  <img className="founder-av" src="/assets/founder-solomon-eseme.jpg" alt="" width="20" height="20" />
+                ) : (
+                  <span className="ad-mark"><img src="/icon.svg" alt="" width="12" height="12" /></span>
+                )}
+                {l.t}
+                {l.t.includes("Solomon Eseme") && <em className="founder-tag">Founder</em>}
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-6.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </p>
+            ) : (
+              <p className="ad-ai" key={i} style={{ animationDelay: `${i * 160}ms` }}>{l.t}</p>
+            ),
+          )}
+        </div>
+      </div>
+      <div className="ad-app" aria-hidden="true">
+        {AGENT_STEPS.map((x, i) => (
+          // eslint-disable-next-line @next/next/no-img-element -- a real still of the app
+          <img key={x.src} className={i === step ? "on" : ""} src={x.src} alt="" width="1600" height="1231" loading="lazy" />
+        ))}
+      </div>
+      <span className="sr-only">{cur.alt}</span>
+    </div>
   );
 }
 
 /** The feature band: a roller that always keeps the current feature in the middle and loops forever, with the message and a real recording for each. */
-export function FeatureBand() {
+export function FeatureBand({ light = false }: { light?: boolean } = {}) {
   const [cur, setCur] = useState(0);
   const [wide, setWide] = useState(false);
   const prev = useRef(0);
@@ -217,11 +288,11 @@ export function FeatureBand() {
   }, [cur, tick]);
 
   const it = ITEMS[cur];
-  const c = (wide ? it.crop : it.mcrop ?? it.crop);
+  const c = it.crop;
 
   return (
     <>
-      <section className="band" ref={root} aria-labelledby="band-h">
+      <section className={`band${light ? " light" : ""}`} ref={root} aria-labelledby="band-h">
         <div className="pin">
           <div className="wrap grid">
             <div>
@@ -241,12 +312,12 @@ export function FeatureBand() {
                   >
                     {i === cur && (
                       <div className={`mf ${x.look}`}>
-                        <div className="in">
+                        <div className="in" style={{ aspectRatio: String(c[2] / (it.ar ?? 0.625) / c[3]) }}>
                           {x.clip ? (
                             <video
                               key={`${i}-${tick}`}
-                              src={`/assets/app/feat-${x.clip}.mp4`}
-                              poster={`/assets/app/feat-${x.clip}.jpg`}
+                              src={`/assets/app/feat-${x.clip}.mp4?v=${REC_V}`}
+                              poster={`/assets/app/feat-${x.clip}.jpg?v=${REC_V}`}
                               autoPlay
                               muted
                               loop
@@ -255,7 +326,7 @@ export function FeatureBand() {
                               style={{
                                 width: `${10000 / c[2]}cqw`,
                                 left: `${-(100 * c[0]) / c[2]}cqw`,
-                                top: `${-(c[1] / 100) * (10000 / c[2]) * 0.625}cqw`,
+                                top: `${-(c[1] / 100) * (10000 / c[2]) * (it.ar ?? 0.625)}cqw`,
                               }}
                               ref={(v) => {
                                 if (v) v.playbackRate = rate(i);
@@ -332,10 +403,11 @@ export function FeatureBand() {
           {MORE.map(([icon, label]) => (
             <li key={label}>
               <Icon name={icon} />
-              {label}
+              <FeatureTip label={label} />
             </li>
           ))}
         </ul>
+        <OAuthButtons lead="Start scheduling across your brands:" />
       </div>
     </>
   );

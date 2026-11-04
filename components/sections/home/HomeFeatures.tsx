@@ -74,14 +74,14 @@ const review = (
       <div>
         <span className="st warn">Changes requested</span>
         <h5>Redis caching in one minute</h5>
-        <p>For YouTube Shorts, TikTok and Reels · Sent by Tunde, Producer</p>
+        <p>For YouTube Shorts, TikTok and Reels · Sent by Alex, Editor</p>
         <div className="bar" aria-hidden="true"><span>Request changes</span><span className="pri">Approve</span></div>
       </div>
     </div>
     <div className="thread" data-ui>
-      <div className="c"><span className="av b">AO</span><div><b>Amaka</b> <span>Editor · 9:12</span><p>Cut the first two seconds. The hook starts late.</p></div></div>
+      <div className="c"><span className="av b">JL</span><div><b>Jordan</b> <span>Editor · 9:12</span><p>Cut the first two seconds. The hook starts late.</p></div></div>
       <div className="ev2"><i />Solomon asked for changes</div>
-      <div className="c"><span className="av c">TB</span><div><b>Tunde</b> <span>Producer · 10:40</span><p>New cut uploaded, caption now links the Redis course.</p></div></div>
+      <div className="c"><span className="av c">SE</span><div><b>Solomon</b> <span>Founder · 10:40</span><p>New cut uploaded, caption now links the Redis course.</p></div></div>
       <div className="c"><span className="av">SE</span><div><b>Solomon</b> <span>Admin · 10:52</span><p>Perfect. Approving for Thursday 18:00.</p></div></div>
     </div>
   </div>
