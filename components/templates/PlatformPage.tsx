@@ -52,7 +52,7 @@ export function PlatformPage({ content: c }: { content: PlatformContent }) {
                     {s.points.map((p) => <li key={p}>{p}</li>)}
                   </ul>
                 </div>
-                <div className="sh rv"><div className={`chp-fig${s.image === "composer" ? " zoom" : s.image === "calendar" ? " zoomcal" : ""}`}><img className="chp-img" src={img.src} alt={img.alt} width="1600" height="1231" loading="lazy" /></div></div>
+                <div className="sh rv"><div className="chp-fig"><img className="chp-img" src={img.src} alt={img.alt} width="1600" height="1231" loading="lazy" /></div></div>
               </article>
             );
           })}
