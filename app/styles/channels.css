@@ -14,12 +14,9 @@
 .chp-fig { border-radius: 18px; overflow: hidden; background: var(--shell); padding: 8px; }
 .chp-fig .chp-img { border-radius: 11px; }
 .chp-fig .chp-img { display: block; border-radius: 0; box-shadow: none; }
-.chp-fig.zoomcal { aspect-ratio: 1.3; }
-.chp-fig.zoomcal .chp-img { height: 100%; object-fit: cover; transform: scale(1.6); transform-origin: 80% 14%; }
-.chp-crop { aspect-ratio: 1.75; overflow: hidden; border-radius: 18px 18px 0 0; }
+.chp-crop { aspect-ratio: 1.5; overflow: hidden; border-radius: 18px 18px 0 0; }
 .chp-crop img { box-shadow: none; border-radius: 0; }
-.chp-fig.zoom { aspect-ratio: 1.3; }
-.chp-fig.zoom .chp-img { height: 100%; object-fit: cover; transform: scale(1.7); transform-origin: 62% 38%; }
+/* every still is shown whole: no zoom crop, so no part of the app is ever cut off */
 .pg-channel .fr .sh { padding: clamp(14px, 2.4vw, 32px); }
 
 .chp-ben { padding-top: 150px; }
