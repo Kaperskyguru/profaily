@@ -4,10 +4,10 @@ export function HomeHero() {
   return (
     <header className="hero has-grid" data-hero>
       <div className="wrap">
-        <span className="pill">The Agentic OS for short-form video marketing</span>
-        <h1>Turn short‑form video into a growth engine for your business</h1>
+        <span className="pill">The Agentic OS for short-form video scheduling</span>
+        <h1>Turn short‑form video into a <span className="hl">growth engine</span> for your business</h1>
         <p className="sub">
-          The AI-powered, collaborative short-form video marketing platform for Instagram, TikTok, YouTube, and Facebook.
+          The AI-powered, collaborative short-form video scheduling platform for Instagram Reels, TikTok, YouTube Shorts, and Facebook Reels.
         </p>
         <OAuthButtons />
       </div>
