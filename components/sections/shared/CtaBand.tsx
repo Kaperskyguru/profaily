@@ -12,7 +12,7 @@ const CUSTOMERS = [
 
 /** The closing card on subpages: the old "Discover Profaily" promo, with real screenshots stacked beside the ask. */
 export function CtaBand({
-  heading = "Put your video marketing workflow in one place",
+  heading = "Run video marketing from one place",
   lede = "Plan and publish across TikTok, Instagram, YouTube and Facebook. Keep each channel’s details in view, then follow every video from one workspace.",
   primary = { href: links.register, label: "Check out Profaily" },
   secondary,
@@ -47,9 +47,9 @@ export function CtaBand({
           </div>
         </div>
         <div className="disc-stack" aria-hidden="true">
-          <img className="s3" src="/assets/app/mcp-4-review.jpg" alt="" width="1600" height="1231" loading="lazy" />
-          <img className="s2" src="/assets/app/mcp-5-queue.jpg" alt="" width="1600" height="1231" loading="lazy" />
-          <img className="s1" src="/assets/app/mcp-6-calendar.jpg" alt="" width="1600" height="1231" loading="lazy" />
+          <img className="s3" src="/assets/app/mcp-4-review.webp" alt="" width="1600" height="1231" loading="lazy" />
+          <img className="s2" src="/assets/app/mcp-5-queue.webp" alt="" width="1600" height="1231" loading="lazy" />
+          <img className="s1" src="/assets/app/mcp-6-calendar.webp" alt="" width="1600" height="1231" loading="lazy" />
         </div>
       </div>
     </section>

@@ -1,6 +1,5 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { OAuthButtons } from "@/components/sections/shared/OAuthButtons";
 
 /*
  * Typefully-style scripted demo, built as live page code (not a video file): one clock, and every
@@ -15,8 +14,8 @@ const END = 28.5;
 const CPS = 38;
 
 const PROMPTS = [
-  { start: 0.7, send: 3.4, text: "Schedule the Meet Miso video for tomorrow at 9am on every channel. Write the caption." },
-  { start: 12.4, send: 14.0, text: "Send it to Tunde for approval." },
+  { start: 0.7, send: 3.4, text: "Schedule the Launch day video for tomorrow at 9am on every channel. Write the caption." },
+  { start: 12.4, send: 14.0, text: "Send it to Solomon for approval." },
   { start: 21.9, send: 23.4, text: "Is it approved? Show me the calendar." },
 ];
 
@@ -27,27 +26,27 @@ type Item =
 const THREAD: Item[] = [
   { id: "u1", kind: "user", at: PROMPTS[0].send, text: PROMPTS[0].text },
   { id: "a1", kind: "ai", at: 3.8, text: "On it. Let me find the video in your library." },
-  { id: "t1", kind: "tool", at: 4.5, done: 5.9, label: "Searching your media library", result: "Found Meet Miso in your library" },
+  { id: "t1", kind: "tool", at: 4.5, done: 5.9, label: "Searching your media library", result: "Found Launch day in your library" },
   { id: "t2", kind: "tool", at: 6.1, done: 7.1, label: "Checking connected channels", result: "YouTube, TikTok, Instagram and Facebook" },
   { id: "t3", kind: "tool", at: 7.3, done: 8.7, label: "Creating a draft", result: "Draft created in Profaily" },
   { id: "a2", kind: "ai", at: 11.2, text: "The draft is ready, with a caption written for each channel. All the channels accept it." },
   { id: "u2", kind: "user", at: PROMPTS[1].send, text: PROMPTS[1].text },
-  { id: "t4", kind: "tool", at: 14.4, done: 15.6, label: "Sending for review", result: "Sent to Tunde Bello for review" },
-  { id: "a3", kind: "ai", at: 16.0, text: "Sent. Nothing is scheduled until Tunde approves it." },
+  { id: "t4", kind: "tool", at: 14.4, done: 15.6, label: "Sending for review", result: "Sent to Solomon Eseme for review" },
+  { id: "a3", kind: "ai", at: 16.0, text: "Sent. Nothing is scheduled until Solomon approves it." },
   { id: "u3", kind: "user", at: PROMPTS[2].send, text: PROMPTS[2].text },
-  { id: "t5", kind: "tool", at: 23.8, done: 24.8, label: "Checking the review", result: "Approved by Tunde Bello" },
-  { id: "t6", kind: "tool", at: 25.0, done: 26.1, label: "Loading your calendar", result: "Scheduled for Sat 31 Oct, 09:00" },
-  { id: "a4", kind: "ai", at: 26.5, text: "Approved. Meet Miso goes out on Saturday at 9:00 on YouTube, TikTok, Instagram and Facebook." },
+  { id: "t5", kind: "tool", at: 23.8, done: 24.8, label: "Checking the review", result: "Approved by Solomon Eseme" },
+  { id: "t6", kind: "tool", at: 25.0, done: 26.1, label: "Loading your calendar", result: "Scheduled for tomorrow, 09:00" },
+  { id: "a4", kind: "ai", at: 26.5, text: "Approved. Launch day goes out tomorrow at 9:00 on YouTube, TikTok, Instagram and Facebook." },
 ];
 
 /* The real dashboard frames, and when each takes the screen. `z`/`o` = zoom and origin inside the pane. */
 const SHOTS = [
-  { src: "/assets/app/mcp-1-draft.jpg", from: 8.0, z: 1.5, o: "0% 0%", alt: "Profaily composer: the Meet Miso draft ChatGPT created, with every channel selected" },
-  { src: "/assets/app/mcp-2-send.jpg", from: 14.0, z: 1, o: "50% 50%", alt: "Profaily Send for review dialog: tomorrow 9am, Sat 31 Oct 09:00, with YouTube, TikTok, Instagram and Facebook ready" },
-  { src: "/assets/app/mcp-3-sent.jpg", from: 15.6, z: 1.5, o: "0% 0%", alt: "Profaily showing the video In review, with the toast Sent for review, for Tomorrow 09:00" },
-  { src: "/assets/app/mcp-4-review.jpg", from: 17.4, z: 1.5, o: "100% 0%", alt: "Profaily as the producer: the video In review with Request changes and Approve and schedule" },
-  { src: "/assets/app/mcp-5-queue.jpg", from: 20.4, z: 1.5, o: "0% 0%", alt: "Profaily queue: the video Scheduled for Tomorrow, Sat 31 Oct at 09:00 on multiple channels" },
-  { src: "/assets/app/mcp-6-calendar.jpg", from: 25.0, z: 1.12, o: "100% 0%", alt: "Profaily calendar: the Meet Miso video on Saturday 31 October at 09:00" },
+  { src: "/assets/app/mcp-1-draft.webp", from: 8.0, z: 1.5, o: "0% 0%", alt: "Profaily composer: the Launch day draft ChatGPT created, with every channel selected" },
+  { src: "/assets/app/mcp-2-send.webp", from: 14.0, z: 1, o: "50% 50%", alt: "Profaily Send for review dialog: tomorrow 9am, tomorrow 09:00, with YouTube, TikTok, Instagram and Facebook ready" },
+  { src: "/assets/app/mcp-3-sent.webp", from: 15.6, z: 1.5, o: "0% 0%", alt: "Profaily showing the video In review, with the toast Sent for review, for Tomorrow 09:00" },
+  { src: "/assets/app/mcp-4-review.webp", from: 17.4, z: 1.5, o: "100% 0%", alt: "Profaily as the producer: the video In review with Request changes and Approve and schedule" },
+  { src: "/assets/app/mcp-5-queue.webp", from: 20.4, z: 1.5, o: "0% 0%", alt: "Profaily queue: the video Scheduled for tomorrow at 09:00 on multiple channels" },
+  { src: "/assets/app/mcp-6-calendar.webp", from: 25.0, z: 1.12, o: "100% 0%", alt: "Profaily calendar: the Launch day video on tomorrow at 09:00" },
 ] as const;
 
 
@@ -113,13 +112,15 @@ export function McpCard(_: { bare?: boolean } = {}) {
 
   return (
     <div className="sh mcp-card rv" ref={root}>
-      <p className="sr-only">A walkthrough. In ChatGPT, someone asks for the Meet Miso video to go out tomorrow at 9am on every channel. ChatGPT drafts it in Profaily through the MCP server and sends it to the producer for review. The producer approves it in the Profaily dashboard, and the video appears on the calendar for Saturday 31 October at 09:00.</p>
+      <p className="sr-only">A walkthrough. In ChatGPT, someone asks for the Launch day video to go out tomorrow at 9am on every channel. ChatGPT drafts it in Profaily through the MCP server and sends it to the producer for review. The producer approves it in the Profaily dashboard, and the video appears on the calendar for tomorrow at 09:00.</p>
       <div className="mcp-grid">
         <div className="mcp-view" data-ui>
           <div className="mcp-pane" aria-hidden="true">
           <div className="mcp-empty" style={{ opacity: active < 0 ? 1 : 0 }}>
-            <img src="/icon.svg" alt="" width="34" height="34" />
-            <span>Mastering Backend</span>
+            <span className="mcp-glow">
+              <img src="/icon.svg" alt="" width="72" height="72" />
+            </span>
+            <span>Profaily</span>
           </div>
           <div className="mcp-zoom" style={{ transform: `scale(${shot.z})`, transformOrigin: shot.o }}>
             {SHOTS.map((s, i) => (
@@ -144,14 +145,19 @@ export function McpCard(_: { bare?: boolean } = {}) {
 
         <div className="mcp-chat" aria-hidden="true">
           <div className="mcp-chat-top">
-            <b>ChatGPT</b><small>Illustration of the conversation</small>
+            <b>ChatGPT</b>
           </div>
           <div className="mcp-thread">
             {shown.map((i) =>
               i.kind === "tool" ? (
                 <div className={`mcp-tool mcp-in${t >= i.done ? " done" : ""}`} key={i.id}>
-                  <span className="mcp-mark"><img src="/assets/profaily-mark-white-trim.svg" alt="" width="12" height="12" /></span>
-                  <span>{t >= i.done ? i.result : `${i.label}…`}</span>
+                  {t >= i.done && i.result.includes("Solomon Eseme") ? (
+                    // eslint-disable-next-line @next/next/no-img-element -- the founder, who signs off in this walkthrough
+                    <img className="founder-av" src="/assets/founder-solomon-eseme.webp" alt="" width="20" height="20" />
+                  ) : (
+                    <span className="mcp-mark"><img src="/assets/profaily-mark-white-trim.svg" alt="" width="12" height="12" /></span>
+                  )}
+                  <span>{t >= i.done ? i.result : `${i.label}…`}{t >= i.done && i.result.includes("Solomon Eseme") && <em className="founder-tag">Founder</em>}</span>
                   {t >= i.done ? <Check /> : <i className="mcp-spin" />}
                 </div>
               ) : (
@@ -178,17 +184,17 @@ export function McpIntro() {
   return (
     <div className="mcp-intro">
       <h2 id="mcp-h">Ask ChatGPT.<br />Profaily schedules it.</h2>
-      <p className="lead">Connect ChatGPT or Claude to Profaily and ask for a video to go out. It is drafted, sent to your producer for approval, and placed on the calendar, under your team&rsquo;s own review rules.</p>
-      <OAuthButtons lead="Start your free trial:" />
+      <p className="lead">Connect ChatGPT or Claude to Profaily and ask for a video to go out. It is drafted, sent to your team for approval, and placed on the calendar, under your team&rsquo;s own review rules.</p>
     </div>
   );
 }
 
-export function McpSection() {
-  return (
+export function McpSection({ dark = false }: { dark?: boolean } = {}) {
+  const inner = (
     <section className="wrap mcp-section" id="ask-chatgpt" aria-labelledby="mcp-h">
       <McpIntro />
       <McpCard />
     </section>
   );
+  return dark ? <div className="mcp-band">{inner}</div> : inner;
 }

@@ -59,7 +59,7 @@ export const toolsIndexMeta: Meta = {
 
 const thumb = (
   <span className="tv-th">
-    <img src="/assets/app/welcome-frame.jpg" alt="" width="540" height="960" loading="lazy" decoding="async" />
+    <img src="/assets/app/welcome-frame.webp" alt="" width="540" height="960" loading="lazy" decoding="async" />
   </span>
 );
 

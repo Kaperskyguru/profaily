@@ -24,7 +24,12 @@ const nextConfig = {
     ];
   },
   async headers() {
-    return [{ source: "/(.*)", headers: securityHeaders }];
+    return [
+      { source: "/(.*)", headers: securityHeaders },
+      /* The recordings, stills and logos change rarely (a recording that changes gets a new ?v= in its URL), so a repeat visit on a poor
+         connection is served from the browser's own cache and revalidated in the background. */
+      { source: "/assets/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=86400" }] },
+    ];
   },
   reactStrictMode: true,
   poweredByHeader: false,

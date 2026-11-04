@@ -23,6 +23,9 @@
 .pg-pricing .compare .rl { display: flex; gap: 12px; align-items: flex-start; }
 .pg-pricing .compare .rl > svg, .pg-pricing .compare .rl > .glyph { width: 20px; height: 20px; flex: none; margin-top: 1px; color: var(--mint-ink); }
 .pg-pricing .compare .rl em { font-style: normal; margin-left: 8px; font-size: 12.5px; font-weight: 600; color: var(--muted); background: var(--shell); padding: 2px 8px; border-radius: 99px; white-space: nowrap; }
+.pg-pricing .compare .rl .src { display: inline-flex; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
+.pg-pricing .compare .rl .src .glyph { width: 18px; height: 18px; margin: 0; color: inherit; }
+.pg-pricing .compare .rl .src em { margin-left: 0; }
 .pg-pricing .compare .rl small { display: block; margin-top: 3px; font-size: 13.5px; font-weight: 500; color: var(--muted); line-height: 1.45; }
 .pg-pricing .compare .fine { margin-top: 16px; font-size: 14px; color: var(--faint); }
 

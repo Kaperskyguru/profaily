@@ -43,7 +43,6 @@ export function Testimonials() {
                   <figcaption>
                     <b>{t.name}</b>
                     <span>{t.handle}</span>
-                    <svg className="x" viewBox="0 0 24 24" aria-label="Posted on X" role="img"><path fill="currentColor" d="M18.9 2H22l-7.6 8.7L23 22h-7l-5.5-7.2L4.2 22H1l8.1-9.3L.9 2H8l5 6.6L18.9 2zm-1.2 18h1.9L6.4 3.9H4.4L17.7 20z" /></svg>
                   </figcaption>
                   <blockquote><Body text={t.text} /></blockquote>
                 </figure>

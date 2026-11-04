@@ -79,7 +79,7 @@ export default function Page() {
         </>)}
 
         <CtaBand
-          heading="Put your video marketing workflow in one place"
+          heading="Run video marketing from one place"
           lede="Prepare one finished video, manage destination details, follow publishing status, and connect eligible conversations to next steps."
           secondary={{ href: "/features", label: "Explore all features" }}
         />

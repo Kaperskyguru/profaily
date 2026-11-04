@@ -5,11 +5,13 @@ import { CtaBand } from "@/components/sections/shared/CtaBand";
 import { Faq } from "@/components/sections/shared/Faq";
 import { LogoMarquee } from "@/components/sections/shared/LogoMarquee";
 import { Pricing } from "@/components/sections/shared/Pricing";
+import { FeatureTip } from "@/components/ui/FeatureTip";
 import { Glyph, Icon, type IconName, type Integration } from "@/components/ui/Glyph";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { OgUrl } from "@/components/ui/OgUrl";
 import { faqJsonLd } from "@/content/comparisons";
 import { plans, TRIAL_DAYS } from "@/content/plans";
+import { tipFor } from "@/content/tips";
 import { compareSections, pricingFaq, pricingMeta, type Cell } from "@/content/pricing";
 import { links } from "@/lib/links";
 
@@ -71,9 +73,15 @@ export default function Page() {
                         <span className="rl">
                           {CHANNELS.includes(r.icon) ? <Glyph name={r.icon as Integration} id={`cmp-${r.icon}`} /> : <Icon name={r.icon as IconName} />}
                           <span>
-                            {r.label}
+                            <FeatureTip label={r.label} />
+                            {r.sources && (
+                              <span className="src" aria-hidden="true">
+                                {r.sources.logos.map((g) => <Glyph key={g} name={g} id={`src-${g}`} />)}
+                                {r.sources.chip && <em>{r.sources.chip}</em>}
+                              </span>
+                            )}
                             {r.note && <em>{r.note}</em>}
-                            <small>{r.tip}</small>
+                            {!tipFor(r.label) && <small>{r.tip}</small>}
                           </span>
                         </span>
                       </th>

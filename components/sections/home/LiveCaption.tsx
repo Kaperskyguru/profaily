@@ -22,7 +22,7 @@ export function LiveCaption() {
     ["Facebook caption", cap.length, LIMIT.facebook],
   ];
   const frame = (children: React.ReactNode) => (
-    <div className="ph"><div className="s"><img src="/assets/app/welcome-frame.jpg" alt="" width="540" height="960" loading="lazy" decoding="async" />{children}</div></div>
+    <div className="ph"><div className="s"><img src="/assets/app/welcome-frame.webp" alt="" width="540" height="960" loading="lazy" decoding="async" />{children}</div></div>
   );
   return (
     <div className="live rv" id="try" aria-labelledby="try-h">
