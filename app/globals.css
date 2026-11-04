@@ -885,7 +885,17 @@ a.tile-card .more-link { margin-top: 6px; text-decoration: none; }
   .mf { padding-bottom: 10px; border-radius: 26px; }
   .mf .in { border-radius: 18px; }
   .band .grid { grid-template-columns: 1fr; }
-  .arc { height: auto; margin-top: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  /* on a phone the band is one centred column: heading, line, then the recording. The roller list is hidden; the recordings still advance on their own. */
+  .arc { display: none; }
+  .band .grid > div:first-child { width: 100%; max-width: 640px; margin-inline: auto; }
+  .msgbox { align-items: center; text-align: center; }
+  .band h2, .band .lead { margin-inline: auto; text-align: center; }
+  .band h2 { max-width: 14ch; }
+  .band .lead { max-width: 34ch; }
+  .band .panels { width: 100%; height: auto; margin-top: 30px; }
+  .band .panel { position: relative; inset: auto; }
+  .band .panel:not(.on) { display: none; }
+  .band .mf, .band .mf.card, .band .mf.fill, .band .mf.strip { position: relative; left: auto; right: auto; width: 100%; height: auto; transform: none; margin-inline: auto; }
   .arc button { position: static; transform: none !important; opacity: 1 !important; filter: none !important; font-size: 17px; padding: 8px 16px 8px 8px; }
   .arc button .ic { width: 32px; height: 32px; }
   .arc button { max-width: none; }
