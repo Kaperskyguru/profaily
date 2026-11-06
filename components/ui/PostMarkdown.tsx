@@ -1,10 +1,11 @@
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Element, ElementContent, Root } from "hast";
+import { EXPLICIT_ID, idMaker } from "@/content/posts/headings";
 
 /**
  * Renders a post's markdown body as the exact markup the article CSS expects:
- *  - `## Heading {#id}` becomes <h2 id="id">Heading</h2>
+ *  - `## Heading {#id}` becomes <h2 id="id">Heading</h2>; a heading with no {#id} gets one from its text (same rule as the "In this guide" list)
  *  - a blockquote becomes <div class="article-callout"> holding its first paragraph's inline content
  *  - a table is wrapped as div.table-wrap.article-table-wrap > table.article-table (the shared table primitive)
  *  - http(s) links open in a new tab (target + rel); internal links stay plain
@@ -14,21 +15,22 @@ import type { Element, ElementContent, Root } from "hast";
 
 const isWhitespace = (n: ElementContent) => n.type === "text" && /^\s*$/.test(n.value);
 const BLOCK_PARENTS = new Set(["ul", "ol", "table", "thead", "tbody", "tr"]);
-const HEADING_ID = /\s*\{#([A-Za-z][\w-]*)\}\s*$/;
 
-function transform(node: Element): Element {
+function transform(node: Element, nextId: (text: string) => string): Element {
   node.children = node.children.map((child) => {
     if (child.type === "text") return { ...child, value: child.value.replace(/\n/g, " ") };
-    return child.type === "element" ? transform(child) : child;
+    return child.type === "element" ? transform(child, nextId) : child;
   });
   if (BLOCK_PARENTS.has(node.tagName)) node.children = node.children.filter((c) => !isWhitespace(c));
 
   if (node.tagName === "h2") {
     const last = node.children[node.children.length - 1];
-    const m = last?.type === "text" ? HEADING_ID.exec(last.value) : null;
+    const m = last?.type === "text" ? EXPLICIT_ID.exec(last.value) : null;
     if (last?.type === "text" && m) {
       last.value = last.value.slice(0, m.index);
       node.properties = { ...node.properties, id: m[1] };
+    } else {
+      node.properties = { ...node.properties, id: nextId(plain(node)) };
     }
   }
   if (node.tagName === "a" && /^https?:\/\//.test(String(node.properties?.href))) {
@@ -45,11 +47,16 @@ function transform(node: Element): Element {
   return node;
 }
 
+function plain(node: Element): string {
+  return node.children.map((c) => (c.type === "text" ? c.value : c.type === "element" ? plain(c) : "")).join("");
+}
+
 function rehypeArticle() {
   return (tree: Root) => {
+    const nextId = idMaker();
     const blocks = tree.children
       .filter((c): c is Element => c.type === "element")
-      .map(transform);
+      .map((b) => transform(b, nextId));
     tree.children = blocks.flatMap((b, i): ElementContent[] => (i ? [{ type: "text", value: " " }, b] : [b]));
   };
 }

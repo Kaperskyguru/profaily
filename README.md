@@ -35,17 +35,20 @@ Legacy `*.html` URLs redirect (308) to the clean routes via `next.config`.
 
 ## Writing a post
 
-Blog posts are markdown files in `content/posts/<slug>.md`: YAML frontmatter, then the article body.
+Blog posts are markdown files in `posts/<slug>.md` (the loader code is in `content/posts/`): YAML frontmatter, then the article body. Every
+`.md` file in that folder is a post and the file name is its URL (`/blog/<slug>`). Nothing is registered.
+Files in `posts/_parked/` are ignored.
 
-1. Create `content/posts/<slug>.md` and add the slug to the list in `content/posts/index.ts` (the first
-   slug is the featured post on the blog index). Add the cover image `public/assets/blog-featured-<slug>.svg`.
-2. Frontmatter (all required, strings quoted): `slug` (same as the file name), `category`, `title`,
-   `description`, `readTime`, `datePublished` (ISO date), `dateLabel`, `toc` (`id` + `label` list),
-   `cta` (`href` + `label`), `sources` (`href` + `label` list), `related` (three slugs). The full field
-   notes are at the top of `content/posts/load.ts`.
+1. Create `posts/<slug>.md` and add the cover `public/assets/blog-featured-<slug>.jpg` (1200x630,
+   plus a `.svg`).
+2. Frontmatter you write: `title`, `description`, `category`, `datePublished` (`2026-09-29`). Optional:
+   `cta` (`href` + `label`), `sources` (`href` + `label` list), `related` (slugs of other posts),
+   `featured: true` (pin to the top of the index), `draft: true` (hidden in the production build, shown in
+   `yarn dev`). Newest posts come first. The "In this guide" list, read time and date label are computed.
+   A wrong or missing field fails the build with the file and field named. Notes are at the top of
+   `content/posts/load.ts`.
 3. Body is markdown with no raw HTML:
-   - `## Heading {#same-file}` gives the h2 the id `same-file` (ids are never derived from the text;
-     every `toc` id must match one).
+   - `## Heading` gets an id from its text. `## Heading {#my-id}` pins the id.
    - `> **Working rule:** text` renders as the callout box.
    - A GFM pipe table renders as the article table.
    - `https://` links open in a new tab; `/internal` links are plain.
