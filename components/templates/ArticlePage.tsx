@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { PostMarkdown } from "@/components/ui/PostMarkdown";
 import { OgUrl } from "@/components/ui/OgUrl";
 import { postList, posts, type PostContent } from "@/content/posts";
+import { faqJsonLd } from "@/content/comparisons";
 import { ORIGIN } from "@/lib/metadata";
 import { links } from "@/lib/links";
 
@@ -21,7 +22,7 @@ export function PostMeta({ post, byline, short }: { post: PostContent; byline?: 
     : post.dateLabel;
   return (
     <p className="bl-meta">
-      {byline ? <span>Profaily Editorial</span> : <span className="bl-cat">{post.category}</span>}
+      {byline ? <span>{post.author ?? "Profaily Editorial"}</span> : <span className="bl-cat">{post.category}</span>}
       <time dateTime={post.datePublished}>{date}</time>
       <span>{post.readTime}</span>
     </p>
@@ -72,10 +73,11 @@ export function ArticlePage({ post }: { post: PostContent }) {
           datePublished: post.datePublished,
           dateModified: post.datePublished,
           mainEntityOfPage: `${ORIGIN}/blog/${post.slug}`,
-          author: { "@type": "Organization", name: "Profaily Editorial" },
+          author: post.author ? { "@type": "Person", name: post.author } : { "@type": "Organization", name: "Profaily Editorial" },
           publisher: { "@type": "Organization", name: "Profaily" },
         }}
       />
+      {post.faq?.length ? <JsonLd data={faqJsonLd(post.faq)} /> : null}
       <main className="pg-blog pg-article">
         <header className="page-hero has-grid ar-hero">
           <div className="wrap ar-head">
@@ -113,7 +115,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
 
             <section className="ar-sources" aria-labelledby="ar-sources-title">
               <h2 id="ar-sources-title">Sources and further reading</h2>
-              <p>Platform behavior and definitions can change. These primary references were checked on September 29, 2026.</p>
+              <p>Platform behavior and definitions can change. These primary references were checked on {post.sourcesChecked ?? "September 29, 2026"}.</p>
               <ul>
                 {post.sources.map((s) => (
                   <li key={s.href}>
@@ -135,6 +137,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
           </aside>
         </div>
 
+        {related.length > 0 && (
         <section className="section tight" aria-labelledby="ar-related-title">
           <div className="wrap">
             <div className="bl-head">
@@ -146,6 +149,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
             </div>
           </div>
         </section>
+        )}
 
         <CtaBand
           heading="Run video marketing from one place"

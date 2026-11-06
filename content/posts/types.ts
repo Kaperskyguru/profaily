@@ -16,5 +16,11 @@ export type PostContent = {
   cta: { href: string; label: string };
   sources: { href: string; label: string }[];
   related: string[];
+  /** Optional: a named author for a first-person post (byline and Article JSON-LD). Defaults to "Profaily Editorial". */
+  author?: string;
+  /** Optional: the date the sources were checked, as shown above the sources list. */
+  sourcesChecked?: string;
+  /** Optional: the post's FAQ, copied word for word from its body; drives the FAQPage JSON-LD. */
+  faq?: { q: string; a: string }[];
   body: string;
 };
