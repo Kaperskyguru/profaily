@@ -2,7 +2,7 @@ import { loadAllPosts } from "./load";
 
 export type { PostContent } from "./types";
 
-/** Every post in content/posts/*.md, featured first then newest first. A new post needs nothing registered: add the file. */
+/** Every post in posts/*.md, featured first then newest first. A new post needs nothing registered: add the file. */
 export const postList = loadAllPosts();
 
 /** Keyed by route slug (/blog/<slug>). */

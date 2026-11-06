@@ -1,6 +1,6 @@
 /**
  * A blog post as the template consumes it: the frontmatter fields plus the markdown `body`.
- * Posts are authored as content/posts/<slug>.md; the frontmatter is documented in ./load.ts, which fills in the
+ * Posts are authored as posts/<slug>.md; the frontmatter is documented in ./load.ts, which fills in the
  * computed fields (toc, readTime, dateLabel).
  * Everything else on a blog article is shared template markup, see
  * components/templates/ArticlePage.tsx, which renders `body` through components/ui/PostMarkdown.tsx.

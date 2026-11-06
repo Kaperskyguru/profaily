@@ -5,7 +5,7 @@ import { headingsOf } from "./headings";
 import type { PostContent } from "./types";
 
 /**
- * Posts are markdown files: content/posts/<slug>.md, YAML frontmatter then the article body. Every .md file in
+ * Posts are markdown files: posts/<slug>.md (the code that reads them is in content/posts), YAML frontmatter then the article body. Every .md file in
  * that folder is a post (the file name is the slug and the route, /blog/<slug>); nothing else needs registering.
  * Sub-folders such as _parked/ are ignored.
  *
@@ -36,14 +36,14 @@ import type { PostContent } from "./types";
  *  [text](https://…)       external links open in a new tab; /paths stay plain links
  */
 
-const POSTS_DIR = path.join(process.cwd(), "content", "posts");
+const POSTS_DIR = path.join(process.cwd(), "posts");
 const WORDS_PER_MINUTE = 220;
 const DEFAULT_CTA = { href: "/features", label: "Explore features" };
 
 /** A mistake in a post file, named so the fix is obvious: file, field, what was expected. */
 export class PostError extends Error {
   constructor(file: string, message: string) {
-    super(`content/posts/${file}: ${message}`);
+    super(`posts/${file}: ${message}`);
     this.name = "PostError";
   }
 }
@@ -129,7 +129,7 @@ export function loadPost(slug: string): PostContent {
   };
 }
 
-/** Every post in content/posts, ready for the blog: drafts left out of production, featured first, then newest first. */
+/** Every post in posts/, ready for the blog: drafts left out of production, featured first, then newest first. */
 export function loadAllPosts(): PostContent[] {
   const slugs = fs
     .readdirSync(POSTS_DIR, { withFileTypes: true })
@@ -140,7 +140,7 @@ export function loadAllPosts(): PostContent[] {
   for (const p of all) {
     for (const r of p.related) {
       if (r === p.slug) throw new PostError(`${p.slug}.md`, `"related" lists the post itself`);
-      if (!known.has(r)) throw new PostError(`${p.slug}.md`, `"related" has "${r}", which is not a post in content/posts`);
+      if (!known.has(r)) throw new PostError(`${p.slug}.md`, `"related" has "${r}", which is not a post in posts/`);
     }
   }
   const live = process.env.NODE_ENV === "production" ? all.filter((p) => !p.draft) : all;
