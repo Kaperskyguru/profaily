@@ -24,6 +24,12 @@ import type { PostContent } from "./types";
  *  sources        "Sources and further reading" list: list of {href, label}
  *  related        slugs of the three "More from Profaily" cards, in display order
  *
+ * Optional fields:
+ *  author         named author for a first-person post (byline and Article JSON-LD as a Person);
+ *                 without it the byline and JSON-LD say "Profaily Editorial"
+ *  sourcesChecked human-readable date the sources were checked (defaults to the original template date)
+ *  faq            list of {q, a}, copied word for word from the body's FAQ; adds FAQPage JSON-LD
+ *
  * Body: GitHub-flavoured markdown rendered by components/ui/PostMarkdown.tsx (no raw HTML).
  *  ## Heading {#id}   h2 with that exact id (ids are never derived from the heading text)
  *  > **Label:** text  callout box (a blockquote is always rendered as the callout)

@@ -1,6 +1,7 @@
 export const routes: { path: string; lastModified: string }[] = [
   { path: "/", lastModified: "2026-09-29" },
-  { path: "/blog", lastModified: "2026-09-29" },
+  { path: "/blog", lastModified: "2026-11-06" },
+  { path: "/blog/post-to-tiktok-reels-shorts-at-the-same-time", lastModified: "2026-11-06" },
   { path: "/contact", lastModified: "2026-09-29" },
   { path: "/facebook", lastModified: "2026-09-29" },
   { path: "/feature-content-intelligence", lastModified: "2026-09-29" },
