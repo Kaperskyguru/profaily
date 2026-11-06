@@ -39,12 +39,14 @@ Blog posts are markdown files in `posts/<slug>.md` (the loader code is in `conte
 `.md` file in that folder is a post and the file name is its URL (`/blog/<slug>`). Nothing is registered.
 Files in `posts/_parked/` are ignored.
 
-1. Create `posts/<slug>.md`, then make its cover: `yarn cover <slug> "Title with one [highlighted phrase]"`.
-   That writes `public/assets/blog-featured-<slug>.jpg` (1200x630, Profaily forest field, the phrase on a mint
-   block, a real app capture from `public/assets/app`). Options are at the top of `scripts/cover.ts`.
+1. Create `posts/<slug>.md`, then run `yarn cover <slug> "Words on the cover [highlighted phrase]"`. It draws
+   `public/assets/blog-featured-<slug>.jpg` (1200x630: forest field, the phrase on a mint block, a real app
+   capture from `public/assets/app`) and writes `cover` and `coverImage` into the post's frontmatter, so the
+   article, the blog cards and og:image use it. Rerun `yarn cover <slug>` after changing the cover words. The build
+   fails, naming the command, if a post has no cover. Options are at the top of `scripts/cover.ts`.
 2. Frontmatter you write: `title`, `description`, `category`, `datePublished` (`2026-09-29`). Optional:
    `cta` (`href` + `label`), `sources` (`href` + `label` list), `related` (slugs of other posts),
-   `featured: true` (pin to the top of the index), `draft: true` (hidden in the production build, shown in
+   `cover` (the words on the cover), `coverShot` (which app capture), `featured: true` (pin to the top of the index), `draft: true` (hidden in the production build, shown in
    `yarn dev`). Newest posts come first. The "In this guide" list, read time and date label are computed.
    A wrong or missing field fails the build with the file and field named. Notes are at the top of
    `content/posts/load.ts`.

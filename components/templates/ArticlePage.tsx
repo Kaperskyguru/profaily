@@ -14,7 +14,8 @@ import { links } from "@/lib/links";
 
 export const articleTitle = (post: PostContent) => `${post.title} | Profaily Blog`;
 
-export const postCover = (slug: string) => `/assets/blog-featured-${slug}.jpg`;
+/** The post's cover, made by `yarn cover <slug>` (see scripts/cover.ts). */
+export const postCover = (post: PostContent) => post.coverImage;
 
 /** Category (or the byline on the article header, where the pill already names the category), date and read time. */
 export function PostMeta({ post, byline, short }: { post: PostContent; byline?: boolean; short?: boolean }) {
@@ -36,7 +37,7 @@ export function PostCard({ post, heading = "h3" }: { post: PostContent; heading?
   return (
     <article className="blog-card" data-category={post.category.toLowerCase()}>
       <a className="bl-card" href={`/blog/${post.slug}`}>
-        <img src={postCover(post.slug)} alt="" width={1200} height={630} loading="lazy" decoding="async" />
+        <img src={postCover(post)} alt="" width={1200} height={630} loading="lazy" decoding="async" />
         <div className="bl-card-copy">
           <H>{post.title}</H>
           <p>{post.description}</p>
@@ -48,7 +49,7 @@ export function PostCard({ post, heading = "h3" }: { post: PostContent; heading?
 }
 
 export function ArticlePage({ post }: { post: PostContent }) {
-  const cover = postCover(post.slug);
+  const cover = postCover(post);
   const related = post.related.filter((s) => posts[s]).map((s) => posts[s]);
   for (const p of postList) {
     if (related.length >= 3) break;
