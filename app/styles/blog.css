@@ -49,8 +49,9 @@
 .pg-article .ar-toc { background: var(--soft); border-radius: 22px; padding: 22px 24px 18px; }
 .pg-article .ar-toc h2 { font: 650 16px/1.3 var(--text); letter-spacing: -0.01em; color: var(--ink); }
 .pg-article .ar-toc ol { list-style: none; margin-top: 12px; display: grid; gap: 0; }
-.pg-article .ar-toc a { display: block; padding: 7px 0; font-size: 14.5px; line-height: 1.35; color: var(--muted); transition: color 0.15s, transform 0.15s var(--out); }
-.pg-article .ar-toc a:hover { color: var(--ink); transform: translateX(3px); }
+.pg-article .ar-toc a { display: block; padding: 7px 10px; margin-inline: -10px; border-radius: 10px; font-size: 14.5px; line-height: 1.35; color: var(--muted); transition: color 0.15s, background-color 0.15s; }
+.pg-article .ar-toc a:hover { color: var(--ink); }
+.pg-article .ar-toc a[aria-current] { color: var(--ink); font-weight: 600; background: var(--shell); }
 
 .pg-article .ar-trial-card { background: var(--forest); color: #fff; border-radius: 22px; padding: 24px; display: grid; gap: 14px; }
 .pg-article .ar-trial-mark { width: 40px; height: 40px; padding: 9px; border-radius: 12px; background: rgba(255, 255, 255, 0.12); }

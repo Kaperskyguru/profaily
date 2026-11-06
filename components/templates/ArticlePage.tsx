@@ -3,6 +3,7 @@ import { PageShell } from "@/components/layout/PageShell";
 import { Crumbs } from "@/components/sections/shared/Crumbs";
 import { CtaBand } from "@/components/sections/shared/CtaBand";
 import { Arrow } from "@/components/ui/Glyph";
+import { ArticleToc } from "@/components/behavior/ArticleToc";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { PostMarkdown } from "@/components/ui/PostMarkdown";
 import { OgUrl } from "@/components/ui/OgUrl";
@@ -119,11 +120,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
           <div className="ar-rail">
             <nav className="ar-toc" aria-labelledby="ar-toc-title">
               <h2 id="ar-toc-title">In this guide</h2>
-              <ol>
-                {post.toc.map((t) => (
-                  <li key={t.id}><a href={`#${t.id}`}>{t.label}</a></li>
-                ))}
-              </ol>
+              <ArticleToc items={post.toc} />
             </nav>
             <aside className="ar-trial" aria-labelledby="ar-trial-title">
               <div className="ar-trial-card">
