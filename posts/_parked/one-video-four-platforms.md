@@ -1,6 +1,6 @@
 ---
 slug: "one-video-four-platforms"
-category: "Publishing"
+category: "Publishing workflow"
 title: "One video, four platforms: what should change before you publish?"
 description: "A practical cross-platform video workflow: keep the finished source file, tailor each destination’s details, check account requirements, and track outcomes separately."
 readTime: "7 min read"

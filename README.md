@@ -44,7 +44,9 @@ Files in `posts/_parked/` are ignored.
    capture from `public/assets/app`) and writes `cover` and `coverImage` into the post's frontmatter, so the
    article, the blog cards and og:image use it. Rerun `yarn cover <slug>` after changing the cover words. The build
    fails, naming the command, if a post has no cover. Options are at the top of `scripts/cover.ts`.
-2. Frontmatter you write: `title`, `description`, `category`, `datePublished` (`2026-09-29`). Optional:
+2. Frontmatter you write: `title`, `description`, `category` (one of the six in `content/posts/categories.ts`:
+   Platform guides, Publishing workflow, Teams & agencies, AI & automation, Growth & strategy, Inside Profaily),
+   `datePublished` (`2026-09-29`). Optional:
    `cta` (`href` + `label`), `sources` (`href` + `label` list), `related` (slugs of other posts),
    `cover` (the words on the cover), `coverShot` (which app capture), `featured: true` (pin to the top of the index), `draft: true` (hidden in the production build, shown in
    `yarn dev`). Newest posts come first. The "In this guide" list, read time and date label are computed.
@@ -55,6 +57,9 @@ Files in `posts/_parked/` are ignored.
    - `> **Working rule:** text` renders as the callout box.
    - A GFM pipe table renders as the article table.
    - `https://` links open in a new tab; `/internal` links are plain.
+   - Screenshots are real captures from the live app on the demo brand, never mock-ups. Put one on the brand frame
+     with `yarn shot <capture.png> <slug> <name> [x,y,w,h]`, which writes `public/assets/blog/<slug>/<name>.jpg`
+     and prints the `![alt](...)` line to paste. The build fails on an image without alt text or outside that folder.
 4. Run `yarn typecheck && yarn build`, then check the page at `/blog/<slug>`.
 
 ## Oracles

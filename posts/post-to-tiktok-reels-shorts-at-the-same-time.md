@@ -1,6 +1,6 @@
 ---
 slug: "post-to-tiktok-reels-shorts-at-the-same-time"
-category: "Publishing"
+category: "Publishing workflow"
 title: "How to Post to TikTok, Reels and Shorts at the Same Time"
 description: "Can you post one video to TikTok, Reels and Shorts at the same time without losing reach? The platforms' own rules, data from 3.3M videos, and a workflow."
 readTime: "12 min read"

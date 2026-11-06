@@ -125,3 +125,6 @@
 .pg-blog .page-hero.solo .actions { justify-content: flex-start; }
 .pg-blog .bl-card:hover { box-shadow: none; transform: none; }
 .pg-blog .bl-card:hover h3 { text-decoration-thickness: 1.5px; }
+
+/* In-post screenshots: real app captures already framed by `yarn shot`, so no extra border or shadow here. */
+.pg-article .ar-prose img { display: block; width: 100%; height: auto; margin: 28px 0; border-radius: 18px; }

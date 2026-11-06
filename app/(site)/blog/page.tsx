@@ -6,7 +6,7 @@ import { PageHero } from "@/components/sections/shared/PageHero";
 import { PostCard, PostMeta, postCover } from "@/components/templates/ArticlePage";
 import { Arrow } from "@/components/ui/Glyph";
 import { OgUrl } from "@/components/ui/OgUrl";
-import { postList } from "@/content/posts";
+import { CATEGORIES, postList } from "@/content/posts";
 import { ORIGIN, pageMetadata } from "@/lib/metadata";
 
 const meta = {
@@ -19,7 +19,7 @@ const meta = {
 export const metadata = pageMetadata(meta);
 
 const ALL = "All guides";
-const filters = [ALL, ...Array.from(new Set(postList.map((p) => p.category)))];
+const filters = [ALL, ...CATEGORIES.filter((c) => postList.some((p) => p.category === c))];
 const [featured] = postList;
 const empty = postList.length === 0;
 

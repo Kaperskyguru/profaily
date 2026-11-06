@@ -5,9 +5,11 @@
  * Everything else on a blog article is shared template markup, see
  * components/templates/ArticlePage.tsx, which renders `body` through components/ui/PostMarkdown.tsx.
  */
+import type { Category } from "./categories";
+
 export type PostContent = {
   slug: string;
-  category: string;
+  category: Category;
   title: string;
   description: string;
   readTime: string;

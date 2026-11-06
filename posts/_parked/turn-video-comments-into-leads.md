@@ -1,6 +1,6 @@
 ---
 slug: "turn-video-comments-into-leads"
-category: "Audience & leads"
+category: "Growth & strategy"
 title: "How to turn short-form video comments into a lead follow-up system"
 description: "Build a practical handoff from audience questions to qualified leads: classify intent, respond in context, assign an owner, and connect the conversation to the video."
 readTime: "8 min read"

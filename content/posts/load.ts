@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { CATEGORIES, isCategory } from "./categories";
 import { headingsOf } from "./headings";
 import type { PostContent } from "./types";
 
@@ -12,7 +13,8 @@ import type { PostContent } from "./types";
  * You write only what a person has to write. Frontmatter:
  *   title          required. Article h1 (<title> appends " | Profaily Blog"); also the index card heading
  *   description    required. Lede, meta description, og:description and index card blurb
- *   category       required. Breadcrumb, meta row, card badge; its lower-case form is the blog filter value
+ *   category       required. One of the names in ./categories.ts, exactly. Breadcrumb, meta row, card badge;
+ *                  its lower-case form is the blog filter value
  *   datePublished  required. "2026-09-29" (quoted or not); the post's date, newest first on the index
  *   cta            optional. {href, label} for the "Put the workflow to work" card (default: Explore features)
  *   sources        optional. [{href, label}] for "Sources and further reading"
@@ -37,6 +39,9 @@ import type { PostContent } from "./types";
  *  > **Label:** text       callout box (a blockquote is always rendered as the callout)
  *  | a | b |               table, styled as the article table
  *  [text](https://…)       external links open in a new tab; /paths stay plain links
+ *  ![alt](/assets/blog/<slug>/<name>.jpg)
+ *                          a real app screenshot on the brand frame, made with `yarn shot` (see scripts/shot.ts).
+ *                          The build fails if an image is outside /assets/blog/<slug>/, missing, or has no alt text.
  */
 
 const POSTS_DIR = path.join(process.cwd(), "posts");
@@ -100,6 +105,13 @@ export function loadPost(slug: string): PostContent {
 
   const body = content.trim();
   if (!body) throw new PostError(file, "the article body is empty");
+  for (const [, alt, src] of body.matchAll(/!\[([^\]]*)\]\(([^)\s]+)[^)]*\)/g)) {
+    if (!alt.trim()) throw new PostError(file, `the image ${src} needs alt text: say what the reader should see`);
+    if (!src.startsWith(`/assets/blog/${slug}/`)) {
+      throw new PostError(file, `the image ${src} must be a framed app screenshot in /assets/blog/${slug}/: make it with yarn shot`);
+    }
+    if (!fs.existsSync(path.join(process.cwd(), "public", src.split("?")[0]))) throw new PostError(file, `the image ${src} does not exist`);
+  }
   const datePublished = dateOf(file, data.datePublished);
   const cta = data.cta === undefined ? DEFAULT_CTA : links(file, { cta: [data.cta] }, "cta")[0];
   const related = data.related === undefined ? [] : data.related;
@@ -116,9 +128,14 @@ export function loadPost(slug: string): PostContent {
     throw new PostError(file, `the cover ${coverImage.split("?")[0]} does not exist yet: run yarn cover ${slug}`);
   }
 
+  const category = text(file, data, "category");
+  if (!isCategory(category)) {
+    throw new PostError(file, `"category" must be one of ${CATEGORIES.map((c) => JSON.stringify(c)).join(", ")} (see content/posts/categories.ts), got ${JSON.stringify(category)}`);
+  }
+
   return {
     slug,
-    category: text(file, data, "category"),
+    category,
     title: text(file, data, "title"),
     description: text(file, data, "description"),
     readTime: readTime(body),

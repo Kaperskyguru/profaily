@@ -1,6 +1,6 @@
 ---
 slug: "short-form-video-measurement"
-category: "Analytics & decisions"
+category: "Growth & strategy"
 title: "How to compare short-form video performance without chasing views"
 description: "A measurement framework for short-form video teams: separate distribution, watch quality, audience response, and business outcomes—and compare each platform on its own terms."
 readTime: "8 min read"

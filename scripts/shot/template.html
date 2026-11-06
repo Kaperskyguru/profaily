@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  /* In-post screenshot: a real app capture on the brand frame (forest field with mint glows, 18px radius).
+     The same field as .green-frame in app/globals.css. Filled in by scripts/shot.ts. */
+  :root { --forest: #0d241f; }
+  * { margin: 0; box-sizing: border-box; }
+  html, body { background: var(--forest); }
+  .f {
+    display: inline-block; padding: {{PAD}}px; background-color: var(--forest);
+    background-image: radial-gradient(circle at 18% 0%, rgba(141, 215, 150, 0.35), transparent 45%),
+      radial-gradient(circle at 85% 10%, rgba(141, 215, 150, 0.22), transparent 40%);
+  }
+  .shot { display: block; width: {{WIDTH}}px; height: {{HEIGHT}}px; border-radius: 18px; overflow: hidden; background: #fafaf9;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35); }
+  .shot img { display: block; width: {{IMG_W}}px; height: auto; margin-left: -{{CROP_X}}px; margin-top: -{{CROP_Y}}px; }
+</style>
+</head>
+<body><div class="f" id="frame"><div class="shot"><img src="{{SHOT}}" alt=""></div></div></body>
+</html>

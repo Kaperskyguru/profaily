@@ -1,6 +1,6 @@
 ---
 slug: "short-form-video-publishing-workflow"
-category: "Publishing operations"
+category: "Publishing workflow"
 title: "The short-form video publishing workflow: from upload to confirmed live"
 description: "A practical publishing checklist for teams that need to catch account, processing, and destination issues before a video is assumed to be live."
 readTime: "8 min read"

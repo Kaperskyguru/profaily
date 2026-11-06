@@ -1,6 +1,7 @@
 import { loadAllPosts } from "./load";
 
 export type { PostContent } from "./types";
+export { CATEGORIES, type Category } from "./categories";
 
 /** Every post in posts/*.md, featured first then newest first. A new post needs nothing registered: add the file. */
 export const postList = loadAllPosts();
