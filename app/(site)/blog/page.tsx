@@ -37,7 +37,6 @@ export default function Page() {
         <PageHero
           solo
           crumbs={[{ label: "Blog" }]}
-          pill={empty ? undefined : "Field guides"}
           title="Short-form video guides for business"
           lede={empty ? "New guides are on the way. Until then, see how Profaily works." : "Practical guidance for planning short-form video, publishing across channels, handling audience interest, and learning what to make next."}
           primary={null}
