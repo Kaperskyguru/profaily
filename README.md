@@ -39,8 +39,9 @@ Blog posts are markdown files in `posts/<slug>.md` (the loader code is in `conte
 `.md` file in that folder is a post and the file name is its URL (`/blog/<slug>`). Nothing is registered.
 Files in `posts/_parked/` are ignored.
 
-1. Create `posts/<slug>.md` and add the cover `public/assets/blog-featured-<slug>.jpg` (1200x630,
-   plus a `.svg`).
+1. Create `posts/<slug>.md`, then make its cover: `yarn cover <slug> "Title with one [highlighted phrase]"`.
+   That writes `public/assets/blog-featured-<slug>.jpg` (1200x630, Profaily forest field, the phrase on a mint
+   block, a real app capture from `public/assets/app`). Options are at the top of `scripts/cover.ts`.
 2. Frontmatter you write: `title`, `description`, `category`, `datePublished` (`2026-09-29`). Optional:
    `cta` (`href` + `label`), `sources` (`href` + `label` list), `related` (slugs of other posts),
    `featured: true` (pin to the top of the index), `draft: true` (hidden in the production build, shown in

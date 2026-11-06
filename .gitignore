@@ -10,3 +10,6 @@ tsconfig.tsbuildinfo
 
 tests/baseline/
 tests/visual/
+
+# design-check screenshots and drafts (tasteskill)
+.taste-skill/
