@@ -39,6 +39,9 @@ import type { PostContent } from "./types";
  *  > **Label:** text       callout box (a blockquote is always rendered as the callout)
  *  | a | b |               table, styled as the article table
  *  [text](https://…)       external links open in a new tab; /paths stay plain links
+ *  ![alt](/assets/blog/<slug>/<name>.jpg)
+ *                          a real app screenshot on the brand frame, made with `yarn shot` (see scripts/shot.ts).
+ *                          The build fails if an image is outside /assets/blog/<slug>/, missing, or has no alt text.
  */
 
 const POSTS_DIR = path.join(process.cwd(), "posts");
@@ -102,6 +105,13 @@ export function loadPost(slug: string): PostContent {
 
   const body = content.trim();
   if (!body) throw new PostError(file, "the article body is empty");
+  for (const [, alt, src] of body.matchAll(/!\[([^\]]*)\]\(([^)\s]+)[^)]*\)/g)) {
+    if (!alt.trim()) throw new PostError(file, `the image ${src} needs alt text: say what the reader should see`);
+    if (!src.startsWith(`/assets/blog/${slug}/`)) {
+      throw new PostError(file, `the image ${src} must be a framed app screenshot in /assets/blog/${slug}/: make it with yarn shot`);
+    }
+    if (!fs.existsSync(path.join(process.cwd(), "public", src.split("?")[0]))) throw new PostError(file, `the image ${src} does not exist`);
+  }
   const datePublished = dateOf(file, data.datePublished);
   const cta = data.cta === undefined ? DEFAULT_CTA : links(file, { cta: [data.cta] }, "cta")[0];
   const related = data.related === undefined ? [] : data.related;
