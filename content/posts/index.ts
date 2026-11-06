@@ -1,12 +1,9 @@
-import type { PostContent } from "./types";
-import { loadPost } from "./load";
+import { loadAllPosts } from "./load";
 
 export type { PostContent } from "./types";
 
-/** Blog index order: the first post is the featured guide. Add a new post's slug here. The generated posts are parked in content/posts/_parked/ until real ones replace them. */
-const slugs: string[] = ["post-to-tiktok-reels-shorts-at-the-same-time"];
-
-export const postList: PostContent[] = slugs.map(loadPost);
+/** Every post in content/posts/*.md, featured first then newest first. A new post needs nothing registered: add the file. */
+export const postList = loadAllPosts();
 
 /** Keyed by route slug (/blog/<slug>). */
-export const posts: Record<string, PostContent> = Object.fromEntries(postList.map((p) => [p.slug, p]));
+export const posts = Object.fromEntries(postList.map((p) => [p.slug, p]));
