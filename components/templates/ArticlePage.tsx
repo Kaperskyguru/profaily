@@ -82,7 +82,6 @@ export function ArticlePage({ post }: { post: PostContent }) {
         <header className="page-hero has-grid ar-hero">
           <div className="wrap ar-head">
             <Crumbs items={[{ href: "/blog", label: "Blog" }, { label: post.category }]} />
-            <p className="ar-pill"><span className="pill">{post.category}</span></p>
             <h1>{post.title}</h1>
             <p className="lead">{post.description}</p>
             <PostMeta post={post} byline />
@@ -93,15 +92,6 @@ export function ArticlePage({ post }: { post: PostContent }) {
         </header>
 
         <div className="wrap ar-layout">
-          <aside className="ar-toc" aria-labelledby="ar-toc-title">
-            <h2 id="ar-toc-title">In this guide</h2>
-            <ol>
-              {post.toc.map((t) => (
-                <li key={t.id}><a href={`#${t.id}`}>{t.label}</a></li>
-              ))}
-            </ol>
-          </aside>
-
           <article className="ar-body">
             <div className="ar-prose">
               <PostMarkdown>{post.body}</PostMarkdown>
@@ -126,15 +116,25 @@ export function ArticlePage({ post }: { post: PostContent }) {
             </section>
           </article>
 
-          <aside className="ar-trial" aria-labelledby="ar-trial-title">
-            <div className="ar-trial-card">
+          <div className="ar-rail">
+            <nav className="ar-toc" aria-labelledby="ar-toc-title">
+              <h2 id="ar-toc-title">In this guide</h2>
+              <ol>
+                {post.toc.map((t) => (
+                  <li key={t.id}><a href={`#${t.id}`}>{t.label}</a></li>
+                ))}
+              </ol>
+            </nav>
+            <aside className="ar-trial" aria-labelledby="ar-trial-title">
+              <div className="ar-trial-card">
               <img src="/assets/profaily-mark-white.svg" alt="" width={32} height={32} className="ar-trial-mark" />
               <h2 id="ar-trial-title">Try Profaily free for 14 days</h2>
               <p>Plan and publish one video across TikTok, Instagram, YouTube, and Facebook, then follow publishing and audience conversations from one workspace.</p>
               <a className="btn btn-primary btn-block" href={links.register}>Start 14-day free trial <Arrow /></a>
               <a className="more-link" href="/features">Explore features <Arrow /></a>
-            </div>
-          </aside>
+              </div>
+            </aside>
+          </div>
         </div>
 
         {related.length > 0 && (
