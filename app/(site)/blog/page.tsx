@@ -7,6 +7,7 @@ import { PostCard, PostMeta, postCover } from "@/components/templates/ArticlePag
 import { Arrow } from "@/components/ui/Glyph";
 import { OgUrl } from "@/components/ui/OgUrl";
 import { postList } from "@/content/posts";
+import { CATEGORY_NAMES } from "@/content/posts/categories";
 import { ORIGIN, pageMetadata } from "@/lib/metadata";
 
 const meta = {
@@ -19,7 +20,8 @@ const meta = {
 export const metadata = pageMetadata(meta);
 
 const ALL = "All guides";
-const filters = [ALL, ...Array.from(new Set(postList.map((p) => p.category)))];
+/** Topic chips in the order of content/posts/categories.ts, only for topics that have a live post. */
+const filters = [ALL, ...CATEGORY_NAMES.filter((c) => postList.some((p) => p.category === c))];
 const [featured] = postList;
 const empty = postList.length === 0;
 

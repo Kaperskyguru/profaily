@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { CATEGORY_NAMES } from "./categories";
 import { headingsOf } from "./headings";
 import type { PostContent } from "./types";
 
@@ -12,7 +13,8 @@ import type { PostContent } from "./types";
  * You write only what a person has to write. Frontmatter:
  *   title          required. Article h1 (<title> appends " | Profaily Blog"); also the index card heading
  *   description    required. Lede, meta description, og:description and index card blurb
- *   category       required. Breadcrumb, meta row, card badge; its lower-case form is the blog filter value
+ *   category       required. One of the topics in ./categories.ts, written exactly. Breadcrumb, meta row, card
+ *                  badge; its lower-case form is the blog filter value
  *   datePublished  required. "2026-09-29" (quoted or not); the post's date, newest first on the index
  *   cta            optional. {href, label} for the "Put the workflow to work" card (default: Explore features)
  *   sources        optional. [{href, label}] for "Sources and further reading"
@@ -116,9 +118,14 @@ export function loadPost(slug: string): PostContent {
     throw new PostError(file, `the cover ${coverImage.split("?")[0]} does not exist yet: run yarn cover ${slug}`);
   }
 
+  const category = text(file, data, "category");
+  if (!CATEGORY_NAMES.includes(category)) {
+    throw new PostError(file, `"category" must be one of ${CATEGORY_NAMES.map((c) => JSON.stringify(c)).join(", ")} (see content/posts/categories.ts), got ${JSON.stringify(category)}`);
+  }
+
   return {
     slug,
-    category: text(file, data, "category"),
+    category,
     title: text(file, data, "title"),
     description: text(file, data, "description"),
     readTime: readTime(body),
