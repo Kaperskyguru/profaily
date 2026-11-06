@@ -24,6 +24,8 @@ export type PostContent = {
   /** Optional: the post's FAQ, copied word for word from its body; drives the FAQPage JSON-LD. */
   faq?: { q: string; a: string }[];
   /** Pinned to the top of the blog index. */
+  /** The cover image URL (written into the frontmatter by `yarn cover`, with a ?v= hash so a new cover is never served stale). */
+  coverImage: string;
   featured: boolean;
   /** Left out of the production build. */
   draft: boolean;

@@ -3,6 +3,7 @@ import { PageShell } from "@/components/layout/PageShell";
 import { Crumbs } from "@/components/sections/shared/Crumbs";
 import { CtaBand } from "@/components/sections/shared/CtaBand";
 import { Arrow } from "@/components/ui/Glyph";
+import { ArticleToc } from "@/components/behavior/ArticleToc";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { PostMarkdown } from "@/components/ui/PostMarkdown";
 import { OgUrl } from "@/components/ui/OgUrl";
@@ -13,7 +14,8 @@ import { links } from "@/lib/links";
 
 export const articleTitle = (post: PostContent) => `${post.title} | Profaily Blog`;
 
-export const postCover = (slug: string) => `/assets/blog-featured-${slug}.jpg`;
+/** The post's cover, made by `yarn cover <slug>` (see scripts/cover.ts). */
+export const postCover = (post: PostContent) => post.coverImage;
 
 /** Category (or the byline on the article header, where the pill already names the category), date and read time. */
 export function PostMeta({ post, byline, short }: { post: PostContent; byline?: boolean; short?: boolean }) {
@@ -35,7 +37,7 @@ export function PostCard({ post, heading = "h3" }: { post: PostContent; heading?
   return (
     <article className="blog-card" data-category={post.category.toLowerCase()}>
       <a className="bl-card" href={`/blog/${post.slug}`}>
-        <img src={postCover(post.slug)} alt="" width={1200} height={630} loading="lazy" decoding="async" />
+        <img src={postCover(post)} alt="" width={1200} height={630} loading="lazy" decoding="async" />
         <div className="bl-card-copy">
           <H>{post.title}</H>
           <p>{post.description}</p>
@@ -47,7 +49,7 @@ export function PostCard({ post, heading = "h3" }: { post: PostContent; heading?
 }
 
 export function ArticlePage({ post }: { post: PostContent }) {
-  const cover = postCover(post.slug);
+  const cover = postCover(post);
   const related = post.related.filter((s) => posts[s]).map((s) => posts[s]);
   for (const p of postList) {
     if (related.length >= 3) break;
@@ -82,7 +84,6 @@ export function ArticlePage({ post }: { post: PostContent }) {
         <header className="page-hero has-grid ar-hero">
           <div className="wrap ar-head">
             <Crumbs items={[{ href: "/blog", label: "Blog" }, { label: post.category }]} />
-            <p className="ar-pill"><span className="pill">{post.category}</span></p>
             <h1>{post.title}</h1>
             <p className="lead">{post.description}</p>
             <PostMeta post={post} byline />
@@ -93,15 +94,6 @@ export function ArticlePage({ post }: { post: PostContent }) {
         </header>
 
         <div className="wrap ar-layout">
-          <aside className="ar-toc" aria-labelledby="ar-toc-title">
-            <h2 id="ar-toc-title">In this guide</h2>
-            <ol>
-              {post.toc.map((t) => (
-                <li key={t.id}><a href={`#${t.id}`}>{t.label}</a></li>
-              ))}
-            </ol>
-          </aside>
-
           <article className="ar-body">
             <div className="ar-prose">
               <PostMarkdown>{post.body}</PostMarkdown>
@@ -126,15 +118,21 @@ export function ArticlePage({ post }: { post: PostContent }) {
             </section>
           </article>
 
-          <aside className="ar-trial" aria-labelledby="ar-trial-title">
-            <div className="ar-trial-card">
+          <div className="ar-rail">
+            <nav className="ar-toc" aria-labelledby="ar-toc-title">
+              <h2 id="ar-toc-title">In this guide</h2>
+              <ArticleToc items={post.toc} />
+            </nav>
+            <aside className="ar-trial" aria-labelledby="ar-trial-title">
+              <div className="ar-trial-card">
               <img src="/assets/profaily-mark-white.svg" alt="" width={32} height={32} className="ar-trial-mark" />
               <h2 id="ar-trial-title">Try Profaily free for 14 days</h2>
               <p>Plan and publish one video across TikTok, Instagram, YouTube, and Facebook, then follow publishing and audience conversations from one workspace.</p>
               <a className="btn btn-primary btn-block" href={links.register}>Start 14-day free trial <Arrow /></a>
               <a className="more-link" href="/features">Explore features <Arrow /></a>
-            </div>
-          </aside>
+              </div>
+            </aside>
+          </div>
         </div>
 
         {related.length > 0 && (

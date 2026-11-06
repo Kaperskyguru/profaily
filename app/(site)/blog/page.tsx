@@ -31,13 +31,12 @@ export default function Page() {
         type="website"
         title={meta.title}
         description={meta.ogDescription}
-        image={empty ? undefined : `${ORIGIN}${postCover(featured.slug)}`}
+        image={empty ? undefined : `${ORIGIN}${postCover(featured)}`}
       />
       <main className="pg-blog">
         <PageHero
           solo
           crumbs={[{ label: "Blog" }]}
-          pill={empty ? undefined : "Field guides"}
           title="Short-form video guides for business"
           lede={empty ? "New guides are on the way. Until then, see how Profaily works." : "Practical guidance for planning short-form video, publishing across channels, handling audience interest, and learning what to make next."}
           primary={null}
@@ -48,7 +47,7 @@ export default function Page() {
         <section className="section tight bl-featured" aria-label="Featured guide">
           <div className="wrap">
             <a className="bl-feat" href={`/blog/${featured.slug}`}>
-              <img src={postCover(featured.slug)} alt="" width={1200} height={630} loading="eager" />
+              <img src={postCover(featured)} alt="" width={1200} height={630} loading="eager" />
               <div className="bl-feat-copy">
                 <h2>{featured.title}</h2>
                 <p className="lead">{featured.description}</p>

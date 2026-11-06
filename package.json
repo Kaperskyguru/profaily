@@ -9,7 +9,8 @@
     "typecheck": "tsc --noEmit",
     "compare": "tsx scripts/compare-dom.ts",
     "visual": "tsx scripts/visual.ts",
-    "smoke": "tsx scripts/smoke.ts"
+    "smoke": "tsx scripts/smoke.ts",
+    "cover": "tsx scripts/cover.ts"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

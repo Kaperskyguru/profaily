@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&display=block" rel="stylesheet">
+<style>
+  /* Blog cover, 1200x630: forest field, Profaily lockup top-left, a two-line title with one phrase on a mint
+     block, and a real app capture rising from the bottom edge. Filled in by scripts/cover.ts. */
+  :root { --forest: #0d241f; --mint: #8dd796; --paper: #fafaf9; }
+  * { margin: 0; box-sizing: border-box; }
+  body { width: 1200px; height: 630px; overflow: hidden; }
+  .c { position: relative; width: 1200px; height: 630px; overflow: hidden; background: var(--forest); color: #fff; font-family: "Inter Tight", sans-serif; }
+  .logo { position: absolute; top: 36px; left: 44px; height: 34px; width: auto; }
+  h1 { position: absolute; top: 92px; left: 60px; right: 60px; text-align: center; font-weight: 650; font-size: 60px; letter-spacing: -0.035em; line-height: 1.08; }
+  .hl { display: inline-block; margin-top: 6px; padding: 2px 16px 8px; border-radius: 12px; background: var(--mint); color: var(--forest); }
+  .win { position: absolute; left: 170px; right: 170px; top: 272px; bottom: 0; overflow: hidden; border-radius: 18px 18px 0 0; background: var(--paper); }
+  .win img { position: absolute; display: block; }
+</style>
+</head>
+<body>
+  <div class="c">
+    <img class="logo" src="lockup-white.svg" alt="">
+    <h1>{{TITLE}}</h1>
+    <div class="win"><img src="{{SHOT}}" alt="" style="{{SHOT_STYLE}}"></div>
+  </div>
+</body>
+</html>

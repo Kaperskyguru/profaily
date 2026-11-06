@@ -22,6 +22,9 @@ import type { PostContent } from "./types";
  *                  without it both say "Profaily Editorial"
  *   sourcesChecked optional. Text date the sources were checked, e.g. "November 6, 2026"
  *   faq            optional. [{q, a}] copied word for word from the body's FAQ; adds FAQPage JSON-LD
+ *   cover          optional. The words on the cover, one phrase in [brackets] goes on the mint block (default: title)
+ *   coverShot      optional. The app capture in public/assets/app shown on the cover (default: the composer)
+ *   coverImage     written by `yarn cover <slug>`, which draws the cover from the two fields above. Never by hand
  *   draft          optional. true hides the post from the production build; `yarn dev` still shows it
  *
  * Computed from the body, never written by hand: the "In this guide" list (the ## headings), the read time
@@ -108,6 +111,11 @@ export function loadPost(slug: string): PostContent {
     throw new PostError(file, `"faq" must be a list of { q, a }`);
   }
 
+  const coverImage = data.coverImage === undefined ? `/assets/blog-featured-${slug}.jpg` : text(file, data, "coverImage");
+  if (!fs.existsSync(path.join(process.cwd(), "public", coverImage.split("?")[0]))) {
+    throw new PostError(file, `the cover ${coverImage.split("?")[0]} does not exist yet: run yarn cover ${slug}`);
+  }
+
   return {
     slug,
     category: text(file, data, "category"),
@@ -123,6 +131,7 @@ export function loadPost(slug: string): PostContent {
     author: optText("author"),
     sourcesChecked: optText("sourcesChecked"),
     faq,
+    coverImage,
     featured: data.featured === true,
     draft: data.draft === true,
     body,

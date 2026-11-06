@@ -1,7 +1,7 @@
 ---
 slug: "post-to-tiktok-reels-shorts-at-the-same-time"
 category: "Publishing"
-title: "How to Post to TikTok, Reels and Shorts at the Same Time: What the Rules and Data Say"
+title: "How to Post to TikTok, Reels and Shorts at the Same Time"
 description: "Can you post one video to TikTok, Reels and Shorts at the same time without losing reach? The platforms' own rules, data from 3.3M videos, and a workflow."
 readTime: "12 min read"
 datePublished: "2026-11-06"
@@ -75,6 +75,8 @@ faq:
     a: "TikTok makes every app pass a review before it can post publicly. Until then, its posts come out as private."
   - q: "Do I need a business account to schedule Instagram Reels?"
     a: "You need a professional account, either Business or Creator. You can switch in the app's settings."
+cover: "Post to TikTok, Reels and Shorts [at the same time]"
+coverImage: "/assets/blog-featured-post-to-tiktok-reels-shorts-at-the-same-time.jpg?v=441098c5"
 ---
 
 If you make short videos and try to post them to TikTok, Reels and Shorts at the same time, you know this feeling.
