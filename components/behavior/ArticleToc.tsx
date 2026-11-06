@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 /**
  * "In this guide": the list of the article's sections, with the one being read marked. A section is the current
- * one once its heading has scrolled up to the reading line (just under the header) and the next has not.
+ * one once its heading has scrolled up to the reading line (a little below the header) and the next has not.
  * Without script it is a plain list of links.
  */
 export function ArticleToc({ items }: { items: { id: string; label: string }[] }) {
@@ -12,7 +12,7 @@ export function ArticleToc({ items }: { items: { id: string; label: string }[] }
   useEffect(() => {
     const heads = items.map((t) => document.getElementById(t.id)).filter((el): el is HTMLElement => !!el);
     if (!heads.length) return;
-    const LINE = 140;
+    const LINE = 200;
     let raf = 0;
     const update = () => {
       raf = 0;
