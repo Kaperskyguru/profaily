@@ -41,7 +41,7 @@ const assistant = (name: string) => ({
 
 const approvalFaq = (name: string) => ({
   q: `Can my team approve ${name} videos before they go out?`,
-  a: "Yes. An editor sends the video for review, and a producer approves it or asks for changes. Nothing is scheduled until it is approved.",
+  a: "Yes. An editor sends the video for review, and a producer approves it or asks for changes. On Business, an editor's video is not scheduled until it is approved.",
 });
 
 const assistantFaq = (name: string) => ({

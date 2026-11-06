@@ -40,7 +40,7 @@ const GROUPS: Group[] = [
     features: [
       { title: "Connect channels", text: "Link TikTok, Instagram, YouTube and Facebook to a brand, one click each.", clip: "dconnect", rest: 6.5, crop: [0, 16.7, 100], ar: 1 },
       { title: "Fill the calendar", text: "Drag videos onto the days they should go out, across every brand in your team.", clip: "dfill", rest: 14, crop: [0, 16.7, 100], ar: 1 },
-      { title: "Team approval", text: "Your team comments, asks for changes or approves. Nothing is scheduled until someone says yes.", clip: "dapprove", rest: 7.2, crop: [0, 16.7, 100], ar: 1 },
+      { title: "Team approval", text: "Your team comments, asks for changes or approves. On Business, an editor's video waits for a yes before it is scheduled.", clip: "dapprove", rest: 7.2, crop: [0, 16.7, 100], ar: 1 },
     ],
   },
 ];
@@ -166,7 +166,7 @@ function Group({ g }: { g: Group }) {
 const BAND_FEATURES: Feature[] = [
   { title: "Connect channels", text: "Link TikTok, Instagram, YouTube and Facebook to a brand, one click each.", clip: "dconnect", rest: 6.5, crop: [0, 0, 100], thumb: [0, 11, 100], ar: 1 },
   { title: "Fill the calendar", text: "Drag videos onto the days they should go out, across every brand in your team.", clip: "dfill", rest: 14, crop: [0, 0, 100], thumb: [26, 30, 74], ar: 1 },
-  { title: "Team approval", text: "Your team comments, asks for changes or approves. Nothing is scheduled until someone says yes.", clip: "dapprove", rest: 7.2, crop: [0, 0, 100], thumb: [58, 19, 42], ar: 1 },
+  { title: "Team approval", text: "Your team comments, asks for changes or approves. On Business, an editor's video waits for a yes before it is scheduled.", clip: "dapprove", rest: 7.2, crop: [0, 0, 100], thumb: [58, 19, 42], ar: 1 },
 ];
 
 export function FeatureGroups({ only }: { only?: string } = {}) {

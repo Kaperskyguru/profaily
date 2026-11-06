@@ -1,5 +1,5 @@
 import type { Integration } from "@/components/ui/Glyph";
-import { TRIAL_DAYS, YEARLY_SAVING } from "@/content/plans";
+import { plans, TRIAL_DAYS, YEARLY_SAVING } from "@/content/plans";
 
 export const pricingMeta = {
   title: "Pricing | Profaily",
@@ -80,7 +80,21 @@ export const compareSections: CompareSection[] = [
 ];
 
 /** Plain-string answers: they feed the FAQPage JSON-LD as well as the page. */
+/**
+ * Prices in words, built from content/plans.ts. The plan cards pick a currency in the browser, so
+ * this answer is the only place the prices exist in the page's HTML for search engines and AI
+ * assistants. It also feeds the FAQ JSON-LD.
+ */
+const priceLine = (key: "creator" | "business") => {
+  const p = plans.find((x) => x.key === key)!;
+  return `${p.name} is ${p.price.usd.m} (${p.price.ngn.m}) a month: ${p.limits.map((l) => l[0].toLowerCase() + l.slice(1)).join(", ")}.`;
+};
+
 export const pricingFaq = [
+  {
+    q: "How much does Profaily cost?",
+    a: `${priceLine("creator")} ${priceLine("business")} Paying yearly saves ${YEARLY_SAVING}%. Business comes with a ${TRIAL_DAYS}-day free trial.`,
+  },
   {
     q: "How does the free trial work?",
     a: `Business comes with a ${TRIAL_DAYS}-day free trial. A card is required to start it, and you are not charged until the trial ends, so cancel before then if it is not for you. Creator has no trial.`,
