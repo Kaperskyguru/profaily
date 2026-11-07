@@ -56,6 +56,7 @@ Files in `posts/_parked/` are ignored.
    - A GFM pipe table renders as the article table.
    - `https://` links open in a new tab; `/internal` links are plain.
    - Screenshots are real captures from the live app on the demo brand, never mock-ups. Put one on the brand frame
+     (white field, dark green device frame cut flat at the bottom, like the team's reference shot)
      with `yarn shot <capture.png> <slug> <name> [x,y,w,h]`, which writes `public/assets/blog/<slug>/<name>.jpg`
      and prints the `![alt](...)` line to paste. The build fails on an image without alt text or outside that folder.
 4. Run `yarn typecheck && yarn build`, then check the page at `/blog/<slug>`.

@@ -7,7 +7,8 @@
  *    mock-up or an edited image: the frame proves nothing if the picture inside it is not real.
  * 2. x,y,w,h crops the capture (in its own pixels) to the part the sentence is about; default is the whole capture.
  *    width is the shown width of the cropped capture in CSS px (default 1040; output is drawn at 2x).
- * 3. Draws scripts/shot/template.html in Chrome and writes public/assets/blog/<post-slug>/<name>.jpg.
+ * 3. Draws scripts/shot/template.html (white field, dark green device frame cut flat at the bottom, matching the
+ *    team's reference shot) in Chrome and writes public/assets/blog/<post-slug>/<name>.jpg.
  * 4. Prints the markdown to paste into posts/<post-slug>.md. Write real alt text: what the reader should see.
  *
  * The build checks every image in a post: it must be under /assets/blog/<post-slug>/, exist, and have alt text.
@@ -20,8 +21,9 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-const PAD = 40;
 const DEFAULT_WIDTH = 1040;
+// Proportions measured from the reference shot (screen 1271px wide): 20px bezel, 60px outer and 40px inner corner
+// radius, 132px white either side, 83px above and 82px below the flat cut. Scaled to the shown width.
 const SCALE = 2;
 
 const [captureArg, slug, name, cropArg, widthArg] = process.argv.slice(2);
@@ -55,10 +57,17 @@ if ([cx, cy, cw, ch].some((n) => !Number.isFinite(n) || n < 0) || cx + cw > capW
 const width = widthArg ? Number(widthArg) : DEFAULT_WIDTH;
 const k = width / cw; // capture px -> CSS px
 const height = Math.round(ch * k);
+const u = (n: number) => Math.round((n * width) / 1271);
+const [BEZEL, R_OUT, R_IN, PAD_X, PAD_TOP, PAD_BOTTOM] = [u(20), u(60), u(40), u(132), u(83), u(82)];
 
 const html = fs
   .readFileSync(path.join(root, "scripts/shot/template.html"), "utf8")
-  .replaceAll("{{PAD}}", String(PAD))
+  .replaceAll("{{BEZEL}}", String(BEZEL))
+  .replace("{{R_OUT}}", String(R_OUT))
+  .replace("{{R_IN}}", String(R_IN))
+  .replace("{{PAD_X}}", String(PAD_X))
+  .replace("{{PAD_TOP}}", String(PAD_TOP))
+  .replace("{{PAD_BOTTOM}}", String(PAD_BOTTOM))
   .replace("{{WIDTH}}", String(width))
   .replace("{{HEIGHT}}", String(height))
   .replace("{{IMG_W}}", String(Math.round(capW * k)))
@@ -68,7 +77,7 @@ const html = fs
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "shot-"));
 fs.writeFileSync(path.join(tmp, "shot.html"), html);
 const png = path.join(tmp, "shot.png");
-const [outW, outH] = [width + PAD * 2, height + PAD * 2];
+const [outW, outH] = [width + (BEZEL + PAD_X) * 2, height + BEZEL + PAD_TOP + PAD_BOTTOM];
 const chrome = process.env.CHROME ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 execFileSync(chrome, ["--headless=new", "--hide-scrollbars", "--allow-file-access-from-files", "--virtual-time-budget=3000", `--force-device-scale-factor=${SCALE}`, `--window-size=${outW},${outH}`, `--screenshot=${png}`, `file://${tmp}/shot.html`], { stdio: "ignore" });
 
