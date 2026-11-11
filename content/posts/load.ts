@@ -27,7 +27,8 @@ import type { PostContent } from "./types";
  *   cover          optional. The words on the cover, one phrase in [brackets] goes on the mint block (default: title)
  *   coverShot      optional. The app capture in public/assets/app shown on the cover (default: the composer)
  *   coverImage     written by `yarn cover <slug>`, which draws the cover from the two fields above. Never by hand
- *   draft          optional. true hides the post from the production build; `yarn dev` still shows it
+ *   draft          optional. true hides the post from the production build; `yarn dev` still shows it.
+ *                  A draft may go without its cover until `yarn cover <slug>` has drawn it
  *
  * Computed from the body, never written by hand: the "In this guide" list (the ## headings), the read time
  * ("7 min read") and the date label ("September 29, 2026"). Old posts that still carry slug, toc, readTime or
@@ -124,7 +125,8 @@ export function loadPost(slug: string): PostContent {
   }
 
   const coverImage = data.coverImage === undefined ? `/assets/blog-featured-${slug}.jpg` : text(file, data, "coverImage");
-  if (!fs.existsSync(path.join(process.cwd(), "public", coverImage.split("?")[0]))) {
+  // A draft may wait for its cover: production leaves drafts out, so only a live post needs one.
+  if (data.draft !== true && !fs.existsSync(path.join(process.cwd(), "public", coverImage.split("?")[0]))) {
     throw new PostError(file, `the cover ${coverImage.split("?")[0]} does not exist yet: run yarn cover ${slug}`);
   }
 
