@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  /* In-post screenshot, matched to the team's reference shot: a real app capture inside a dark green device frame
+     (#13231f, thick bezel, rounded top corners) on white, with the frame cut flat at the bottom so the app reads as
+     carrying on below. All sizes are worked out from the shown width in scripts/shot.ts. */
+  * { margin: 0; box-sizing: border-box; }
+  html, body { background: #ffffff; }
+  .f { display: inline-block; background: #ffffff; padding: {{PAD_TOP}}px {{PAD_X}}px {{PAD_BOTTOM}}px; }
+  .device {
+    background: #13231f; padding: {{BEZEL}}px {{BEZEL}}px 0;
+    border-radius: {{R_OUT}}px {{R_OUT}}px 0 0;
+  }
+  .shot {
+    display: block; width: {{WIDTH}}px; height: {{HEIGHT}}px; overflow: hidden; background: #fafafa;
+    border-radius: {{R_IN}}px {{R_IN}}px 0 0;
+  }
+  .shot img { display: block; width: {{IMG_W}}px; height: auto; margin-left: -{{CROP_X}}px; margin-top: -{{CROP_Y}}px; }
+</style>
+</head>
+<body><div class="f" id="frame"><div class="device"><div class="shot"><img src="{{SHOT}}" alt=""></div></div></div></body>
+</html>
