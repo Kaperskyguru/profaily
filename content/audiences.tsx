@@ -1,3 +1,4 @@
+import { channelsReels } from "@/content/channels";
 /**
  * "Made for" pages: one landing page per kind of customer, Buffer's /made-for/* format (h1 "Profaily for X", a tagline,
  * four benefits, four feature rows with real product captures, FAQ, close). Every claim is something the app does today:
@@ -39,13 +40,13 @@ export const audiences: Record<AudienceKey, AudienceContent> = {
     nav: "Post every day without living in multiple channels",
     meta: {
       title: "Profaily for creators | Schedule short-form video everywhere",
-      description: "Upload a video once and Profaily posts it to TikTok, Instagram Reels, YouTube and Facebook, each with its own caption, on a schedule you set once.",
+      description: `Upload a video once and Profaily posts it to ${channelsReels}, each with its own caption, on a schedule you set once.`,
       path: "/made-for/creators",
     },
     hero: {
       title: "Profaily for creators",
       tagline: "Post every day without living in multiple channels",
-      lede: "Upload a video once. Profaily posts it to TikTok, Instagram Reels, YouTube and Facebook, each with its own caption, on a schedule you set once.",
+      lede: `Upload a video once. Profaily posts it to ${channelsReels}, each with its own caption, on a schedule you set once.`,
       image: shot("ch-tiktok-composer", "Profaily composer with a kitten video and its caption in a TikTok preview"),
     },
     benefits: [
@@ -76,7 +77,7 @@ export const audiences: Record<AudienceKey, AudienceContent> = {
     nav: "Keep video distribution on track across your team",
     meta: {
       title: "Profaily for businesses | Short-form video with team approval",
-      description: "Plan, review and schedule short-form video across TikTok, Instagram Reels, YouTube and Facebook with roles, approvals and one shared calendar.",
+      description: `Plan, review and schedule short-form video across ${channelsReels} with roles, approvals and one shared calendar.`,
       path: "/made-for/businesses",
     },
     hero: {

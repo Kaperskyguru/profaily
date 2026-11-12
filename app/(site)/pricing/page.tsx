@@ -14,6 +14,7 @@ import { plans, TRIAL_DAYS } from "@/content/plans";
 import { tipFor } from "@/content/tips";
 import { compareSections, pricingFaq, pricingMeta, type Cell } from "@/content/pricing";
 import { links } from "@/lib/links";
+import { channels } from "@/content/channels";
 
 const CHANNELS = ["tiktok", "instagram", "youtube", "facebook"];
 import { pageMetadata } from "@/lib/metadata";
@@ -39,7 +40,7 @@ export default function Page() {
         <section className="wrap section tight compare" aria-labelledby="compare-h">
           <div className="sec-head center rv">
             <h2 id="compare-h">Compare plans and features</h2>
-            <p className="lead">Both plans distribute to TikTok, Instagram, YouTube and Facebook. Business adds brands, team members and approvals.</p>
+            <p className="lead">Both plans distribute to {channels}. Business adds brands, team members and approvals.</p>
           </div>
           <div className="table-wrap rv">
             <table>

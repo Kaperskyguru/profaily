@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Arrow } from "@/components/ui/Glyph";
 import { links } from "@/lib/links";
+import { channels } from "@/content/channels";
 
 /** Real customers, shown as a stack of round marks. */
 const CUSTOMERS = [
@@ -13,7 +14,7 @@ const CUSTOMERS = [
 /** The closing card on subpages: the old "Discover Profaily" promo, with real screenshots stacked beside the ask. */
 export function CtaBand({
   heading = "Run video marketing from one place",
-  lede = "Plan and publish across TikTok, Instagram, YouTube and Facebook. Keep each channel’s details in view, then follow every video from one workspace.",
+  lede = `Plan and publish across ${channels}. Keep each channel’s details in view, then follow every video from one workspace.`,
   primary = { href: links.register, label: "Check out Profaily" },
   secondary,
 }: {

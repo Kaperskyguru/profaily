@@ -1,5 +1,6 @@
 import type { IconName, Integration } from "@/components/ui/Glyph";
 import { links } from "@/lib/links";
+import { META_LIVE, isSoon, SOON } from "@/content/channels";
 
 /** A dropdown link: a title, one line under it, and an optional brand glyph (channels). */
 export type NavLink = { href: string; title: string; text: string; glyph?: Integration; icon?: IconName };
@@ -16,7 +17,7 @@ export const makingLinks: NavLink[] = [
   { href: "/#making", title: "Preview every channel", text: "See each video in its channel’s player first", icon: "phone" },
 ];
 export const distributingLinks: NavLink[] = [
-  { href: "/#distributing", title: "Connect channels", text: "TikTok, Instagram, YouTube and Facebook", icon: "plug" },
+  { href: "/#distributing", title: "Connect channels", text: META_LIVE ? "TikTok, Instagram, YouTube and Facebook" : "TikTok and YouTube", icon: "plug" },
   { href: "/#distributing", title: "Fill the calendar", text: "Drag videos onto the days they go out", icon: "calendar" },
   { href: "/#distributing", title: "Team approval", text: "Comments, changes and approval before scheduling", icon: "check" },
 ];
@@ -32,9 +33,9 @@ export const featureLinks: NavLink[] = [
 
 export const channelLinks: NavLink[] = [
   { href: "/tiktok", title: "TikTok", text: "Publish and schedule TikTok videos", glyph: "tiktok" },
-  { href: "/instagram", title: "Instagram", text: "Reels from one upload", glyph: "instagram" },
+  { href: "/instagram", title: "Instagram", text: isSoon("instagram") ? SOON : "Reels from one upload", glyph: "instagram" },
   { href: "/youtube", title: "YouTube", text: "Shorts and longer videos", glyph: "youtube" },
-  { href: "/facebook", title: "Facebook", text: "Videos to your Facebook Page", glyph: "facebook" },
+  { href: "/facebook", title: "Facebook", text: isSoon("facebook") ? SOON : "Videos to your Facebook Page", glyph: "facebook" },
 ];
 
 export const madeForLinks: NavLink[] = [

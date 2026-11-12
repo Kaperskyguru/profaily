@@ -1,5 +1,6 @@
 import type { Integration } from "@/components/ui/Glyph";
 import { TRIAL_DAYS, YEARLY_SAVING } from "@/content/plans";
+import { isSoon, SOON } from "@/content/channels";
 
 export const pricingMeta = {
   title: "Pricing | Profaily",
@@ -34,9 +35,9 @@ export const compareSections: CompareSection[] = [
     title: "Channels",
     rows: [
       both("TikTok", "tiktok", "Distribute your videos to TikTok."),
-      both("Instagram", "instagram", "Distribute your videos to Instagram."),
+      { ...both("Instagram", "instagram", "Distribute your videos to Instagram."), ...(isSoon("instagram") ? { note: SOON } : {}) },
       both("YouTube", "youtube", "Distribute your videos to YouTube."),
-      both("Facebook", "facebook", "Distribute your videos to Facebook."),
+      { ...both("Facebook", "facebook", "Distribute your videos to Facebook."), ...(isSoon("facebook") ? { note: SOON } : {}) },
     ],
   },
   {
@@ -45,7 +46,7 @@ export const compareSections: CompareSection[] = [
       both("A caption per channel", "chat", "Write one caption, then change it for any channel."),
       both("Titles and variables", "edit", "Add the title YouTube needs, and variables whose value differs per channel."),
       both("Images as well as videos", "image", "Distribute images too, as a carousel or one per file."),
-      both("Text-only to Facebook", "text", "Send text with no file to a Facebook Page."),
+      { ...both("Text-only to Facebook", "text", "Send text with no file to a Facebook Page."), ...(isSoon("facebook") ? { note: SOON } : {}) },
     ],
   },
   {

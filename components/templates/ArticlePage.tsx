@@ -11,6 +11,7 @@ import { postList, posts, type PostContent } from "@/content/posts";
 import { faqJsonLd } from "@/content/comparisons";
 import { ORIGIN } from "@/lib/metadata";
 import { links } from "@/lib/links";
+import { channels } from "@/content/channels";
 
 export const articleTitle = (post: PostContent) => `${post.title} | Profaily Blog`;
 
@@ -127,7 +128,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
               <div className="ar-trial-card">
               <img src="/assets/profaily-mark-white.svg" alt="" width={32} height={32} className="ar-trial-mark" />
               <h2 id="ar-trial-title">Try Profaily free for 14 days</h2>
-              <p>Plan and publish one video across TikTok, Instagram, YouTube, and Facebook, then follow publishing and audience conversations from one workspace.</p>
+              <p>Plan and publish one video across {channels}, then follow publishing and audience conversations from one workspace.</p>
               <a className="btn btn-primary btn-block" href={links.register}>Start 14-day free trial <Arrow /></a>
               <a className="more-link" href="/features">Explore features <Arrow /></a>
               </div>
@@ -151,7 +152,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
 
         <CtaBand
           heading="Run video marketing from one place"
-          lede="Plan and publish across TikTok, Instagram, YouTube, and Facebook. Keep each channel’s details in view, then follow publishing and audience conversations from one workspace."
+          lede={`Plan and publish across ${channels}. Keep each channel’s details in view, then follow publishing and audience conversations from one workspace.`}
           secondary={{ href: "/features", label: "Explore features" }}
         />
       </main>
