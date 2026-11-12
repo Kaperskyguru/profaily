@@ -213,7 +213,7 @@ I found it telling that TikTok has already built a human check into its rules: a
 
 ## Where Profaily fits {#profaily}
 
-This is the workflow we built Profaily around, because it's the one we needed for our own daily shorts. You upload a video once and it goes to TikTok, Instagram Reels, YouTube Shorts and a Facebook Page, with [a caption for each channel](/features). On the Business plan, a video can be sent for review and approved before it's scheduled.
+This is the workflow we built Profaily around, because it's the one we needed for our own daily shorts. You upload a video once and it goes to TikTok and YouTube Shorts, with [a caption for each channel](/features). On the Business plan, a video can be sent for review and approved before it's scheduled.
 
 If that sounds like how you work, you can [try the Business plan free for 14 days](/pricing). You'll need a card to start the trial, but you're not charged until it ends. If not, everything in this article works with any tool, or with three manual uploads. The steps matter more than the software.
 

@@ -4,6 +4,7 @@ import { OAuthButtons } from "@/components/sections/shared/OAuthButtons";
 import { FeatureTip } from "@/components/ui/FeatureTip";
 import { clipUrl, posterUrl, useLite, useNarrow, useNear } from "@/lib/media";
 import { Glyph, Icon, type IconName } from "@/components/ui/Glyph";
+import { channels } from "@/content/channels";
 
 type Look = "fill" | "card" | "strip";
 type Item = {
@@ -30,7 +31,7 @@ const ITEMS: Item[] = [
     label: "Publish everywhere at once",
     icon: "upload",
     title: "Upload once. Publish everywhere.",
-    text: "Add a video once, then schedule it to TikTok, Instagram, YouTube and Facebook in each channel’s own format.",
+    text: `Add a video once, then schedule it to ${channels} in each channel’s own format.`,
     clip: "publish",
     secs: 17.4,
     look: "fill",

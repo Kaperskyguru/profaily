@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { OgUrl } from "@/components/ui/OgUrl";
 import { faqJsonLd } from "@/content/comparisons";
 import { platformOrder, platforms, type PlatformContent, type StepImage } from "@/content/platforms";
+import { isSoon, SOON } from "@/content/channels";
 
 /** Real Profaily captures. The channel's own two are in its content; approval and calendar are shared. */
 const SHARED: Record<"review" | "calendar", { src: string; alt: string }> = {
@@ -27,6 +28,7 @@ export function PlatformPage({ content: c }: { content: PlatformContent }) {
       <main className="pg-channel">
         <header className="hero has-grid chp-hero">
           <div className="wrap">
+            {isSoon(c.key) && <span className="pill">{SOON}</span>}
             <h1>{c.hero.title}</h1>
             <p className="sub">{c.hero.lede}</p>
             <OAuthButtons lead="Start your free trial:" />

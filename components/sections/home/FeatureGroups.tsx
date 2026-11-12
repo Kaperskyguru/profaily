@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Glyph, Icon, type IconName } from "@/components/ui/Glyph";
 import { clipUrl, posterUrl, useLite, useNarrow, useNear } from "@/lib/media";
+import { channels } from "@/content/channels";
 
 type Feature = {
   title: string;
@@ -38,7 +39,7 @@ const GROUPS: Group[] = [
     title: "Distributing videos",
     lead: "Connect your channels, schedule across brands, and get videos approved before they go out.",
     features: [
-      { title: "Connect channels", text: "Link TikTok, Instagram, YouTube and Facebook to a brand, one click each.", clip: "dconnect", rest: 6.5, crop: [0, 16.7, 100], ar: 1 },
+      { title: "Connect channels", text: `Link ${channels} to a brand, one click each.`, clip: "dconnect", rest: 6.5, crop: [0, 16.7, 100], ar: 1 },
       { title: "Fill the calendar", text: "Drag videos onto the days they should go out, across every brand in your team.", clip: "dfill", rest: 14, crop: [0, 16.7, 100], ar: 1 },
       { title: "Team approval", text: "Your team comments, asks for changes or approves. Nothing is scheduled until someone says yes.", clip: "dapprove", rest: 7.2, crop: [0, 16.7, 100], ar: 1 },
     ],
@@ -164,7 +165,7 @@ function Group({ g }: { g: Group }) {
 /** "Making videos" and "Distributing videos": each group is one card holding its features, every one with a real recording of the app. */
 /** The close-up recordings the full-width section uses: square, cropped to the part of the real app that proves each feature. */
 const BAND_FEATURES: Feature[] = [
-  { title: "Connect channels", text: "Link TikTok, Instagram, YouTube and Facebook to a brand, one click each.", clip: "dconnect", rest: 6.5, crop: [0, 0, 100], thumb: [0, 11, 100], ar: 1 },
+  { title: "Connect channels", text: `Link ${channels} to a brand, one click each.`, clip: "dconnect", rest: 6.5, crop: [0, 0, 100], thumb: [0, 11, 100], ar: 1 },
   { title: "Fill the calendar", text: "Drag videos onto the days they should go out, across every brand in your team.", clip: "dfill", rest: 14, crop: [0, 0, 100], thumb: [26, 30, 74], ar: 1 },
   { title: "Team approval", text: "Your team comments, asks for changes or approves. Nothing is scheduled until someone says yes.", clip: "dapprove", rest: 7.2, crop: [0, 0, 100], thumb: [58, 19, 42], ar: 1 },
 ];

@@ -4,6 +4,7 @@ import { Fan, Phone } from "@/components/sections/shared/Phone";
 import { links } from "@/lib/links";
 import { AiChat } from "./AiChat";
 import { LiveCaption } from "./LiveCaption";
+import { channelsReels } from "@/content/channels";
 
 function Row({ id, verb, title, lead, bullets, cta, more, visual, flip }: {
   id?: string; verb: string; title: string; lead: string; bullets: [IconName, string, string][];
@@ -148,7 +149,7 @@ export function HomeFeatures() {
       <Group id="distributing" title="Distributing videos" lede="One upload, multiple channels, on a schedule that runs without you." />
       <Row id="publish" verb="Publish" title="Upload once. It goes out to selected channels."
         lead="Pick the channels, press Publish or Schedule, and Profaily sends the same video to each one in the format it expects."
-        bullets={[["upload", "One upload:", "TikTok, Instagram Reels, YouTube and Facebook from a single file."], ["edit", "Its own words per channel:", "a caption for TikTok, a title for YouTube."], ["circleCheck", "Watch it land:", "each channel shows Publishing, then Posted, as it happens."]]}
+        bullets={[["upload", "One upload:", `${channelsReels} from a single file.`], ["edit", "Its own words per channel:", "a caption for TikTok, a title for YouTube."], ["circleCheck", "Watch it land:", "each channel shows Publishing, then Posted, as it happens."]]}
         cta="Post my first video" visual={<div className="stage4"><Fan id="row-fan" /></div>} />
       <Row flip id="plan" verb="Plan" title="Fill a week of posting in one sitting"
         lead="Set your posting times once. Every video you add drops into the next free slot, and the calendar shows the whole month."
