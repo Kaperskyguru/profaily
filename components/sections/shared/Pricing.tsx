@@ -4,6 +4,7 @@ import { Glyph, Icon, type IconName } from "@/components/ui/Glyph";
 import { plans, YEARLY_SAVING, TRIAL_DAYS, type Highlight, type Period } from "@/content/plans";
 import { links } from "@/lib/links";
 import { useCurrency } from "@/lib/region";
+import { channels, FACEBOOK_LIVE, INSTAGRAM_LIVE } from "@/content/channels";
 
 const ICON: Record<Exclude<Highlight["icon"], "platforms" | "plus">, IconName> = {
   calendar: "calendar",
@@ -62,9 +63,9 @@ export function Pricing({
                 h.icon === "platforms" ? (
                   <li key={h.text} className="muted">
                     {h.text}
-                    <span className="sr-only"> TikTok, Instagram, YouTube and Facebook</span>
+                    <span className="sr-only"> {channels}</span>
                     <span className="pl" aria-hidden="true">
-                      <Glyph name="tiktok" id={`pr-${p.key}-tt`} /><Glyph name="instagram" id={`pr-${p.key}-ig`} /><Glyph name="youtube" id={`pr-${p.key}-yt`} /><Glyph name="facebook" id={`pr-${p.key}-fb`} />
+                      <Glyph name="tiktok" id={`pr-${p.key}-tt`} />{INSTAGRAM_LIVE && <Glyph name="instagram" id={`pr-${p.key}-ig`} />}<Glyph name="youtube" id={`pr-${p.key}-yt`} />{FACEBOOK_LIVE && <Glyph name="facebook" id={`pr-${p.key}-fb`} />}
                     </span>
                   </li>
                 ) : h.icon === "plus" ? (

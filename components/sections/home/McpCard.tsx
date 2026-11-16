@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { liveCopy } from "@/content/channels";
 
 /*
  * Typefully-style scripted demo, built as live page code (not a video file): one clock, and every
@@ -36,7 +37,7 @@ const THREAD: Item[] = [
   { id: "u3", kind: "user", at: PROMPTS[2].send, text: PROMPTS[2].text },
   { id: "t5", kind: "tool", at: 23.8, done: 24.8, label: "Checking the review", result: "Approved by Solomon Eseme" },
   { id: "t6", kind: "tool", at: 25.0, done: 26.1, label: "Loading your calendar", result: "Scheduled for tomorrow, 09:00" },
-  { id: "a4", kind: "ai", at: 26.5, text: "Approved. Launch day goes out tomorrow at 9:00 on YouTube, TikTok, Instagram and Facebook." },
+  { id: "a4", kind: "ai", at: 26.5, text: liveCopy({ both: "Approved. Launch day goes out tomorrow at 9:00 on YouTube, TikTok, Instagram and Facebook.", instagram: "Approved. Launch day goes out tomorrow at 9:00 on YouTube, TikTok and Instagram.", none: "Approved. Launch day goes out tomorrow at 9:00 on YouTube and TikTok." }) },
 ];
 
 /* The real dashboard frames, and when each takes the screen. `z`/`o` = zoom and origin inside the pane. */

@@ -1,3 +1,4 @@
+import { isSoon } from "@/content/channels";
 /** The app lives on its own subdomain; every CTA and legal link points there. */
 export const APP_URL = (
   process.env.NEXT_PUBLIC_APP_URL ?? "https://app.useprofaily.com"
@@ -8,12 +9,13 @@ export const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? "https://api.useprofa
 
 export type OAuthProvider = "google" | "tiktok" | "instagram" | "facebook";
 /** The app's order and labels (frontend/lib/data.ts OAUTH_PROVIDER_ORDER / OAUTH_PROVIDER_LABEL). */
-export const OAUTH_PROVIDERS: { id: OAuthProvider; label: string }[] = [
+export const OAUTH_PROVIDERS = ([
   { id: "google", label: "Google" },
   { id: "tiktok", label: "TikTok" },
   { id: "instagram", label: "Instagram" },
   { id: "facebook", label: "Facebook" },
-];
+  // Instagram and Facebook sign-in stay hidden until Meta approves each (content/channels.ts).
+] as { id: OAuthProvider; label: string }[]).filter((p) => !isSoon(p.id));
 export const oauthUrl = (provider: OAuthProvider) => `${API_URL}/auth/${provider}`;
 
 export const links = {
