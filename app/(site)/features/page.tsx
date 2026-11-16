@@ -7,7 +7,7 @@ import { Arrow } from "@/components/ui/Glyph";
 import { OgUrl } from "@/components/ui/OgUrl";
 import { featureGroups, featuresHubMeta } from "@/content/features-hub";
 import { pageMetadata } from "@/lib/metadata";
-import { META_LIVE } from "@/content/channels";
+import { liveCopy } from "@/content/channels";
 
 export const metadata = pageMetadata(featuresHubMeta);
 
@@ -61,7 +61,7 @@ export default function Page() {
         <ChannelStrip
           id="channels"
           idPrefix="hub"
-          heading={META_LIVE ? "Built for TikTok, Instagram, YouTube, and Facebook" : "Built for TikTok and YouTube"}
+          heading={liveCopy({ both: "Built for TikTok, Instagram, YouTube, and Facebook", instagram: "Built for TikTok, Instagram, and YouTube", none: "Built for TikTok and YouTube" })}
           lede="See what the connected workflow delivers for each channel and where channel requirements shape available actions."
         />
 

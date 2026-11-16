@@ -1,6 +1,6 @@
 import type { IconName, Integration } from "@/components/ui/Glyph";
 import { links } from "@/lib/links";
-import { META_LIVE, isSoon, SOON } from "@/content/channels";
+import { channels, isSoon, SOON } from "@/content/channels";
 
 /** A dropdown link: a title, one line under it, and an optional brand glyph (channels). */
 export type NavLink = { href: string; title: string; text: string; glyph?: Integration; icon?: IconName };
@@ -17,7 +17,7 @@ export const makingLinks: NavLink[] = [
   { href: "/#making", title: "Preview every channel", text: "See each video in its channel’s player first", icon: "phone" },
 ];
 export const distributingLinks: NavLink[] = [
-  { href: "/#distributing", title: "Connect channels", text: META_LIVE ? "TikTok, Instagram, YouTube and Facebook" : "TikTok and YouTube", icon: "plug" },
+  { href: "/#distributing", title: "Connect channels", text: channels, icon: "plug" },
   { href: "/#distributing", title: "Fill the calendar", text: "Drag videos onto the days they go out", icon: "calendar" },
   { href: "/#distributing", title: "Team approval", text: "Comments, changes and approval before scheduling", icon: "check" },
 ];

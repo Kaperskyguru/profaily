@@ -1,15 +1,17 @@
 "use client";
 import { useRef, useState } from "react";
 import { Arrow } from "@/components/ui/Glyph";
-import { META_LIVE } from "@/content/channels";
+import { liveCopy } from "@/content/channels";
 
 const TABS = [
   {
     tab: "Businesses",
     h: "Post every weekday without hiring a social team",
-    p: META_LIVE
-      ? "Film a batch on Monday, schedule the week, and let each video reach TikTok, Reels, Shorts and Facebook while you run the business."
-      : "Film a batch on Monday, schedule the week, and let each video reach TikTok and YouTube Shorts while you run the business.",
+    p: liveCopy({
+      both: "Film a batch on Monday, schedule the week, and let each video reach TikTok, Reels, Shorts and Facebook while you run the business.",
+      instagram: "Film a batch on Monday, schedule the week, and let each video reach TikTok, Reels and Shorts while you run the business.",
+      none: "Film a batch on Monday, schedule the week, and let each video reach TikTok and YouTube Shorts while you run the business.",
+    }),
     plan: "Business · $39 a month",
     list: [["3", "brands, each with its own channels and schedule"], ["5", "teammates, with approval before anything posts"], ["1", "upload for every channel"]],
   },

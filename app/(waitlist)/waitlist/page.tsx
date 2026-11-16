@@ -1,5 +1,6 @@
 import { WaitlistForm } from "@/components/waitlist/WaitlistForm";
 import { links } from "@/lib/links";
+import { liveCopy } from "@/content/channels";
 import { pageMetadata } from "@/lib/metadata";
 
 /** Served at "/" until launch (middleware.ts). */
@@ -18,7 +19,7 @@ export default function Page() {
       <div className="wlp-in">
         <span className="pill">Early access</span>
         <h1>Turn short&#8209;form video into a <span className="hl">growth engine</span> for your business</h1>
-        <p className="sub">The AI-powered, collaborative short-form video scheduling platform for TikTok and YouTube Shorts.</p>
+        <p className="sub">{liveCopy({ both: "The AI-powered, collaborative short-form video scheduling platform for Instagram Reels, TikTok, YouTube Shorts, and Facebook Reels.", instagram: "The AI-powered, collaborative short-form video scheduling platform for TikTok, Instagram Reels and YouTube Shorts.", none: "The AI-powered, collaborative short-form video scheduling platform for TikTok and YouTube Shorts." })}</p>
         <WaitlistForm />
       </div>
       <footer className="wlp-foot">
