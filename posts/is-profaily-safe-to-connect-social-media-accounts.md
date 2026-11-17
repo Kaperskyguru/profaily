@@ -56,7 +56,9 @@ Someone on your team finds a tool that will save hours every week. You sign up, 
 
 And you stopped to think because these accounts took years to build. Your customers find you there. What exactly are you handing over? Could this tool post something you didn't approve? Could someone take the account from you?
 
-A business owner asked me exactly this in a meeting recently. He wasn't being difficult. He was being careful, and he was right to be. I'm Solomon Eseme, and I founded Profaily, a scheduler that posts short videos to TikTok, Instagram Reels, Facebook Reels, and YouTube Shorts. At MasteringBackend, we [publish a short video every day](/blog/post-to-tiktok-reels-shorts-at-the-same-time) through it, so our own accounts are connected too.
+A business owner asked me exactly this in a meeting recently. He wasn't being difficult. He was being careful, and he was right to be.
+
+I'm Solomon Eseme, and I founded Profaily, a scheduler that posts short videos to TikTok, Instagram Reels, Facebook Reels, and YouTube Shorts. At MasteringBackend, we [publish a short video every day](/blog/post-to-tiktok-reels-shorts-at-the-same-time) through it, so our own accounts are connected too.
 
 This article is my answer to his question. It covers what Profaily can and can't touch, how the access is stored, who on your team can post, and how to cut Profaily off if you ever want to. I'll also be clear about what I can't promise.
 
@@ -88,7 +90,9 @@ In plain words: instead of giving us your password, the platform gives Profaily 
 
 If anyone ever asks you to type your Instagram or TikTok password into a form that isn't on Instagram's or TikTok's own website, don't do it. That's not how Profaily works.
 
-Your Profaily login is separate. If you sign up with an email and password, we store only a scrambled version of it, called an Argon2id hash, never the password itself. Argon2id is the method the [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) recommends first. You can also sign in with Google instead. The cookie that keeps you logged in is set so that scripts on the page can't read it.
+Your Profaily login is separate. If you sign up with an email and password, we store only a scrambled version of it, called an Argon2id hash, never the password itself. Argon2id is the method the [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) recommends first.
+
+You can also sign in with Google instead. The cookie that keeps you logged in is set so that scripts on the page can't read it.
 
 ## What can Profaily do on your accounts? {#permissions}
 
@@ -122,7 +126,9 @@ The TikTok audit matters in a practical way. TikTok's [developer docs](https://d
 
 A passed review doesn't mean a platform vouches for everything an app does. It means the platform looked at the app and allowed it to post.
 
-Profaily also posts only through each platform's official route: TikTok's Content Posting API, Instagram's content publishing API and the YouTube Data API. These are the routes the platforms built for scheduling tools. Accounts usually get into trouble with tools that bypass them, for example by logging in as you or automating the app.
+Profaily also posts only through each platform's official route: TikTok's Content Posting API, Instagram's content publishing API and the YouTube Data API.
+
+These are the routes the platforms built for scheduling tools. Accounts usually get into trouble with tools that bypass them, for example by logging in as you or automating the app.
 
 ## How does Profaily store access to your accounts? {#keys}
 
@@ -146,7 +152,9 @@ If staff or an agency help with your content, nobody on the team needs your plat
 
 ![Profaily's Team settings: the owner as Admin, a Producer and an Editor, each with access to one brand](/assets/blog/is-profaily-safe-to-connect-social-media-accounts/team.jpg)
 
-Only an Admin can connect or disconnect an account, because each one is somebody's platform login. If you run more than one brand, each person only opens the brands you give them. An Editor can never schedule a video. It goes out only after a Producer or Admin approves it. Reviews and approvals are part of the Business plan.
+Only an Admin can connect or disconnect an account, because each one is somebody's platform login.
+
+If you run more than one brand, each person only opens the brands you give them. An Editor can never schedule a video. It goes out only after a Producer or Admin approves it. Reviews and approvals are part of the Business plan.
 
 When someone leaves, remove them from the team. Because access is checked on every request, theirs ends once they're removed.
 
@@ -164,7 +172,9 @@ You can also ask for deletion by emailing [privacy@useprofaily.com](mailto:priva
 
 There are two ways, and you don't need both.
 
-**In Profaily.** An Admin opens the Channels page and disconnects the account. Profaily asks the platform to cancel the key, then deletes its own stored copy straight away. The request to the platform is best effort, so if you want to be certain, also use the second way.
+**In Profaily.** An Admin opens the Channels page and disconnects the account. Profaily asks the platform to cancel the key, then deletes its own stored copy straight away.
+
+The request to the platform is best effort, so if you want to be certain, also use the second way.
 
 ![Disconnecting TikTok from the Channels panel in Profaily](/assets/blog/is-profaily-safe-to-connect-social-media-accounts/disconnect.jpg)
 
