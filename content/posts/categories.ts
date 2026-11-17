@@ -9,6 +9,7 @@ export const CATEGORIES = [
   { name: "Teams & agencies", about: "Approvals, client sign-off and roles for small teams handling many brands." },
   { name: "Audience & leads", about: "Turning views and comments into followers, conversations and customers." },
   { name: "Analytics", about: "Measuring what worked and deciding what to make next." },
+  { name: "Security & privacy", about: "What a tool can do with your accounts, videos and data, and how to stay in control of them." },
   { name: "AI & automation", about: "Using AI assistants and automation to plan, caption and schedule video with a person still in charge." },
 ] as const;
 
