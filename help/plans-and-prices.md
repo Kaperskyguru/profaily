@@ -31,7 +31,9 @@ Profaily has two plans. Both post to TikTok, Instagram and YouTube, with schedul
 | Approvals before posting | No | Yes |
 | Free trial | No | 14 days |
 
-See the full comparison on the [pricing page](/pricing).
+See the full comparison on the [pricing page](/pricing), or in the app under **Settings → Billing → View all plans**:
+
+![The Upgrade or Change Plan window, with the Yearly billing switch, Save 20%, and the Creator plan at ₦7,500 a month](/assets/help/plans-and-prices/bl-plans.jpg)
 
 ## Currency {#currency}
 
@@ -39,11 +41,13 @@ If you're billed in Nigeria, you pay in naira through **Paystack**. Everyone els
 
 ## Monthly or yearly {#yearly}
 
-Paying yearly saves **20%** compared with twelve monthly payments. You can switch between monthly and yearly from **Settings → Billing**.
+Paying yearly saves **20%** compared with twelve monthly payments. You can switch between monthly and yearly from **Settings → Billing**, with the **Yearly billing** switch at the top of the plans.
 
 ## If a payment fails {#failed-payment}
 
-You get **7 days** to update your payment method, with everything still working. Go to **Settings → Billing → Update payment method**. After 7 days, your workspace becomes read-only until the payment goes through.
+You get **7 days** to update your payment method, with everything still working. Go to **Settings → Billing → Update payment method**.
+
+![Settings, Billing, with your plan, next payment, plan usage, and the Invoices and Update payment method buttons](/assets/help/plans-and-prices/bl-billing.jpg) After 7 days, your workspace becomes read-only until the payment goes through.
 
 ## Frequently asked questions {#faq}
 

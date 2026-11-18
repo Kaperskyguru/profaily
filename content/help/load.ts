@@ -53,6 +53,9 @@ export function loadHelpPage(slug: string): HelpPage & { draft: boolean } {
     if (!alt.trim()) throw new HelpError(file, `the image ${src} needs alt text: say what the reader should see`);
     if (!src.startsWith(`/assets/help/${slug}/`)) throw new HelpError(file, `the image ${src} must be in /assets/help/${slug}/: make it with yarn shot`);
     if (!fs.existsSync(path.join(process.cwd(), "public", src.split("?")[0]))) throw new HelpError(file, `the image ${src} does not exist`);
+    if (/\.mp4$/.test(src) && !fs.existsSync(path.join(process.cwd(), "public", src.replace(/\.mp4$/, ".jpg")))) {
+      throw new HelpError(file, `the recording ${src} needs a poster image next to it, with the same name ending in .jpg`);
+    }
   }
 
   const section = text("section");

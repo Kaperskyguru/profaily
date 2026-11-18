@@ -26,6 +26,12 @@ The **Business** plan comes with a **14-day free trial**. You add a card to star
 3. Choose **Business** and add your card.
 4. Connect your accounts and post your first video.
 
+![The Profaily sign-in screen with Continue with Google, and TikTok and Instagram buttons](/assets/help/start-free-trial/auth-login.jpg)
+
+Once you're in, Profaily asks you to connect your first account. Tap **Connect** next to TikTok, Instagram or YouTube. You can add the rest later.
+
+![The Connect your first account screen, with Connect buttons for TikTok, Instagram and YouTube](/assets/help/start-free-trial/g-gate.jpg)
+
 Billing in Nigeria is in naira through Paystack. Everywhere else, it's in US dollars.
 
 ## During the trial {#during}
@@ -34,10 +40,14 @@ You get everything in Business for 14 days: 3 brands, 12 connected channels, 5 t
 
 A good way to try it: connect a test or secondary account first, schedule a few videos, and watch them go out. Connect your main accounts once you're happy.
 
+You can see when your trial ends in **Settings → Billing**, under your plan.
+
+![Settings, Billing, showing Business Monthly at ₦19,900 a month, the next payment date and Business · trial ends 30 Nov](/assets/help/start-free-trial/bl-billing.jpg)
+
 ## When the trial ends {#ends}
 
 - **If you keep going**, your card is charged for the plan you chose, and everything carries on.
-- **If you cancel before the trial ends**, you aren't charged. Cancel any time from **Settings → Billing → Cancel subscription**.
+- **If you cancel before the trial ends**, you aren't charged. Cancel any time from **Settings → Billing → Cancel subscription**. [How to cancel](/help/change-or-cancel-your-plan).
 
 ## Frequently asked questions {#faq}
 

@@ -98,3 +98,12 @@
   .pg-help.pg-article .ar-prose .table-wrap table { min-width: 0; font-size: 14px; }
   .pg-help.pg-article .ar-prose .table-wrap th, .pg-help.pg-article .ar-prose .table-wrap td { padding: 12px 10px; vertical-align: top; }
 }
+
+/* Help media are real phone screens (stills and short loops): shown at phone size, framed like a screen. */
+.pg-help.pg-article .ar-prose img,
+.pg-help.pg-article .ar-prose .article-video {
+  display: block; width: min(100%, 320px); height: auto; margin: 24px auto 32px;
+  border-radius: 28px; border: 6px solid #1c1c1c; background: #141414;
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.45);
+}
+.pg-help.pg-article .ar-prose p:has(> img:only-child), .pg-help.pg-article .ar-prose p:has(> video:only-child) { margin: 0; }

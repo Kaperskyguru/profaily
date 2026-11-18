@@ -15,6 +15,10 @@ A **brand** is one business or client in Profaily. Each brand has its own connec
 - The **Creator** plan includes **1 brand**.
 - The **Business** plan includes **3 brands**.
 
+You'll find all your brands in **Settings → Brands**, each with the accounts it posts to:
+
+![Settings, Brands, listing Lumen Coffee with no channels yet and Profaily with TikTok, Instagram and YouTube, marked Current](/assets/help/use-brands/st-brands.jpg)
+
 ## Add a brand {#add}
 
 1. Tap the brand name at the top of the menu to open the brand list.
@@ -25,12 +29,18 @@ A **brand** is one business or client in Profaily. Each brand has its own connec
 
 Tap the brand name at the top of the menu and choose another. The composer, queue and calendar then show only that brand.
 
+![The brand list open from the menu, with a Personal brand, the team's Profaily brand, and Add brand, Create new team and Settings below](/assets/help/use-brands/st-switcher.jpg)
+
 ## Change a brand's settings {#settings}
 
 Tap the **···** next to a brand to open its settings:
 
 - **General:** its name, picture and connected accounts.
 - **Scheduling:** its posting times, used by **Next slot**, and its timezone.
+
+Under **Scheduling**, **Quick setup** builds your weekly slots for you. Pick a rhythm such as **Once a day** or **Morning & evening**, or set how many times a day and between which hours, then tap **Arrange my queue**.
+
+![A brand's Scheduling settings, with the Africa › Lagos timezone, Quick setup rhythms and the Arrange my queue button](/assets/help/use-brands/bs-scheduling.jpg)
 
 ## Give people access to some brands only {#access}
 

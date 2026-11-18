@@ -38,7 +38,15 @@ Instagram renames these menus from time to time. If you can't find them, search 
 5. Instagram opens. Sign in, check what Profaily is asking for, and approve it.
 6. You come straight back to Profaily, and Instagram shows under **Channels**.
 
-![The Connect a channel window in Profaily, with a Connect button next to TikTok, Instagram and YouTube](/assets/help/connect-instagram/connect-dialog.jpg)
+![The Connect a channel window, with TikTok marked Connected and a Connect button next to Instagram](/assets/help/connect-instagram/c-instagram-dialog.jpg)
+
+Here's the whole path, recorded in the app, from the menu to Instagram showing under Channels:
+
+![Connecting Instagram in Profaily: menu, Settings, Brands, General, Connect a channel, approve on Instagram, then back in Profaily](/assets/help/connect-instagram/connect-instagram-flow.mp4)
+
+Once it's connected, Instagram appears at the top of the composer, next to your other accounts:
+
+![The composer after connecting Instagram, with the TikTok and Instagram icons at the top](/assets/help/connect-instagram/c-instagram-after.jpg)
 
 New to Profaily? The first time you sign in, Profaily asks you to connect an account. The steps from 4 onwards are the same.
 

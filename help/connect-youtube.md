@@ -25,7 +25,15 @@ You need the **Admin** role in your Profaily team, and a Google account that has
 5. Google opens. Pick the account that owns your channel, check what Profaily is asking for, and approve it.
 6. You come straight back to Profaily, and YouTube shows under **Channels**.
 
-![The Connect a channel window in Profaily, with a Connect button next to TikTok, Instagram and YouTube](/assets/help/connect-youtube/connect-dialog.jpg)
+![The Connect a channel window, with TikTok and Instagram marked Connected and a Connect button next to YouTube](/assets/help/connect-youtube/c-youtube-dialog.jpg)
+
+Here's the whole path, recorded in the app, from the menu to YouTube showing under Channels:
+
+![Connecting YouTube in Profaily: menu, Settings, Brands, General, Connect a channel, approve on Google, then back in Profaily](/assets/help/connect-youtube/connect-youtube-flow.mp4)
+
+Once it's connected, YouTube appears at the top of the composer, next to your other accounts:
+
+![The YouTube tab in the composer after connecting, with a Shorts preview of the video](/assets/help/connect-youtube/keep-yt-tab.jpg)
 
 If your channel belongs to a Brand Account, Google may ask which channel to use. Pick the one you want Profaily to post to.
 

@@ -36,6 +36,20 @@ function transform(node: Element, nextId: (text: string) => string): Element {
   if (node.tagName === "a" && /^https?:\/\//.test(String(node.properties?.href))) {
     node.properties = { ...node.properties, target: "_blank", rel: ["noopener", "noreferrer"] };
   }
+  // A screen recording: `![what it shows](/assets/help/<slug>/flow.mp4)` plays silently on a loop, like a GIF,
+  // with the same-named .jpg as its poster (the help loader checks both files exist).
+  if (node.tagName === "img" && /\.mp4$/.test(String(node.properties?.src))) {
+    const src = String(node.properties.src);
+    return {
+      type: "element",
+      tagName: "video",
+      properties: {
+        src, poster: src.replace(/\.mp4$/, ".jpg"), autoPlay: true, muted: true, loop: true, playsInline: true,
+        preload: "metadata", ariaLabel: String(node.properties.alt ?? ""), className: ["article-video"],
+      },
+      children: [],
+    };
+  }
   if (node.tagName === "blockquote") {
     const para = node.children.find((c): c is Element => c.type === "element" && c.tagName === "p");
     return { type: "element", tagName: "div", properties: { className: ["article-callout"] }, children: para?.children ?? [] };
