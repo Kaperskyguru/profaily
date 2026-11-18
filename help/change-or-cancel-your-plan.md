@@ -22,12 +22,10 @@ Everything about your plan is in **Settings → Billing**. In a team, the person
 1. In Profaily, open the menu, tap your account, then **Settings**.
 2. Tap **Billing**. Your plan, your next payment and how much of your plan you're using are at the top.
 
-![Settings, Billing, showing Business Monthly at ₦19,900 a month, the next payment, and plan usage for brands, channels and seats](/assets/help/change-or-cancel-your-plan/bl-billing.jpg)
 
 3. Tap **View all plans**.
 4. Pick **Creator** or **Business**. Turn on **Yearly billing** to pay yearly and save 20%.
 
-![The Upgrade or Change Plan window, with the Yearly billing switch and the Creator plan's Downgrade button](/assets/help/change-or-cancel-your-plan/bl-plans.jpg)
 
 Profaily shows you what changes and what you'll pay before you confirm.
 
