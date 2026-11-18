@@ -90,9 +90,9 @@ In plain words: instead of giving us your password, the platform gives Profaily 
 
 If anyone ever asks you to type your Instagram or TikTok password into a form that isn't on Instagram's or TikTok's own website, don't do it. That's not how Profaily works.
 
-Your Profaily login is separate. If you sign up with an email and password, we store only a scrambled version of it, called an Argon2id hash, never the password itself. Argon2id is the method the [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) recommends first.
+Your Profaily login is separate. You sign in with Google, TikTok or Instagram, so there's no Profaily password to steal. The few accounts that do have a password, such as the test logins platforms use to review the app, are stored only as a scrambled version, called an Argon2id hash, never the password itself. Argon2id is the method the [OWASP Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) recommends first.
 
-You can also sign in with Google instead. The cookie that keeps you logged in is set so that scripts on the page can't read it.
+The cookie that keeps you logged in is set so that scripts on the page can't read it.
 
 ## What can Profaily do on your accounts? {#permissions}
 
