@@ -1,13 +1,13 @@
 ---
 title: "How to remove Profaily's access to your accounts"
 description: "Disconnect an account in Profaily under Settings → Brands → General, or remove Profaily from TikTok, Instagram or your Google account. Either one stops Profaily posting."
-section: "Your account and data"
+section: "Privacy and security"
 order: 1
 updated: "2026-11-18"
 related:
+  - "delete-your-account"
   - "connect-instagram"
   - "connect-tiktok"
-  - "connect-youtube"
 faq:
   - q: "Do I need to do both?"
     a: "No, either one stops Profaily posting. Removing access on the platform itself is the surest way, because it doesn't depend on Profaily at all."

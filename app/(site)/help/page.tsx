@@ -61,11 +61,11 @@ export default function Page() {
 
         <section className="section tight hp-topics-wrap" aria-labelledby="hp-topics">
           <div className="wrap">
-            <h2 id="hp-topics" className="hp-h2">Profaily topics</h2>
+            <h2 id="hp-topics" className="hp-h2">Help topics</h2>
             <ul className="hp-pills">
               {groups.map((g) => (
                 <li key={g.id}>
-                  <a href={`#${g.id}`}>
+                  <a href={`/help/topics/${g.id}`}>
                     <Icon name={g.icon} className="hp-pill-icon" />
                     <span>{g.name}</span>
                     <span className="hp-go" aria-hidden="true"><Arrow /></span>
@@ -82,7 +82,7 @@ export default function Page() {
             <div className="hp-groups">
               {groups.map((g) => (
                 <section className="hp-group" id={g.id} key={g.id} aria-labelledby={`hp-g-${g.id}`}>
-                  <h3 id={`hp-g-${g.id}`}>{g.name}</h3>
+                  <h3 id={`hp-g-${g.id}`}><a className="hp-group-link" href={`/help/topics/${g.id}`}>{g.name}</a></h3>
                   <ul>
                     {g.pages.map((p) => (
                       <li key={p.slug}>

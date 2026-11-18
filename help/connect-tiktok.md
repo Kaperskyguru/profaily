@@ -1,8 +1,8 @@
 ---
 title: "How to connect TikTok to Profaily"
 description: "Connect TikTok in Settings → Brands → Connect a channel, sign in on TikTok's own page and approve the connection. Here's how, plus the video rules TikTok checks."
-section: "Connect your accounts"
-order: 2
+section: "Get started"
+order: 4
 updated: "2026-11-18"
 related:
   - "why-a-post-failed"

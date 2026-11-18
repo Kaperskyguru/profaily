@@ -8,7 +8,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { OgUrl } from "@/components/ui/OgUrl";
 import { PostMarkdown } from "@/components/ui/PostMarkdown";
 import { faqJsonLd } from "@/content/comparisons";
-import { helpList, helpPages, type HelpPage } from "@/content/help";
+import { HELP_SECTIONS, helpList, helpPages, type HelpPage } from "@/content/help";
 import { ORIGIN } from "@/lib/metadata";
 
 export const helpTitle = (page: HelpPage) => `${page.title} | Profaily Help`;
@@ -33,6 +33,8 @@ export function HelpArticlePage({ page }: { page: HelpPage }) {
     if (p.slug !== page.slug && p.section === page.section && !related.includes(p)) related.push(p);
   }
   const url = `${ORIGIN}/help/${page.slug}`;
+  const topic = HELP_SECTIONS.find((s) => s.name === page.section);
+  const topicHref = topic ? `/help/topics/${topic.id}` : "/help";
 
   return (
     <PageShell>
@@ -53,11 +55,11 @@ export function HelpArticlePage({ page }: { page: HelpPage }) {
       <main className="pg-blog pg-article pg-help">
         <header className="page-hero has-grid ar-hero hp-hero">
           <div className="wrap ar-head">
-            <Crumbs items={[{ href: "/help", label: "Help center" }, { label: page.title }]} />
-            <a className="hp-back" href="/help">Help center</a>
+            <Crumbs items={[{ href: "/help", label: "Help center" }, { href: topicHref, label: page.section }, { label: page.title }]} />
+            <a className="hp-back" href={topicHref}>{page.section}</a>
             <h1>{page.title}</h1>
             <p className="lead">{page.description}</p>
-            <p className="bl-meta"><span>{page.section}</span><span>Updated <time dateTime={page.updated}>{page.updatedLabel}</time></span></p>
+            <p className="bl-meta"><span>Updated <time dateTime={page.updated}>{page.updatedLabel}</time></span></p>
           </div>
         </header>
 

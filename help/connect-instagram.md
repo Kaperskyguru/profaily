@@ -1,8 +1,8 @@
 ---
 title: "How to connect Instagram to Profaily"
 description: "Switch your Instagram to a Business or Creator account, then connect it in Settings → Brands. It takes about two minutes, and you sign in on Instagram's own page."
-section: "Connect your accounts"
-order: 1
+section: "Get started"
+order: 3
 updated: "2026-11-18"
 related:
   - "why-a-post-failed"

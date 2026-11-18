@@ -1,8 +1,8 @@
 ---
 title: "How to connect YouTube to Profaily"
 description: "Connect your YouTube channel with your Google account in Settings → Brands → Connect a channel. Your Google account needs a YouTube channel first."
-section: "Connect your accounts"
-order: 3
+section: "Get started"
+order: 5
 updated: "2026-11-18"
 related:
   - "why-a-post-failed"
