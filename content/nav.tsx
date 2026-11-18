@@ -48,6 +48,7 @@ export const madeForLinks: NavLink[] = [
 
 export const learnLinks: NavLink[] = [
   { href: "/blog", title: "Blog", text: "Guides on short-form video for business", icon: "text" },
+  { href: "/help", title: "Help center", text: "Step-by-step answers for using Profaily", icon: "lines" },
   { href: "/contact", title: "Contact", text: "Talk to the Profaily team", icon: "chat" },
 ];
 
@@ -88,7 +89,7 @@ export const footerGroups: { heading: string; links: { href: string; label: stri
   { heading: "Made for", links: madeForLinks.map((l) => ({ href: l.href, label: l.title })) },
   {
     heading: "Resources",
-    links: [{ href: "/blog", label: "Blog" }],
+    links: [{ href: "/blog", label: "Blog" }, { href: "/help", label: "Help center" }],
   },
   {
     heading: "Company",

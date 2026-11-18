@@ -1,0 +1,23 @@
+/* Help center (/help and /help/<slug>). Builds on blog.css; tokens and shared primitives only. */
+
+.pg-help .hp-hero { padding-bottom: clamp(28px, 4vw, 48px); }
+.pg-help .hp-back { margin-top: 18px; font-size: 14px; font-weight: 600; color: var(--mint-ink); }
+.pg-help .hp-back::before { content: "← "; }
+.pg-help .ar-head h1 { margin-top: 12px; max-width: 24ch; }
+
+.pg-help .hp-index { display: grid; gap: clamp(36px, 5vw, 56px); max-width: 860px; }
+.pg-help .hp-group h2 { font-size: clamp(22px, 2vw, 26px); letter-spacing: -0.02em; }
+.pg-help .hp-group > p { margin-top: 6px; color: var(--muted); }
+
+.pg-help .hp-list { display: grid; gap: 12px; margin-top: 18px; list-style: none; padding: 0; }
+.pg-help .hp-list a { display: grid; gap: 6px; padding: 18px 20px; background: var(--soft); border-radius: 18px; transition: box-shadow 0.15s; }
+.pg-help .hp-list a:hover { box-shadow: 0 0 0 1px rgba(13, 36, 31, 0.16); }
+.pg-help .hp-list strong { font-size: 17px; letter-spacing: -0.01em; color: var(--ink, inherit); }
+.pg-help .hp-list a:hover strong { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.pg-help .hp-list span { color: var(--muted); font-size: 15px; line-height: 1.45; }
+.pg-help .hp-related-title { font-size: clamp(22px, 2vw, 26px); }
+
+.pg-help .hp-contact { display: grid; gap: 10px; justify-items: start; margin-top: clamp(36px, 5vw, 56px); padding: clamp(22px, 3vw, 30px); background: var(--shell); border-radius: 22px; }
+.pg-help .hp-contact h2 { font-size: 22px; letter-spacing: -0.02em; }
+.pg-help .hp-contact p { color: var(--muted); max-width: 52ch; }
+.pg-help .hp-contact .btn { margin-top: 6px; }

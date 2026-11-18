@@ -33,7 +33,9 @@ if (!captureArg || !slug || !name) {
 }
 if (!/^[a-z0-9-]+$/.test(name)) throw new Error(`Name "${name}" must be lower-case words joined by hyphens, like "approve-button"`);
 const root = process.cwd();
-if (!fs.existsSync(path.join(root, "posts", `${slug}.md`))) throw new Error(`No post at posts/${slug}.md`);
+// A blog post (posts/<slug>.md) or a help page (help/<slug>.md); its screenshots live in that kind's own folder.
+const kind = fs.existsSync(path.join(root, "posts", `${slug}.md`)) ? "blog" : fs.existsSync(path.join(root, "help", `${slug}.md`)) ? "help" : null;
+if (!kind) throw new Error(`No post at posts/${slug}.md or help page at help/${slug}.md`);
 const capture = path.resolve(captureArg);
 if (!fs.existsSync(capture)) throw new Error(`No capture at ${capture}`);
 
@@ -81,7 +83,7 @@ const [outW, outH] = [width + (BEZEL + PAD_X) * 2, height + BEZEL + PAD_TOP + PA
 const chrome = process.env.CHROME ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 execFileSync(chrome, ["--headless=new", "--hide-scrollbars", "--allow-file-access-from-files", "--virtual-time-budget=3000", `--force-device-scale-factor=${SCALE}`, `--window-size=${outW},${outH}`, `--screenshot=${png}`, `file://${tmp}/shot.html`], { stdio: "ignore" });
 
-const rel = `/assets/blog/${slug}/${name}.jpg`;
+const rel = `/assets/${kind}/${slug}/${name}.jpg`;
 const out = path.join(root, "public", rel);
 fs.mkdirSync(path.dirname(out), { recursive: true });
 const hasSips = (() => { try { execFileSync("which", ["sips"], { stdio: "ignore" }); return true; } catch { return false; } })();
@@ -89,4 +91,4 @@ if (hasSips) execFileSync("sips", ["-s", "format", "jpeg", "-s", "formatOptions"
 else execFileSync("convert", [png, "-quality", "86", out], { stdio: "ignore" });
 fs.rmSync(tmp, { recursive: true, force: true });
 
-console.log(`Wrote public${rel} (${outW * SCALE}x${outH * SCALE}). Paste into posts/${slug}.md, with real alt text:\n\n![What the reader should see in this screenshot](${rel})\n`);
+console.log(`Wrote public${rel} (${outW * SCALE}x${outH * SCALE}). Paste into ${kind === "blog" ? "posts" : "help"}/${slug}.md, with real alt text:\n\n![What the reader should see in this screenshot](${rel})\n`);

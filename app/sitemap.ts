@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
+import { helpList } from "@/content/help";
 import { postList } from "@/content/posts";
 import { routes } from "@/content/routes";
 
 /**
- * Every page in content/routes, plus every live post in posts/ (a new post is in the sitemap without being
+ * Every page in content/routes, plus every live post in posts/ and help page in help/ (a new post is in the sitemap without being
  * registered anywhere). /blog's lastModified moves to the newest post's date.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -16,5 +17,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const posts = postList
     .filter((p) => !listed.has(`/blog/${p.slug}`))
     .map((p) => ({ url: `https://useprofaily.com/blog/${p.slug}`, lastModified: p.datePublished }));
-  return [...pages, ...posts];
+  const help = [
+    ...(listed.has("/help") ? [] : [{ url: "https://useprofaily.com/help", lastModified: helpList.reduce((d, p) => (p.updated > d ? p.updated : d), "") }]),
+    ...helpList
+      .filter((p) => !listed.has(`/help/${p.slug}`))
+      .map((p) => ({ url: `https://useprofaily.com/help/${p.slug}`, lastModified: p.updated })),
+  ].filter((h) => h.lastModified);
+  return [...pages, ...posts, ...help];
 }
