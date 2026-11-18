@@ -23,12 +23,12 @@ There are two ways to stop Profaily posting to an account, and you only need one
 
 You need the **Admin** role in your Profaily team.
 
-1. In Profaily, open the menu, tap your account, then **Settings**.
+1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu (☰) first.
 2. Tap **Brands**, then the **···** next to the brand.
 3. Tap **General**. Your connected accounts are listed under **Channels**.
 4. Tap the bin icon next to the account. **Disconnect** and **Cancel** appear in its place. Tap **Disconnect**.
 
-![A brand's General settings: the Channels list with a bin icon next to TikTok and Instagram, and Disconnect and Cancel showing next to YouTube](/assets/help/remove-profaily-access/bs-disconnect.jpg)
+![A brand's General settings: the Channels list with a bin icon next to TikTok and Instagram, and Disconnect and Cancel showing next to YouTube](/assets/help/remove-profaily-access/disconnect.jpg)
 
 Profaily asks the platform to cancel its access, then deletes its own stored copy straight away. Asking the platform is best effort, so to be certain, also remove access on the platform.
 

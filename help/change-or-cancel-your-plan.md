@@ -19,13 +19,11 @@ Everything about your plan is in **Settings → Billing**. In a team, the person
 
 ## Change your plan {#change}
 
-1. In Profaily, open the menu, tap your account, then **Settings**.
+1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu (☰) first.
 2. Tap **Billing**. Your plan, your next payment and how much of your plan you're using are at the top.
-
 
 3. Tap **View all plans**.
 4. Pick **Creator** or **Business**. Turn on **Yearly billing** to pay yearly and save 20%.
-
 
 Profaily shows you what changes and what you'll pay before you confirm.
 
@@ -38,7 +36,7 @@ Go to **Settings → Billing → Update payment method**.
 1. Go to **Settings → Billing**.
 2. Tap **Cancel subscription**. Profaily tells you how long you keep your plan, then confirm with **Cancel plan**, or tap **Keep plan** if you've changed your mind.
 
-![The cancel message: You keep Business until 30 Nov, then your account is read-only. Nothing is deleted. With Keep plan and Cancel plan buttons](/assets/help/change-or-cancel-your-plan/bl-cancel2.jpg)
+![The cancel message: You keep Business until 30 Nov, then your account is read-only. Nothing is deleted. With Keep plan and Cancel plan buttons](/assets/help/change-or-cancel-your-plan/cancel-confirm.jpg)
 
 You keep everything until the end of the period you've paid for, or the end of your trial, and you won't be charged again. Changed your mind? Tap **Resume subscription** before then.
 

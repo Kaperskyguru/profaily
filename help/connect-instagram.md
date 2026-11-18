@@ -31,22 +31,22 @@ Instagram renames these menus from time to time. If you can't find them, search 
 
 ## Connect Instagram in Profaily {#connect}
 
-1. In Profaily, open the menu, tap your account, then **Settings**.
+1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu (☰) first.
 2. Tap **Brands**, then the **···** next to the brand you post for.
 3. Tap **General**, then **Connect a channel**.
 4. Next to Instagram, tap **Connect**.
 5. Instagram opens. Sign in, check what Profaily is asking for, and approve it.
 6. You come straight back to Profaily, and Instagram shows under **Channels**.
 
-![The Connect a channel window, with TikTok marked Connected and a Connect button next to Instagram](/assets/help/connect-instagram/c-instagram-dialog.jpg)
+![The Connect a channel window, with TikTok marked Connected and a Connect button next to Instagram](/assets/help/connect-instagram/connect-dialog.jpg)
 
-Here's the whole path, recorded in the app, from the menu to Instagram showing under Channels:
+Here's the whole path, recorded in the app, from Settings to Instagram showing under Channels:
 
-![Connecting Instagram in Profaily: menu, Settings, Brands, General, Connect a channel, approve on Instagram, then back in Profaily](/assets/help/connect-instagram/connect-instagram-flow.mp4)
+![Connecting Instagram in Profaily: Settings, Brands, the brand's settings, General, Connect a channel, Connect next to Instagram, then back in Profaily with Instagram under Channels](/assets/help/connect-instagram/connect-flow.mp4)
 
 Once it's connected, Instagram appears at the top of the composer, next to your other accounts:
 
-![The composer after connecting Instagram, with the TikTok and Instagram icons at the top](/assets/help/connect-instagram/c-instagram-after.jpg)
+![A brand's General settings with TikTok and Instagram listed under Channels](/assets/help/connect-instagram/connected.jpg)
 
 New to Profaily? The first time you sign in, Profaily asks you to connect an account. The steps from 4 onwards are the same.
 
