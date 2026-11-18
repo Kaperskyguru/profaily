@@ -41,7 +41,9 @@ import type { PostContent } from "./types";
  *  | a | b |               table, styled as the article table
  *  [text](https://…)       external links open in a new tab; /paths stay plain links
  *  ![alt](/assets/blog/<slug>/<name>.jpg)
- *                          a real app screenshot on the brand frame, made with `yarn shot` (see scripts/shot.ts).
+ *                          a real app screenshot in the branded window, made with `yarn shot` (see scripts/shot.ts).
+ *  ![alt](/assets/blog/<slug>/<name>.mp4)
+ *                          a real screen recording in the same window, made with `yarn clip`; plays muted on a loop.
  *                          The build fails if an image is outside /assets/blog/<slug>/, missing, or has no alt text.
  */
 
@@ -109,9 +111,12 @@ export function loadPost(slug: string): PostContent {
   for (const [, alt, src] of body.matchAll(/!\[([^\]]*)\]\(([^)\s]+)[^)]*\)/g)) {
     if (!alt.trim()) throw new PostError(file, `the image ${src} needs alt text: say what the reader should see`);
     if (!src.startsWith(`/assets/blog/${slug}/`)) {
-      throw new PostError(file, `the image ${src} must be a framed app screenshot in /assets/blog/${slug}/: make it with yarn shot`);
+      throw new PostError(file, `the image ${src} must be a framed app screenshot or recording in /assets/blog/${slug}/: make it with yarn shot or yarn clip`);
     }
     if (!fs.existsSync(path.join(process.cwd(), "public", src.split("?")[0]))) throw new PostError(file, `the image ${src} does not exist`);
+    if (/\.mp4$/.test(src) && !fs.existsSync(path.join(process.cwd(), "public", src.replace(/\.mp4$/, ".jpg")))) {
+      throw new PostError(file, `the recording ${src} needs its poster next to it, with the same name ending in .jpg: make it with yarn clip`);
+    }
   }
   const datePublished = dateOf(file, data.datePublished);
   const cta = data.cta === undefined ? DEFAULT_CTA : links(file, { cta: [data.cta] }, "cta")[0];

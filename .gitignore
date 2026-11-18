@@ -13,3 +13,4 @@ tests/visual/
 
 # design-check screenshots and drafts (tasteskill)
 .taste-skill/
+/captures
