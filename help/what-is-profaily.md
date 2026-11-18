@@ -12,7 +12,7 @@ related:
 
 Profaily is a scheduler for short videos. You upload a video once, write your caption, and Profaily posts it to **TikTok**, **Instagram Reels** and **YouTube Shorts**, now or at the time you choose.
 
-![The Profaily composer on a phone with a vertical video and its caption ready to post](/assets/help/what-is-profaily/sc-1-ready.jpg)
+![The Profaily composer with a vertical video and its caption, and a TikTok preview beside it](/assets/help/what-is-profaily/composer.jpg)
 
 ## What you can do with it {#what-you-can-do}
 
@@ -24,7 +24,7 @@ Profaily is a scheduler for short videos. You upload a video once, write your ca
 
 Everything you've scheduled waits in one Queue, day by day, with open slots ready to fill:
 
-![The Queue in Profaily, with scheduled videos for today and tomorrow and open slots below them](/assets/help/what-is-profaily/sc-6-queue.jpg)
+![The Queue tab, with scheduled videos grouped by day and open slots below them](/assets/help/what-is-profaily/queue.jpg)
 
 ## How it works {#how-it-works}
 

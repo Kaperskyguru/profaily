@@ -11,7 +11,8 @@
     "visual": "tsx scripts/visual.ts",
     "smoke": "tsx scripts/smoke.ts",
     "cover": "tsx scripts/cover.ts",
-    "shot": "tsx scripts/shot.ts"
+    "shot": "tsx scripts/shot.ts",
+    "clip": "tsx scripts/clip.ts"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

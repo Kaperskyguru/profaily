@@ -13,8 +13,6 @@ faq:
     a: "Yes. You add a card to start, and you're not charged until the 14 days are over. Cancel before then and you pay nothing."
   - q: "Does the Creator plan have a trial?"
     a: "No. The free trial is on the Business plan. You can move to Creator at any time from Settings → Billing."
-  - q: "Which currency will I pay in?"
-    a: "If you're billed in Nigeria, you pay in naira through Paystack. Everyone else pays in US dollars."
 ---
 
 The **Business** plan comes with a **14-day free trial**. You add a card to start it, and you're not charged until the trial ends.
@@ -26,13 +24,11 @@ The **Business** plan comes with a **14-day free trial**. You add a card to star
 3. Choose **Business** and add your card.
 4. Connect your accounts and post your first video.
 
-![The Profaily sign-in screen with Continue with Google, and TikTok and Instagram buttons](/assets/help/start-free-trial/auth-login.jpg)
+![The Profaily sign-in page, with Continue with Google, and TikTok and Instagram buttons](/assets/help/start-free-trial/sign-in.jpg)
 
 Once you're in, Profaily asks you to connect your first account. Tap **Connect** next to TikTok, Instagram or YouTube. You can add the rest later.
 
-![The Connect your first account screen, with Connect buttons for TikTok, Instagram and YouTube](/assets/help/start-free-trial/g-gate.jpg)
-
-Billing in Nigeria is in naira through Paystack. Everywhere else, it's in US dollars.
+![A new brand's Channels panel, with a Connect button for TikTok, Instagram and YouTube](/assets/help/start-free-trial/connect-first.jpg)
 
 ## During the trial {#during}
 
@@ -41,8 +37,6 @@ You get everything in Business for 14 days: 3 brands, 12 connected channels, 5 t
 A good way to try it: connect a test or secondary account first, schedule a few videos, and watch them go out. Connect your main accounts once you're happy.
 
 You can see when your trial ends in **Settings → Billing**, under your plan.
-
-![Settings, Billing, showing Business Monthly at ₦19,900 a month, the next payment date and Business · trial ends 30 Nov](/assets/help/start-free-trial/bl-billing.jpg)
 
 ## When the trial ends {#ends}
 
@@ -58,7 +52,3 @@ Yes. You add a card to start, and you're not charged until the 14 days are over.
 ### Does the Creator plan have a trial?
 
 No. The free trial is on the Business plan. You can move to Creator at any time from Settings → Billing.
-
-### Which currency will I pay in?
-
-If you're billed in Nigeria, you pay in naira through Paystack. Everyone else pays in US dollars.

@@ -17,9 +17,9 @@ faq:
 
 A post fails when TikTok, Instagram or YouTube refuses it. Profaily shows you the platform's own reason, so you know what to change.
 
-If you're watching when it happens, the **Publishing** sheet marks the platform **Failed** while the others carry on:
+If you're watching when it happens, the **Publishing** window marks the platform **Failed** while the others carry on:
 
-![The Publishing sheet with TikTok and Instagram processing and YouTube marked Failed](/assets/help/why-a-post-failed/keep-publishing.jpg)
+![The Publishing window with TikTok and Instagram processing and YouTube marked Failed](/assets/help/why-a-post-failed/publishing-failed.jpg)
 
 ## Find the failed post {#find}
 
@@ -27,29 +27,25 @@ If you're watching when it happens, the **Publishing** sheet marks the platform 
 2. In Profaily, the video is marked **Failed** in your list. If only some platforms failed, it says **Needs a fix**.
 3. Open the video. Each failed platform shows its reason.
 
-The bell in Profaily also shows it in your **Inbox**:
+The bell in Profaily also shows it in your **Inbox**, and in your list the failed platform's icon gets a red mark:
 
-![The Inbox with one unread message saying the video failed to publish](/assets/help/why-a-post-failed/ib-1.jpg)
-
-In your list, a failed platform's icon has a red mark on it:
-
-![The Drafts list with a video whose YouTube icon has a red failed mark](/assets/help/why-a-post-failed/r1-list.jpg)
+![The Inbox open on the right with one unread message saying the video failed to publish, and the video in the list with a red mark on its YouTube icon](/assets/help/why-a-post-failed/inbox.jpg)
 
 Open the video and tap the failed platform's icon at the top. A note explains it didn't publish, so you can fix its text right there:
 
-![The YouTube tab of a failed video, with the note: This platform didn't publish. Edit its text here, then press Publish above to retry](/assets/help/why-a-post-failed/r2-yt-banner.jpg)
+![The YouTube tab of a failed video, with the note: This platform didn't publish. Edit its text here, then press Publish above to retry it](/assets/help/why-a-post-failed/failed-tab.jpg)
 
 To see every failed video at once, use the filter button next to **Drafts**, **Queue** and **Posted**, and choose **Failed**.
 
 ## Retry it {#retry}
 
-Once you've fixed the cause, open the video and tap **Publish** at the top. The **Retry failed channels** sheet opens with only the failed platform switched on. The ones that already posted show **Posted** with their link. Tap **Publish now**, or pick a time. You can also open the video's **···** menu in the list and tap **Retry failed**.
+Once you've fixed the cause, open the video and tap **Publish** at the top. The **Retry failed channels** window opens with only the failed platform switched on. The ones that already posted show **Posted** with their link. Tap **Publish now**, or pick a time. You can also open the video's **···** menu in the list and tap **Retry failed**.
 
-![The Retry failed channels sheet: YouTube Failed and switched on, TikTok and Instagram already Posted](/assets/help/why-a-post-failed/r3-retry-sheet.jpg)
+![The Retry failed channels window: YouTube Failed and switched on, TikTok and Instagram already Posted with their links](/assets/help/why-a-post-failed/retry-sheet.jpg)
 
 Here's a retry from start to finish, recorded in the app:
 
-![Retrying a failed YouTube post: open the video, tap Publish, the Retry failed channels sheet opens, Publish now, and YouTube posts](/assets/help/why-a-post-failed/retry-flow.mp4)
+![Retrying a failed YouTube post: open the video, open its YouTube tab, Publish, Publish now, and YouTube posts with its link](/assets/help/why-a-post-failed/retry-flow.mp4)
 
 You don't have to retry everything yourself. When a platform says it's busy or had a temporary problem, Profaily retries on its own. The message ends with "retrying" when that's happening.
 
@@ -61,13 +57,13 @@ You don't have to retry everything yourself. When a platform says it's busy or h
 
 This happens when you change your password, remove Profaily's access on the platform, or the platform asks for permission again. Your brand shows an amber dot, and the account's icon turns amber.
 
-![Profaily's brand switcher with an amber dot on the brand and the Instagram icon marked amber](/assets/help/why-a-post-failed/rc-switcher.jpg)
+![The brand list with an amber dot on the brand and its Instagram icon marked amber](/assets/help/why-a-post-failed/reconnect-warning.jpg)
 
-**Fix:** tap the brand name at the top to open the brand list, tap the brand marked in amber, then tap **Reconnect** next to the account. Sign in on the platform's page, then retry the post. Only an Admin can reconnect.
+**Fix:** tap the brand name at the top left to open the brand list, tap the **···** next to the brand marked in amber, then tap **Reconnect** next to the account. Sign in on the platform's page, then retry the post. Only an Admin can reconnect.
 
-![The Channels panel with an amber Reconnect button next to Instagram](/assets/help/why-a-post-failed/rc-panel.jpg)
+![A brand's General settings with an amber Reconnect button next to the Instagram account](/assets/help/why-a-post-failed/reconnect-button.jpg)
 
-![Reconnecting Instagram: open the brand list, tap the brand marked amber, tap Reconnect, approve on Instagram, and the warning clears](/assets/help/why-a-post-failed/reconnect-flow.mp4)
+![Reconnecting Instagram: open the brand list, the brand's settings, Reconnect next to Instagram, and the amber warning clears](/assets/help/why-a-post-failed/reconnect-flow.mp4)
 
 ### The video format isn't accepted
 

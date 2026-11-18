@@ -1,45 +1,31 @@
 /**
- * Puts a real app capture on the brand frame, for use inside a blog post:
+ * Puts a real app capture in a window on the Profaily background, for a blog post or a help page:
  *
- *   yarn shot <capture.png|jpg> <post-slug> <name> [x,y,w,h] [width]
+ *   yarn shot <capture.png|jpg> <slug> <name> [x,y,w,h]
  *
- * 1. <capture> is a screenshot you took yourself in the live app (app.useprofaily.com) on the demo brand. Never a
- *    mock-up or an edited image: the frame proves nothing if the picture inside it is not real.
+ * 1. <capture> is a screenshot you took yourself in the real app on the demo account (scripts/capture/, light theme,
+ *    1280x800 at 2x). Never a mock-up or an edited image: the frame proves nothing if the picture inside it is not real.
  * 2. x,y,w,h crops the capture (in its own pixels) to the part the sentence is about; default is the whole capture.
- *    width is the shown width of the cropped capture in CSS px (default 1040; output is drawn at 2x).
- * 3. Draws scripts/shot/template.html (white field, dark green device frame cut flat at the bottom, matching the
- *    team's reference shot) in Chrome and writes public/assets/blog/<post-slug>/<name>.jpg.
- * 4. Prints the markdown to paste into posts/<post-slug>.md. Write real alt text: what the reader should see.
+ *    Crop a window or panel when the step happens inside one, so its text can be read at article width.
+ * 3. Draws scripts/shot/window.html (a light app window with the three window dots and a soft shadow, on the brand
+ *    gradient: mint #8dd796 glowing top right into forest #0d241f, with a thin even margin, like Typefully's product
+ *    shots) in Chrome at 2x, and writes public/assets/<blog|help>/<slug>/<name>.jpg, 1600px wide.
+ * 4. Prints the markdown to paste into posts/<slug>.md or help/<slug>.md. Write real alt text: what the reader should see.
  *
- * The build checks every image in a post: it must be under /assets/blog/<post-slug>/, exist, and have alt text.
+ * Screen recordings get the same window and background with `yarn clip` (scripts/clip.ts).
+ * The build checks every image: it must be under the page's own folder, exist, and have alt text.
  *
- * Needs Google Chrome (CHROME=/path/to/chrome to override). JPEG conversion uses macOS `sips`, or ImageMagick
- * `convert` where sips is missing.
+ * Needs Google Chrome (CHROME=/path/to/chrome to override) and ImageMagick `convert` or macOS `sips` for the JPEG.
  */
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-const DEFAULT_WIDTH = 1040;
-// Proportions measured from the reference shot (screen 1271px wide): 20px bezel, 60px outer and 40px inner corner
-// radius, 132px white either side, 83px above and 82px below the flat cut. Scaled to the shown width.
-const SCALE = 2;
+/** The shared geometry, in CSS px (drawn at 2x). scripts/clip.ts uses the same numbers for recordings. */
+export const FRAME = { WIN: 756, MARGIN: 22, BAR: 30, SCALE: 2 } as const;
 
-const [captureArg, slug, name, cropArg, widthArg] = process.argv.slice(2);
-if (!captureArg || !slug || !name) {
-  console.error("Usage: yarn shot <capture.png|jpg> <post-slug> <name> [x,y,w,h] [width]");
-  process.exit(1);
-}
-if (!/^[a-z0-9-]+$/.test(name)) throw new Error(`Name "${name}" must be lower-case words joined by hyphens, like "approve-button"`);
-const root = process.cwd();
-// A blog post (posts/<slug>.md) or a help page (help/<slug>.md); its screenshots live in that kind's own folder.
-const kind = fs.existsSync(path.join(root, "posts", `${slug}.md`)) ? "blog" : fs.existsSync(path.join(root, "help", `${slug}.md`)) ? "help" : null;
-if (!kind) throw new Error(`No post at posts/${slug}.md or help page at help/${slug}.md`);
-const capture = path.resolve(captureArg);
-if (!fs.existsSync(capture)) throw new Error(`No capture at ${capture}`);
-
-const dims = (file: string): [number, number] => {
+export const dims = (file: string): [number, number] => {
   // PNG: width/height at bytes 16-23. JPEG: scan for a SOFn marker.
   const b = fs.readFileSync(file);
   if (b.readUInt32BE(0) === 0x89504e47) return [b.readUInt32BE(16), b.readUInt32BE(20)];
@@ -51,44 +37,68 @@ const dims = (file: string): [number, number] => {
   }
   throw new Error(`${file} is not a PNG or JPEG`);
 };
-const [capW, capH] = dims(capture);
-const [cx, cy, cw, ch] = cropArg ? cropArg.split(",").map(Number) : [0, 0, capW, capH];
-if ([cx, cy, cw, ch].some((n) => !Number.isFinite(n) || n < 0) || cx + cw > capW || cy + ch > capH) {
-  throw new Error(`Crop ${cropArg} must sit inside the ${capW}x${capH} capture`);
+
+/** Draws `capture` (cropped) in the branded window; returns the PNG path and the screen rectangle in output px. */
+export const drawWindow = (root: string, capture: string, crop?: [number, number, number, number]) => {
+  const [capW, capH] = dims(capture);
+  const [cx, cy, cw, ch] = crop ?? [0, 0, capW, capH];
+  if ([cx, cy, cw, ch].some((n) => !Number.isFinite(n) || n < 0) || cx + cw > capW || cy + ch > capH) {
+    throw new Error(`Crop ${crop?.join(",")} must sit inside the ${capW}x${capH} capture`);
+  }
+  const { WIN, MARGIN, BAR, SCALE } = FRAME;
+  const k = WIN / cw; // capture px -> CSS px
+  const imgH = Math.round(ch * k);
+  const [outW, outH] = [WIN + MARGIN * 2, MARGIN + BAR + imgH + MARGIN];
+  const html = fs
+    .readFileSync(path.join(root, "scripts/shot/window.html"), "utf8")
+    .replaceAll("{{MARGIN}}", String(MARGIN))
+    .replaceAll("{{WIN}}", String(WIN))
+    .replaceAll("{{BAR}}", String(BAR))
+    .replaceAll("{{OUT_W}}", String(outW))
+    .replaceAll("{{OUT_H}}", String(outH))
+    .replace("{{IMG_H}}", String(imgH))
+    .replace("{{IMG_W}}", String(Math.round(capW * k)))
+    .replace("{{CROP_X}}", String(Math.round(cx * k)))
+    .replace("{{CROP_Y}}", String(Math.round(cy * k)))
+    .replace("{{SHOT}}", `file://${capture}`);
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "shot-"));
+  fs.writeFileSync(path.join(tmp, "shot.html"), html);
+  const png = path.join(tmp, "shot.png");
+  const chrome = process.env.CHROME ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+  execFileSync(chrome, ["--headless=new", "--hide-scrollbars", "--allow-file-access-from-files", "--virtual-time-budget=3000", `--force-device-scale-factor=${SCALE}`, `--window-size=${outW},${outH}`, `--screenshot=${png}`, `file://${tmp}/shot.html`], { stdio: "ignore" });
+  const screen = { x: MARGIN * SCALE, y: (MARGIN + BAR) * SCALE, w: WIN * SCALE, h: imgH * SCALE, outW: outW * SCALE, outH: outH * SCALE };
+  return { png, tmp, screen };
+};
+
+export const toJpeg = (png: string, out: string) => {
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  const hasSips = (() => { try { execFileSync("which", ["sips"], { stdio: "ignore" }); return true; } catch { return false; } })();
+  if (hasSips) execFileSync("sips", ["-s", "format", "jpeg", "-s", "formatOptions", "84", png, "--out", out], { stdio: "ignore" });
+  else execFileSync("convert", [png, "-strip", "-quality", "84", "-interlace", "Plane", out], { stdio: "ignore" });
+};
+
+/** A blog post (posts/<slug>.md) or a help page (help/<slug>.md); its media live in that kind's own folder. */
+export const kindOf = (root: string, slug: string) => {
+  const kind = fs.existsSync(path.join(root, "posts", `${slug}.md`)) ? "blog" : fs.existsSync(path.join(root, "help", `${slug}.md`)) ? "help" : null;
+  if (!kind) throw new Error(`No post at posts/${slug}.md or help page at help/${slug}.md`);
+  return kind;
+};
+
+if (require.main === module) {
+  const [captureArg, slug, name, cropArg] = process.argv.slice(2);
+  if (!captureArg || !slug || !name) {
+    console.error("Usage: yarn shot <capture.png|jpg> <slug> <name> [x,y,w,h]");
+    process.exit(1);
+  }
+  if (!/^[a-z0-9-]+$/.test(name)) throw new Error(`Name "${name}" must be lower-case words joined by hyphens, like "approve-button"`);
+  const root = process.cwd();
+  const kind = kindOf(root, slug);
+  const capture = path.resolve(captureArg);
+  if (!fs.existsSync(capture)) throw new Error(`No capture at ${capture}`);
+  const crop = cropArg ? (cropArg.split(",").map(Number) as [number, number, number, number]) : undefined;
+  const { png, tmp, screen } = drawWindow(root, capture, crop);
+  const rel = `/assets/${kind}/${slug}/${name}.jpg`;
+  toJpeg(png, path.join(root, "public", rel));
+  fs.rmSync(tmp, { recursive: true, force: true });
+  console.log(`Wrote public${rel} (${screen.outW}x${screen.outH}). Paste into ${kind === "blog" ? "posts" : "help"}/${slug}.md, with real alt text:\n\n![What the reader should see in this screenshot](${rel})\n`);
 }
-const width = widthArg ? Number(widthArg) : DEFAULT_WIDTH;
-const k = width / cw; // capture px -> CSS px
-const height = Math.round(ch * k);
-const u = (n: number) => Math.round((n * width) / 1271);
-const [BEZEL, R_OUT, R_IN, PAD_X, PAD_TOP, PAD_BOTTOM] = [u(20), u(60), u(40), u(132), u(83), u(82)];
-
-const html = fs
-  .readFileSync(path.join(root, "scripts/shot/template.html"), "utf8")
-  .replaceAll("{{BEZEL}}", String(BEZEL))
-  .replace("{{R_OUT}}", String(R_OUT))
-  .replace("{{R_IN}}", String(R_IN))
-  .replace("{{PAD_X}}", String(PAD_X))
-  .replace("{{PAD_TOP}}", String(PAD_TOP))
-  .replace("{{PAD_BOTTOM}}", String(PAD_BOTTOM))
-  .replace("{{WIDTH}}", String(width))
-  .replace("{{HEIGHT}}", String(height))
-  .replace("{{IMG_W}}", String(Math.round(capW * k)))
-  .replace("{{CROP_X}}", String(Math.round(cx * k)))
-  .replace("{{CROP_Y}}", String(Math.round(cy * k)))
-  .replace("{{SHOT}}", `file://${capture}`);
-const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "shot-"));
-fs.writeFileSync(path.join(tmp, "shot.html"), html);
-const png = path.join(tmp, "shot.png");
-const [outW, outH] = [width + (BEZEL + PAD_X) * 2, height + BEZEL + PAD_TOP + PAD_BOTTOM];
-const chrome = process.env.CHROME ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-execFileSync(chrome, ["--headless=new", "--hide-scrollbars", "--allow-file-access-from-files", "--virtual-time-budget=3000", `--force-device-scale-factor=${SCALE}`, `--window-size=${outW},${outH}`, `--screenshot=${png}`, `file://${tmp}/shot.html`], { stdio: "ignore" });
-
-const rel = `/assets/${kind}/${slug}/${name}.jpg`;
-const out = path.join(root, "public", rel);
-fs.mkdirSync(path.dirname(out), { recursive: true });
-const hasSips = (() => { try { execFileSync("which", ["sips"], { stdio: "ignore" }); return true; } catch { return false; } })();
-if (hasSips) execFileSync("sips", ["-s", "format", "jpeg", "-s", "formatOptions", "86", png, "--out", out], { stdio: "ignore" });
-else execFileSync("convert", [png, "-quality", "86", out], { stdio: "ignore" });
-fs.rmSync(tmp, { recursive: true, force: true });
-
-console.log(`Wrote public${rel} (${outW * SCALE}x${outH * SCALE}). Paste into ${kind === "blog" ? "posts" : "help"}/${slug}.md, with real alt text:\n\n![What the reader should see in this screenshot](${rel})\n`);

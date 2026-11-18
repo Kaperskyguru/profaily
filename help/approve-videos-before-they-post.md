@@ -19,39 +19,39 @@ Approvals let an Editor prepare videos while someone else decides what goes out.
 
 ## How it works {#how}
 
-1. An **Editor** uploads a video, writes the captions, and taps **Send for review** at the top. A sheet opens where they suggest when it should go out, then tap **Send for review** again. The video is marked **In review**.
+1. An **Editor** uploads a video, writes the captions, and taps **Send for review** at the top. A window opens where they suggest when it should go out, then tap **Send for review** again. The video is marked **In review**.
 2. A **Producer** or **Admin** opens it and either:
-   - taps **Approve**, which schedules it for the suggested time, or
-   - taps **Request changes** (the curved arrow next to Approve), which sends it back to the Editor with a note.
+   - taps **Approve and schedule** (on a phone, **Approve**), which schedules it for the suggested time, or
+   - taps **Request changes**, which sends it back to the Editor with a note.
 3. The Editor makes the changes and sends it for review again.
 
 ## What the Editor sees {#editor}
 
 Here's an Editor sending a video for review, recorded in the app:
 
-![An Editor sends a video for review: upload, caption, Send for review, pick the time, Send for review, and the video is marked In review](/assets/help/approve-videos-before-they-post/review-flow.mp4)
+![An Editor sends a video for review: upload, caption, Send for review, keep the suggested time, Send for review, and the video is marked In review](/assets/help/approve-videos-before-they-post/send-for-review-flow.mp4)
 
-The **Send for review** sheet works like the schedule sheet, but nothing posts until it's approved:
+The **Send for review** window works like the schedule window, but nothing posts until it's approved:
 
-![The Send for review sheet with a suggested time, Next slot and Pick a time, and TikTok, Instagram and YouTube switched on](/assets/help/approve-videos-before-they-post/rv-2-sheet.jpg)
+![The Send for review window with a suggested time, Next slot and Pick a time, and TikTok, Instagram and YouTube switched on and Ready](/assets/help/approve-videos-before-they-post/send-for-review.jpg)
 
 Afterwards, the video waits in the list marked **In review**:
 
-![The Drafts list with the video marked In review in blue](/assets/help/approve-videos-before-they-post/rv-4-list.jpg)
+![The video marked In review in the list, with In review and Withdraw at the top, and a message saying Sent for review, for Fri 17:00](/assets/help/approve-videos-before-they-post/in-review.jpg)
 
 ## What the Producer or Admin sees {#approver}
 
-Open a video marked **In review**. The top bar shows who sent it, with **Approve** and the **Request changes** arrow:
+Open a video marked **In review**. The top bar shows who sent it, with **Request changes** and **Approve and schedule**:
 
-![An in-review video opened by the Admin, showing by James, the Request changes arrow and the Approve button](/assets/help/approve-videos-before-they-post/ap-2-open.jpg)
+![An in-review video opened by the Admin, showing by James, Request changes and Approve and schedule](/assets/help/approve-videos-before-they-post/approver-view.jpg)
 
-Tap **Approve** and it's scheduled straight away:
+Tap **Approve and schedule** and it's scheduled straight away:
 
-![After approving: the top bar shows the countdown to posting, and a message says Approved. Scheduled for Today 17:00](/assets/help/approve-videos-before-they-post/ap-4-approve.jpg)
+![After approving: the top bar counts down to posting, and a message says Approved. Scheduled for Fri 17:00](/assets/help/approve-videos-before-they-post/approved.jpg)
 
 Or tap **Request changes**, write what should change, and send it back. The Editor gets the video back as a draft with your note pinned in its activity:
 
-![The Request changes sheet: James gets the video back as a draft, with your note pinned in its activity](/assets/help/approve-videos-before-they-post/ap-3-changes.jpg)
+![The Request changes window: James gets the video back as a draft, with your note pinned in its activity](/assets/help/approve-videos-before-they-post/request-changes.jpg)
 
 An Editor can never schedule or publish a video, so nothing goes out without a Producer or Admin saying yes.
 

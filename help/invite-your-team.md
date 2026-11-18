@@ -19,23 +19,23 @@ Teams are part of the **Business** plan, which has room for **5 people**. Only a
 
 ## Invite someone {#invite}
 
-1. In Profaily, open the menu, tap your account, then **Settings**.
+1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu (☰) first.
 2. Tap **Team**, then **Invite**.
 
-![Settings, Team, listing the team's people with their roles, and the Invite button](/assets/help/invite-your-team/st-team.jpg)
+![Settings, Team, listing the team's people with their roles, and the Invite button](/assets/help/invite-your-team/team.jpg)
 
 3. In **Invite people**, type one or more email addresses.
 4. Choose a **Role**, and tick the **Brands they can open**.
 
-![The Invite people window with an email address typed, Editor chosen as the role and the Profaily brand ticked](/assets/help/invite-your-team/inv-filled.jpg)
+![The Invite people window with an email address typed, Editor chosen as the role and the Profaily brand ticked](/assets/help/invite-your-team/invite-people.jpg)
 
 5. Tap **Send invite**. You'll see "Invite sent to" and their email address.
 
-![Settings, Team, with the message Invite sent to olivia@example.com](/assets/help/invite-your-team/inv-sent.jpg)
+![Settings, Team, with the message Invite sent to olivia@example.com](/assets/help/invite-your-team/invite-sent.jpg)
 
 Here's the whole invite, recorded in the app:
 
-![Inviting a team member: Settings, Team, Invite, type the email, pick Editor, Send invite](/assets/help/invite-your-team/invite-flow.mp4)
+![Inviting a team member: Settings, Team, Invite, type the email, keep Editor, Send invite](/assets/help/invite-your-team/invite-flow.mp4)
 
 Each person gets an email with a link that works for **7 days**. If it runs out, send a new invite. To take one back before it's accepted, tap **Revoke** next to it.
 

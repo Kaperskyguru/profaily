@@ -1,6 +1,6 @@
 ---
 title: "Plans and prices"
-description: "Creator is $15 a month (₦7,500 in Nigeria) for one person and one brand. Business is $39 a month (₦19,900) for teams, with approvals and a 14-day free trial. Yearly saves 20%."
+description: "Creator is for one person and one brand. Business is for teams, with approvals and a 14-day free trial. Paying yearly saves 20%. See your price on the pricing page."
 section: "Plans and billing"
 order: 1
 updated: "2026-11-18"
@@ -9,8 +9,8 @@ related:
   - "change-or-cancel-your-plan"
   - "invite-your-team"
 faq:
-  - q: "Which currency will I pay in?"
-    a: "If you're billed in Nigeria, you pay in naira through Paystack. Everyone else pays in US dollars."
+  - q: "How much does Profaily cost?"
+    a: "It depends on your plan and where you are. The pricing page shows your price."
   - q: "How much do I save by paying yearly?"
     a: "Paying yearly saves 20% compared with paying monthly for twelve months."
   - q: "What happens if a payment fails?"
@@ -23,21 +23,15 @@ Profaily has two plans. Both post to TikTok, Instagram and YouTube, with schedul
 
 | | **Creator** | **Business** |
 | --- | --- | --- |
-| Monthly | $15 (₦7,500) | $39 (₦19,900) |
-| Yearly | $144 (₦72,000) | $374 (₦191,040) |
 | Brands | 1 | 3 |
 | Connected channels | 4 | 12 |
 | People | Just you | 5 |
 | Approvals before posting | No | Yes |
 | Free trial | No | 14 days |
 
-See the full comparison on the [pricing page](/pricing), or in the app under **Settings → Billing → View all plans**:
+## Prices {#prices}
 
-![The Upgrade or Change Plan window, with the Yearly billing switch, Save 20%, and the Creator plan at ₦7,500 a month](/assets/help/plans-and-prices/bl-plans.jpg)
-
-## Currency {#currency}
-
-If you're billed in Nigeria, you pay in naira through **Paystack**. Everyone else pays in US dollars.
+Your price is on the [pricing page](/pricing), and in the app under **Settings → Billing → View all plans**. It's shown in your local currency.
 
 ## Monthly or yearly {#yearly}
 
@@ -45,15 +39,13 @@ Paying yearly saves **20%** compared with twelve monthly payments. You can switc
 
 ## If a payment fails {#failed-payment}
 
-You get **7 days** to update your payment method, with everything still working. Go to **Settings → Billing → Update payment method**.
-
-![Settings, Billing, with your plan, next payment, plan usage, and the Invoices and Update payment method buttons](/assets/help/plans-and-prices/bl-billing.jpg) After 7 days, your workspace becomes read-only until the payment goes through.
+You get **7 days** to update your payment method, with everything still working. Go to **Settings → Billing → Update payment method**. After 7 days, your workspace becomes read-only until the payment goes through.
 
 ## Frequently asked questions {#faq}
 
-### Which currency will I pay in?
+### How much does Profaily cost?
 
-If you're billed in Nigeria, you pay in naira through Paystack. Everyone else pays in US dollars.
+It depends on your plan and where you are. The [pricing page](/pricing) shows your price.
 
 ### How much do I save by paying yearly?
 

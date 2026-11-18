@@ -18,28 +18,28 @@ You need the **Admin** role in your Profaily team to connect an account. Any Tik
 
 ## Connect TikTok in Profaily {#connect}
 
-1. In Profaily, open the menu, tap your account, then **Settings**.
+1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu (☰) first.
 2. Tap **Brands**, then the **···** next to the brand you post for.
 3. Tap **General**, then **Connect a channel**.
 4. Next to TikTok, tap **Connect**.
 5. TikTok opens. Sign in, check what Profaily is asking for, and approve it.
 6. You come straight back to Profaily, and TikTok shows under **Channels**.
 
-![The Connect a channel window, listing each platform with its own Connect button, and TikTok already marked Connected](/assets/help/connect-tiktok/connect-dialog.jpg)
+![The Connect a channel window, with a Connect button next to TikTok, Instagram and YouTube](/assets/help/connect-tiktok/connect-dialog.jpg)
+
+Here's the whole path, recorded in the app, from Settings to TikTok showing under Channels:
+
+![Connecting TikTok in Profaily: Settings, Brands, the brand's settings, General, Connect a channel, Connect next to TikTok, then back in Profaily with TikTok under Channels](/assets/help/connect-tiktok/connect-flow.mp4)
+
+Once it's connected, TikTok shows under **Channels**, with its account ID:
+
+![A brand's General settings with the TikTok account listed under Channels](/assets/help/connect-tiktok/connected.jpg)
 
 ## Connecting TikTok as your first account {#first}
 
-New to Profaily? The first time you sign in, Profaily asks you to connect an account. Tap **Connect** next to TikTok:
+New to Profaily? When a brand has no accounts yet, Profaily opens its **Channels** panel for you. Tap **Connect** next to TikTok, and the steps from 5 onwards are the same:
 
-![The Connect your first account screen, with Connect buttons for TikTok, Instagram and YouTube](/assets/help/connect-tiktok/g-gate.jpg)
-
-Here's what happens next, recorded in the app: TikTok asks you to approve Profaily, and you land back in the composer, ready to post.
-
-![Connecting TikTok from the first-account screen: tap Connect, approve on TikTok, and come back to the composer](/assets/help/connect-tiktok/first-connect-tiktok.mp4)
-
-Your TikTok account now shows at the top of the composer:
-
-![The composer after connecting TikTok, with the TikTok icon at the top and the Profaily account name](/assets/help/connect-tiktok/g-after-tiktok.jpg)
+![A new brand's Channels panel, with a Connect button for TikTok, Instagram and YouTube](/assets/help/connect-tiktok/connect-first.jpg)
 
 ## What Profaily can do on TikTok {#permissions}
 
