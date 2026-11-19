@@ -3,9 +3,9 @@
 .pg-cf .cf-em { font-style: italic; color: var(--mint-ink); }
 
 /* hero visual */
-.pg-cf .cf-hero-visual { display: grid; gap: 14px; }
-.pg-cf .cf-hero-visual .green-frame img { display: block; width: 100%; height: auto; border-radius: 14px; }
-.pg-cf .cf-posts-to { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0; font-size: 14px; color: var(--faint); }
+.pg-cf .cf-hero-media { position: relative; padding-top: clamp(8px, 2vw, 24px); }
+.pg-cf .cf-hero-shot { display: block; width: 100%; max-width: 1080px; height: auto; margin: 0 auto; border-radius: 26px; box-shadow: 0 30px 80px -40px rgba(13, 36, 31, 0.45); }
+.pg-cf .cf-posts-to { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 18px 0 0; font-size: 14px; color: var(--faint); }
 .pg-cf .cf-posts-to .glyph { width: 24px; height: 24px; }
 
 /* stats */

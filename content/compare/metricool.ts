@@ -20,8 +20,8 @@ export const metricool: Comparison = {
   hero: {
     lede: "Profaily is built for one job: getting each short video onto TikTok, Instagram Reels and YouTube the way each platform wants it, and telling you straight when one didn't make it.",
     shot: {
-      src: shot("ready-check.jpg"),
-      alt: "Profaily's Schedule or publish window, with TikTok, Instagram and YouTube each marked Ready",
+      src: shot("hero-schedule.jpg"),
+      alt: "Profaily with a short video open and the Schedule or publish window showing TikTok, Instagram and YouTube each marked Ready",
     },
   },
   stats: [

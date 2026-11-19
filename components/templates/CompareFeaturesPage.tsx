@@ -49,22 +49,24 @@ export function CompareFeaturesPage({ c }: { c: Comparison }) {
       <JsonLd data={faqJsonLd(c.faq)} />
       <main className="pg-compare pg-cf">
         <PageHero
+          solo
           crumbs={[{ href: "/compare", label: "Compare" }, { label: `Profaily vs ${c.rival}` }]}
           pill={`Profaily vs ${c.rival}`}
           title={<>Looking for a <em className="cf-em">{c.rival} alternative</em>?</>}
           lede={c.hero.lede}
           secondary={{ href: "#features", label: "Compare features" }}
           note={`${TRIAL_DAYS}-day trial of the Business plan. ${c.rival} details checked ${c.checked}.`}
-          visual={
-            <div className="cf-hero-visual">
-              <div className="green-frame"><img src={c.hero.shot.src} alt={c.hero.shot.alt} width={1600} height={1000} /></div>
-              <p className="cf-posts-to">
-                <span>Posts to</span>
-                {(["tiktok", "instagram", "youtube"] as const).map((p) => <Glyph key={p} name={p} id={`cf-${p}`} />)}
-              </p>
-            </div>
-          }
         />
+
+        <section className="cf-hero-media" aria-label="Profaily">
+          <div className="wrap">
+            <img className="cf-hero-shot" src={c.hero.shot.src} alt={c.hero.shot.alt} width={1600} height={1092} />
+            <p className="cf-posts-to">
+              <span>Posts to</span>
+              {(["tiktok", "instagram", "youtube"] as const).map((p) => <Glyph key={p} name={p} id={`cf-${p}`} />)}
+            </p>
+          </div>
+        </section>
 
         <section className="section tight" aria-label="Profaily in numbers">
           <div className="wrap cf-stats">
