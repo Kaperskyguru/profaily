@@ -1,137 +1,47 @@
-import type { Comparison } from "./types";
-
-const shot = (name: string) => `/assets/compare/later-alternative/${name}`;
+import type { ChecklistComparison } from "./types";
 
 /**
- * Profaily vs Later. Later facts were checked on help.later.com on 19 Nov 2026 (multi-profile
- * scheduling, Auto Publish vs notification, TikTok and Instagram restrictions, Reels, YouTube Shorts,
- * failed posts, team approvals). Profaily facts: the same verified set as the other compare pages,
- * plus lib/validate.ts in the frontend (Instagram's 15-minute limit) and the mobile web app.
+ * Profaily vs Later, checklist layout. Later facts were checked on help.later.com on 19-20 Nov 2026
+ * (multi-profile scheduling, Quick Schedule, Media Library uploads, Auto Publish, Reels, YouTube Shorts,
+ * failed posts, team approvals and Access Groups). Rows Later's docs don't cover stay empty ("Not stated").
  */
-export const later: Comparison = {
+export const later: ChecklistComparison = {
+  kind: "checklist",
   slug: "later-alternative",
   rival: "Later",
   meta: {
     title: "Later Alternative for TikTok, Reels and Shorts | Profaily",
     description:
-      "Profaily vs Later, feature by feature: each video checked for TikTok, Reels and Shorts before you schedule, one-tap file fixes, and one retry for a failed platform.",
+      "Profaily vs Later: every Profaily feature side by side with Later, from scheduling and captions to pre-post checks, retries, approvals and AI apps.",
   },
-  checked: "November 19, 2026",
+  checked: "November 20, 2026",
   hero: {
-    lede: "Later plans your feed on a visual calendar across many networks. Profaily does one job: it takes a short video to TikTok, Reels and Shorts, and checks it against each before you schedule, at your desk or on your phone.",
+    lede: "Every feature on our pricing page, next to what Later's own help center says it does. A tick means it's there, a dash means it's partly there, and an empty cell means Later's docs don't say.",
     shot: {
-      src: shot("hero-schedule.jpg"),
+      src: "/assets/compare/later-alternative/hero-schedule.jpg",
       alt: "Profaily with a short video open and the Schedule or publish window showing TikTok, Instagram and YouTube each marked Ready",
     },
   },
-  stats: [
-    { value: "1 upload", label: "goes to TikTok, Instagram Reels and YouTube, with its own text on each" },
-    { value: "Ready", label: "or what to fix, on every platform, before you schedule" },
-    { value: "1 tap", label: "to shrink a video for Instagram or fix its frame rate for TikTok" },
-    { value: "1 retry", label: "for the platform that failed, while the others stay posted" },
-  ],
-  workflow: {
-    title: "A short video, posted from your phone",
-    lede: "Here's what sending one video to TikTok, Reels and Shorts looks like in each tool, going by Later's own help center.",
-    them: [
-      "Pick the profiles, write the caption, then Customize each post.",
-      "In Later's Android app, Shorts can't be scheduled; use desktop or iOS.",
-      "For Instagram and TikTok, choose Auto Publish or a notification.",
-      "For a notification post, open Instagram or TikTok at the set time and finish it there.",
-    ],
-    us: [
-      "Upload the video once, on your phone or computer.",
-      "Each platform gets its own tab, or keep the text in sync.",
-      "Every platform is checked and marked Ready, or told what to fix.",
-      "Too big for Instagram or the wrong frame rate for TikTok? One tap fixes it.",
-      "If one platform fails, retry that one. The rest stay posted.",
-    ],
+  cells: {
+    calendar: { mark: "yes", text: "Visual calendar, drag and drop" },
+    scheduling: { mark: "yes", text: "Pick a time, or a Quick Schedule slot" },
+    queue: { mark: "partial", text: "Quick Schedule slots, but not for posts to several profiles" },
+    drafts: { mark: "yes", text: "Drafts, and labels in the Media Library" },
+    import: { mark: "partial", text: "Upload from Dropbox or Canva into the Media Library" },
+    tiktok: { mark: "yes", text: "Auto Publish or a notification" },
+    instagram: { mark: "yes", text: "Auto Publish or a notification" },
+    youtube: { mark: "partial", text: "Shorts only, from desktop or iOS" },
+    captions: { mark: "yes", text: "Customize each post" },
+    ytTitle: { mark: "yes", text: "A title field" },
+    images: { mark: "yes", text: "Multi-Photo carousels" },
+    fix: { mark: "partial", text: "Trim the video while scheduling" },
+    team: { mark: "yes", text: "On Growth and up" },
+    roles: { mark: "yes", text: "Owner, Reviewer, Member and Member (Restricted)" },
+    approvals: { mark: "yes", text: "With Publish Without Approval turned off, or Member (Restricted)" },
+    brandAccess: { mark: "yes", text: "Access Groups" },
   },
-  groups: [
-    {
-      title: "Scheduling",
-      rows: [
-        {
-          feature: "Calendar and scheduling",
-          them: { mark: "yes", text: "Visual calendar, drag and drop" },
-          us: { mark: "yes", text: "Calendar by day and week, a time or the next queue slot" },
-        },
-        {
-          feature: "One upload, its own text on each platform",
-          them: { mark: "yes", text: "Customize each post before scheduling" },
-          us: { mark: "yes", text: "A tab per platform, or Sync to write it once" },
-        },
-      ],
-    },
-    {
-      title: "On your phone",
-      rows: [
-        {
-          feature: "Schedule YouTube Shorts from an Android phone",
-          them: { mark: "no", text: "Not in the Android app; desktop and iOS only" },
-          us: { mark: "yes", text: "In your phone's browser, Android or iPhone" },
-        },
-    ],
-    },
-    {
-      title: "Before it posts",
-      rows: [
-        {
-          feature: "Fixes a file the platform would refuse",
-          detail: "Too big for Instagram, or a frame rate TikTok won't take",
-          them: { mark: "partial", text: "Trim the video while scheduling" },
-          us: { mark: "yes", text: "Compress for Instagram, Convert for TikTok, in one tap" },
-        },
-      ],
-    },
-    {
-      title: "Teams and clients",
-      rows: [
-        {
-          feature: "Approval before anything posts",
-          them: { mark: "yes", text: "On Growth and up; turn off Publish Without Approval for each person" },
-          us: { mark: "yes", text: "On the Business plan; an Editor's video goes to review first" },
-        },
-        {
-          feature: "Choose what each person can reach",
-          them: { mark: "yes", text: "Access Groups" },
-          us: { mark: "yes", text: "Per brand, on the Business plan" },
-        },
-      ],
-    },
-  ],
-  reasons: [
-    {
-      title: "You find out before the post is due",
-      body: "Before you schedule, Profaily checks the video against TikTok, Instagram and YouTube one by one. Each platform says Ready, or tells you what to change while there's still time.",
-      shot: { src: shot("ready-check.jpg"), alt: "The Schedule or publish window with TikTok, Instagram and YouTube each marked Ready" },
-    },
-    {
-      title: "The file gets fixed for you",
-      body: "If a video is too big for Instagram, tap Compress. If its frame rate is one TikTok won't take, tap Convert. Profaily makes a copy for that platform only, and the others still get your original.",
-      shot: { src: shot("convert-tiktok.jpg"), alt: "The TikTok tab warning that the video is 120 fps, with a Convert button" },
-    },
-    {
-      title: "The same app on every phone",
-      body: "Profaily runs in your phone's browser, so Android and iPhone get the same thing: TikTok, Reels and Shorts, scheduled together, with the same checks you'd get at your desk.",
-      shot: { src: shot("hero-schedule.jpg"), alt: "Profaily with a short video ready to schedule to TikTok, Instagram and YouTube" },
-    },
-    {
-      title: "You see which platform failed, and why",
-      body: "Every platform has its own live status. When one fails, it's marked Failed with the platform's own reason, and you get an email while the others carry on.",
-      shot: { src: shot("one-failed.jpg"), alt: "The Publishing window with TikTok and Instagram processing and YouTube marked Failed" },
-    },
-    {
-      title: "Retry the one that failed, nothing else",
-      body: "Fix the cause and retry just that platform. Posts that already went out aren't touched, and temporary errors on the platform's side are retried for you.",
-      shot: { src: shot("retry.mp4"), alt: "Retrying a failed YouTube post: Publish, Publish now, and YouTube posts" },
-    },
-  ],
-  founder: {
-    name: "Solomon Eseme",
-    role: "Founder of Profaily",
-    quote: ["MasteringBackend posts a short video every day, and they go out through Profaily."],
-  },
+  verdict:
+    "Later is a broad social calendar for many networks. If most of what you post is short video, Profaily covers the whole trip from upload to a confirmed post on TikTok, Reels and Shorts: the checks and fixes before it goes out, a live status for each platform, and a retry for the one that failed.",
   faq: [
     {
       q: "What is the best Later alternative for TikTok, Reels and Shorts?",
@@ -155,7 +65,7 @@ export const later: Comparison = {
     },
   ],
   cta: {
-    title: "Try it from your phone",
+    title: "Try it on the video you were about to post",
     body: "Don't test Profaily on a demo clip. Take the video you were about to post, open Profaily on your phone, and send it to TikTok, Instagram and YouTube in one go. See what it flags before you hit schedule. And if anything about Later on this page is out of date by the time you read it, message me and I'll correct it.",
   },
 };
