@@ -112,23 +112,27 @@ Both tools let someone sign off a post before it goes out. Metricool puts its po
 
 ![Profaily's review window, where an Editor's video is approved before it is scheduled](/assets/blog/metricool-alternative-for-short-form-video/approve.jpg)
 
-## Before you switch {#before-you-switch}
+## Why creators switch from Metricool to Profaily {#before-you-switch}
 
-### Can I keep Metricool?
+### 1. A failed post never hides behind a green tick
 
-Yes, and you don't have to cancel anything to try Profaily. Connect TikTok, Instagram and YouTube, then upload your videos again or import them from Google Drive, Dropbox, OneDrive or a CSV file. Your other networks can stay exactly where they are.
+Every platform gets its own live status. When one fails, Profaily marks it Failed with that platform's own reason and emails you, so a TikTok that didn't go out can't pass for one that did.
 
-### What happens to my Metricool history?
+### 2. Problems show up before the post is due
 
-Nothing. It stays in Metricool, and Profaily doesn't touch it. Your reports keep working while your short videos go out from Profaily.
+Before you schedule, each platform is checked against its own limits and shows Ready or tells you exactly what to fix. You deal with a bad file at your desk, not after a client asks where the video is.
 
-### Who's behind Profaily?
+### 3. Files get fixed in one tap
 
-Profaily launches publicly on 8 December 2026. MasteringBackend, my other company, [publishes a short every day](/blog/post-to-tiktok-reels-shorts-at-the-same-time) through it, so I find out fast when something breaks.
+A video too big for Instagram gets a Compress button. A frame rate TikTok won't take gets a Convert button. Your original stays untouched for the other platforms, so you never go back to your editor to export again.
 
-Because it's early, you're talking to me. I answer messages myself, and if you got a DM from Profaily, I sent it. One person's TikTok post failed, and the fix shipped for everyone.
+### 4. You retry only what failed
 
-Worried about connecting client accounts? [Here's exactly what Profaily can and can't touch](/blog/is-profaily-safe-to-connect-social-media-accounts).
+If YouTube fails and TikTok posts, you retry YouTube and nothing else. Temporary errors on the platform's side are retried for you.
+
+### 5. Approvals and client sign-off built in
+
+On Profaily's Business plan an editor's video waits for approval, and a client can sign off from a preview link. Metricool puts its approval system on its Advanced plan.
 
 ## Frequently asked questions {#faq}
 
