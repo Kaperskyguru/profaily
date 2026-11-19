@@ -9,9 +9,10 @@
 .pg-cmp .tile-card .cmp-prose { font-size: 16px; color: var(--muted); }
 
 /* founder note */
-.pg-cmp .cmp-note { display: grid; grid-template-columns: auto minmax(0, 820px); gap: 20px; }
+.pg-cmp .cmp-note { display: grid; gap: 16px; }
+.pg-cmp .cmp-note-by { display: flex; align-items: center; gap: 14px; }
 .pg-cmp .cmp-avatar { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--mint-soft); color: var(--mint-ink); font: 600 18px/1 var(--display); }
-.pg-cmp .cmp-kicker { margin: 4px 0 12px; font-size: 14px; font-weight: 600; color: var(--mint-ink); letter-spacing: 0.01em; }
+.pg-cmp .cmp-kicker { margin: 0; font-size: 14px; font-weight: 600; color: var(--mint-ink); letter-spacing: 0.01em; }
 
 /* verdict */
 .pg-cmp .cmp-verdict { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 40px; }
@@ -59,6 +60,5 @@
   .pg-cmp .cmp-table td.us { background: var(--mint-soft); border-radius: 12px; padding: 10px 12px; color: var(--ink); }
   .pg-cmp .cmp-table td::before { content: attr(data-label); display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--faint); margin-bottom: 2px; }
   .pg-cmp .cmp-table td.us::before { color: var(--mint-ink); }
-  .pg-cmp .cmp-note { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .pg-cmp .cmp-prose { font-size: 16px; }
 }

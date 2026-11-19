@@ -16,8 +16,8 @@ import { ORIGIN } from "@/lib/metadata";
  * The markdown is written like any post; this template lays its sections out as a product page, by the H2 ids:
  *   (text before the first H2)   a note from the founder
  *   {#verdict}                   two cards: the paragraph starting "Switch" and the one starting "Stay"
- *   {#at-a-glance}               the side-by-side table (first column = row label, then rival, then Profaily),
- *                                its first rows in the hero card; any text after the table sits under it
+ *   {#at-a-glance}               the side-by-side table (first column = row label, then rival, then Profaily);
+ *                                any text after the table sits under it
  *   {#where-it-breaks}           intro, then each ### problem as a pair: rival on the left, Profaily on the right,
  *                                split at the first paragraph that starts with "Profaily" or "In Profaily"
  *   {#before-you-switch}         each ### question as a card
@@ -85,10 +85,6 @@ export function ComparisonPage({ post }: { post: PostContent }) {
   const start = byId("start");
   const plain = list.filter((s) => !["verdict", "at-a-glance", "where-it-breaks", "before-you-switch", "faq", "start"].includes(s.id));
   const t = glance ? table(glance.md) : null;
-  // The hero card shows the rows that decide it for a short-video team, else the table's first four.
-  const QUICK = [/^built for/i, /file|frame rate/i, /status/i, /^approvals/i];
-  const picked = QUICK.map((re) => t?.rows.find(([label]) => re.test(strip(label)))).filter((r): r is string[] => !!r);
-  const quick = picked.length >= 3 ? picked : t?.rows.slice(0, 4) ?? [];
   const checked = post.sourcesChecked ?? post.dateLabel;
 
   return (
@@ -111,6 +107,7 @@ export function ComparisonPage({ post }: { post: PostContent }) {
       {post.faq?.length ? <JsonLd data={faqJsonLd(post.faq)} /> : null}
       <main className="pg-compare pg-cmp">
         <PageHero
+          solo
           crumbs={[{ href: "/compare", label: "Compare" }, { label: `Profaily vs ${rival}` }]}
           pill={`${rival} alternative`}
           title={post.title}
@@ -118,33 +115,16 @@ export function ComparisonPage({ post }: { post: PostContent }) {
           primary={{ href: post.cta.href, label: post.cta.label }}
           secondary={{ href: "#at-a-glance", label: "See the comparison" }}
           note={`${post.author ? `By ${post.author}, founder of Profaily. ` : ""}${rival} facts checked ${checked}.`}
-          visual={quick.length ? (
-            <div className="green-frame">
-              <div className="card cmp-quick" data-ui>
-                <h2 className="cmp-quick-h">Quick take</h2>
-                <dl className="cmp-quick-rows">
-                  <div className="cmp-quick-head" aria-hidden="true"><span /><span>{rival}</span><span>Profaily</span></div>
-                  {quick.map(([label, them, us]) => (
-                    <div key={label}>
-                      <dt>{strip(label)}</dt>
-                      <dd><span className="sr-only">{rival}: </span>{strip(them)}</dd>
-                      <dd className="us"><span className="sr-only">Profaily: </span>{strip(us)}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </div>
-          ) : undefined}
         />
 
         {intro && (
           <section className="section tight" aria-label="A note from the founder">
             <div className="wrap cmp-note">
-              <div className="cmp-note-by" aria-hidden="true"><span className="cmp-avatar">{(post.author ?? "Profaily").split(" ").map((w) => w[0]).join("").slice(0, 2)}</span></div>
-              <div>
+              <div className="cmp-note-by">
+                <span className="cmp-avatar" aria-hidden="true">{(post.author ?? "Profaily").split(" ").map((w) => w[0]).join("").slice(0, 2)}</span>
                 <p className="cmp-kicker">{post.author ? `A note from ${post.author.split(" ")[0]}, the founder` : "Why this page exists"}</p>
-                <Prose md={intro} />
               </div>
+              <Prose md={intro} />
             </div>
           </section>
         )}
