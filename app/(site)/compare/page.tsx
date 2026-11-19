@@ -1,53 +1,44 @@
-import "@/app/styles/blog.css";
+import "@/app/styles/compare.css";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaBand } from "@/components/sections/shared/CtaBand";
 import { PageHero } from "@/components/sections/shared/PageHero";
-import { PostCard, postCover } from "@/components/templates/ArticlePage";
+import { Arrow } from "@/components/ui/Glyph";
 import { OgUrl } from "@/components/ui/OgUrl";
-import { postList } from "@/content/posts";
-import { ORIGIN, pageMetadata } from "@/lib/metadata";
+import { comparisonList } from "@/content/compare";
+import { pageMetadata } from "@/lib/metadata";
 
 const meta = {
   title: "Profaily vs other schedulers | Profaily",
-  description: "Profaily compared with other social media schedulers for TikTok, Instagram Reels and YouTube Shorts, with each tool's own pages cited and dated.",
+  description: "Profaily compared feature by feature with the schedulers short-video teams use for TikTok, Instagram Reels and YouTube Shorts.",
   path: "/compare",
 };
 
 export const metadata = pageMetadata(meta);
 
-/** Every comparison page: posts whose frontmatter sets url: "/compare/<slug>". */
-const comparisons = postList.filter((p) => p.href.startsWith("/compare/"));
-
 export default function Page() {
   return (
     <PageShell>
-      <OgUrl
-        path={meta.path}
-        type="website"
-        title={meta.title}
-        description={meta.description}
-        image={comparisons[0] ? `${ORIGIN}${postCover(comparisons[0])}` : undefined}
-      />
-      <main className="pg-blog">
+      <OgUrl path={meta.path} type="website" title={meta.title} description={meta.description} />
+      <main className="pg-compare">
         <PageHero
           solo
           crumbs={[{ label: "Compare" }]}
           title="Profaily vs other schedulers"
-          lede="How Profaily compares with the tools you may already use for short-form video. Every claim about another tool comes from its own pages, with the date we checked."
-          secondary={{ href: "/features", label: "Explore features" }}
+          lede="How Profaily compares, feature by feature, with the tools short-video teams use today."
+          secondary={{ href: "/pricing", label: "See pricing" }}
         />
-        <section className="section tight bl-index" aria-label="Comparisons">
-          <div className="wrap">
-            <div className="grid-3 bl-grid">
-              {comparisons.map((post) => <PostCard post={post} heading="h2" key={post.slug} />)}
-            </div>
+        <section className="section tight" aria-label="Comparisons">
+          <div className="wrap grid-3">
+            {comparisonList.map((c) => (
+              <a className="tile-card" href={`/compare/${c.slug}`} key={c.slug}>
+                <h2 className="cmp-hub-h">{`Profaily vs ${c.rival}`}</h2>
+                <p>{c.meta.description}</p>
+                <span className="more-link">See the comparison <Arrow /></span>
+              </a>
+            ))}
           </div>
         </section>
-        <CtaBand
-          heading="Try it with your own videos"
-          lede="Upload one video, give each platform its own text, and see each one marked Ready before it posts."
-          secondary={{ href: "/features", label: "Explore all features" }}
-        />
+        <CtaBand secondary={{ href: "/features", label: "Explore all features" }} />
       </main>
     </PageShell>
   );

@@ -4,7 +4,6 @@ title: "Profaily vs Metricool: A Metricool Alternative for Short Video"
 description: "An honest Metricool alternative for TikTok, Reels and Shorts: where Metricool trips on short video, what Profaily does instead, and when to stay."
 datePublished: "2026-11-19"
 author: "Solomon Eseme"
-url: "/compare/metricool-alternative"
 sourcesChecked: "November 19, 2026"
 cta:
   href: "/pricing"

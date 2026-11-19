@@ -112,6 +112,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
               <a className="more-link" href={post.cta.href}>{post.cta.label} <Arrow /></a>
             </section>
 
+            {post.sources.length > 0 && (
             <section className="ar-sources" aria-labelledby="ar-sources-title">
               <h2 id="ar-sources-title">Sources and further reading</h2>
               <p>Platform behavior and definitions can change. These primary references were checked on {post.sourcesChecked ?? "September 29, 2026"}.</p>
@@ -123,6 +124,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
                 ))}
               </ul>
             </section>
+            )}
           </article>
 
           <div className="ar-rail">
