@@ -2,8 +2,9 @@
 category: "Comparisons"
 title: "Metricool Alternative for Short-Form Video: Profaily vs Metricool"
 description: "Looking for a Metricool alternative for TikTok, Reels and Shorts? What Metricool's own help center says can go wrong with video, and how Profaily handles it."
-datePublished: "2026-11-20"
+datePublished: "2026-11-19"
 author: "Solomon Eseme"
+url: "/compare/metricool-alternative"
 sourcesChecked: "November 19, 2026"
 cta:
   href: "/pricing"
@@ -44,7 +45,8 @@ faq:
   - q: "Can I use Metricool and Profaily together?"
     a: "Yes. You can keep Metricool for analytics, the inbox and your other networks, and publish your short videos from Profaily."
 cover: "The Metricool alternative for [short-form video]"
-coverImage: "/assets/blog-featured-metricool-alternative-for-short-form-video.jpg?v=17929b5e"
+coverImage: "/assets/blog-featured-metricool-alternative-for-short-form-video.jpg?v=514ae055"
+coverShot: "cover-tiktok-convert.jpg"
 ---
 
 If you schedule short videos for clients, this has probably happened to you. Or it will.

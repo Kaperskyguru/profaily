@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { ArticlePage, articleTitle } from "@/components/templates/ArticlePage";
 import { posts } from "@/content/posts";
 import { pageMetadata } from "@/lib/metadata";
@@ -19,10 +19,13 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params) {
   const { slug } = await params;
   const post = find(slug);
-  return pageMetadata({ title: articleTitle(post), description: post.description, path: `/blog/${slug}` });
+  return pageMetadata({ title: articleTitle(post), description: post.description, path: post.href });
 }
 
 export default async function Page({ params }: Params) {
   const { slug } = await params;
-  return <ArticlePage post={find(slug)} />;
+  const post = find(slug);
+  // A comparison lives under /compare; its /blog address only points there.
+  if (post.href !== `/blog/${slug}`) permanentRedirect(post.href);
+  return <ArticlePage post={post} />;
 }

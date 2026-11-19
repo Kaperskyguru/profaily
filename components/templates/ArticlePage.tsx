@@ -13,7 +13,10 @@ import { ORIGIN } from "@/lib/metadata";
 import { links } from "@/lib/links";
 import { channels } from "@/content/channels";
 
-export const articleTitle = (post: PostContent) => `${post.title} | Profaily Blog`;
+/** A comparison page lives under /compare, every other article under /blog. */
+export const isComparison = (post: PostContent) => post.href.startsWith("/compare/");
+
+export const articleTitle = (post: PostContent) => `${post.title} | ${isComparison(post) ? "Profaily" : "Profaily Blog"}`;
 
 /** The post's cover, made by `yarn cover <slug>` (see scripts/cover.ts). */
 export const postCover = (post: PostContent) => post.coverImage;
@@ -37,7 +40,7 @@ export function PostCard({ post, heading = "h3" }: { post: PostContent; heading?
   const H = heading;
   return (
     <article className="blog-card" data-category={post.category.toLowerCase()}>
-      <a className="bl-card" href={`/blog/${post.slug}`}>
+      <a className="bl-card" href={post.href}>
         <img src={postCover(post)} alt="" width={1200} height={630} loading="lazy" decoding="async" />
         <div className="bl-card-copy">
           <H>{post.title}</H>
@@ -60,7 +63,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
   return (
     <PageShell>
       <OgUrl
-        path={`/blog/${post.slug}`}
+        path={post.href}
         type="article"
         title={articleTitle(post)}
         description={post.description}
@@ -75,7 +78,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
           image: [ORIGIN + cover],
           datePublished: post.datePublished,
           dateModified: post.datePublished,
-          mainEntityOfPage: `${ORIGIN}/blog/${post.slug}`,
+          mainEntityOfPage: `${ORIGIN}${post.href}`,
           author: post.author ? { "@type": "Person", name: post.author } : { "@type": "Organization", name: "Profaily Editorial" },
           publisher: { "@type": "Organization", name: "Profaily" },
         }}
@@ -84,7 +87,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
       <main className="pg-blog pg-article">
         <header className="page-hero has-grid ar-hero">
           <div className="wrap ar-head">
-            <Crumbs items={[{ href: "/blog", label: "Blog" }, { label: post.category }]} />
+            <Crumbs items={isComparison(post) ? [{ href: "/compare", label: "Compare" }, { label: post.title.split(": ").pop() ?? post.title }] : [{ href: "/blog", label: "Blog" }, { label: post.category }]} />
             <h1>{post.title}</h1>
             <p className="lead">{post.description}</p>
             <PostMeta post={post} byline />
@@ -102,7 +105,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
 
             <section className="ar-next" aria-labelledby="ar-next-title">
               <h2 id="ar-next-title">Put the workflow to work</h2>
-              <p>Connect video planning, publishing, audience response, and follow-up in one short-form video operation.</p>
+              <p>Upload one video, give each platform its own text, and see each one marked Ready before it posts.</p>
               <a className="more-link" href={post.cta.href}>{post.cta.label} <Arrow /></a>
             </section>
 
@@ -128,7 +131,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
               <div className="ar-trial-card">
               <img src="/assets/profaily-mark-white.svg" alt="" width={32} height={32} className="ar-trial-mark" />
               <h2 id="ar-trial-title">Try Profaily free for 14 days</h2>
-              <p>Plan and publish one video across {channels}, then follow publishing and audience conversations from one workspace.</p>
+              <p>Plan and publish one video across {channels}, then follow each platform's status from one workspace.</p>
               <a className="btn btn-primary btn-block" href={links.register}>Start 14-day free trial <Arrow /></a>
               <a className="more-link" href="/features">Explore features <Arrow /></a>
               </div>
@@ -152,7 +155,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
 
         <CtaBand
           heading="Run video marketing from one place"
-          lede={`Plan and publish across ${channels}. Keep each channel’s details in view, then follow publishing and audience conversations from one workspace.`}
+          lede={`Plan and publish across ${channels}. Keep each channel’s details in view, then follow each platform’s status from one workspace.`}
           secondary={{ href: "/features", label: "Explore features" }}
         />
       </main>

@@ -48,7 +48,7 @@ export default function Page() {
         {!empty && (<>
         <section className="section tight bl-featured" aria-label="Featured guide">
           <div className="wrap">
-            <a className="bl-feat" href={`/blog/${featured.slug}`}>
+            <a className="bl-feat" href={featured.href}>
               <img src={postCover(featured)} alt="" width={1200} height={630} loading="eager" />
               <div className="bl-feat-copy">
                 <h2>{featured.title}</h2>
