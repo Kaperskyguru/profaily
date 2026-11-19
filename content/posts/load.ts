@@ -27,6 +27,8 @@ import type { PostContent } from "./types";
  *   cover          optional. The words on the cover, one phrase in [brackets] goes on the mint block (default: title)
  *   coverShot      optional. The app capture in public/assets/app shown on the cover (default: the composer)
  *   coverImage     written by `yarn cover <slug>`, which draws the cover from the two fields above. Never by hand
+ *   url            optional. "/compare/<name>" puts the article at that address instead of /blog/<slug> (a comparison
+ *                  page). /blog/<slug> then redirects there. Images still live in /assets/blog/<slug>/
  *   draft          optional. true hides the post from the production build; `yarn dev` still shows it.
  *                  A draft may go without its cover until `yarn cover <slug>` has drawn it
  *
@@ -86,6 +88,15 @@ function readTime(body: string): string {
   return `${Math.max(1, Math.ceil(words / WORDS_PER_MINUTE))} min read`;
 }
 
+/** Where the article lives: /blog/<slug>, or the "/compare/<name>" its frontmatter `url` names. */
+function hrefOf(file: string, slug: string, url: unknown): string {
+  if (url === undefined) return `/blog/${slug}`;
+  if (typeof url !== "string" || !/^\/compare\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(url)) {
+    throw new PostError(file, `"url" must look like /compare/metricool-alternative, got ${JSON.stringify(url)}`);
+  }
+  return url;
+}
+
 function links(file: string, data: Record<string, unknown>, key: string): { href: string; label: string }[] {
   const v = data[key];
   if (v === undefined || v === null) return [];
@@ -142,6 +153,7 @@ export function loadPost(slug: string): PostContent {
 
   return {
     slug,
+    href: hrefOf(file, slug, data.url),
     category,
     title: text(file, data, "title"),
     description: text(file, data, "description"),

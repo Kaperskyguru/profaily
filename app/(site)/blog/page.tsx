@@ -3,10 +3,13 @@ import { BlogFilterBehavior } from "@/components/behavior/BlogFilterBehavior";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaBand } from "@/components/sections/shared/CtaBand";
 import { PageHero } from "@/components/sections/shared/PageHero";
-import { PostCard, PostMeta, postCover } from "@/components/templates/ArticlePage";
+import { PostCard, PostMeta, isComparison, postCover } from "@/components/templates/ArticlePage";
 import { Arrow } from "@/components/ui/Glyph";
 import { OgUrl } from "@/components/ui/OgUrl";
-import { postList } from "@/content/posts";
+import { postList as allPosts } from "@/content/posts";
+
+/** The blog lists guides; comparison pages live under /compare. */
+const postList = allPosts.filter((p) => !isComparison(p));
 import { CATEGORY_NAMES } from "@/content/posts/categories";
 import { ORIGIN, pageMetadata } from "@/lib/metadata";
 
@@ -48,7 +51,7 @@ export default function Page() {
         {!empty && (<>
         <section className="section tight bl-featured" aria-label="Featured guide">
           <div className="wrap">
-            <a className="bl-feat" href={`/blog/${featured.slug}`}>
+            <a className="bl-feat" href={featured.href}>
               <img src={postCover(featured)} alt="" width={1200} height={630} loading="eager" />
               <div className="bl-feat-copy">
                 <h2>{featured.title}</h2>

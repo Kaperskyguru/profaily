@@ -70,3 +70,4 @@
 @media (max-width: 600px) {
   .pg-compare .fr .sh .stage4 .fan4 .ph { width: 74px; }
 }
+.pg-compare .cmp-hub-h { font-size: 22px; letter-spacing: -0.02em; line-height: 1.2; }

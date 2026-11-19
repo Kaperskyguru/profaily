@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { helpList } from "@/content/help";
+import { comparisonList } from "@/content/compare";
 import { postList } from "@/content/posts";
 import { routes } from "@/content/routes";
 
@@ -15,13 +16,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: r.path === "/blog" && newest > r.lastModified ? newest : r.lastModified,
   }));
   const posts = postList
-    .filter((p) => !listed.has(`/blog/${p.slug}`))
-    .map((p) => ({ url: `https://useprofaily.com/blog/${p.slug}`, lastModified: p.datePublished }));
+    .filter((p) => !listed.has(p.href))
+    .map((p) => ({ url: `https://useprofaily.com${p.href}`, lastModified: p.datePublished }));
+  // Comparison pages: content/compare, last checked on the date each one names.
+  const checkedIso = (d: string) => new Date(`${d} UTC`).toISOString().slice(0, 10);
+  const compare = comparisonList.length
+    ? [
+        { url: "https://useprofaily.com/compare", lastModified: comparisonList.map((c) => checkedIso(c.checked)).sort().pop() as string },
+        ...comparisonList.map((c) => ({ url: `https://useprofaily.com/compare/${c.slug}`, lastModified: checkedIso(c.checked) })),
+      ]
+    : [];
   const help = [
     ...(listed.has("/help") ? [] : [{ url: "https://useprofaily.com/help", lastModified: helpList.reduce((d, p) => (p.updated > d ? p.updated : d), "") }]),
     ...helpList
       .filter((p) => !listed.has(`/help/${p.slug}`))
       .map((p) => ({ url: `https://useprofaily.com/help/${p.slug}`, lastModified: p.updated })),
   ].filter((h) => h.lastModified);
-  return [...pages, ...posts, ...help];
+  return [...pages, ...compare, ...posts, ...help];
 }

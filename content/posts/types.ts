@@ -7,6 +7,8 @@
  */
 export type PostContent = {
   slug: string;
+  /** The article's address: /blog/<slug>, or /compare/<name> when its frontmatter sets `url`. */
+  href: string;
   category: string;
   title: string;
   description: string;
