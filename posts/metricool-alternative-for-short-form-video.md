@@ -130,10 +130,6 @@ Because it's early, you're talking to me. I answer messages myself, and if you g
 
 Worried about connecting client accounts? [Here's exactly what Profaily can and can't touch](/blog/is-profaily-safe-to-connect-social-media-accounts).
 
-## Where Profaily is going {#direction}
-
-Next, Profaily will watch each post until it's actually live, and fix it when it isn't. After that comes turning comments into DMs and leads, then tying bookings and sales back to the video that started them, and later, suggestions on what to make next with the evidence behind them.
-
 ## Frequently asked questions {#faq}
 
 ### What is the best Metricool alternative for TikTok, Reels and Shorts?
