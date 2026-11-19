@@ -8,7 +8,6 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { OgUrl } from "@/components/ui/OgUrl";
 import { faqJsonLd } from "@/content/comparisons";
 import type { Cell, Comparison, Mark } from "@/content/compare";
-import { TRIAL_DAYS } from "@/content/plans";
 
 const MARK_LABEL: Record<Mark, string> = { yes: "Yes", partial: "Partly", no: "No" };
 
@@ -55,7 +54,7 @@ export function CompareFeaturesPage({ c }: { c: Comparison }) {
           title={<>Looking for a <em className="cf-em">{c.rival} alternative</em>?</>}
           lede={c.hero.lede}
           secondary={{ href: "#features", label: "Compare features" }}
-          note={`${TRIAL_DAYS}-day trial of the Business plan. ${c.rival} details checked ${c.checked}.`}
+          note={`${c.rival} details checked ${c.checked}.`}
         />
 
         <section className="cf-hero-media" aria-label="Profaily">
