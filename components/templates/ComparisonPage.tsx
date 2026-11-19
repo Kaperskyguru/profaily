@@ -251,29 +251,9 @@ export function ComparisonPage({ post }: { post: PostContent }) {
 
         {post.faq?.length ? <Faq heading={`Profaily vs ${rival}: questions`} items={post.faq} /> : null}
 
-        <section className="section tight" aria-labelledby="cmp-src">
-          <div className="wrap">
-            <div className="sec-head">
-              <h2 id="cmp-src">Sources</h2>
-              <p className="lead">{rival} facts on this page come from {rival}&rsquo;s own website and help center, and the reviews named above, checked {checked}. If something has changed, tell us and we&rsquo;ll fix it.</p>
-            </div>
-            <ul className="cmp-sources">
-              {post.sources.map((s) => (
-                <li key={s.href}>
-                  <a href={s.href} target="_blank" rel="noopener noreferrer">
-                    <span><b>{s.label}</b></span>
-                    <span className="cmp-ext" aria-hidden="true">↗</span>
-                    <span className="sr-only">(opens in a new tab)</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
         <CtaBand
           heading={start?.heading ?? "Try Profaily with your own videos"}
-          lede={start ? blocks(start.md).map(strip).join(" ").replace(/Start the 14-day trial\.\s*/, "") : undefined}
+          lede={start ? blocks(start.md).filter((b) => !/^\[[^\]]+\]\([^)]+\)\.?$/.test(b)).map(strip).join(" ") : undefined}
           primary={{ href: post.cta.href, label: post.cta.label }}
           secondary={{ href: "/features", label: "Explore features" }}
         />
