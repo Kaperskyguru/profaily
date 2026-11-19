@@ -3,10 +3,13 @@ import { BlogFilterBehavior } from "@/components/behavior/BlogFilterBehavior";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaBand } from "@/components/sections/shared/CtaBand";
 import { PageHero } from "@/components/sections/shared/PageHero";
-import { PostCard, PostMeta, postCover } from "@/components/templates/ArticlePage";
+import { PostCard, PostMeta, isComparison, postCover } from "@/components/templates/ArticlePage";
 import { Arrow } from "@/components/ui/Glyph";
 import { OgUrl } from "@/components/ui/OgUrl";
-import { postList } from "@/content/posts";
+import { postList as allPosts } from "@/content/posts";
+
+/** The blog lists guides; comparison pages live under /compare. */
+const postList = allPosts.filter((p) => !isComparison(p));
 import { CATEGORY_NAMES } from "@/content/posts/categories";
 import { ORIGIN, pageMetadata } from "@/lib/metadata";
 

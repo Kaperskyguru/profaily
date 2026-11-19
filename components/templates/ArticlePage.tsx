@@ -54,8 +54,11 @@ export function PostCard({ post, heading = "h3" }: { post: PostContent; heading?
 
 export function ArticlePage({ post }: { post: PostContent }) {
   const cover = postCover(post);
+  const compare = isComparison(post);
   const related = post.related.filter((s) => posts[s]).map((s) => posts[s]);
-  for (const p of postList) {
+  // A comparison is followed by other comparisons first, then guides; a guide only by other guides.
+  const pool = compare ? [...postList.filter(isComparison), ...postList.filter((p) => !isComparison(p))] : postList.filter((p) => !isComparison(p));
+  for (const p of pool) {
     if (related.length >= 3) break;
     if (p.slug !== post.slug && !related.includes(p)) related.push(p);
   }
@@ -104,7 +107,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
             </div>
 
             <section className="ar-next" aria-labelledby="ar-next-title">
-              <h2 id="ar-next-title">Put the workflow to work</h2>
+              <h2 id="ar-next-title">{compare ? "Try it with your own videos" : "Put the workflow to work"}</h2>
               <p>Upload one video, give each platform its own text, and see each one marked Ready before it posts.</p>
               <a className="more-link" href={post.cta.href}>{post.cta.label} <Arrow /></a>
             </section>
@@ -124,7 +127,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
 
           <div className="ar-rail">
             <nav className="ar-toc" aria-labelledby="ar-toc-title">
-              <h2 id="ar-toc-title">In this guide</h2>
+              <h2 id="ar-toc-title">{compare ? "On this page" : "In this guide"}</h2>
               <ArticleToc items={post.toc} />
             </nav>
             <aside className="ar-trial" aria-labelledby="ar-trial-title">
@@ -143,8 +146,8 @@ export function ArticlePage({ post }: { post: PostContent }) {
         <section className="section tight" aria-labelledby="ar-related-title">
           <div className="wrap">
             <div className="bl-head">
-              <h2 id="ar-related-title">Keep reading</h2>
-              <a className="more-link" href="/blog">All guides <Arrow /></a>
+              <h2 id="ar-related-title">{compare ? "Read next" : "Keep reading"}</h2>
+              {compare ? <a className="more-link" href="/compare">All comparisons <Arrow /></a> : <a className="more-link" href="/blog">All guides <Arrow /></a>}
             </div>
             <div className="grid-3 bl-grid">
               {related.slice(0, 3).map((p) => <PostCard post={p} key={p.slug} />)}
