@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { ArticlePage, articleTitle } from "@/components/templates/ArticlePage";
+import { articleTitle } from "@/components/templates/ArticlePage";
+import { ComparisonPage } from "@/components/templates/ComparisonPage";
 import { postList } from "@/content/posts";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -29,5 +30,5 @@ export async function generateMetadata({ params }: Params) {
 
 export default async function Page({ params }: Params) {
   const { slug } = await params;
-  return <ArticlePage post={find(slug)} />;
+  return <ComparisonPage post={find(slug)} />;
 }
