@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { anyMissing, capabilityKeys, resolveCapabilities } from "@/content/capabilities";
 import { CATEGORY_NAMES } from "./categories";
 import { headingsOf } from "./headings";
 import type { PostContent } from "./types";
@@ -23,7 +24,8 @@ import type { PostContent } from "./types";
  *   author         optional. Named author for a first-person post (byline, Article JSON-LD as a Person);
  *                  without it both say "Profaily Editorial"
  *   sourcesChecked optional. Text date the sources were checked, e.g. "November 6, 2026"
- *   faq            optional. [{q, a}] copied word for word from the body's FAQ; adds FAQPage JSON-LD
+ *   faq            optional. [{q, a, ifMissing?}] copied word for word from the body's FAQ; adds FAQPage JSON-LD.
+ *                  Text may use the tokens in content/capabilities.ts ({{missing: …}}, {{channels}} …), like the body
  *   cover          optional. The words on the cover, one phrase in [brackets] goes on the mint block (default: title)
  *   coverShot      optional. The app capture in public/assets/app shown on the cover (default: the composer)
  *   coverImage     written by `yarn cover <slug>`, which draws the cover from the two fields above. Never by hand
@@ -117,7 +119,8 @@ export function loadPost(slug: string): PostContent {
   const { data, content } = matter(fs.readFileSync(full, "utf8"));
   if (data.slug !== undefined && data.slug !== slug) throw new PostError(file, `frontmatter slug "${data.slug}" must match the file name "${slug}"`);
 
-  const body = content.trim();
+  const fail = (msg: string): never => { throw new PostError(file, msg); };
+  const body = resolveCapabilities(content, fail).trim();
   if (!body) throw new PostError(file, "the article body is empty");
   for (const [, alt, src] of body.matchAll(/!\[([^\]]*)\]\(([^)\s]+)[^)]*\)/g)) {
     if (!alt.trim()) throw new PostError(file, `the image ${src} needs alt text: say what the reader should see`);
@@ -135,10 +138,14 @@ export function loadPost(slug: string): PostContent {
   if (!Array.isArray(related) || related.some((r) => typeof r !== "string")) throw new PostError(file, `"related" must be a list of post slugs`);
 
   const optText = (key: string) => (data[key] === undefined ? undefined : text(file, data, key));
-  const faq = data.faq === undefined ? undefined : Array.isArray(data.faq) ? data.faq : null;
-  if (faq === null || faq?.some((f) => typeof f?.q !== "string" || typeof f?.a !== "string")) {
+  const rawFaq = data.faq === undefined ? undefined : Array.isArray(data.faq) ? data.faq : null;
+  if (rawFaq === null || rawFaq?.some((f) => typeof f?.q !== "string" || typeof f?.a !== "string")) {
     throw new PostError(file, `"faq" must be a list of { q, a }`);
   }
+  // A question tied to something Profaily doesn't do yet (`ifMissing`) drops out once it ships.
+  const faq = rawFaq
+    ?.filter((f) => f.ifMissing === undefined || anyMissing(capabilityKeys(f.ifMissing, fail)))
+    .map((f) => ({ q: resolveCapabilities(f.q, fail), a: resolveCapabilities(f.a, fail) }));
 
   const coverImage = data.coverImage === undefined ? `/assets/blog-featured-${slug}.jpg` : text(file, data, "coverImage");
   // A draft may wait for its cover: production leaves drafts out, so only a live post needs one.
@@ -156,7 +163,7 @@ export function loadPost(slug: string): PostContent {
     href: hrefOf(file, slug, data.url),
     category,
     title: text(file, data, "title"),
-    description: text(file, data, "description"),
+    description: resolveCapabilities(text(file, data, "description"), fail),
     readTime: readTime(body),
     datePublished,
     dateLabel: dateLabel(datePublished),
