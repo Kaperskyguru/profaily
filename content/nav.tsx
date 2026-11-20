@@ -60,7 +60,7 @@ export const navMenus: NavMenu[] = [
       { heading: "Distributing videos", links: distributingLinks },
     ],
     feature: {
-      href: "/#ask-chatgpt",
+      href: "/mcp",
       title: "Ask ChatGPT. Profaily schedules it.",
       text: "Draft, review and schedule from a conversation, under your team’s approval rules.",
       image: "/assets/app/mcp-4-review.webp",
@@ -81,7 +81,7 @@ export const footerGroups: { heading: string; links: { href: string; label: stri
       { href: "/#making", label: "Captions and previews" },
       { href: "/#distributing", label: "Channels and calendar" },
       { href: "/#distributing", label: "Team approval" },
-      { href: "/#ask-chatgpt", label: "ChatGPT and Claude" },
+      { href: "/mcp", label: "ChatGPT and Claude (MCP)" },
       { href: "/pricing", label: "Pricing" },
     ],
   },
