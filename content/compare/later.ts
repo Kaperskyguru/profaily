@@ -16,7 +16,7 @@ export const later: ChecklistComparison = {
   },
   checked: "November 20, 2026",
   hero: {
-    lede: "Every feature on our pricing page, next to what Later's own help center says it does. A tick means it's there, a dash means it's partly there, and an empty cell means Later's docs don't say.",
+    lede: "Every feature on our pricing page, next to what Later's own help center says it does.",
     shot: {
       src: "/assets/compare/later-alternative/hero-schedule.jpg",
       alt: "Profaily with a short video open and the Schedule or publish window showing TikTok, Instagram and YouTube each marked Ready",
@@ -34,7 +34,6 @@ export const later: ChecklistComparison = {
     captions: { mark: "yes", text: "Customize each post" },
     ytTitle: { mark: "yes", text: "A title field" },
     images: { mark: "yes", text: "Multi-Photo carousels" },
-    fix: { mark: "partial", text: "Trim the video while scheduling" },
     team: { mark: "yes", text: "On Growth and up" },
     roles: { mark: "yes", text: "Owner, Reviewer, Member and Member (Restricted)" },
     approvals: { mark: "yes", text: "With Publish Without Approval turned off, or Member (Restricted)" },

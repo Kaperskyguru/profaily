@@ -107,24 +107,20 @@
 .pg-cf .ck-group-head h3 { font: 600 clamp(20px, 2.2vw, 24px)/1.2 var(--display); letter-spacing: -0.02em; }
 .pg-cf .ck-group-head p { display: flex; gap: 14px; margin: 0; font-size: 14px; font-weight: 600; color: var(--muted); }
 .pg-cf .ck-group-head p .us { color: var(--mint-ink); }
-.pg-cf .ck-head-row, .pg-cf .ck-row { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr); gap: 16px; padding: 0 clamp(18px, 3vw, 28px); }
-.pg-cf .ck-head-row { padding-bottom: 8px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--faint); }
+.pg-cf .ck-head-row, .pg-cf .ck-row { display: grid; grid-template-columns: minmax(0, 1fr) 96px 96px; gap: 12px; padding: 0 clamp(18px, 3vw, 28px); align-items: center; }
+.pg-cf .ck-head-row { padding-bottom: 10px; font-size: 13px; font-weight: 600; text-align: center; color: var(--muted); }
 .pg-cf .ck-head-row .us { color: var(--mint-ink); }
 .pg-cf .ck-rows { list-style: none; margin: 0; padding: 0; }
-.pg-cf .ck-row { padding-top: 14px; padding-bottom: 14px; border-top: 1px solid var(--line); align-items: start; }
+.pg-cf .ck-row { padding-top: 14px; padding-bottom: 14px; border-top: 1px solid var(--line); }
 .pg-cf .ck-label { font-weight: 600; font-size: 15.5px; color: var(--ink); }
-.pg-cf .ck-cell { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; align-items: start; }
-.pg-cf .ck-note { font-size: 14.5px; line-height: 1.45; color: var(--muted); }
-.pg-cf .ck-cell.unknown .ck-note { color: var(--faint); }
+.pg-cf .ck-label small { display: block; margin-top: 3px; font-size: 14px; font-weight: 400; line-height: 1.45; color: var(--muted); }
+.pg-cf .ck-tick { display: flex; justify-content: center; }
+.pg-cf .ck-tick .cf-mark { width: 26px; height: 26px; }
 .pg-cf .ck-verdict { max-width: 820px; padding: clamp(26px, 4vw, 40px); border-radius: 24px; background: var(--mint-soft); }
 .pg-cf .ck-verdict h2 { font: 600 clamp(24px, 3vw, 32px)/1.15 var(--display); letter-spacing: -0.03em; }
 .pg-cf .ck-verdict p { margin-top: 12px; font-size: 17px; line-height: 1.6; color: var(--ink); }
 
 @media (max-width: 640px) {
-  .pg-cf .ck-head-row { display: none; }
-  .pg-cf .ck-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px 12px; }
-  .pg-cf .ck-label { grid-column: 1 / -1; }
-  .pg-cf .ck-cell::before { content: attr(data-who); grid-column: 1 / -1; font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--faint); }
-  .pg-cf .ck-cell[data-who="Profaily"]::before { color: var(--mint-ink); }
-  .pg-cf .ck-score { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pg-cf .ck-head-row, .pg-cf .ck-row { grid-template-columns: minmax(0, 1fr) 64px 64px; gap: 8px; }
+  .pg-cf .ck-head-row { font-size: 12px; }
 }
