@@ -1,3 +1,4 @@
+import { FitLine } from "@/components/ui/FitLine";
 import { OAuthButtons } from "@/components/sections/shared/OAuthButtons";
 import { HeroVideo } from "@/components/sections/home/HeroVideo";
 import { liveCopy } from "@/content/channels";
@@ -15,6 +16,7 @@ export function HomeHero() {
             none: "The AI-powered, collaborative short-form video scheduling platform for TikTok and YouTube Shorts.",
           })}
         </p>
+        <FitLine withSub />
         <OAuthButtons />
       </div>
 

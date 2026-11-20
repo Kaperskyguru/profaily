@@ -1,3 +1,4 @@
+import { FitLine } from "@/components/ui/FitLine";
 import type { ReactNode } from "react";
 import { Arrow } from "@/components/ui/Glyph";
 import { links } from "@/lib/links";
@@ -42,6 +43,7 @@ export function PageHero({
               {secondary && <a className="btn btn-ghost" href={secondary.href}>{secondary.label}</a>}
             </div>
           )}
+          <FitLine />
           {note && <p className="note">{note}</p>}
         </div>
         {visual && <div className="visual">{visual}</div>}

@@ -1,3 +1,4 @@
+import { FitLine } from "@/components/ui/FitLine";
 import type { ReactNode } from "react";
 import { Arrow } from "@/components/ui/Glyph";
 import { links } from "@/lib/links";
@@ -32,6 +33,7 @@ export function CtaBand({
           </p>
           <h2>{heading}</h2>
           {lede && <p className="lead">{lede}</p>}
+          <FitLine />
           <div className="actions">
             <a className="btn btn-mint" href={primary.href}>{primary.label} <Arrow /></a>
             {secondary && <a className="btn btn-ghost" href={secondary.href}>{secondary.label}</a>}

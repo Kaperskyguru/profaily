@@ -1,3 +1,4 @@
+import { FitLine } from "@/components/ui/FitLine";
 import { WaitlistForm } from "@/components/waitlist/WaitlistForm";
 import { links } from "@/lib/links";
 import { liveCopy } from "@/content/channels";
@@ -20,6 +21,7 @@ export default function Page() {
         <span className="pill">Early access</span>
         <h1>Turn short&#8209;form video into a <span className="hl">growth engine</span> for your business</h1>
         <p className="sub">{liveCopy({ both: "The AI-powered, collaborative short-form video scheduling platform for Instagram Reels, TikTok, YouTube Shorts, and Facebook Reels.", instagram: "The AI-powered, collaborative short-form video scheduling platform for TikTok, Instagram Reels and YouTube Shorts.", none: "The AI-powered, collaborative short-form video scheduling platform for TikTok and YouTube Shorts." })}</p>
+        <FitLine withSub />
         <WaitlistForm />
       </div>
       <footer className="wlp-foot">
