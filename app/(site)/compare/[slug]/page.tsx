@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { CompareChecklistPage } from "@/components/templates/CompareChecklistPage";
-import { CompareFeaturesPage } from "@/components/templates/CompareFeaturesPage";
 import { comparisonsBySlug } from "@/content/compare";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -26,5 +25,5 @@ export async function generateMetadata({ params }: Params) {
 export default async function Page({ params }: Params) {
   const { slug } = await params;
   const c = find(slug);
-  return "kind" in c ? <CompareChecklistPage c={c} /> : <CompareFeaturesPage c={c} />;
+  return <CompareChecklistPage c={c} />;
 }

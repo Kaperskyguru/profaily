@@ -1,11 +1,9 @@
 import "@/app/styles/compare-features.css";
 import { PageShell } from "@/components/layout/PageShell";
-import { CtaBand } from "@/components/sections/shared/CtaBand";
-import { Faq } from "@/components/sections/shared/Faq";
 import { PageHero } from "@/components/sections/shared/PageHero";
-import { JsonLd } from "@/components/ui/JsonLd";
+import { Arrow } from "@/components/ui/Glyph";
 import { OgUrl } from "@/components/ui/OgUrl";
-import { faqJsonLd } from "@/content/comparisons";
+import { links } from "@/lib/links";
 import { featureGroups } from "@/content/compare";
 import type { Cell, ChecklistComparison } from "@/content/compare";
 
@@ -32,7 +30,6 @@ export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
   return (
     <PageShell>
       <OgUrl path={path} type="website" title={c.meta.title} description={c.meta.description} image={undefined} />
-      <JsonLd data={faqJsonLd(c.faq)} />
       <main className="pg-compare pg-cf">
         <PageHero
           solo
@@ -78,18 +75,28 @@ export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
           </div>
         </section>
 
-        <section className="section tight" aria-labelledby="ck-verdict">
-          <div className="wrap">
-            <div className="ck-verdict">
-              <h2 id="ck-verdict">The short version</h2>
-              <p>{c.verdict}</p>
+        <section className="wrap section tight" aria-labelledby="ck-cta">
+          <div className="ck-cta">
+            <div className="ck-cta-copy">
+              <h2 id="ck-cta">
+                Choose{" "}
+                <span className="ck-cta-name">
+                  Profaily
+                  <svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 10C48 4 120 2 197 6" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" /></svg>
+                </span>{" "}
+                for your short videos
+              </h2>
+              <p>One upload to TikTok, Reels and Shorts, checked for each platform before it goes out.</p>
+            </div>
+            <div className="ck-cta-act">
+              <svg className="ck-cta-loop" viewBox="0 0 120 130" aria-hidden="true">
+                <path d="M30 120C70 90 75 40 45 15C25 0 5 20 25 45C45 70 85 80 112 74" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                <path d="M100 64l13 10-11 13" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <a className="ck-cta-btn" href={links.register}>Get started <Arrow /></a>
             </div>
           </div>
         </section>
-
-        <Faq heading={`${c.rival} alternative FAQ`} items={c.faq} />
-
-        <CtaBand heading={c.cta.title} lede={c.cta.body} secondary={{ href: "/pricing", label: "See pricing" }} />
       </main>
     </PageShell>
   );

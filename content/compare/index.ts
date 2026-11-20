@@ -5,7 +5,7 @@ import { postiz } from "./postiz";
 import { repurpose } from "./repurpose";
 import type { AnyComparison } from "./types";
 
-export type { AnyComparison, Cell, ChecklistComparison, Comparison, FeatureRow, Mark } from "./types";
+export type { AnyComparison, Cell, ChecklistComparison, Mark } from "./types";
 export { featureCount, featureGroups } from "./checklist";
 
 /** Every comparison page, in the order the /compare hub lists them. Add a rival: write its file, add it here. */

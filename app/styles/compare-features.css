@@ -124,3 +124,18 @@
   .pg-cf .ck-head-row, .pg-cf .ck-row { grid-template-columns: minmax(0, 1fr) 64px 64px; gap: 8px; }
   .pg-cf .ck-head-row { font-size: 12px; }
 }
+
+/* closing band on checklist pages */
+.pg-cf .ck-cta { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 32px; padding: clamp(32px, 6vw, 72px) clamp(26px, 6vw, 80px); border-radius: 28px; background: radial-gradient(120% 140% at 100% 0%, #8dd796 0%, #2f7a5c 34%, #0d241f 72%); color: #fff; }
+.pg-cf .ck-cta h2 { font: 600 clamp(32px, 4.6vw, 56px)/1.08 var(--display); letter-spacing: -0.035em; color: #fff; }
+.pg-cf .ck-cta-name { position: relative; display: inline-block; color: #8dd796; }
+.pg-cf .ck-cta-name svg { position: absolute; left: 0; right: 0; bottom: -0.12em; width: 100%; height: 0.24em; color: #8dd796; }
+.pg-cf .ck-cta p { margin-top: 20px; font-size: clamp(16px, 1.6vw, 19px); line-height: 1.5; color: rgba(255, 255, 255, 0.82); }
+.pg-cf .ck-cta-act { display: flex; align-items: center; gap: 18px; }
+.pg-cf .ck-cta-loop { width: 92px; height: 100px; color: #fff; }
+.pg-cf .ck-cta-btn { display: inline-flex; align-items: center; gap: 10px; padding: 18px 30px; border-radius: 999px; background: #fff; color: #0d241f; font-weight: 600; font-size: 17px; white-space: nowrap; text-decoration: none; }
+.pg-cf .ck-cta-btn:hover { background: #8dd796; }
+@media (max-width: 760px) {
+  .pg-cf .ck-cta { grid-template-columns: 1fr; }
+  .pg-cf .ck-cta-loop { display: none; }
+}
