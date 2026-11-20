@@ -13,14 +13,15 @@ Status: `queued`, `pr-open #N`, `live`, `skipped: reason`.
 | Repurpose.io | repurpose-alternative | live | November 20, 2026 (pre-agent) |
 | Later | later-alternative | live | November 20, 2026 (pre-agent) |
 | Hootsuite | hootsuite-alternative | live | November 20, 2026 (pre-agent) |
+| Publer | publer-alternative | live | November 20, 2026 |
 
 ## Tier 1: short video
 
 Ahrefs keyword data wasn't available on 20 Nov 2026 ("Insufficient plan"), so the order is by fit: tools that sell
 scheduling short video to TikTok, Reels and Shorts come before tools whose main job is clipping long video.
 
-1. Publer: queued (next). Facts file researched 20 Nov 2026: `publer.md`. Publishes to TikTok, Instagram Reels, YouTube Shorts.
-2. Vista Social: queued
+1. Publer: live (20 Nov 2026). Facts: `publer.md`.
+2. Vista Social: queued (next)
 3. Pallyy: queued
 4. Sked Social: queued
 5. Planoly: queued

@@ -11,6 +11,7 @@ export const ROUTES: { route: string; file: string }[] = [
   ["/compare/hootsuite-alternative", "compare/hootsuite-alternative/index.html"],
   ["/compare/later-alternative", "compare/later-alternative/index.html"],
   ["/compare/metricool-alternative", "compare/metricool-alternative/index.html"],
+  ["/compare/publer-alternative", "compare/publer-alternative/index.html"],
   ["/contact", "contact.html"],
   ["/facebook", "facebook.html"],
   ["/feature-content-intelligence", "feature-content-intelligence.html"],
