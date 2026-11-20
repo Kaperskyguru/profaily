@@ -1,0 +1,9 @@
+{
+  "lastRun": "2026-11-20",
+  "lastFeatureScan": {
+    "frontend": null,
+    "backend": null,
+    "landing": "559d99b"
+  },
+  "notes": "First run. profaily-frontend and profaily-backend could not be attached, so their scan baseline is unset; the next run that can attach them should start from merges after 2026-11-20."
+}
