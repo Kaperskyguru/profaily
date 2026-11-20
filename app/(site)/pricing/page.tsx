@@ -31,7 +31,7 @@ function Value({ v }: { v: Cell }) {
 
 export default function Page() {
   return (
-    <PageShell fitLine={false}>
+    <PageShell>
       <OgUrl path={pricingMeta.path} />
       <JsonLd data={faqJsonLd(pricingFaq)} />
       <main className="pg-pricing">
