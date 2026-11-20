@@ -99,3 +99,7 @@
 /* Help media: real app screens on the brand frame (scripts/shot.ts), shown full width like blog images;
    recordings loop silently like GIFs. */
 .pg-help.pg-article .ar-prose .article-video { display: block; width: 100%; height: auto; margin: 28px 0; border-radius: 18px; }
+
+/* Code in help pages (the AI app guides): scrolls inside its own box on a phone instead of widening the page. */
+.pg-help.pg-article .ar-prose pre { max-width: 100%; overflow-x: auto; padding: 14px 16px; border-radius: 14px; background: var(--shell); font-size: 13.5px; line-height: 1.55; }
+.pg-help.pg-article .ar-prose pre code { white-space: pre; }

@@ -212,7 +212,7 @@ export const audiences: Record<AudienceKey, AudienceContent> = {
     ],
     faq: [
       { q: "Which assistants work with Profaily?", a: "ChatGPT and Claude, and any other assistant that supports MCP with OAuth sign-in." },
-      { q: "How do I connect it?", a: "Add Profaily as a connector in your assistant, sign in to Profaily when asked, and approve the permissions it requests." },
+      { q: "How do I connect it?", a: "Add Profaily as a connector in your assistant with the server URL https://mcp.useprofaily.com/mcp, sign in to Profaily when asked, and approve the permissions it requests. Every step, with screenshots, is on useprofaily.com/mcp." },
       { q: "Can the assistant post without asking me?", a: "Scheduling shows a preview first and needs a confirmed second step. On teams with approvals it can only send a video for review." },
       { q: "Does it cost extra?", a: "Every plan includes a monthly allowance of AI app calls. The Creator plan includes 500 a month." },
       { q: "Can it upload my videos?", a: "It can use videos already in your library, import from a Drive, Dropbox or OneDrive link, or upload a file through a signed link." },

@@ -21,6 +21,7 @@ export const ROUTES: { route: string; file: string }[] = [
   ["/feature-revenue-workflows", "feature-revenue-workflows.html"],
   ["/features", "features.html"],
   ["/instagram", "instagram.html"],
+  ["/mcp", "mcp.html"],
   ["/pricing", "pricing.html"],
   ["/tiktok", "tiktok.html"],
   ["/tools", "tools/index.html"],

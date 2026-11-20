@@ -16,6 +16,7 @@ export const routes: { path: string; lastModified: string }[] = [
   { path: "/made-for/agencies", lastModified: "2026-10-30" },
   { path: "/made-for/developers", lastModified: "2026-10-30" },
   { path: "/made-for/ai-first", lastModified: "2026-10-30" },
+  { path: "/mcp", lastModified: "2026-11-20" },
   { path: "/pricing", lastModified: "2026-09-29" },
   { path: "/tiktok", lastModified: "2026-09-29" },
   { path: "/youtube", lastModified: "2026-09-29" },
