@@ -20,7 +20,24 @@ export const postiz: ChecklistComparison = {
   },
   verdict:
     "If your week is short videos, Profaily checks each one against TikTok, Reels and Shorts before you schedule, fixes the file in one tap when a platform would refuse it, and lets your team approve videos before they go out.",
-  cells: {
+  workflow: {
+    title: "One short video, three platforms",
+    lede: "Here's what posting the same video to TikTok, Reels and Shorts looks like in each tool, going by Postiz's own docs.",
+    them: [
+      "Export the video as MP4 under 1 GB. A MOV has to be converted first.",
+      "Write it in the Global tab, then detach any channel that needs its own text.",
+      "If a platform won't take the file, re-encode it yourself, or through the API or CLI, and upload again.",
+      "Keep it as a draft and send a preview link for comments, then schedule it yourself.",
+      "A failed post gets a red ring on the calendar, with the reason in a tooltip.",
+    ],
+    us: [
+      "Upload the MP4 or MOV you already have, up to 4 GB.",
+      "Each platform gets its own tab, or keep the text in sync.",
+      "Every platform is checked and marked Ready, or told what to fix.",
+      "Too big for Instagram or the wrong frame rate for TikTok? One tap fixes it.",
+      "An Editor's video waits for a Producer or Admin to approve it.",
+    ],
+  },  cells: {
     calendar: { mark: "yes", text: "Calendar" },
     scheduling: { mark: "yes", text: "Pick a time, or a time slot" },
     queue: { mark: "yes", text: "Posting time slots per channel" },

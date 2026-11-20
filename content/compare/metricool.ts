@@ -20,7 +20,24 @@ export const metricool: ChecklistComparison = {
   },
   verdict:
     "Metricool covers a lot of ground: planning, analytics and reporting across many networks. If most of what you post is short video, Profaily is built for that one job: each video checked for TikTok, Reels and Shorts before you schedule, a one-tap fix when a platform would refuse the file, and a retry for just the platform that failed.",
-  cells: {
+  workflow: {
+    title: "One short video, three platforms",
+    lede: "Here's what posting the same video to TikTok, Reels and Shorts looks like in each tool, going by Metricool's own help center.",
+    them: [
+      "Create the post and edit it per network.",
+      "Check each network's video requirements in the help center yourself.",
+      "If a Reel fails on file size, export a smaller file and try again.",
+      "TikToks with effects, stickers or music outside the Top 100 go out as Sent, for you to finish in the TikTok app.",
+      "If one network fails, duplicate the post and untick the networks that already published.",
+    ],
+    us: [
+      "Upload once. Each platform gets its own tab, or keep the text in sync.",
+      "Every platform is checked and marked Ready, or told what to fix.",
+      "Too big for Instagram or the wrong frame rate for TikTok? One tap fixes it.",
+      "Schedule it, or send it for approval first.",
+      "If one platform fails, retry that one. The rest stay posted.",
+    ],
+  },  cells: {
     calendar: { mark: "yes", text: "Planner calendar" },
     scheduling: { mark: "yes", text: "Pick a date and time" },
     import: { mark: "yes", text: "CSV with public Drive or Dropbox links" },

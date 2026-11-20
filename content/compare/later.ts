@@ -21,7 +21,23 @@ export const later: ChecklistComparison = {
   },
   verdict:
     "If most of what you post is short video, Profaily covers the whole trip from upload to a confirmed post on TikTok, Reels and Shorts: the checks and fixes before it goes out, a live status for each platform, and a retry for the one that failed.",
-  cells: {
+  workflow: {
+    title: "A short video, posted from your phone",
+    lede: "Here's what sending one video to TikTok, Reels and Shorts looks like in each tool, going by Later's own help center.",
+    them: [
+      "Pick the profiles, write the caption, then Customize each post.",
+      "In Later's Android app, Shorts can't be scheduled; use desktop or iOS.",
+      "For Instagram and TikTok, choose Auto Publish or a notification.",
+      "For a notification post, open Instagram or TikTok at the set time and finish it there.",
+    ],
+    us: [
+      "Upload the video once, on your phone or computer.",
+      "Each platform gets its own tab, or keep the text in sync.",
+      "Every platform is checked and marked Ready, or told what to fix.",
+      "Too big for Instagram or the wrong frame rate for TikTok? One tap fixes it.",
+      "If one platform fails, retry that one. The rest stay posted.",
+    ],
+  },  cells: {
     calendar: { mark: "yes", text: "Visual calendar, drag and drop" },
     scheduling: { mark: "yes", text: "Pick a time, or a Quick Schedule slot" },
     queue: { mark: "partial", text: "Quick Schedule slots, but not for posts to several profiles" },

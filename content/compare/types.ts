@@ -23,6 +23,8 @@ export type ChecklistComparison = {
   hero: { lede: string };
   /** "The short version" under the table: one short paragraph, no gaps of Profaily's. */
   verdict: string;
+  /** The side-by-side steps above the table: the same job done in each tool. */
+  workflow: { title: string; lede: string; them: string[]; us: string[] };
   cells: Partial<Record<import("./checklist").FeatureId, Cell>>;
 };
 

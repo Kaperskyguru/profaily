@@ -20,7 +20,23 @@ export const buffer: ChecklistComparison = {
   },
   verdict:
     "If your week is short videos, Profaily brings the whole batch in from Drive, Dropbox, OneDrive or a CSV file, checks each one for TikTok, Reels and Shorts before you schedule, and fixes the file in one tap when a platform would refuse it.",
-  cells: {
+  workflow: {
+    title: "A week of short videos, three platforms",
+    lede: "Here's what getting a batch of videos onto TikTok, Reels and Shorts looks like in each tool, going by Buffer's own help center.",
+    them: [
+      "Upload each video by hand. Buffer's CSV upload takes text and single images, not video, and not YouTube.",
+      "Customize the post for each network, then schedule it.",
+      "If a network rejects the file, resize or re-export it and upload it again.",
+      "Each channel's post is separate after scheduling, so changes are made queue by queue.",
+    ],
+    us: [
+      "Import the whole batch from Google Drive, Dropbox, OneDrive or a CSV file.",
+      "Each video gets a tab per platform, or keep the text in sync.",
+      "Every platform is checked and marked Ready, or told what to fix.",
+      "Too big for Instagram or the wrong frame rate for TikTok? One tap fixes it.",
+      "Schedule it. If one platform fails, retry that one; the rest stay posted.",
+    ],
+  },  cells: {
     calendar: { mark: "yes", text: "Queue and calendar" },
     scheduling: { mark: "yes", text: "Pick a time, or the queue" },
     queue: { mark: "yes", text: "A posting schedule per channel" },
