@@ -1,5 +1,5 @@
 ---
-title: "Why a post failed, and how to fix it"
+title: "Why a video didn't publish, and how to fix it"
 description: "When a platform refuses a video, Profaily marks it Failed and shows the platform's reason. Most fixes are a reconnect, a re-export or a caption edit, then Retry."
 section: "Post videos"
 order: 2

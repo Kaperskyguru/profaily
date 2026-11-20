@@ -21,7 +21,7 @@ You'll find all your brands in **Settings → Brands**, each with the accounts i
 
 ## Add a brand {#add}
 
-1. Tap the brand name at the top left to open the brand list. On a phone, open the menu (☰) first.
+1. Tap the brand name at the top left to open the brand list. On a phone, open the menu first.
 2. Tap **Add brand** and give it a name.
 3. Connect that brand's accounts: tap the **···** next to it, then **General → Connect a channel**.
 

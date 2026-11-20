@@ -18,7 +18,7 @@ You need the **Admin** role in your Profaily team to connect an account. Any Tik
 
 ## Connect TikTok in Profaily {#connect}
 
-1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu (☰) first.
+1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu first.
 2. Tap **Brands**, then the **···** next to the brand you post for.
 3. Tap **General**, then **Connect a channel**.
 4. Next to TikTok, tap **Connect**.

@@ -31,7 +31,7 @@ Instagram renames these menus from time to time. If you can't find them, search 
 
 ## Connect Instagram in Profaily {#connect}
 
-1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu (☰) first.
+1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu first.
 2. Tap **Brands**, then the **···** next to the brand you post for.
 3. Tap **General**, then **Connect a channel**.
 4. Next to Instagram, tap **Connect**.
