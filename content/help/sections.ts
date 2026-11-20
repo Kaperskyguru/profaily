@@ -1,4 +1,5 @@
 import type { IconName } from "@/components/ui/Glyph";
+import { channels } from "@/content/channels";
 
 /**
  * Help center topics, in the order the /help index shows them (Paddle's Start → Sell → Manage → Grow → Legal, in
@@ -6,7 +7,7 @@ import type { IconName } from "@/components/ui/Glyph";
  * /help/topics/<id>.
  */
 export const HELP_SECTIONS: { name: string; id: string; icon: IconName; about: string }[] = [
-  { name: "Get started", id: "get-started", icon: "spark", about: "New to Profaily? Start your trial and connect TikTok, Instagram and YouTube." },
+  { name: "Get started", id: "get-started", icon: "spark", about: `New to Profaily? Start your trial and connect ${channels}.` },
   { name: "Post videos", id: "post-videos", icon: "calendar", about: "Schedule and publish your videos, and fix one that didn't go out." },
   { name: "Teams and brands", id: "teams-and-brands", icon: "users", about: "Bring in your team, approve videos before they post, and keep each business or client separate." },
   { name: "Plans and billing", id: "plans-and-billing", icon: "tag", about: "Your trial, your plan, payments and cancelling." },

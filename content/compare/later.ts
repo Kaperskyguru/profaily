@@ -46,6 +46,8 @@ export const later: ChecklistComparison = {
     tiktok: { mark: "yes", text: "Auto Publish or a notification" },
     instagram: { mark: "yes", text: "Auto Publish or a notification" },
     youtube: { mark: "partial", text: "Shorts only, from desktop or iOS" },
+    // Facebook: help.later.com/hc/en-us/articles/11605658940183 (checked 2026-11-20)
+    facebook: { mark: "yes", text: "Reels to Pages, on paid plans" },
     captions: { mark: "yes", text: "Customize each post" },
     ytTitle: { mark: "yes", text: "A title field" },
     images: { mark: "yes", text: "Multi-Photo carousels" },
