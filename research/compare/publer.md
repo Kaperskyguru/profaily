@@ -83,3 +83,9 @@
 - Any TikTok size limit: two help articles disagree (1 GB vs 2 GB).
 - That the MCP handles approvals or bulk actions: not mentioned.
 - That Publer adds TikTok sounds or Instagram trending audio in direct posting: its docs say it can't.
+
+## Reviewer notes (20 Nov 2026)
+- fix: left as a cross. The 2023 re-encode article is contradicted by the newer "does not alter your media files in any way" (1faw499, 02/10/2024); an over-limit video "won't be accepted" and the suggested fix is a manual edit (1gfda4c, 10/02/2025).
+- variables: Shortcodes (how-to-create-use-shortcodes-4zmqjo, 28/08/2026) are saved account-specific snippets inserted as text; Spintax picks random variations. Neither is a per-platform variable, so the cross stands.
+- ready: composer warns "if there's an issue with your post" (customize-posts article) plus the TikTok limit sync: partial.
+- Publer lists 13 supported networks (what-social-networks-are-supported-npoun1).
