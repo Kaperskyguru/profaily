@@ -6,6 +6,8 @@ import { PageHero } from "@/components/sections/shared/PageHero";
 import { CtaBand } from "@/components/sections/shared/CtaBand";
 import { Faq } from "@/components/sections/shared/Faq";
 import { CompareList } from "@/components/sections/compare/CompareList";
+import { PriceLimits } from "@/components/sections/compare/PriceLimits";
+import { PlanPrice } from "@/components/sections/shared/PlanPrice";
 import { Arrow, Glyph } from "@/components/ui/Glyph";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { OgUrl } from "@/components/ui/OgUrl";
@@ -13,6 +15,7 @@ import { links } from "@/lib/links";
 import { comparisonList, featureCount, featureGroups, listWords, rivalGaps, rivalHas } from "@/content/compare";
 import type { Cell, ChecklistComparison } from "@/content/compare";
 import { faqJsonLd } from "@/content/comparisons";
+import { rivalPricing } from "@/content/compare/pricing";
 import { plans, TRIAL_DAYS, YEARLY_SAVING } from "@/content/plans";
 
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
@@ -43,6 +46,12 @@ function questions(c: ChecklistComparison) {
     {
       q: "How much does Profaily cost?",
       a: `${creator.name} is ${creator.price.usd.m} a month for one person. ${business.name} is ${business.price.usd.m} a month for teams that approve videos before they go out, and comes with a ${TRIAL_DAYS}-day free trial. Paying yearly saves ${YEARLY_SAVING}%.`,
+      /** On the page the prices follow the visitor's region; the JSON-LD keeps the dollar answer above. */
+      shown: (
+        <p>
+          {creator.name} is <PlanPrice plan="creator" /> for one person. {business.name} is <PlanPrice plan="business" /> for teams that approve videos before they go out, and comes with a {TRIAL_DAYS}-day free trial. Paying yearly saves {YEARLY_SAVING}%.
+        </p>
+      ),
     },
   ];
 }
@@ -71,7 +80,7 @@ export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
   return (
     <PageShell>
       <OgUrl path={path} type="website" title={c.meta.title} description={c.meta.description} image={undefined} />
-      <JsonLd data={faqJsonLd(faq)} />
+      <JsonLd data={faqJsonLd(faq.map(({ q, a }) => ({ q, a })))} />
       <main className="pg-compare pg-cf">
         <PageHero
           solo
@@ -153,6 +162,8 @@ export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
           </div>
         </section>
 
+        {rivalPricing[c.slug] && <PriceLimits rival={c.rival} pricing={rivalPricing[c.slug]} />}
+
         <section className="section tight" aria-labelledby="ck-verdict">
           <div className="wrap">
             <div className="ck-verdict">
@@ -162,7 +173,7 @@ export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
           </div>
         </section>
 
-        <Faq heading={`Switching from ${c.rival}`} items={faq} id="ck-faq" />
+        <Faq heading={`Switching from ${c.rival}`} items={faq.map((f) => ({ q: f.q, a: "shown" in f && f.shown ? f.shown : f.a }))} id="ck-faq" />
 
         <section className="wrap section tight" aria-labelledby="ck-cta">
           <div className="ck-cta">

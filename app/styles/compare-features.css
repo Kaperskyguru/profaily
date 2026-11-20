@@ -142,3 +142,20 @@
 @media (max-width: 640px) {
   .pg-cf .ck-table thead th:not(:first-child) { width: 72px; font-size: 12px; }
 }
+
+/* price and limits (components/sections/compare/PriceLimits.tsx) */
+.pg-cf .pl-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.pg-cf .pl-table th, .pg-cf .pl-table td { padding: 14px 12px; border-top: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; }
+.pg-cf .pl-table thead th { border-top: 0; padding-top: 0; font-size: 13px; font-weight: 600; color: var(--muted); }
+.pg-cf .pl-table thead th.us { color: var(--mint-ink); }
+.pg-cf .pl-table th:first-child { width: 30%; padding-left: clamp(18px, 3vw, 28px); }
+.pg-cf .pl-table th:last-child, .pg-cf .pl-table td:last-child { padding-right: clamp(18px, 3vw, 28px); }
+.pg-cf .pl-table tbody th { font-weight: 600; color: var(--ink); }
+.pg-cf .pl-table td { color: var(--muted); }
+.pg-cf .pl-table td.us { color: var(--ink); background: var(--mint-soft); }
+.pg-cf .pl-price { display: block; font: 600 clamp(18px, 2vw, 22px)/1.2 var(--display); letter-spacing: -0.02em; color: var(--ink); }
+.pg-cf .pl-table td small { display: block; margin-top: 4px; font-size: 13px; color: var(--faint); }
+@media (max-width: 640px) {
+  .pg-cf .pl-table th, .pg-cf .pl-table td { padding: 12px 8px; font-size: 14px; }
+  .pg-cf .pl-table th:first-child { width: 28%; }
+}
