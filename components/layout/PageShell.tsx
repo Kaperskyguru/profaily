@@ -7,13 +7,12 @@ import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 
 /** Every page: header, the page itself (skip-link target), footer, and the small client behaviours. */
-/** `fitLine={false}` keeps the footer as it was, with no positioning line (the home page). */
-export function PageShell({ children, fitLine = true }: { children: React.ReactNode; toolsIntro?: string; spaced?: boolean | "end"; fitLine?: boolean }) {
+export function PageShell({ children }: { children: React.ReactNode; toolsIntro?: string; spaced?: boolean | "end" }) {
   return (
     <>
       <SiteHeader />
       <div id="main" tabIndex={-1}>{children}</div>
-      <SiteFooter fitLine={fitLine} />
+      <SiteFooter />
       <NavBehavior />
       <VideoModalBehavior />
       <LazyVideoBehavior />
