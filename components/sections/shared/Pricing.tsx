@@ -1,5 +1,4 @@
 "use client";
-import { FitLine } from "@/components/ui/FitLine";
 import { useState } from "react";
 import { Glyph, Icon, type IconName } from "@/components/ui/Glyph";
 import { plans, YEARLY_SAVING, TRIAL_DAYS, type Highlight, type Period } from "@/content/plans";
@@ -39,7 +38,6 @@ export function Pricing({
     <section className="wrap pricing has-grid" id={id} aria-labelledby={`${id}-h`}>
       <Tag id={`${id}-h`}>{heading}</Tag>
       <p className="lead">{lede}</p>
-      <FitLine className="center" />
       <div className="ptoggles">
         <label className="switch">
           <button type="button" role="switch" aria-checked={yearly} aria-label="Yearly billing" onClick={() => setPeriod(yearly ? "m" : "y")}>
