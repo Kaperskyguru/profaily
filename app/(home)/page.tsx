@@ -31,7 +31,7 @@ export const metadata: Metadata = pageMetadata(homeMeta);
 
 export default function HomePage() {
   return (
-    <PageShell>
+    <PageShell fitLine={false}>
       <OgUrl path="/" title={homeMeta.title} description={homeMeta.description} />
       <main>
         <HomeHero />

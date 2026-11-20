@@ -1,3 +1,4 @@
+import { FitLine } from "@/components/ui/FitLine";
 import "@/app/styles/channels.css";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaBand } from "@/components/sections/shared/CtaBand";
@@ -31,6 +32,7 @@ export function PlatformPage({ content: c }: { content: PlatformContent }) {
             {isSoon(c.key) && <span className="pill">{SOON}</span>}
             <h1>{c.hero.title}</h1>
             <p className="sub">{c.hero.lede}</p>
+            <FitLine />
             <OAuthButtons lead="Start your free trial:" />
           </div>
           <div className="wrap">

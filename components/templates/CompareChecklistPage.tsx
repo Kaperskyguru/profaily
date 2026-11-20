@@ -1,3 +1,4 @@
+import { positioning } from "@/content/positioning";
 import "@/app/styles/compare.css";
 import "@/app/styles/compare-features.css";
 import { PageShell } from "@/components/layout/PageShell";
@@ -172,9 +173,9 @@ export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
                   Profaily
                   <svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 10C48 4 120 2 197 6" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" /></svg>
                 </span>{" "}
-                for your short videos
+                if video is how you grow
               </h2>
-              <p>One upload to TikTok, Reels and Shorts, checked for each platform before it goes out.</p>
+              <p>{positioning.sub}</p>
             </div>
             <div className="ck-cta-act">
               <svg className="ck-cta-loop" viewBox="0 0 120 130" aria-hidden="true">

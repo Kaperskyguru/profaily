@@ -1,3 +1,4 @@
+import { FitLine } from "@/components/ui/FitLine";
 import "@/app/styles/blog.css";
 import { PageShell } from "@/components/layout/PageShell";
 import { Crumbs } from "@/components/sections/shared/Crumbs";
@@ -94,6 +95,7 @@ export function ArticlePage({ post }: { post: PostContent }) {
             <h1>{post.title}</h1>
             <p className="lead">{post.description}</p>
             <PostMeta post={post} byline />
+            <FitLine />
           </div>
           <div className="wrap ar-cover">
             <img src={cover} alt={`Cover image: ${post.title}`} width={1200} height={630} loading="eager" fetchPriority="high" />

@@ -1,3 +1,4 @@
+import { FitLine } from "@/components/ui/FitLine";
 import type { ReactNode } from "react";
 import { Arrow } from "@/components/ui/Glyph";
 import { links } from "@/lib/links";
@@ -17,11 +18,14 @@ export function CtaBand({
   lede = `Plan and publish across ${channels}. Keep each channel’s details in view, then follow every video from one workspace.`,
   primary = { href: links.register, label: "Check out Profaily" },
   secondary,
+  fitLine = true,
 }: {
   heading?: string;
   lede?: ReactNode;
   primary?: { href: string; label: string };
   secondary?: { href: string; label: string };
+  /** False leaves out the positioning line (pricing page). */
+  fitLine?: boolean;
 }) {
   return (
     <section className="wrap section tight" aria-label="Get started">
@@ -32,6 +36,7 @@ export function CtaBand({
           </p>
           <h2>{heading}</h2>
           {lede && <p className="lead">{lede}</p>}
+          {fitLine && <FitLine />}
           <div className="actions">
             <a className="btn btn-mint" href={primary.href}>{primary.label} <Arrow /></a>
             {secondary && <a className="btn btn-ghost" href={secondary.href}>{secondary.label}</a>}

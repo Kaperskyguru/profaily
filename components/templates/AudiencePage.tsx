@@ -1,3 +1,4 @@
+import { FitLine } from "@/components/ui/FitLine";
 import "@/app/styles/channels.css";
 import { PageShell } from "@/components/layout/PageShell";
 import { McpCard } from "@/components/sections/home/McpCard";
@@ -23,6 +24,7 @@ export function AudiencePage({ content: c }: { content: AudienceContent }) {
             <h1>{c.hero.title}</h1>
             <p className="chp-tag">{c.hero.tagline}</p>
             <p className="sub">{c.hero.lede}</p>
+            <FitLine />
             <OAuthButtons lead="Start your free trial:" />
           </div>
           <div className="wrap">

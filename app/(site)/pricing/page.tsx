@@ -31,7 +31,7 @@ function Value({ v }: { v: Cell }) {
 
 export default function Page() {
   return (
-    <PageShell>
+    <PageShell fitLine={false}>
       <OgUrl path={pricingMeta.path} />
       <JsonLd data={faqJsonLd(pricingFaq)} />
       <main className="pg-pricing">
@@ -112,6 +112,7 @@ export default function Page() {
           heading="Try Business free for 14 days"
           lede="Connect your channels, schedule a week of videos, and invite your team before you pay."
           secondary={{ href: "/contact", label: "Questions? Contact us" }}
+          fitLine={false}
         />
       </main>
     </PageShell>

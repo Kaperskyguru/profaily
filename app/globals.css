@@ -1034,3 +1034,11 @@ a.tile-card .more-link { margin-top: 6px; text-decoration: none; }
   .hero .frame { animation: none !important; }
   .rv.pre { opacity: 1; transform: none; }
 }
+
+/* Positioning line (components/ui/FitLine.tsx), on every page */
+.fit-line { display: flex; align-items: flex-start; gap: 10px; max-width: 640px; margin: 18px 0 0; font-size: 15.5px; line-height: 1.5; color: var(--muted); text-align: left; }
+.fit-line b { font-weight: 600; color: var(--ink); }
+.fit-line .fit-dot { flex: none; width: 10px; height: 10px; margin-top: 7px; border-radius: 50%; background: #8dd796; box-shadow: 0 0 0 4px rgba(141, 215, 150, 0.25); }
+.solo .fit-line, .hero .fit-line, .fit-line.center { margin-left: auto; margin-right: auto; width: fit-content; }
+.fit-line.on-dark { color: rgba(255, 255, 255, 0.78); }
+.fit-line.on-dark b { color: #fff; }
