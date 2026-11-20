@@ -27,7 +27,7 @@ Videos already posted stay on TikTok, Instagram and YouTube. Delete those on eac
 
 ## Delete it {#delete}
 
-1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu (☰) first.
+1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu first.
 2. Tap **Your user**. **Delete account** is at the bottom, under **Danger zone**.
 
 ![Settings, Your user, with the Danger zone at the bottom and the Delete account button](/assets/help/delete-your-account/your-user.jpg)

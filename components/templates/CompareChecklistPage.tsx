@@ -3,11 +3,48 @@ import "@/app/styles/compare-features.css";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHero } from "@/components/sections/shared/PageHero";
 import { CtaBand } from "@/components/sections/shared/CtaBand";
+import { Faq } from "@/components/sections/shared/Faq";
+import { CompareList } from "@/components/sections/compare/CompareList";
 import { Arrow, Glyph } from "@/components/ui/Glyph";
+import { JsonLd } from "@/components/ui/JsonLd";
 import { OgUrl } from "@/components/ui/OgUrl";
 import { links } from "@/lib/links";
-import { comparisonList, featureGroups } from "@/content/compare";
+import { comparisonList, featureCount, featureGroups, listWords, rivalGaps } from "@/content/compare";
 import type { Cell, ChecklistComparison } from "@/content/compare";
+import { faqJsonLd } from "@/content/comparisons";
+import { plans, TRIAL_DAYS, YEARLY_SAVING } from "@/content/plans";
+
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
+/**
+ * The questions under "The short version", each answered only from this page's own data (the rival's
+ * cells and the plans), so they never say more than the table does. Also emitted as FAQPage JSON-LD.
+ */
+function questions(c: ChecklistComparison) {
+  const gaps = rivalGaps(c);
+  const lower = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
+  const channel = (id: "tiktok" | "instagram" | "youtube", name: string) => {
+    const cell = c.cells[id];
+    return cell && cell.mark !== "no" ? `${name}: ${lower(cell.text)}` : `${name}: not shown in its docs`;
+  };
+  const [creator, business] = plans;
+  return [
+    {
+      q: `What does Profaily do that ${c.rival} doesn't?`,
+      a: gaps.length
+        ? `${c.rival}'s own website and help center, checked ${c.checked}, don't show ${gaps.length} of the ${featureCount} Profaily features on this page: ${listWords(gaps.map((g) => lower(g.label)))}.`
+        : `${c.rival}'s own website and help center, checked ${c.checked}, show all ${featureCount} Profaily features on this page. The difference is in how each one works, set out row by row in the table.`,
+    },
+    {
+      q: `Does ${c.rival} publish to TikTok, Instagram Reels and YouTube Shorts?`,
+      a: `${[channel("tiktok", "TikTok"), channel("instagram", "Instagram"), channel("youtube", "YouTube")].join(". ")}. Profaily publishes straight to all three, and to longer YouTube videos too.`,
+    },
+    {
+      q: "How much does Profaily cost?",
+      a: `${creator.name} is ${creator.price.usd.m} a month for one person. ${business.name} is ${business.price.usd.m} a month for teams that approve videos before they go out, and comes with a ${TRIAL_DAYS}-day free trial. Paying yearly saves ${YEARLY_SAVING}%.`,
+    },
+  ];
+}
 
 /** Shown as a tick when the tool has it (fully or in part), a cross when its docs don't show it. */
 function Tick({ cell, who }: { cell: Cell | undefined; who: string }) {
@@ -29,14 +66,15 @@ function Tick({ cell, who }: { cell: Cell | undefined; who: string }) {
 /** /compare/<slug>, checklist layout: every Profaily feature, with the rival's cell for each. */
 export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
   const path = `/compare/${c.slug}`;
+  const faq = questions(c);
   return (
     <PageShell>
       <OgUrl path={path} type="website" title={c.meta.title} description={c.meta.description} image={undefined} />
+      <JsonLd data={faqJsonLd(faq)} />
       <main className="pg-compare pg-cf">
         <PageHero
           solo
           crumbs={[{ href: "/compare", label: "Compare" }, { label: `Profaily vs ${c.rival}` }]}
-          pill={`Profaily vs ${c.rival}`}
           title={<>Looking for a <em className="cf-em">{c.rival} alternative</em>?</>}
           lede={c.hero.lede}
           secondary={{ href: "#features", label: "Compare features" }}
@@ -47,7 +85,7 @@ export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
           <div className="wrap">
             <img className="cf-hero-shot" src="/assets/compare/hero-schedule.jpg" alt="Profaily with a short video open and the Schedule or publish window showing TikTok, Instagram and YouTube each marked Ready" width={1600} height={1092} />
             <p className="cf-posts-to">
-              <span>Posts to</span>
+              <span>Publishes to</span>
               {(["tiktok", "instagram", "youtube"] as const).map((p) => <Glyph key={p} name={p} id={`cf-${p}`} />)}
             </p>
           </div>
@@ -82,24 +120,28 @@ export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
             <div className="ck-groups">
               {featureGroups.map((g) => {
                 return (
-                  <section className="ck-group" key={g.title} aria-labelledby={`ck-${g.title}`}>
+                  <section className="ck-group" key={g.title} aria-labelledby={`ck-${slug(g.title)}`}>
                     <header className="ck-group-head">
-                      <h3 id={`ck-${g.title}`}>{g.title}</h3>
+                      <h3 id={`ck-${slug(g.title)}`}>{g.title}</h3>
                     </header>
-                    <div className="ck-head-row" aria-hidden="true">
-                      <span />
-                      <span className="us">Profaily</span>
-                      <span>{c.rival}</span>
-                    </div>
-                    <ul className="ck-rows">
-                      {g.rows.map((r) => (
-                        <li className="ck-row" key={r.id}>
-                          <span className="ck-label">{r.label}<small>{r.us}</small></span>
-                          <Tick cell={{ mark: "yes", text: r.us }} who="Profaily" />
-                          <Tick cell={c.cells[r.id]} who={c.rival} />
-                        </li>
-                      ))}
-                    </ul>
+                    <table className="ck-table">
+                      <thead>
+                        <tr>
+                          <th scope="col"><span className="sr-only">Feature</span></th>
+                          <th scope="col" className="us">Profaily</th>
+                          <th scope="col">{c.rival}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {g.rows.map((r) => (
+                          <tr key={r.id}>
+                            <th scope="row" className="ck-label">{r.label}<small>{r.us}</small></th>
+                            <td><Tick cell={{ mark: "yes", text: r.us }} who="Profaily" /></td>
+                            <td><Tick cell={c.cells[r.id]} who={c.rival} /></td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </section>
                 );
               })}
@@ -117,6 +159,8 @@ export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
             </div>
           </div>
         </section>
+
+        <Faq heading={`Switching from ${c.rival}`} items={faq} id="ck-faq" />
 
         <section className="wrap section tight" aria-labelledby="ck-cta">
           <div className="ck-cta">
@@ -145,15 +189,7 @@ export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
             <div className="sec-head">
               <h2 id="ck-more">More comparisons</h2>
             </div>
-            <div className="grid-3">
-              {comparisonList.filter((o) => o.slug !== c.slug).map((o) => (
-                <a className="tile-card" href={`/compare/${o.slug}`} key={o.slug}>
-                  <h3 className="cmp-hub-h">{`Profaily vs ${o.rival}`}</h3>
-                  <p>{o.meta.description}</p>
-                  <span className="more-link">See the comparison <Arrow /></span>
-                </a>
-              ))}
-            </div>
+            <CompareList items={comparisonList.filter((o) => o.slug !== c.slug)} level="h3" />
           </div>
         </section>
 

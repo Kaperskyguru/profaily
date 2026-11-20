@@ -19,7 +19,7 @@ Teams are part of the **Business** plan, which has room for **5 people**. Only a
 
 ## Invite someone {#invite}
 
-1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu (☰) first.
+1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu first.
 2. Tap **Team**, then **Invite**.
 
 ![Settings, Team, listing the team's people with their roles, and the Invite button](/assets/help/invite-your-team/team.jpg)

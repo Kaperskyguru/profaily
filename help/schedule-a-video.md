@@ -61,7 +61,7 @@ If you're an **Editor**, you'll see **Send for review** instead. A Producer or A
 
 ## After it's sent {#after}
 
-Scheduled videos wait under **Queue**, grouped by day, and videos that went out are under **Posted**. They're the tabs above your list of videos. On a phone, open the menu (☰) first.
+Scheduled videos wait under **Queue**, grouped by day, and videos that went out are under **Posted**. They're the tabs above your list of videos. On a phone, open the menu first.
 
 ![The Queue tab with three scheduled videos grouped by day, the open slots with Use slot buttons, and a message saying Scheduled for Tomorrow 09:00](/assets/help/schedule-a-video/queue.jpg)
  If a platform refuses a video, it's marked **Failed** and you get an email with the reason. [Fix a failed post](/help/why-a-post-failed).

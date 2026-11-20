@@ -19,7 +19,7 @@ Everything about your plan is in **Settings → Billing**. In a team, the person
 
 ## Change your plan {#change}
 
-1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu (☰) first.
+1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu first.
 2. Tap **Billing**. Your plan, your next payment and how much of your plan you're using are at the top.
 
 3. Tap **View all plans**.

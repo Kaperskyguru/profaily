@@ -71,3 +71,27 @@
   .pg-compare .fr .sh .stage4 .fan4 .ph { width: 74px; }
 }
 .pg-compare .cmp-hub-h { font-size: 22px; letter-spacing: -0.02em; line-height: 1.2; }
+
+/* comparison rows (components/sections/compare/CompareList.tsx): hub and "More comparisons" */
+.pg-compare .cmp-list-rows { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
+.pg-compare .cmp-row { display: grid; grid-template-columns: minmax(0, 17em) minmax(0, 1fr) 13em 40px; align-items: center; gap: 20px clamp(20px, 3vw, 48px); padding: clamp(22px, 2.6vw, 32px) clamp(20px, 3vw, 36px); border-radius: 24px; background: var(--shell); transition: background-color 0.2s var(--out); }
+.pg-compare .cmp-row:hover { background: var(--shell-2); }
+.pg-compare .cmp-row:focus-visible { outline: 3px solid var(--forest); outline-offset: 3px; }
+.pg-compare .cmp-row-h { font: 600 clamp(24px, 2.4vw, 32px)/1.1 var(--display); letter-spacing: -0.03em; color: var(--ink); }
+.pg-compare .cmp-row-gaps { margin: 0; font-size: 16px; line-height: 1.5; color: var(--ink); }
+.pg-compare .cmp-row-count { display: grid; gap: 2px; margin: 0; text-align: right; }
+.pg-compare .cmp-row-count b { font: 600 clamp(24px, 2.4vw, 32px)/1 var(--display); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: var(--ink); }
+.pg-compare .cmp-row-count span { font-size: 14px; color: var(--muted); }
+.pg-compare .cmp-row-go { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--forest); color: var(--on-forest); }
+.pg-compare .cmp-row-go .ar { transition: transform 0.2s var(--out); }
+.pg-compare .cmp-row:hover .cmp-row-go .ar { transform: translateX(3px); }
+@media (max-width: 860px) {
+  .pg-compare .cmp-row { grid-template-columns: minmax(0, 1fr) 40px; }
+  .pg-compare .cmp-row-h { grid-column: 1; }
+  .pg-compare .cmp-row-go { grid-column: 2; grid-row: 1; }
+  .pg-compare .cmp-row-gaps, .pg-compare .cmp-row-count { grid-column: 1 / -1; }
+  .pg-compare .cmp-row-count { display: flex; align-items: baseline; gap: 10px; text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pg-compare .cmp-row, .pg-compare .cmp-row-go .ar { transition: none; }
+}

@@ -23,7 +23,7 @@ There are two ways to stop Profaily posting to an account, and you only need one
 
 You need the **Admin** role in your Profaily team.
 
-1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu (☰) first.
+1. In Profaily, open your account menu (your name, bottom left) and choose **Settings**. On a phone, open the menu first.
 2. Tap **Brands**, then the **···** next to the brand.
 3. Tap **General**. Your connected accounts are listed under **Channels**.
 4. Tap the bin icon next to the account. **Disconnect** and **Cancel** appear in its place. Tap **Disconnect**.
