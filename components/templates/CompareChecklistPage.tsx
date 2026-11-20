@@ -1,7 +1,8 @@
 import "@/app/styles/compare-features.css";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHero } from "@/components/sections/shared/PageHero";
-import { Arrow } from "@/components/ui/Glyph";
+import { CtaBand } from "@/components/sections/shared/CtaBand";
+import { Arrow, Glyph } from "@/components/ui/Glyph";
 import { OgUrl } from "@/components/ui/OgUrl";
 import { links } from "@/lib/links";
 import { featureGroups } from "@/content/compare";
@@ -35,15 +36,27 @@ export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
           solo
           crumbs={[{ href: "/compare", label: "Compare" }, { label: `Profaily vs ${c.rival}` }]}
           pill={`Profaily vs ${c.rival}`}
-          title={<>Profaily vs <em className="cf-em">{c.rival}</em></>}
+          title={<>Looking for a <em className="cf-em">{c.rival} alternative</em>?</>}
           lede={c.hero.lede}
-          secondary={{ href: "#features", label: "See every feature" }}
+          secondary={{ href: "#features", label: "Compare features" }}
           note={`${c.rival} details checked ${c.checked}.`}
         />
 
+        <section className="cf-hero-media" aria-label="Profaily">
+          <div className="wrap">
+            <img className="cf-hero-shot" src="/assets/compare/hero-schedule.jpg" alt="Profaily with a short video open and the Schedule or publish window showing TikTok, Instagram and YouTube each marked Ready" width={1600} height={1092} />
+            <p className="cf-posts-to">
+              <span>Posts to</span>
+              {(["tiktok", "instagram", "youtube"] as const).map((p) => <Glyph key={p} name={p} id={`cf-${p}`} />)}
+            </p>
+          </div>
+        </section>
+
         <section className="section tight" id="features" aria-labelledby="ck-score">
           <div className="wrap">
-            <h2 id="ck-score" className="sr-only">{`Profaily vs ${c.rival}, feature by feature`}</h2>
+            <div className="sec-head">
+              <h2 id="ck-score">{`Profaily vs ${c.rival}, feature by feature`}</h2>
+            </div>
 
             <div className="ck-groups">
               {featureGroups.map((g) => {
@@ -75,6 +88,15 @@ export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
           </div>
         </section>
 
+        <section className="section tight" aria-labelledby="ck-verdict">
+          <div className="wrap">
+            <div className="ck-verdict">
+              <h2 id="ck-verdict">The short version</h2>
+              <p>{c.verdict}</p>
+            </div>
+          </div>
+        </section>
+
         <section className="wrap section tight" aria-labelledby="ck-cta">
           <div className="ck-cta">
             <div className="ck-cta-copy">
@@ -97,6 +119,7 @@ export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
             </div>
           </div>
         </section>
+        <CtaBand />
       </main>
     </PageShell>
   );

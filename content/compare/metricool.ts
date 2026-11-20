@@ -15,8 +15,11 @@ export const metricool: ChecklistComparison = {
   },
   checked: "November 19, 2026",
   hero: {
-    lede: "Every feature on our pricing page, next to what Metricool's own docs say it does.",
+    lede:
+      "Profaily is built for one job: getting each short video onto TikTok, Instagram Reels and YouTube the way each platform wants it, and telling you straight when one didn't make it.",
   },
+  verdict:
+    "Metricool covers a lot of ground: planning, analytics and reporting across many networks. If most of what you post is short video, Profaily is built for that one job: each video checked for TikTok, Reels and Shorts before you schedule, a one-tap fix when a platform would refuse the file, and a retry for just the platform that failed.",
   cells: {
     calendar: { mark: "yes", text: "Planner calendar" },
     scheduling: { mark: "yes", text: "Pick a date and time" },

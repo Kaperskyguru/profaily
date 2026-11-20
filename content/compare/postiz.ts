@@ -15,8 +15,11 @@ export const postiz: ChecklistComparison = {
   },
   checked: "November 20, 2026",
   hero: {
-    lede: "Every feature on our pricing page, next to what Postiz's own docs say it does.",
+    lede:
+      "Postiz posts to a long list of networks, and you can run it on your own server. Profaily is for people whose week is short videos. It checks each one against TikTok, Instagram and YouTube before you schedule, and fixes the file when a platform would refuse it.",
   },
+  verdict:
+    "If your week is short videos, Profaily checks each one against TikTok, Reels and Shorts before you schedule, fixes the file in one tap when a platform would refuse it, and lets your team approve videos before they go out.",
   cells: {
     calendar: { mark: "yes", text: "Calendar" },
     scheduling: { mark: "yes", text: "Pick a time, or a time slot" },

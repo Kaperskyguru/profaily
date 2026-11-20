@@ -21,6 +21,8 @@ export type ChecklistComparison = {
   meta: { title: string; description: string };
   checked: string;
   hero: { lede: string };
+  /** "The short version" under the table: one short paragraph, no gaps of Profaily's. */
+  verdict: string;
   cells: Partial<Record<import("./checklist").FeatureId, Cell>>;
 };
 

@@ -15,8 +15,11 @@ export const buffer: ChecklistComparison = {
   },
   checked: "November 20, 2026",
   hero: {
-    lede: "Every feature on our pricing page, next to what Buffer's own docs say it does.",
+    lede:
+      "Buffer is a good queue for every kind of post. Profaily does one thing: it gets short videos onto TikTok, Instagram Reels and YouTube in batches, each one checked against each platform before it's scheduled.",
   },
+  verdict:
+    "If your week is short videos, Profaily brings the whole batch in from Drive, Dropbox, OneDrive or a CSV file, checks each one for TikTok, Reels and Shorts before you schedule, and fixes the file in one tap when a platform would refuse it.",
   cells: {
     calendar: { mark: "yes", text: "Queue and calendar" },
     scheduling: { mark: "yes", text: "Pick a time, or the queue" },

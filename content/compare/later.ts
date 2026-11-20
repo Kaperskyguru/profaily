@@ -16,8 +16,11 @@ export const later: ChecklistComparison = {
   },
   checked: "November 20, 2026",
   hero: {
-    lede: "Every feature on our pricing page, next to what Later's own help center says it does.",
+    lede:
+      "Later plans your feed on a visual calendar across many networks. Profaily does one job: it takes a short video to TikTok, Reels and Shorts, and checks it against each before you schedule.",
   },
+  verdict:
+    "If most of what you post is short video, Profaily covers the whole trip from upload to a confirmed post on TikTok, Reels and Shorts: the checks and fixes before it goes out, a live status for each platform, and a retry for the one that failed.",
   cells: {
     calendar: { mark: "yes", text: "Visual calendar, drag and drop" },
     scheduling: { mark: "yes", text: "Pick a time, or a Quick Schedule slot" },

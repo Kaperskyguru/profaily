@@ -15,8 +15,11 @@ export const repurpose: ChecklistComparison = {
   },
   checked: "November 20, 2026",
   hero: {
-    lede: "Every feature on our pricing page, next to what Repurpose.io's own docs say it does.",
+    lede:
+      "Repurpose.io moves videos along workflows, one per platform. Profaily starts with the file on your phone or computer. You upload it once, write it up for each platform in one place, and schedule all three together.",
   },
+  verdict:
+    "If you want to take a new video from your phone to TikTok, Reels and Shorts in one go, Profaily gives you one upload, one place to write each caption, one schedule, and a check for each platform before it goes out.",
   cells: {
     calendar: { mark: "yes", text: "Month, week and day" },
     scheduling: { mark: "yes", text: "A set time, or auto publish slots" },
