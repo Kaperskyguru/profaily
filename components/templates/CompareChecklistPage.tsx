@@ -9,7 +9,7 @@ import { Arrow, Glyph } from "@/components/ui/Glyph";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { OgUrl } from "@/components/ui/OgUrl";
 import { links } from "@/lib/links";
-import { comparisonList, featureCount, featureGroups, listWords, rivalGaps } from "@/content/compare";
+import { comparisonList, featureCount, featureGroups, listWords, rivalGaps, rivalHas } from "@/content/compare";
 import type { Cell, ChecklistComparison } from "@/content/compare";
 import { faqJsonLd } from "@/content/comparisons";
 import { plans, TRIAL_DAYS, YEARLY_SAVING } from "@/content/plans";
@@ -133,7 +133,8 @@ export function CompareChecklistPage({ c }: { c: ChecklistComparison }) {
                         </tr>
                       </thead>
                       <tbody>
-                        {g.rows.map((r) => (
+                        {/* Rows the rival has (tick) first, then the ones it doesn't (cross); each side keeps its order. */}
+                        {[...g.rows.filter((r) => rivalHas(c, r.id)), ...g.rows.filter((r) => !rivalHas(c, r.id))].map((r) => (
                           <tr key={r.id}>
                             <th scope="row" className="ck-label">{r.label}<small>{r.us}</small></th>
                             <td><Tick cell={{ mark: "yes", text: r.us }} who="Profaily" /></td>
