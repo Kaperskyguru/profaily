@@ -5,12 +5,13 @@ import { Crumbs } from "@/components/sections/shared/Crumbs";
 import { HelpContact } from "@/components/templates/HelpArticlePage";
 import { Arrow, Glyph } from "@/components/ui/Glyph";
 import { OgUrl } from "@/components/ui/OgUrl";
+import { channels, FACEBOOK_LIVE } from "@/content/channels";
 import { HELP_SECTIONS, helpList, helpPages } from "@/content/help";
 import { pageMetadata } from "@/lib/metadata";
 
 const meta = {
   title: "Help center | Profaily",
-  description: "Step-by-step help for Profaily: connect TikTok, Instagram and YouTube, schedule your videos, fix one that didn't publish, bring in your team and manage your plan.",
+  description: `Step-by-step help for Profaily: connect ${channels}, schedule your videos, fix one that didn't publish, bring in your team and manage your plan.`,
   path: "/help",
 };
 
@@ -21,6 +22,7 @@ const PLATFORMS = [
   { glyph: "tiktok", name: "TikTok", line: "Any TikTok account, approved for public posting", slug: "connect-tiktok" },
   { glyph: "instagram", name: "Instagram", line: "A Business or Creator account", slug: "connect-instagram" },
   { glyph: "youtube", name: "YouTube", line: "Your channel, for Shorts and longer videos", slug: "connect-youtube" },
+  ...(FACEBOOK_LIVE ? [{ glyph: "facebook", name: "Facebook", line: "Your Pages, for Reels and longer videos", slug: "connect-facebook" } as const] : []),
 ] as const;
 
 /** Answers people look for most, linked straight from the bottom of the page. */

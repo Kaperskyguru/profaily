@@ -45,6 +45,8 @@ export const postiz: ChecklistComparison = {
     tiktok: { mark: "yes", text: "Direct post or upload" },
     instagram: { mark: "yes", text: "Yes" },
     youtube: { mark: "yes", text: "Yes" },
+    // Facebook: docs.postiz.com/public-api/providers/facebook (checked 2026-11-20)
+    facebook: { mark: "yes", text: "Page posts and videos" },
     captions: { mark: "yes", text: "Global tab, or detach a channel" },
     ytTitle: { mark: "yes", text: "A title setting" },
     images: { mark: "yes", text: "Yes" },

@@ -1,12 +1,15 @@
 /**
  * Every Profaily feature a compare page lists, in the order the pricing page uses (content/pricing.tsx
  * `compareSections`), plus the publishing checks that run on every plan. One list for every rival, so
- * the rows never drift from what Profaily actually sells. Facebook stays out until it is live.
+ * the rows never drift from what Profaily actually sells. The Facebook row shows only while the site's
+ * Facebook switch is on (content/channels.ts FACEBOOK_LIVE).
  */
+import { FACEBOOK_LIVE } from "../channels";
+
 export type FeatureId =
   | "calendar" | "scheduling" | "queue" | "drafts" | "import"
-  | "tiktok" | "instagram" | "youtube"
-  | "captions" | "ytTitle" | "variables" | "images"
+  | "tiktok" | "instagram" | "youtube" | "facebook"
+  | "captions" | "ytTitle" | "variables" | "images" | "ytImages"
   | "ready" | "fix" | "status" | "email" | "retry"
   | "team" | "roles" | "approvals" | "brandAccess"
   | "mcp" | "campaigns";
@@ -31,6 +34,7 @@ export const featureGroups: FeatureGroup[] = [
       { id: "tiktok", label: "TikTok", us: "Published straight to TikTok" },
       { id: "instagram", label: "Instagram Reels", us: "Published straight to Instagram" },
       { id: "youtube", label: "YouTube", us: "Shorts, and longer videos too" },
+      ...(FACEBOOK_LIVE ? [{ id: "facebook" as const, label: "Facebook Pages", us: "Reels and longer videos, to each Page" }] : []),
     ],
   },
   {
@@ -40,6 +44,7 @@ export const featureGroups: FeatureGroup[] = [
       { id: "ytTitle", label: "YouTube title", us: "Its own title, or the caption's first sentence" },
       { id: "variables", label: "Caption variables", us: "Values that change per platform" },
       { id: "images", label: "Images and carousels", us: "As a carousel or one post per file" },
+      { id: "ytImages", label: "Images to YouTube as a video", us: "One tap turns them into a sliding video" },
     ],
   },
   {

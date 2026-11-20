@@ -3,7 +3,8 @@
  * own switches are META_APPROVED, INSTAGRAM_APPROVED and FACEBOOK_APPROVED).
  * - NEXT_PUBLIC_META_LIVE=1 turns both back into live channels (the original copy).
  * - NEXT_PUBLIC_INSTAGRAM_LIVE=1 or NEXT_PUBLIC_FACEBOOK_LIVE=1 turns on one.
- * The blog post "post-to-tiktok-reels-shorts-at-the-same-time" is plain markdown and needs its own edit.
+ * Plain markdown (blog posts, help pages) does not read these switches; help/connect-facebook.md and the
+ * Profaily paragraph in "post-to-tiktok-reels-shorts-at-the-same-time" assume Facebook is live.
  */
 export const META_LIVE = process.env.NEXT_PUBLIC_META_LIVE === "1";
 export const INSTAGRAM_LIVE = META_LIVE || process.env.NEXT_PUBLIC_INSTAGRAM_LIVE === "1";

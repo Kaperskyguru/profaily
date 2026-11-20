@@ -45,6 +45,8 @@ export const repurpose: ChecklistComparison = {
     tiktok: { mark: "yes", text: "Yes" },
     instagram: { mark: "yes", text: "Yes" },
     youtube: { mark: "yes", text: "Videos and Shorts" },
+    // Facebook: support.repurpose.io/en/article/how-to-connect-your-facebook-account-in-repurpose-e833we (checked 2026-11-20)
+    facebook: { mark: "yes", text: "Reels to Pages, through a workflow" },
     captions: { mark: "yes", text: "Edit each scheduled post" },
     ytTitle: { mark: "yes", text: "Edit the title" },
     images: { mark: "yes", text: "Photos and carousels" },
