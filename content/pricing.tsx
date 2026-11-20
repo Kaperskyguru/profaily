@@ -46,6 +46,7 @@ export const compareSections: CompareSection[] = [
       both("A caption per channel", "chat", "Write one caption, then change it for any channel."),
       both("Titles and variables", "edit", "Add the title YouTube needs, and variables whose value differs per channel."),
       both("Images as well as videos", "image", "Distribute images too, as a carousel or one per file."),
+      both("Images to YouTube as a video", "youtube", "YouTube takes no images, so one tap turns them into a sliding video for it."),
       { ...both("Text-only to Facebook", "text", "Send text with no file to a Facebook Page."), ...(isSoon("facebook") ? { note: SOON } : {}) },
     ],
   },

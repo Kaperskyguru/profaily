@@ -44,9 +44,13 @@ export const buffer: ChecklistComparison = {
     tiktok: { mark: "yes", text: "Automatic or Notify Me" },
     instagram: { mark: "yes", text: "Automatic or Notify Me" },
     youtube: { mark: "yes", text: "Shorts" },
+    // Facebook: support.buffer.com/article/555-using-facebook-with-buffer (checked 2026-11-20)
+    facebook: { mark: "yes", text: "Pages, Reels included" },
     captions: { mark: "yes", text: "Customize for each network" },
     ytTitle: { mark: "yes", text: "Filled from the caption's first line" },
     images: { mark: "yes", text: "Carousels" },
+    // support.buffer.com/article/562-using-youtube-shorts-with-buffer: YouTube posts need a video attached (checked 2026-11-20)
+    ytImages: { mark: "no", text: "YouTube posts need a video" },
     ready: { mark: "yes", text: "Flags some files in the composer" },
     status: { mark: "yes", text: "Failed posts tagged with the reason" },
     email: { mark: "yes", text: "Email to the account owner" },

@@ -44,6 +44,8 @@ export const metricool: ChecklistComparison = {
     tiktok: { mark: "yes", text: "Yes" },
     instagram: { mark: "yes", text: "Yes" },
     youtube: { mark: "yes", text: "Yes" },
+    // Facebook: help.metricool.com/schedule-and-publish-on-facebook-ycu1b (checked 2026-11-20)
+    facebook: { mark: "yes", text: "Posts, Reels and Stories on Pages" },
     captions: { mark: "yes", text: "Edit per network" },
     ytTitle: { mark: "yes", text: "A title field" },
     status: { mark: "yes", text: "Sent or Published per network" },
