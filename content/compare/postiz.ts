@@ -55,6 +55,7 @@ export const postiz: ChecklistComparison = {
     status: { mark: "yes", text: "Red ring with the platform's reason" },
     email: { mark: "yes", text: "Failure emails, a settings toggle" },
     retry: { mark: "partial", text: "Reschedule the failed channel yourself" },
+    approvals: { mark: "partial", text: "Drafts held for sign-off via a preview link" },
     team: { mark: "yes", text: "Team plan and up" },
     roles: { mark: "yes", text: "User, Admin and Super Admin" },
     brandAccess: { mark: "partial", text: "Separate organisations per brand" },

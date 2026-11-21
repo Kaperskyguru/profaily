@@ -24,6 +24,7 @@ None of the docs pages show an updated date.
 - Facebook Page: post (videos can take a title) or story. (public-api/providers/facebook)
 - Email notifications: separate toggles for success emails, failure emails and streak reminders. (general/settings/overview)
 - No automatic retry: "fix the cause and reschedule". A channel that already published stays published; dragging a card moves only that channel. (general/composer/scheduling; general/channels/manage; general/calendar/moving-posts)
+- Approvals page is titled "Sharing a post for approval": "Save as Draft so nothing can publish while it is under review", get sign-off through the preview link, then switch drafts to scheduled. Marked partial (manual version).
 - Approvals: "there is no 'approved' flag that blocks publishing"; drafts plus a public preview link people can comment on. (general/approvals)
 - Preview comments added in v2.25.0 (02 Oct 2026). (GitHub releases v2.25.0)
 - Team roles in docs: User, Admin, Super Admin, organisation-wide; per-channel permissions not documented. Homepage lists Admin and Member. (general/settings/team; postiz.com/)
