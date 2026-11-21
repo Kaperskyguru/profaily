@@ -1,9 +1,9 @@
 {
-  "lastRun": "2026-11-20",
+  "lastRun": "2026-11-21",
   "lastFeatureScan": {
     "frontend": null,
     "backend": null,
-    "landing": "559d99b"
+    "landing": "d4ffd1d"
   },
-  "notes": "First run. profaily-frontend and profaily-backend could not be attached, so their scan baseline is unset; the next run that can attach them should start from merges after 2026-11-20."
+  "notes": "profaily-frontend and profaily-backend could not be attached on 2026-11-20 or 2026-11-21 (no add_repo in the scheduled session), so their scan baseline is unset; the next run that can attach them should start from merges after 2026-11-20."
 }
