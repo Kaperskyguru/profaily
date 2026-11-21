@@ -9,8 +9,8 @@ Status: `queued`, `pr-open #N`, `live`, `skipped: reason`.
 |---|---|---|---|
 | Metricool | metricool-alternative | live | November 20, 2026 |
 | Buffer | buffer-alternative | live | November 20, 2026 |
-| Postiz | postiz-alternative | live | November 20, 2026 (pre-agent) |
-| Repurpose.io | repurpose-alternative | live | November 20, 2026 (pre-agent) |
+| Postiz | postiz-alternative | live | November 21, 2026 |
+| Repurpose.io | repurpose-io-alternative | live | November 21, 2026 |
 | Later | later-alternative | live | November 20, 2026 (pre-agent) |
 | Hootsuite | hootsuite-alternative | live | November 20, 2026 (pre-agent) |
 | Publer | publer-alternative | live | November 20, 2026 |
