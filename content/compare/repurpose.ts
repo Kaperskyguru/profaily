@@ -45,7 +45,7 @@ export const repurpose: ChecklistComparison = {
     tiktok: { mark: "yes", text: "Yes" },
     instagram: { mark: "yes", text: "Yes" },
     youtube: { mark: "yes", text: "Videos and Shorts" },
-    // Facebook: support.repurpose.io/en/article/supported-platforms-roles-and-media-types-j22278 (checked 2026-11-21)
+    // Facebook: support.repurpose.io/en/article/facebook-connection-faq-troubleshooting-guide-40b3ec (checked 2026-11-21)
     facebook: { mark: "yes", text: "Reels, Stories and images to Pages" },
     captions: { mark: "yes", text: "Edit each scheduled post" },
     ytTitle: { mark: "yes", text: "Edit the title" },

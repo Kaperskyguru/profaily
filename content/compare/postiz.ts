@@ -26,7 +26,7 @@ export const postiz: ChecklistComparison = {
     them: [
       "Export the video as MP4 under 1 GB. A MOV has to be converted first.",
       "Write it in the Global tab, then detach any channel that needs its own text.",
-      "If a platform won't take the file, re-encode it yourself, or with the API or CLI adjust option, and upload again.",
+      "Postiz re-encodes the upload to fit each platform. If one still won't take it, fix the file yourself and upload again.",
       "Keep it as a draft and send a preview link for comments, then schedule it yourself.",
       "A failed post gets a red ring on the calendar, with the reason in a tooltip, and a failure email if turned on.",
     ],
@@ -51,7 +51,7 @@ export const postiz: ChecklistComparison = {
     ytTitle: { mark: "yes", text: "A title setting" },
     images: { mark: "yes", text: "Yes" },
     ready: { mark: "partial", text: "Checks text, settings, file count and type" },
-    fix: { mark: "partial", text: "Opt-in re-encode on API and CLI uploads" },
+    fix: { mark: "partial", text: "Re-encodes uploads to fit platform limits" },
     status: { mark: "yes", text: "Red ring with the platform's reason" },
     email: { mark: "yes", text: "Failure emails, a settings toggle" },
     retry: { mark: "partial", text: "Reschedule the failed channel yourself" },

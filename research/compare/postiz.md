@@ -13,6 +13,7 @@ None of the docs pages show an updated date.
 - Platform media rules cover attachment count and type only, not size, duration or frame rate. (general/platforms/overview)
 - Media: images 10 MB, video 1 GB; MP4 among accepted types; "Renaming a .mov to .mp4 will not get it accepted." Web app docs say convert the file yourself. (general/composer/media)
 - Uploaded videos checked for duration, dimensions and codec; failures show "Failed to load video metadata". (general/troubleshooting/uploads)
+- Postiz's own PRs say the web app adjusts every upload to platform limits: "The web app already adjusts every upload to the platforms' limits" (github.com/gitroomhq/postiz-app/pull/2281; postiz-docs PR #259, merged 20 Oct 2026). User-facing media docs don't mention it.
 - Public API upload has an optional `adjust` flag (default false) that re-encodes video. (public-api/uploads/upload-file)
 - CLI `postiz upload --adjust` (off by default): videos scaled to 1080p and re-encoded to MP4. (cli/media-upload)
 - RSS auto-post drafts take the next time slot. (general/channels/time-slots)
@@ -43,7 +44,7 @@ None of the docs pages show an updated date.
 - Postiz has no failure email, or can't re-send only the failed channel.
 - Postiz has an approval step that blocks publishing.
 - Postiz checks file size, duration or frame rate per platform before scheduling.
-- Postiz has no re-encoding at all (API and CLI have an opt-in adjust).
+- Postiz has no re-encoding at all (web app adjusts uploads; API, MCP and CLI have an opt-in adjust).
 - Postiz has no per-channel permissions (not documented either way).
 - Postiz's app has a queue that fills the next free slot (only the API's find-slot).
 - Postiz imports posts in bulk or from CSV.
