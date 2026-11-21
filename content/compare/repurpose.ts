@@ -25,7 +25,7 @@ export const repurpose: ChecklistComparison = {
     lede: "Here's what getting a new video onto TikTok, Reels and Shorts looks like in each tool, going by Repurpose.io's own help center.",
     them: [
       "Put the video in a Drive or Dropbox folder, or post it on TikTok first. There's no upload from your device.",
-      "Set up one workflow for each platform you want it on.",
+      "Set up one workflow for each platform, or several at once.",
       "Auto publish into time slots, or schedule each copy for a date and time.",
       "In auto mode, a video over your Shorts length is skipped or trimmed; you can still schedule it by hand.",
       "If a job fails, read the reason and republish it.",
@@ -45,11 +45,12 @@ export const repurpose: ChecklistComparison = {
     tiktok: { mark: "yes", text: "Yes" },
     instagram: { mark: "yes", text: "Yes" },
     youtube: { mark: "yes", text: "Videos and Shorts" },
-    // Facebook: support.repurpose.io/en/article/how-to-connect-your-facebook-account-in-repurpose-e833we (checked 2026-11-20)
+    // Facebook: support.repurpose.io/en/article/supported-platforms-roles-and-media-types-j22278 (checked 2026-11-21)
     facebook: { mark: "yes", text: "Reels, Stories and images to Pages" },
     captions: { mark: "yes", text: "Edit each scheduled post" },
     ytTitle: { mark: "yes", text: "Edit the title" },
     images: { mark: "yes", text: "Photos and carousels" },
+    fix: { mark: "partial", text: "Resizes and converts files automatically" },
     status: { mark: "yes", text: "The failed job's reason" },
     email: { mark: "yes", text: "Failure emails, off by default" },
     retry: { mark: "yes", text: "Republish" },

@@ -17,6 +17,8 @@ Help-center dates are DD/MM/YYYY.
 - Captions for Drive/Dropbox files from a TXT file, Drive description, or file name; optional AI rewrite. No caption variables (only {{episode-link}}, per episode). (/en/article/how-to-add-description-and-timestamps-to-google-drive-and-dropbox-files-s1t4go/, 20/11/2026)
 - No drafts or labels inside Repurpose; ways to keep videos out of auto publish are filters and manual mode. (/en/article/how-to-prevent-specific-videos-from-being-auto-published-1vmt3v6/, 08/06/2026)
 - Creator Invite Link approves connected accounts, not posts (28 Sep 2026 release).
+- Home page: "automatically resize and optimize your videos to fit each platform". Facebook videos "automatically converted to the most compatible format" (17 Sep 2025 release). (repurpose.io/; release notes)
+- Several workflows can be created at once (30 Jul 2026 release).
 - No team members, roles, post approvals, per-brand access, MCP or AI campaign planning on its pages.
 
 ## Prices (repurpose.io/pricing, checked November 21, 2026)

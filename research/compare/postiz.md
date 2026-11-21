@@ -14,6 +14,8 @@ None of the docs pages show an updated date.
 - Media: images 10 MB, video 1 GB; MP4 among accepted types; "Renaming a .mov to .mp4 will not get it accepted." Web app docs say convert the file yourself. (general/composer/media)
 - Uploaded videos checked for duration, dimensions and codec; failures show "Failed to load video metadata". (general/troubleshooting/uploads)
 - Public API upload has an optional `adjust` flag (default false) that re-encodes video. (public-api/uploads/upload-file)
+- CLI `postiz upload --adjust` (off by default): videos scaled to 1080p and re-encoded to MP4. (cli/media-upload)
+- RSS auto-post drafts take the next time slot. (general/channels/time-slots)
 - v2.25.2 (23 Oct 2026): "opt-in adjust to platform limits on API, MCP and widget uploads". (github.com/gitroomhq/postiz-app/releases/tag/v2.25.2)
 - TikTok: DIRECT_POST publishes; UPLOAD sends to the TikTok inbox to publish by hand within 24 hours. (public-api/providers/tiktok)
 - Instagram: feed post (a single video is a Reel), story, trial reel, carousel, collaborators. (public-api/providers/instagram)
@@ -41,7 +43,8 @@ None of the docs pages show an updated date.
 - Postiz has no failure email, or can't re-send only the failed channel.
 - Postiz has an approval step that blocks publishing.
 - Postiz checks file size, duration or frame rate per platform before scheduling.
-- Postiz has no re-encoding at all (API, MCP and widget have an opt-in adjust).
+- Postiz has no re-encoding at all (API and CLI have an opt-in adjust).
+- Postiz has no per-channel permissions (not documented either way).
 - Postiz's app has a queue that fills the next free slot (only the API's find-slot).
 - Postiz imports posts in bulk or from CSV.
 - An exact platform count; prices outside pricing.ts; links; Profaily gaps.
