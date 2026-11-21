@@ -23,6 +23,7 @@ Help articles are on support.vistasocial.com and show no updated date; /insights
 - Failed posts: filter Calendar by Failed or use Dashboard Alerts, then "Duplicate post" to schedule or publish again. (/hc/en-us/articles/14548254932891)
 - Notification Center: "Post failure notification – When a post fails to publish". Browser notifications for failed posts. (/hc/en-us/articles/36197454821403; /hc/en-us/articles/5801097675035)
 - Email notifications: per-type tick boxes, all enabled by default; no page names a failed-post email type. (/hc/en-us/articles/28101273363227; /hc/en-us/articles/17200645206683)
+- Vista blog: "settings also let users toggle individual notification types, including Post failure". (/insights/scheduled-social-media-posts-fail-to-publish/, Aug 14, 2026). With the per-type Email column, a failure email is very likely; marked partial.
 - Roles: Admin, Profile Group admin, Restricted user; Contributor permission "able to schedule posts but will require review". (/hc/en-us/articles/4409604728219)
 - Profile groups "are like containers for a brand, client, group, or project"; users can be limited to profile groups. (/hc/en-us/articles/11328133941915)
 - Approvals: Contributors "cannot publish posts directly"; single-step or multi-step workflows; "Professional (Single-step)". (/hc/en-us/articles/46431598676251)
@@ -44,7 +45,7 @@ Help articles are on support.vistasocial.com and show no updated date; /insights
 - It compresses or converts video for TikTok or YouTube (processing documented for Twitter, Instagram, Facebook only).
 - Its video fix is one tap (it is automatic).
 - The composer checks each platform before scheduling (only the MCP check is documented).
-- It emails you when a post fails (not named on its pages).
+- It definitely emails on every failure (no page says so outright).
 - Retry targets only the failed platform.
 - It turns images into a YouTube video.
 - Drag-and-drop rescheduling; a TikTok privacy setting; a single CSV limit; AI credit numbers.
