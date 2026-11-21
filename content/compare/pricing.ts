@@ -70,8 +70,8 @@ export const rivalPricing: Record<string, RivalPricing> = {
     team: { name: "Team", usd: 39, brands: "Not stated", channels: "10", people: "Unlimited", posts: "Unlimited", approvals: "Preview links only", trial: "7 days" },
   },
   "repurpose-io-alternative": {
-    solo: { name: "Starter", usd: 35, brands: "Not stated", channels: "3 per network", people: "Not stated", posts: "5,000 videos" },
-    team: { name: "Pro", usd: 79, brands: "Not stated", channels: "10 per network", people: "Not stated", posts: "Unlimited", approvals: "Not stated", trial: "14 days" },
+    solo: { name: "Starter", usd: 35, brands: "Not stated", channels: "3 per network", people: "Not stated", posts: "5,000 videos a month" },
+    team: { name: "Pro", usd: 79, brands: "Not stated", channels: "10 per network", people: "Not stated", posts: "Unlimited", approvals: "Not stated", trial: "14 days or 10 videos" },
   },
   "hootsuite-alternative": {
     solo: { name: "Standard", usd: 99, basis: "per user, billed yearly", brands: "No brand limit", channels: "10", people: "Paid per seat", posts: "Unlimited" },

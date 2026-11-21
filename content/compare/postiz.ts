@@ -2,7 +2,7 @@ import type { ChecklistComparison } from "./types";
 
 /**
  * Profaily vs Postiz, checklist layout. Postiz cells come from Postiz's own docs (research notes in
- * /home/claude/articles/postiz/facts.md). A feature its docs don't show is left out and renders as a cross.
+ * research/compare/postiz.md, re-checked 21 Nov 2026). A feature its docs don't show is left out and renders as a cross.
  */
 export const postiz: ChecklistComparison = {
   kind: "checklist",
@@ -13,7 +13,7 @@ export const postiz: ChecklistComparison = {
     description:
       "Profaily vs Postiz: every Profaily feature side by side with Postiz, from scheduling and captions to pre-post checks, approvals and AI apps.",
   },
-  checked: "November 20, 2026",
+  checked: "November 21, 2026",
   hero: {
     lede:
       "Postiz posts to a long list of networks, and you can run it on your own server. Profaily is for people whose week is short videos. It checks each one against TikTok, Instagram and YouTube before you schedule, and fixes the file when a platform would refuse it.",
@@ -26,9 +26,9 @@ export const postiz: ChecklistComparison = {
     them: [
       "Export the video as MP4 under 1 GB. A MOV has to be converted first.",
       "Write it in the Global tab, then detach any channel that needs its own text.",
-      "If a platform won't take the file, re-encode it yourself, or through the API or CLI, and upload again.",
+      "If a platform won't take the file, re-encode it yourself, or with the API's adjust option, and upload again.",
       "Keep it as a draft and send a preview link for comments, then schedule it yourself.",
-      "A failed post gets a red ring on the calendar, with the reason in a tooltip.",
+      "A failed post gets a red ring on the calendar, with the reason in a tooltip, and a failure email if turned on.",
     ],
     us: [
       "Upload the MP4 or MOV you already have, up to 4 GB.",
@@ -39,22 +39,25 @@ export const postiz: ChecklistComparison = {
     ],
   },  cells: {
     calendar: { mark: "yes", text: "Calendar" },
-    scheduling: { mark: "yes", text: "Pick a time, or a time slot" },
-    queue: { mark: "yes", text: "Posting time slots per channel" },
+    scheduling: { mark: "yes", text: "Pick a time; next free slot via API" },
+    queue: { mark: "partial", text: "Time slots per channel, no auto-fill" },
     drafts: { mark: "yes", text: "Drafts and tags" },
     tiktok: { mark: "yes", text: "Direct post or upload" },
-    instagram: { mark: "yes", text: "Yes" },
+    instagram: { mark: "yes", text: "Posts, Reels, Stories and carousels" },
     youtube: { mark: "yes", text: "Yes" },
     // Facebook: docs.postiz.com/public-api/providers/facebook (checked 2026-11-20)
     facebook: { mark: "yes", text: "Page posts and videos" },
     captions: { mark: "yes", text: "Global tab, or detach a channel" },
     ytTitle: { mark: "yes", text: "A title setting" },
     images: { mark: "yes", text: "Yes" },
-    ready: { mark: "yes", text: "Checks file count and type" },
+    ready: { mark: "partial", text: "Checks text, settings, file count and type" },
     status: { mark: "yes", text: "Red ring with the platform's reason" },
+    email: { mark: "yes", text: "Failure emails, a settings toggle" },
+    retry: { mark: "partial", text: "Reschedule the failed channel yourself" },
     team: { mark: "yes", text: "Team plan and up" },
     roles: { mark: "yes", text: "User, Admin and Super Admin" },
-    brandAccess: { mark: "yes", text: "Separate organisations" },
+    brandAccess: { mark: "partial", text: "Per organisation, not per channel" },
     mcp: { mark: "yes", text: "MCP server, CLI and API" },
+    campaigns: { mark: "partial", text: "AI agents plan and schedule posts" },
   },
 };
