@@ -122,26 +122,6 @@ YouTube's [API revision history](https://developers.google.com/youtube/v3/revisi
 
 One catch: the API publishes a post the moment it's created. Hootsuite still offers scheduling in Perch, so the waiting happens on Hootsuite's side, not YouTube's.
 
-## Which tools can publish YouTube image posts? {#which-tools}
-
-Not many. YouTube Help says posts can be published through select third-party platforms, "including Hootsuite, Sprinklr, and Sprout Social".
-
-I went through each tool's own pages on November 24, 2026:
-
-| Tool | YouTube image posts | What their own page says, paraphrased |
-| --- | --- | --- |
-| Hootsuite | Yes, since November 16, 2026 | 1 to 10 images in its Perch composer; post now, schedule or save a draft |
-| Sprinklr | Yes | Generally available; 1 to 10 images |
-| Sprout Social | Yes, per YouTube Help | Named by YouTube as a partner; I didn't check Sprout's own page |
-| Buffer | No | Community posting isn't available through Buffer |
-| Metricool | No | Lists Community posts as a YouTube API limitation |
-| Publer | No | Request on hold; staff said YouTube's API doesn't support Community posts |
-| Postiz | No | Request closed as not planned |
-| Zapier | No | Publishing Community posts isn't currently possible |
-| Make | No | A user asking how to automate it found no module for it |
-
-Hootsuite is new to this list. Its own announcement says it didn't support YouTube Posts until November 16. As of November 24, Buffer, Metricool, Publer and Postiz still can't.
-
 ## What creators and businesses keep asking for {#what-people-ask}
 
 People have wanted to post to YouTube's Community tab from the tool where they post everything else for years. They've said so on Buffer's and Publer's feedback boards, on GitHub, and in the Zapier and Make forums.
