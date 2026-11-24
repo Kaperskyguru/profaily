@@ -8,7 +8,7 @@ Facebook's "Coming soon" rows and the Next.js dev badge are hidden (hide-unappro
 
 steps: ["tap", target], ["tapforce", target], ["tapif", target], ["mark", "<js returning an element>"] (then tap
        "[data-flow-target]"), ["wait", ms], ["shot", name], ["fill", target, text], ["type", target, text],
-       ["key", "Escape"], ["upload", selector, path], ["js", code], ["eval", code], ["text"], ["scroll", y]
+       ["key", "Escape"], ["upload", selector, path], ["uploadmany", selector, [paths]], ["js", code], ["eval", code], ["text"], ["scroll", y]
 target: a CSS selector, {"role": .., "name": .., "exact": true}, {"text": ..}, {"label": ..} or {"placeholder": ..}
 --video records a CDP screencast with a green tap marker on every click; idle stretches are capped at 1.3 s."""
 import asyncio, sys, json, os, shutil, subprocess
@@ -84,6 +84,9 @@ async def main():
                 import uuid; src = s[2]; tmp = f"/tmp/{os.path.basename(src)}"
                 subprocess.run(["ffmpeg","-y","-loglevel","error","-i",src,"-c","copy","-metadata",f"comment={uuid.uuid4()}",tmp], check=True)
                 await pg.set_input_files(s[1], tmp); await pg.wait_for_timeout(s[3] if len(s) > 3 else 6000)
+            elif k == "uploadmany":
+                # Several files at once (an image post), as they are: images carry no "already uploaded" metadata.
+                await pg.set_input_files(s[1], s[2]); await pg.wait_for_timeout(s[3] if len(s) > 3 else 8000)
             elif k == "js": await pg.evaluate(s[1]); await pg.wait_for_timeout(800)
             elif k == "text": print((await pg.inner_text("body"))[:4000])
             elif k == "scroll": await pg.evaluate(f"window.scrollTo(0,{s[1]})"); await pg.wait_for_timeout(500)
