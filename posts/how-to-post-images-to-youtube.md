@@ -1,46 +1,12 @@
 ---
 category: "Publishing"
 title: "How to Post Images to YouTube: Posts, Shorts and the API"
-description: "YouTube's API for image posts is still a pilot. Post images to YouTube today as a post in YouTube, through a partner tool, or as a video made from them."
+description: "YouTube's API for image posts is still a pilot. Post images to YouTube today as a post in YouTube or as a video made from them."
 datePublished: "2026-11-24"
 author: "Solomon Eseme"
-sourcesChecked: "November 24, 2026"
 cta:
   href: "/pricing"
   label: "Start the 14-day trial"
-sources:
-  - href: "https://developers.google.com/youtube/v3/revision_history"
-    label: "YouTube Data API: revision history (November 16, 2026)"
-  - href: "https://developers.google.com/youtube/data/reference/rest/v3/posts/insert"
-    label: "YouTube Data API: posts.insert"
-  - href: "https://support.google.com/youtube/answer/7124474"
-    label: "YouTube Help: Create a post"
-  - href: "https://support.google.com/youtube/answer/9409631"
-    label: "YouTube Help: Learn about posts"
-  - href: "https://support.google.com/youtube/answer/10059070"
-    label: "YouTube Help: Get started creating YouTube Shorts"
-  - href: "https://support.google.com/youtube/answer/15424877"
-    label: "YouTube Help: Understand three-minute YouTube Shorts"
-  - href: "https://www.hootsuite.com/whats-new/plan-and-publish-youtube-posts-from-hootsuites-perch"
-    label: "Hootsuite: Plan and publish YouTube Posts from Perch (November 16, 2026)"
-  - href: "https://www.sprinklr.com/help/articles/know-more/youtube-posts/6ae1cd0d1aacc89e4ffa1f3e"
-    label: "Sprinklr Help: YouTube Posts"
-  - href: "https://support.buffer.com/article/562-using-youtube-shorts-with-buffer"
-    label: "Buffer Help: Using YouTube Shorts with Buffer"
-  - href: "https://suggestions.buffer.com/p/youtube-posts-to-community-tab"
-    label: "Buffer Suggestions: YouTube Posts to Community Tab"
-  - href: "https://help.metricool.com/api-limitations-per-social-network-n7zlr"
-    label: "Metricool Help: API limitations per social network"
-  - href: "https://feedback.publer.com/550"
-    label: "Publer Feedback: YouTube Community Post support"
-  - href: "https://github.com/gitroomhq/postiz-app/issues/537"
-    label: "Postiz on GitHub: YouTube Community Tab Posts (issue 537)"
-  - href: "https://community.zapier.com/how-do-i-3/how-to-automate-youtube-community-post-15727"
-    label: "Zapier Community: How to automate YouTube Community Post"
-  - href: "https://community.make.com/t/youtube-community-posts/83412"
-    label: "Make Community: YouTube Community Posts"
-  - href: "https://www.digitalmusicnews.com/2026/07/02/youtube-shorts-adds-15-second-music-clips-to-image-posts/"
-    label: "Digital Music News: YouTube Shorts adds 15-second music clips to image posts (July 2, 2026)"
 related:
   - "post-to-tiktok-reels-shorts-at-the-same-time"
   - "is-profaily-safe-to-connect-social-media-accounts"
@@ -73,14 +39,6 @@ Profaily can't post images to YouTube either, because nobody outside the pilot c
 
 It publishes a video, not a swipeable carousel, so I'll cover YouTube's own options first. Everything below was checked on November 24, 2026.
 
-## Can you post images to YouTube? The short answer {#short-answer}
-
-Yes. YouTube calls it an image post: up to 10 images, made in YouTube or through a partner tool such as Hootsuite, Sprinklr or Sprout Social. Buffer, Metricool and Publer can't post one, because YouTube's API for posts is still a pilot. Their route is a video made from the images.
-
-That video counts as a Short if it's vertical or square and up to three minutes long. In Profaily, Convert to video builds it from the same images you post everywhere else.
-
-The API side changed on November 16, 2026, when YouTube added a `posts` resource for select launch partners only. You can still schedule an image post inside YouTube yourself.
-
 ## The rules for pictures on YouTube {#post-pictures}
 
 The format is the image post, and it lives on your channel's Posts tab. Buffer, Metricool and Publer still call these Community posts, which is why you'll see both names in this article.
@@ -107,7 +65,7 @@ So if your channel is eligible, posting a carousel inside YouTube works fine. Th
 
 ## Is there a YouTube Community post API? {#community-post-api}
 
-Yes, since November 16, 2026. Unless YouTube picked your tool as a launch partner, you can't use it.
+Yes, since November 16, 2026, but only for the launch partners YouTube has picked.
 
 The Data API is how other apps post to YouTube for you. Until that date it could upload videos and had no way to create a post at all.
 
@@ -119,8 +77,6 @@ YouTube's [API revision history](https://developers.google.com/youtube/v3/revisi
 | What can it post? | A text post, or an image post of 1 to 10 images |
 | Can it schedule? | No. [posts.insert](https://developers.google.com/youtube/data/reference/rest/v3/posts/insert) says scheduled posts aren't supported, so a post goes live when it's created |
 | When for everyone? | General availability is planned for 2027 |
-
-One catch: the API publishes a post the moment it's created. Hootsuite still offers scheduling in Perch, so the waiting happens on Hootsuite's side, not YouTube's.
 
 ## What creators and businesses keep asking for {#what-people-ask}
 
@@ -136,7 +92,7 @@ On Make, someone wanted every new video announced on Telegram, Facebook, Instagr
 
 People even sell workarounds. There are paid n8n templates for Community posts that write the post and leave the publishing to you, and paid scraper APIs whose pitch is reading posts because the official API had no endpoint for it. I couldn't read Reddit for this article, so none of this comes from there.
 
-## Three ways to post images to YouTube today {#three-ways}
+## Two ways to post images to YouTube today {#two-ways}
 
 Pick based on two questions: does the swipe matter, and where does the rest of your posting happen?
 
@@ -146,11 +102,7 @@ Create a post in YouTube, add up to 10 images, and post or schedule it. You get 
 
 The cost is time: every image set gets posted twice: once in your scheduler for the other platforms, and again in YouTube.
 
-### 2. Use a partner tool
-
-If your team already pays for Hootsuite, Sprinklr or Sprout Social, look for its YouTube Posts feature. Hootsuite and Sprinklr both take 1 to 10 images.
-
-### 3. Turn the images into a video
+### 2. Turn the images into a video
 
 Any scheduler that supports YouTube can post a video. Uploading videos is the generally available part of YouTube's API, and it's the route every scheduler uses.
 
@@ -167,8 +119,8 @@ My rule: if the swipe is the point and you don't mind opening YouTube, make an i
 | How viewers see it | Swipe through the images | The images play in order |
 | Where it can show | Posts tab and the Shorts feed | The Shorts feed, if YouTube categorises it as a Short |
 | Music | Up to 15 seconds, added in the YouTube mobile app | Whatever the video has |
-| Who can publish it | You in YouTube, or a partner tool | Any tool that uploads videos to YouTube |
-| Schedule with your other platforms | Only in a partner tool | Yes, in any scheduler that posts to YouTube |
+| Who can publish it | You, in YouTube | Any tool that uploads videos to YouTube |
+| Schedule with your other platforms | No, you schedule it in YouTube | Yes, in any scheduler that posts to YouTube |
 
 I can't tell you which one gets more reach, because I haven't measured it. Post one set both ways and look at the numbers yourself.
 
