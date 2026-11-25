@@ -49,7 +49,7 @@ export function Pricing({
       </div>
       <ul className="plans">
         {plans.map((p) => (
-          <li className={`plan${p.trial ? " pop" : ""}`} key={p.key}>
+          <li className={`plan${p.featured ? " pop" : ""}`} key={p.key}>
             <div>
               <h3>{p.name}</h3>
               <p className="aud">{p.audience}</p>
@@ -75,7 +75,7 @@ export function Pricing({
                 ),
               )}
             </ul>
-            <a className={`btn btn-block ${p.trial ? "btn-primary" : "btn-ghost"}`} href={links.register}>{p.cta}</a>
+            <a className={`btn btn-block ${p.featured ? "btn-primary" : "btn-ghost"}`} href={links.register}>{p.cta}</a>
           </li>
         ))}
       </ul>

@@ -22,7 +22,8 @@ export type SitePlan = {
   highlights: Highlight[];
   /** The plan's limits in words (compare pages). */
   limits: string[];
-  trial: boolean;
+  /** The highlighted card. */
+  featured: boolean;
   cta: string;
 };
 
@@ -47,8 +48,8 @@ export const plans: SitePlan[] = [
       { icon: "tag", text: "Remove the #profaily tag" },
     ],
     limits: ["1 brand", "4 connected channels", "Just you", "500 AI app calls a month"],
-    trial: false,
-    cta: "Choose Creator",
+    featured: false,
+    cta: `Try free for ${TRIAL_DAYS} days`,
   },
   {
     key: "business",
@@ -67,7 +68,7 @@ export const plans: SitePlan[] = [
       { icon: "eye", text: "Choose which brands each team member sees" },
     ],
     limits: ["3 brands", "12 connected channels", "5 team members", "Approvals before distributing"],
-    trial: true,
+    featured: true,
     cta: `Try free for ${TRIAL_DAYS} days`,
   },
 ];

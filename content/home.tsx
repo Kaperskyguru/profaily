@@ -17,6 +17,6 @@ export const homeFaq: FaqItem[] = [
   { q: "What happens if one channel fails?", a: "The others still post. You’ll see which one stopped and the reason, edit what it needs, and retry only that one." },
   { q: "Can my team approve videos before they go out?", a: "Yes, on Business. Editors send a video for review, you comment, ask for changes or approve, and only then is it scheduled." },
   { q: "Does Profaily change my video?", a: "No. It posts the file you upload. The previews show how each channel will frame it, and anything a channel won’t accept is flagged before it’s scheduled." },
-  { q: "How does the free trial work?", a: "You get the Business plan free for 14 days. A card is needed to start, and you can cancel before you’re charged." },
+  { q: "How does the free trial work?", a: "You get either plan free for 14 days. A card is needed to start, and you can cancel before you’re charged." },
   { q: "How does scheduling from Claude or ChatGPT work?", a: "You connect Profaily to your assistant once. It can then read your library, check videos against each channel’s rules, and draft or schedule posts for you. Every plan includes a monthly number of assistant actions." },
 ];

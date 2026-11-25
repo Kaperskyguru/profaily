@@ -95,7 +95,7 @@ export default function Page() {
             </table>
           </div>
           <p className="fine">
-            Prices shown are monthly; yearly prices are in the plan cards above. The {TRIAL_DAYS}-day free trial is on Business.
+            Prices shown are monthly; yearly prices are in the plan cards above. Both plans come with a {TRIAL_DAYS}-day free trial.
           </p>
         </section>
 
