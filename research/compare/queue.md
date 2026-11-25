@@ -11,8 +11,8 @@ Status: `queued`, `pr-open #N`, `live`, `skipped: reason`.
 | Buffer | buffer-alternative | live | November 20, 2026 |
 | Postiz | postiz-alternative | live | November 21, 2026 |
 | Repurpose.io | repurpose-io-alternative | live | November 21, 2026 |
-| Later | later-alternative | live | November 20, 2026 (pre-agent) |
-| Hootsuite | hootsuite-alternative | live | November 20, 2026 (pre-agent) |
+| Later | later-alternative | live | November 25, 2026 |
+| Hootsuite | hootsuite-alternative | live | November 25, 2026 |
 | Publer | publer-alternative | live | November 20, 2026 |
 | Vista Social | vista-social-alternative | live | November 21, 2026 |
 
@@ -23,7 +23,7 @@ scheduling short video to TikTok, Reels and Shorts come before tools whose main 
 
 1. Publer: live (20 Nov 2026). Facts: `publer.md`.
 2. Vista Social: live (21 Nov 2026). Facts: `vista-social.md`.
-3. Pallyy: queued (next)
+3. Pallyy: queued (next; skipped on 25 Nov 2026 because the run hit usage limits during the audit)
 4. Sked Social: queued
 5. Planoly: queued
 6. Plannthat: queued (check the product is current before research)

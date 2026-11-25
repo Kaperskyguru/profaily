@@ -16,8 +16,8 @@ import { plans } from "@/content/plans";
 
 export const CHECKED = "20 November 2026";
 /** CBN NFEM volume-weighted rate, ₦ per $1. */
-export const NGN_PER_USD = 1358.09;
-export const RATE_DATE = "17 November 2026";
+export const NGN_PER_USD = 1394.12;
+export const RATE_DATE = "24 November 2026";
 
 /** One plan's column. `usd` is the monthly price for TikTok, Instagram and YouTube; `basis` says how it adds up. */
 export type PlanColumn = {
@@ -58,8 +58,8 @@ export const rivalPricing: Record<string, RivalPricing> = {
     team: { name: "Team", usd: 36, basis: "$12 per channel", brands: "No brand limit", channels: "Paid per channel", people: "Unlimited", posts: "Unlimited", approvals: "Yes", trial: "14 days" },
   },
   "later-alternative": {
-    solo: { name: "Starter", usd: 25, brands: "1 social set", channels: "1 of each network", people: "Just you", posts: "Up to 30 per profile" },
-    team: { name: "Growth", usd: 50, brands: "2 social sets", channels: "2 of each network", people: "2", posts: "Up to 180 per profile", approvals: "Yes", trial: "14 days" },
+    solo: { name: "Starter", usd: 25, brands: "1 social set", channels: "1 of each network", people: "Just you", posts: "30 per profile a month" },
+    team: { name: "Growth", usd: 50, brands: "2 social sets", channels: "2 of each network", people: "2", posts: "180 per profile a month", approvals: "Yes", trial: "14 days" },
   },
   "metricool-alternative": {
     solo: { name: "Starter", usd: 25, basis: "up to 5 brands", brands: "Up to 5", channels: "1 of each network per brand", people: "Just you", posts: "Unlimited, fair use" },
@@ -74,8 +74,8 @@ export const rivalPricing: Record<string, RivalPricing> = {
     team: { name: "Pro", usd: 79, brands: "Not stated", channels: "10 per network", people: "Not stated", posts: "Unlimited", approvals: "Not stated", trial: "14 days or 10 videos" },
   },
   "hootsuite-alternative": {
-    solo: { name: "Standard", usd: 99, basis: "per user, billed yearly", brands: "No brand limit", channels: "10", people: "Paid per seat", posts: "Unlimited" },
-    team: { name: "Advanced", usd: 399, basis: "per user, billed yearly", brands: "No brand limit", channels: "Unlimited", people: "Paid per seat", posts: "Unlimited", approvals: "Yes", trial: "14 days" },
+    solo: { name: "Standard", usd: 99, basis: "per user, billed yearly", brands: "Not stated", channels: "10", people: "Paid per seat", posts: "Unlimited" },
+    team: { name: "Advanced", usd: 399, basis: "per user, billed yearly", brands: "Not stated", channels: "Unlimited", people: "Paid per seat", posts: "Unlimited", approvals: "Yes", trial: "14 days" },
   },
   "publer-alternative": {
     solo: { name: "Professional", usd: 12, basis: "for 3 accounts", brands: "Unlimited workspaces", channels: "Paid per account", people: "Just you", posts: "Unlimited" },

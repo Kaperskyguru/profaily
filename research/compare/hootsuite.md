@@ -1,24 +1,45 @@
-#### Hootsuite facts (help.hootsuite.com and hootsuite.com/plans, checked November 20, 2026)
-Carried over from the research for PR #31. Re-verify each line on the next audit of this page.
-- Since 24 Jun 2026 web Hootsuite is "Social OS": Perch (plan, create, calendar, approvals, content library), Nest (inbox, streams), Lumen (listening), Parliament (advocacy), Wisdom (AI). (s/article/social-os)
-- Plans: Standard, Professional, Advanced, Enterprise; seats on every plan; approvals on Advanced and Enterprise; unlimited drafts; calendar on all plans; bulk scheduling up to 350 posts via CSV. (hootsuite.com/plans)
-- Calendar in Perch, drag to reschedule. Recommended times shown. (s/article/create-and-schedule, 6 Oct 2026)
-- Recommended times from your last 30 days of engagement; no queue described on web. (s/article/recommended-times, 20 Jun 2026)
-- AutoSchedule (posts per day, time frame, days) is in Amplify and the mobile app only. (s/article/autoschedule)
-- Drafts unlimited, shared drafts. (s/article/drafts, 21 Jun 2026). Tags on Advanced, Business, Enterprise. (s/article/create-ig, create-tiktok)
-- Bulk Composer: CSV, max 350 posts; images and videos added per post after upload; YouTube not listed. (s/article/bulk-schedule, 21 Jun 2026)
-- TikTok: post now or schedule; one video per post; custom cover; TikTok's limits listed (3s to 10 min, 23 to 60 fps). (s/article/create-tiktok, 28 Sep 2026). Also mobile push notification publishing. (hootsuite.com/whats-new, July 2026)
-- Instagram: direct for Business profiles; notification for Creator profiles; up to 10 images. (s/article/create-ig, 5 Nov 2026)
-- Facebook: post, story or reel. (s/article/create-fb)
-- YouTube: separate "YouTube video" flow; under 60s publishes as a Short; title field; failure email. (s/article/publish-yt, 16 Nov 2026)
-- "Hootsuite takes care of file size compression, video width, height and bit rate for you." (s/article/video-requirements, 28 Aug 2026)
-- Per-network tabs to customize; per-network preview. (s/article/create-publish, 20 Jun 2026)
-- Composer alerts on media issues. (s/article/create-fb, publish-yt)
-- Failure: email when a scheduled post fails; failed post red in Plan with the error; edit, then reschedule or publish. (s/article/troubleshoot-failure, 20 Jan 2026)
-- Composer shows which accounts failed when sending to several networks. (hootsuite.com/whats-new/quickly-find-and-fix-unsuccessful-posts)
-- Approvals on Advanced, Business, Enterprise. (s/article/ask-for-approval, 21 Jun 2026)
-- Permissions at organization, team and social account level. (s/article/overview-teams-orgs-permissions, 9 Oct 2026)
-- MCP: Perch MCP (draft posts, content library); can plan campaigns and generate posts. (hootsuite.com/integrations/mcp, hootsuite.com/perch)
+#### Hootsuite facts (hootsuite.com and help.hootsuite.com, checked November 25, 2026)
+- Since 24 Jun 2026 web Hootsuite is "Social OS": Perch (plan, create, publish, calendar, approvals, content library, ads), Nest (inbox), Lumen (listening), Parliament (advocacy, replaces Amplify), Wisdom (AI). Analytics sit inside Perch, Nest and Parliament. (help.hootsuite.com/s/article/social-os, updated 2 Sep 2026)
+- Calendar in Perch; drag a post to a new slot to reschedule; recommended-time slots highlighted in week view when turned on. (help.hootsuite.com/s/article/create-and-schedule)
+- Recommended times come from your last 30 days of results, per goal; shown in Perch > Analytics > Best time to publish. No way to pick a best time within a date range is described. (help.hootsuite.com/s/article/best-times, updated 5 Nov 2026)
+- AutoSchedule (posts per day, time frame, days) "is available in Amplify and on mobile"; web uses recommended times instead. No web queue or slot feature found. (help.hootsuite.com/s/article/autoschedule, updated 21 Oct 2025)
+- Drafts: "There is no limit to the number of drafts you can create"; drafts on shared accounts are visible and editable by the team; draft images expire after 90 days. (help.hootsuite.com/s/article/drafts, updated 21 Jun 2026)
+- Tags: help articles say tags are on "Advanced, Business, and Enterprise plans". hootsuite.com/plans says Standard "Does not include tags and tag automations" and Professional and up include them. The plans page is the current offer. (help.hootsuite.com/s/article/create-tiktok, create-ig, create-fb; hootsuite.com/plans)
+- Bulk Composer: CSV, "A maximum of 350 posts"; media added per post after upload; networks X, Facebook Pages, LinkedIn, TikTok, Instagram Business; YouTube not listed; errors flagged with a red banner and must be fixed before scheduling. (help.hootsuite.com/s/article/bulk-schedule, updated 21 Jun 2026)
+- TikTok: post now or schedule; "TikTok supports one video per post"; optional cover; .mov or .mp4; 3 seconds to 10 minutes; 23 to 60 fps; min 360 px; caption 2,200 characters, no URLs or line breaks; 15 posts per 24 hours; no stories. (help.hootsuite.com/s/article/create-tiktok, updated 28 Sep 2026)
+- Mobile notification publishing covers Facebook, Instagram and TikTok ("Publish in TikTok"); not YouTube. (help.hootsuite.com/s/article/mobile-notification-workflow, updated 21 Jul 2026)
+- Instagram: "Publish directly - This option is only available for Instagram Business profiles"; Creator profiles must use notification; "You can add up to 10 images to your post"; a single video publishes as a reel. (help.hootsuite.com/s/article/create-ig, updated 5 Nov 2026)
+- Facebook: posts, stories and reels (one video per reel, 90 seconds or less); "You'll be alerted if there are any issues" before publishing. (help.hootsuite.com/s/article/create-fb, updated 28 Sep 2026)
+- Facebook first comment can be added in Perch's composer for feed posts and reels. (hootsuite.com/whats-new/facebook-first-comment-in-perchs-composer, 10 Nov 2026)
+- YouTube video: a separate flow (Perch > Create a post > "YouTube video"); title required; description, tags, category optional; thumbnail only for verified accounts; "Schedule to go Public" for unlisted or private videos. Shorts: "Videos less than 1 minute in length with a 9:16 aspect ratio" publish as Shorts. (help.hootsuite.com/s/article/publish-yt)
+- The video requirements page instead says videos under 3 minutes at 9:16 publish as Shorts. The two Hootsuite pages disagree; do not quote a Shorts length. (help.hootsuite.com/s/article/video-requirements, updated 28 Aug 2026)
+- YouTube posts (text, links, 1 to 10 images) now go through the standard Perch composer and Planner; for these "If a post fails to publish, you'll get an email notification" and an error appears at the attachment area for images or captions that break the rules. (hootsuite.com/whats-new/plan-and-publish-youtube-posts-from-hootsuites-perch, 16 Nov 2026; help.hootsuite.com/s/article/publish-yt)
+- "Hootsuite takes care of file size compression, video width, height, and bit rate for you in video processing." No alerts for files that break rules are described on that page. (help.hootsuite.com/s/article/video-requirements, updated 28 Aug 2026)
+- Video editor: trim, background, brightness, saturation, contrast, filters. No compress, frame-rate convert or images-to-video. (help.hootsuite.com/s/article/edit-videos, updated 24 Apr 2026)
+- Per-network customizing: "Changes here will apply to all of your social networks until you start customizing them"; select a network to customize it; restore per network or across all; per-network preview. No caption variables or dynamic fields documented. (help.hootsuite.com/s/article/create-publish, updated 20 Jun 2026)
+- No feature found that turns images into a video for YouTube. Adobe Express videos can be imported into Composer, but no slideshow from images is described. (hootsuite.com/whats-new/create-videos-with-adobe-express-in-hootsuite, 19 Nov 2025; help.hootsuite.com/s/article/publish-yt)
+- Failures: failed posts show as a red tile in Planner; select it for the reason; Edit, then reschedule or publish. (help.hootsuite.com/s/article/troubleshoot-failure)
+- Email notification option: "A scheduled post failed to send." (help.hootsuite.com/s/article/email-notifications, updated 8 Jun 2026)
+- When sending to several networks, "you'll see which social account(s) failed to send", highlighted in the network picker. No resend-only-failed option described. (hootsuite.com/whats-new/quickly-find-and-fix-unsuccessful-posts, 14 Oct 2020)
+- Approvals: "Plans: Advanced, Business, and Enterprise"; ask any team member or a team; steps run in order (Proofpoint, one-time approver, custom process); a post still pending at its time fails and goes to Expired. (help.hootsuite.com/s/article/ask-for-approval, updated 5 Nov 2026)
+- Permissions at organization, team and social account level, "set for each social account"; custom permissions on Advanced, Business and Enterprise. (help.hootsuite.com/s/article/overview-teams-orgs-permissions, updated 9 Oct 2026)
+- Vigil checks posts, replies and advocacy shares "against your brand and publishing policies before they go live" (keywords, regex, disclaimers). Not a media or platform check. Plans page lists Vigil on Enterprise only. (hootsuite.com/whats-new/reduce-risk-prevent-mistakes-and-protect-your-brand-with-vigil, 12 Nov 2026; hootsuite.com/plans)
+- MCP: Perch, Nest, Lumen and Parliament connectors for Claude, ChatGPT, Gemini, Copilot and Perplexity. Perch saves drafts (one per instruction), sets a planned date on the Planner calendar, returns recommended times, reads analytics; "It can't publish, so drafts stay in Hootsuite until you publish them from the dashboard"; "doesn't support bulk drafting". Needs a plan that includes MCP connector access. (help.hootsuite.com/s/article/about-mcps and mcp-connectors-faq, both updated 18 Nov 2026)
+- Hootsuite's marketing says "you can use AI to plan campaigns, review content calendars, generate posts" with Perch MCP. (hootsuite.com/perch; hootsuite.com/integrations/mcp)
+- whats-new since 20 Nov 2026: one entry, HootBio settings moved to Global Org Settings (21 Nov 2026). No publishing, approval or plan changes. (hootsuite.com/whats-new)
+## Prices (hootsuite.com/plans, checked November 25, 2026)
+- Plans are Standard, Professional, Advanced and Enterprise. Prices shown are "based on annual billing"; monthly billing exists but its price is not published. No Business plan is sold now (help articles still name it).
+- Standard: $99 per user/month, billed yearly; 10 social accounts; 1+ seats; unlimited posts; no approval workflows; no tags; 14-day trial.
+- Professional: $199 per user/month, billed yearly; unlimited social accounts; 1+ seats; unlimited posts; no approval workflows; tags included; 14-day trial.
+- Advanced: $399 per user/month, billed yearly; unlimited social accounts; 1+ seats; unlimited posts; "Includes post approval workflows"; tags included; 14-day trial.
+- Enterprise: custom price; unlimited social accounts; custom seats; approvals included; demo, no trial listed.
+- All plans: calendar, recommended times, bulk scheduling up to 350 posts, 100 AI credits/mo (custom on Enterprise), user permissions. Trial accounts have daily posting limits (10 to 20 posts per organization). Brand or workspace limits are not stated.
+- No price change since November 20, 2026.
 ## Do NOT say
 - Hootsuite lacks inbox, analytics, listening, ads, MCP, approvals, thumbnails or video compression.
 - Prices; links to Hootsuite; Profaily gaps.
+- Hootsuite has no brand limit (the plans page does not say).
+- A Business plan as a current Hootsuite plan.
+- A specific YouTube Shorts length (Hootsuite's own pages disagree: 1 minute vs 3 minutes).
+- Perch MCP publishes posts, or that Vigil checks media against platform rules.
+- Hootsuite cannot post images to YouTube (YouTube posts take 1 to 10 images since 16 Nov 2026); only say it has no images-to-video option.
