@@ -89,7 +89,7 @@ export const footerGroups: { heading: string; links: { href: string; label: stri
   { heading: "Made for", links: madeForLinks.map((l) => ({ href: l.href, label: l.title })) },
   {
     heading: "Resources",
-    links: [{ href: "/blog", label: "Blog" }, { href: "/help", label: "Help center" }, { href: "/compare", label: "Compare" }],
+    links: [{ href: "/blog", label: "Blog" }, { href: "/help", label: "Help center" }, { href: "/compare", label: "Compare" }, { href: links.roadmap, label: "Roadmap" }],
   },
   {
     heading: "Company",

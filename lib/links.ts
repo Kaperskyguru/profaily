@@ -25,4 +25,6 @@ export const links = {
   privacy: `${APP_URL}/privacy`,
   terms: `${APP_URL}/terms`,
   deletion: `${APP_URL}/deletion`,
+  /** The public roadmap: what is coming, with an upvote on each. */
+  roadmap: `${APP_URL}/roadmap`,
 };
