@@ -1,7 +1,7 @@
-#### Metricool facts (metricool.com, checked November 20, 2026)
+#### Metricool facts (metricool.com, checked November 25, 2026)
 
 Planning and scheduling
-- The calendar has Day, Week and Month views. Statuses: Draft (gray), Pending, Published/Sent, With errors (red), From autolist, plus approval statuses. (help.metricool.com/how-to-manage-your-calendar-in-metricool-xhlbw, updated 2026-11-12)
+- The calendar has Day, Week and Month views. Statuses: Draft (gray), Pending, Published/Sent, With errors (red), From autolist, plus approval statuses. (help.metricool.com/how-to-manage-your-calendar-in-metricool-xhlbw, updated 2026-11-20)
 - Drafts: "The post is saved as a draft and has not been scheduled yet." (same page)
 - Posts Library holds draft posts and ideas with no publishing date, up to 250 per brand, on paid plans. It has a Kanban board with status columns. (help.metricool.com/en/article/posts-library-gq1m4u/, updated 2026-10-20; metricool.com/product-updates-august-2026/)
 - Tags classify posts "by theme, campaign, or format" and filter the planner. The tag system is on Starter and above. (help.metricool.com/content-planning-full-guide-faqs-qc5e1, updated 2026-11-18; help.metricool.com/tags-za9vl; metricool.com/pricing/)
@@ -39,7 +39,7 @@ AI
 - With Claude you can "draft a full week" and build a content plan for a set period. Carousel Agent: "nothing goes live without your say-so." (metricool.com/how-to-use-metricool-mcp-with-claude/, modified 2026-10-26)
 - An in-app AI assistant comes with monthly credits per brand on every plan. (metricool.com/pricing/)
 
-Changelog (metricool.com/whats-new/, page modified 2026-11-12; latest entry is October 2026, with no November entry)
+Changelog (metricool.com/whats-new/; latest entry is November 2026, published 2026-11-24 at metricool.com/product-updates-november-2026/, not yet on the whats-new listing)
 - Oct 2026: campaign dashboard goals, rich-text rejection notes, a single review-requests list across brands, AI-generated brand instructions, and connected-apps access control. Nothing on retry or pre-checks. (metricool.com/product-updates-october-2026/)
 - Sept 2026: YouTube Shorts thumbnails and the subscriber-notify toggle, and the new email/in-app notification system. (metricool.com/product-updates-september-2026/)
 - Aug 2026: Library Kanban, a library limit of 250, reviewer comments, an AI-generated label, Facebook 35 images, redesigned recurring scheduling and resize presets. (metricool.com/product-updates-august-2026/)
@@ -60,7 +60,7 @@ Changelog (metricool.com/whats-new/, page modified 2026-11-12; latest entry is O
 - images: yes — Carousels on Instagram and TikTok — help.metricool.com/scheduling-and-posting-options-by-social-network-cwmb3.md
 - ytImages: none — (Metricool's table says YouTube images "No"; leave the cell out) — help.metricool.com/scheduling-and-posting-options-by-social-network-cwmb3.md
 - ready: partial — Format, size and ratio checked on save — help.metricool.com/publishing-requirements-for-images-and-videos-from-metricool-vfc8n
-- fix: partial — MOV turned into MP4 automatically — help.metricool.com/publishing-requirements-for-images-and-videos-from-metricool-vfc8n
+- fix: none on the page (renders as a cross; left for Solomon to confirm, see Open for Solomon). Evidence considered: MOV turned into MP4 automatically — help.metricool.com/publishing-requirements-for-images-and-videos-from-metricool-vfc8n
 - status: yes — Published, Sent or error, per network — help.metricool.com/how-to-manage-your-calendar-in-metricool-xhlbw
 - email: yes — Email when a post can't publish — help.metricool.com/notifications-in-metricool-complete-guide-ynqf8
 - retry: partial — Duplicate the post, untick networks already posted — help.metricool.com/why-does-my-post-appear-as-sent-in-metricool-and-not-auto-published-467xf
@@ -87,8 +87,17 @@ Changelog (metricool.com/whats-new/, page modified 2026-11-12; latest entry is O
 - That Metricool has caption variables, or that it lacks them. Nothing is documented either way.
 - That Metricool can't post long YouTube videos, or that Shorts run past 3 minutes.
 - Any Metricool price.
-- That anything changed in November 2026. There is no November changelog entry yet (latest is October 2026).
+- That Metricool added retry, pre-publish codec checks, compression or caption variables in November 2026. The November update (2026-11-24) has none of these.
 
 ## Open for Solomon (20 Nov 2026)
 - "fix" row left as a cross. Reviewer round 2 proposed a partial for the editor's crop/resize plus MOV to MP4; round 3 proposed a partial because Metricool converts images a network won't take (e.g. PNG for TikTok) to JPEG or WebP. (help.metricool.com/publishing-requirements-for-images-and-videos-from-metricool-vfc8n, updated 2026-11-05). No video compression, codec or frame-rate fix is documented.
 - Workflow step about TikToks with effects/stickers/non-Top-100 music needing manual publishing was removed: true, but it's TikTok's API limit, not Metricool's.
+
+## Re-check 2026-11-25
+- Every cell, step, the lede, the verdict and the price entry re-confirmed on Metricool's own pages. No mark changed.
+- Nov 2026 update: Team members (one role across all brands) vs Collaborators (previously Users) with a role per brand, Slack integration per brand (approvals, notes, publishing updates), reworked tags, Planner media grid and notes, Flows as an add-on, editable Campaign Dashboard dates, Instagram Study benchmarks. Nothing on retry, pre-checks, compression or caption variables. (metricool.com/product-updates-november-2026/)
+- Google Drive integration adds Drive files to posts one at a time from the Planner, on Starter and up. No bulk import from Drive. (help.metricool.com/google-drive-integration-0u1ei, updated 2026-11-24)
+- The "Erroneous post" notification ("A post could not be published") goes by email and in-app, and can be configured. (help.metricool.com/types-of-notifications-in-metricool-ynqf8, updated 2026-11-24)
+- YouTube title field "Max 100 characters"; long videos supported; images not supported on YouTube. (help.metricool.com/schedule-and-publish-on-youtube-gof0k, updated 2026-11-17; help.metricool.com/scheduling-and-posting-options-by-social-network-cwmb3, updated 2026-11-17)
+- Instagram carousels: images and videos, videos up to 60 seconds, up to 10 items. (cwmb3, updated 2026-11-17)
+- Pricing re-confirmed (monthly, USD, excl. VAT): Starter up to 5 brands, Advanced up to 15 brands with unlimited team members and post approvals; no trial, free plan instead. (metricool.com/pricing/)

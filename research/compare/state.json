@@ -3,7 +3,7 @@
   "lastFeatureScan": {
     "frontend": null,
     "backend": null,
-    "landing": "08ef22f"
+    "landing": "17b942e"
   },
   "notes": "profaily-frontend and profaily-backend could not be attached on 2026-11-20, 21 or 25 (no add_repo in the scheduled session), so their scan baseline is unset; the next run that can attach them should start from merges after 2026-11-20."
 }
