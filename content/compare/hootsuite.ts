@@ -2,7 +2,7 @@ import type { ChecklistComparison } from "./types";
 
 /**
  * Profaily vs Hootsuite, checklist layout. Hootsuite facts were checked on help.hootsuite.com and
- * hootsuite.com/plans on 20 Nov 2026 (Social OS / Perch, calendar, recommended times, AutoSchedule, drafts,
+ * hootsuite.com/plans on 20 Nov 2026 and re-checked on 25 Nov 2026 (Social OS / Perch, calendar, recommended times, AutoSchedule, drafts,
  * Bulk Composer, TikTok, Instagram, YouTube, video requirements, post failures, approvals, permissions, MCP).
  * Rows Hootsuite's docs don't cover stay empty and render as a cross.
  */
@@ -15,7 +15,7 @@ export const hootsuite: ChecklistComparison = {
     description:
       "Profaily vs Hootsuite: every Profaily feature side by side with Hootsuite, from scheduling and captions to pre-post checks, retries, approvals and AI apps.",
   },
-  checked: "November 20, 2026",
+  checked: "November 25, 2026",
   hero: {
     lede:
       "Hootsuite is built for social teams running every network, with an inbox, listening and ads beside the calendar. Profaily is built for one thing: getting a short video onto TikTok, Reels and Shorts, checked against each before you schedule.",
@@ -42,8 +42,8 @@ export const hootsuite: ChecklistComparison = {
   cells: {
     calendar: { mark: "yes", text: "Content calendar, drag to reschedule" },
     scheduling: { mark: "yes", text: "Pick a time, or a recommended time" },
-    queue: { mark: "partial", text: "AutoSchedule on mobile; best time in a range on the web" },
-    drafts: { mark: "yes", text: "Unlimited drafts; tags on Advanced and up" },
+    queue: { mark: "partial", text: "AutoSchedule on mobile; recommended times on web" },
+    drafts: { mark: "yes", text: "Unlimited drafts, plus tags on higher plans" },
     import: { mark: "yes", text: "Bulk Composer: a CSV of up to 350 posts, media added per post" },
     tiktok: { mark: "yes", text: "Direct, or a mobile notification" },
     instagram: { mark: "yes", text: "Direct for Business profiles, or a mobile notification" },
@@ -60,9 +60,9 @@ export const hootsuite: ChecklistComparison = {
     retry: { mark: "partial", text: "Shows which accounts failed, to fix and resend" },
     team: { mark: "yes", text: "Seats on every plan" },
     roles: { mark: "yes", text: "Organization, team and social account permissions" },
-    approvals: { mark: "yes", text: "On Advanced, Business and Enterprise" },
+    approvals: { mark: "yes", text: "On Advanced and Enterprise plans" },
     brandAccess: { mark: "yes", text: "Per social account" },
     mcp: { mark: "yes", text: "Perch MCP server" },
-    campaigns: { mark: "yes", text: "Perch MCP: plan campaigns and draft posts" },
+    campaigns: { mark: "partial", text: "Perch MCP drafts one post per instruction" },
   },
 };
