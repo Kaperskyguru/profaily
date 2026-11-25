@@ -74,7 +74,7 @@ export const comparisons = {
     quick: [
       { label: "Built for", them: "General social publishing", us: "Short-form video" },
       { label: "Channels", them: "Broad channel list", us: "TikTok, Reels, YouTube, Facebook" },
-      { label: "Free plan", them: "Yes, up to 3 channels", us: "No · 14-day Business trial" },
+      { label: "Free plan", them: "Yes, up to 3 channels", us: "No · 14-day free trial on either plan" },
       { label: "Inbox", them: "Community inbox", us: "Not yet" },
     ],
     intro: "Pick Buffer when broad network coverage, a free plan, and channel-by-channel scaling lead your decision. Pick Profaily when your work is centered on short-form video across its four supported channels and you want import, review, and per-channel publishing in one place.",
@@ -112,7 +112,7 @@ export const comparisons = {
       {
         area: "Teams and pricing shape",
         competitor: "A free plan is available; paid plans are per channel. Team adds unlimited members, access levels, and approvals.",
-        profaily: "No free plan. Creator is $15/month for one person; Business is $39/month for up to 5 people and has a 14-day trial (card required). Yearly billing saves 20%.",
+        profaily: "No free plan. Creator is $15/month for one person; Business is $39/month for up to 5 people. Both have a 14-day trial (card required). Yearly billing saves 20%.",
       },
     ],
     fit: {
@@ -124,7 +124,7 @@ export const comparisons = {
     faq: [
       { q: "Is Profaily better than Buffer?", a: "It depends on your workflow. Buffer is a strong fit for broad channel scheduling, a free plan, and channel-based pricing. Profaily is designed for the short-form video publishing workflow across TikTok, Instagram Reels, YouTube, and Facebook, including validation, team approvals, and per-channel retry." },
       { q: "Does Buffer support TikTok, Instagram, YouTube Shorts, and Facebook?", a: "Buffer’s channel information lists TikTok, YouTube Shorts, Instagram business accounts, and Facebook Pages. Publishing, analytics, and engagement features vary by account type and channel; check Buffer’s current channel guide." },
-      { q: "Does Profaily offer a free plan?", a: "No. Creator is $15/month and Business is $39/month. Business has a 14-day free trial (card required); see the pricing page for current terms and limits." },
+      { q: "Does Profaily offer a free plan?", a: "No. Creator is $15/month and Business is $39/month. both have a 14-day free trial (card required); see the pricing page for current terms and limits." },
       { q: "Can I use Profaily if I need to edit or resize video?", a: "Profaily’s workflow starts with a finished source video. It reuses that file and lets you customize available destination details; it does not edit or resize the footage." },
     ],
     sources: [
@@ -193,7 +193,7 @@ export const comparisons = {
       {
         area: "Pricing shape",
         competitor: "Plans are organized around social sets and user counts; post allowances and tools vary by tier. Annual and monthly options may differ.",
-        profaily: "No free plan. Creator is $15/month for one person; Business is $39/month for up to 5 people and has a 14-day trial (card required). Yearly billing saves 20%.",
+        profaily: "No free plan. Creator is $15/month for one person; Business is $39/month for up to 5 people. Both have a 14-day trial (card required). Yearly billing saves 20%.",
       },
     ],
     fit: {
@@ -206,7 +206,7 @@ export const comparisons = {
       { q: "Is Profaily a good Later alternative?", a: "It can be, if your central need is coordinating short-form video across TikTok, Instagram Reels, YouTube, and Facebook with bulk import, approvals, and per-channel status. Later may fit better when you need visual planning, media editing, best-time recommendations, or a wider channel set." },
       { q: "Does Later support short-form video?", a: "Yes. Later lists Instagram Reels, TikTok posts, Facebook Reels, and YouTube Shorts among its supported scheduled formats. Publishing options and limits vary by social profile and plan." },
       { q: "Can Profaily resize or edit a video like a media editor?", a: "No. Profaily reuses the finished source video across selected channels and lets you adjust available destination details. It does not crop, trim, resize, or add audio to your footage." },
-      { q: "How do Later and Profaily organize pricing?", a: "Later structures plans around social sets, users, and per-profile publishing allowances. Profaily has no free plan: Creator is $15/month and Business is $39/month, with a 14-day trial on Business. Check each official pricing page for current terms." },
+      { q: "How do Later and Profaily organize pricing?", a: "Later structures plans around social sets, users, and per-profile publishing allowances. Profaily has no free plan: Creator is $15/month and Business is $39/month, both with a 14-day free trial. Check each official pricing page for current terms." },
     ],
     sources: [
       {
@@ -235,7 +235,7 @@ export const comparisons = {
     },
     quick: [
       { label: "Built for", them: "Analytics and many brands", us: "Short-form video" },
-      { label: "Free plan", them: "1 brand, 20 posts a month", us: "No · 14-day Business trial" },
+      { label: "Free plan", them: "1 brand, 20 posts a month", us: "No · 14-day free trial on either plan" },
       { label: "Analytics", them: "Reports and competitors", us: "Not yet" },
       { label: "Approvals", them: "On Advanced", us: "On Business" },
     ],
@@ -274,7 +274,7 @@ export const comparisons = {
       {
         area: "Pricing shape",
         competitor: "A free tier is available; paid tiers are organized around brand counts, with feature access changing by plan and add-ons.",
-        profaily: "No free plan. Creator is $15/month for one person; Business is $39/month for up to 5 people and has a 14-day trial (card required). Yearly billing saves 20%.",
+        profaily: "No free plan. Creator is $15/month for one person; Business is $39/month for up to 5 people. Both have a 14-day trial (card required). Yearly billing saves 20%.",
       },
     ],
     fit: {
@@ -355,7 +355,7 @@ export const comparisons = {
       {
         area: "Pricing shape",
         competitor: "Tiered plans; account limits and advanced collaboration capabilities vary by plan. Standard is described as per-user pricing on Hootsuite’s plans page.",
-        profaily: "No free plan. Creator is $15/month for one person; Business is $39/month for up to 5 people and has a 14-day trial (card required). Yearly billing saves 20%.",
+        profaily: "No free plan. Creator is $15/month for one person; Business is $39/month for up to 5 people. Both have a 14-day trial (card required). Yearly billing saves 20%.",
       },
     ],
     fit: {

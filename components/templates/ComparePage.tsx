@@ -147,7 +147,7 @@ export function ComparePage({ slug, content: c }: { slug: ComparisonSlug; conten
                   <ul className="cmp-list">
                     {p.limits.map((f) => <li key={f}>{f}</li>)}
                   </ul>
-                  <p className="cmp-small">{p.trial ? `${TRIAL_DAYS}-day free trial, card required.` : "No trial on Creator."}</p>
+                  <p className="cmp-small">{`${TRIAL_DAYS}-day free trial, card required.`}</p>
                 </article>
               ))}
               {priceRow && (
@@ -204,7 +204,7 @@ export function ComparePage({ slug, content: c }: { slug: ComparisonSlug; conten
 
         <CtaBand
           heading="See if Profaily fits your workflow"
-          lede={`Try Business free for ${TRIAL_DAYS} days, or start on Creator if it is just you.`}
+          lede={`Try either plan free for ${TRIAL_DAYS} days: Creator if it is just you, Business for a team.`}
           secondary={{ href: "/pricing", label: "See pricing" }}
         />
       </main>

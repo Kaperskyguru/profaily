@@ -45,11 +45,11 @@ function questions(c: ChecklistComparison) {
     },
     {
       q: "How much does Profaily cost?",
-      a: `${creator.name} is ${creator.price.usd.m} a month for one person. ${business.name} is ${business.price.usd.m} a month for teams that approve videos before they go out, and comes with a ${TRIAL_DAYS}-day free trial. Paying yearly saves ${YEARLY_SAVING}%.`,
+      a: `${creator.name} is ${creator.price.usd.m} a month for one person. ${business.name} is ${business.price.usd.m} a month for teams that approve videos before they go out. Both come with a ${TRIAL_DAYS}-day free trial. Paying yearly saves ${YEARLY_SAVING}%.`,
       /** On the page the prices follow the visitor's region; the JSON-LD keeps the dollar answer above. */
       shown: (
         <p>
-          {creator.name} is <PlanPrice plan="creator" /> for one person. {business.name} is <PlanPrice plan="business" /> for teams that approve videos before they go out, and comes with a {TRIAL_DAYS}-day free trial. Paying yearly saves {YEARLY_SAVING}%.
+          {creator.name} is <PlanPrice plan="creator" /> for one person. {business.name} is <PlanPrice plan="business" /> for teams that approve videos before they go out. Both come with a {TRIAL_DAYS}-day free trial. Paying yearly saves {YEARLY_SAVING}%.
         </p>
       ),
     },

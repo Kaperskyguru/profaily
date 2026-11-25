@@ -1,6 +1,6 @@
 ---
 title: "Plans and prices"
-description: "Creator is for one person and one brand. Business is for teams, with approvals and a 14-day free trial. Paying yearly saves 20%. See your price on the pricing page."
+description: "Creator is for one person and one brand. Business is for teams, with approvals. Both have a 14-day free trial. Paying yearly saves 20%. See your price on the pricing page."
 section: "Plans and billing"
 order: 1
 updated: "2026-11-18"
@@ -27,7 +27,7 @@ Profaily has two plans. Both post to TikTok, Instagram and YouTube, with schedul
 | Connected channels | 4 | 12 |
 | People | Just you | 5 |
 | Approvals before posting | No | Yes |
-| Free trial | No | 14 days |
+| Free trial | 14 days | 14 days |
 
 ## Prices {#prices}
 

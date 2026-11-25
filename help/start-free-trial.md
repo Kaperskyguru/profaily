@@ -1,9 +1,9 @@
 ---
 title: "Start your 14-day free trial"
-description: "The Business plan comes with a 14-day free trial. You add a card to start, and you're not charged until the trial ends, so you can cancel before then if it isn't for you."
+description: "Creator and Business both come with a 14-day free trial. You add a card to start, and you're not charged until the trial ends, so you can cancel before then if it isn't for you."
 section: "Get started"
 order: 2
-updated: "2026-11-18"
+updated: "2026-11-24"
 related:
   - "plans-and-prices"
   - "change-or-cancel-your-plan"
@@ -12,16 +12,16 @@ faq:
   - q: "Do I need a card to start the trial?"
     a: "Yes. You add a card to start, and you're not charged until the 14 days are over. Cancel before then and you pay nothing."
   - q: "Does the Creator plan have a trial?"
-    a: "No. The free trial is on the Business plan. You can move to Creator at any time from Settings → Billing."
+    a: "Yes. Creator and Business both come with a 14-day free trial. You get one trial per account, on the plan you choose, and you can switch plans at any time from Settings → Billing."
 ---
 
-The **Business** plan comes with a **14-day free trial**. You add a card to start it, and you're not charged until the trial ends.
+**Creator** and **Business** both come with a **14-day free trial**. You add a card to start it, and you're not charged until the trial ends.
 
 ## Start the trial {#start}
 
 1. Go to [useprofaily.com](/) and tap **Sign up**.
 2. Sign in with Google, TikTok or Instagram.
-3. Choose **Business** and add your card.
+3. Choose **Creator** or **Business** and add your card.
 4. Connect your accounts and post your first video.
 
 ![The Profaily sign-in page, with Continue with Google, and TikTok and Instagram buttons](/assets/help/start-free-trial/sign-in.jpg)
@@ -32,7 +32,7 @@ Once you're in, Profaily asks you to connect your first account. Tap **Connect**
 
 ## During the trial {#during}
 
-You get everything in Business for 14 days: 3 brands, 12 connected channels, 5 team members, and approvals before videos go out.
+You get everything in the plan you chose for 14 days. On Creator: 1 brand and 4 connected channels. On Business: 3 brands, 12 connected channels, 5 team members, and approvals before videos go out.
 
 A good way to try it: connect a test or secondary account first, schedule a few videos, and watch them go out. Connect your main accounts once you're happy.
 
@@ -51,4 +51,4 @@ Yes. You add a card to start, and you're not charged until the 14 days are over.
 
 ### Does the Creator plan have a trial?
 
-No. The free trial is on the Business plan. You can move to Creator at any time from Settings → Billing.
+Yes. Creator and Business both come with a 14-day free trial. You get one trial per account, on the plan you choose, and you can switch plans at any time from Settings → Billing.

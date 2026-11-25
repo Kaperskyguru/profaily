@@ -4,7 +4,7 @@ import { isSoon, SOON } from "@/content/channels";
 
 export const pricingMeta = {
   title: "Pricing | Profaily",
-  description: `Compare Profaily Creator and Business for creators, businesses, and agencies distributing short-form video. Try Business free for ${TRIAL_DAYS} days.`,
+  description: `Compare Profaily Creator and Business for creators, businesses, and agencies distributing short-form video. Try either plan free for ${TRIAL_DAYS} days.`,
   path: "/pricing",
 };
 
@@ -85,7 +85,7 @@ export const compareSections: CompareSection[] = [
 export const pricingFaq = [
   {
     q: "How does the free trial work?",
-    a: `Business comes with a ${TRIAL_DAYS}-day free trial. A card is required to start it, and you are not charged until the trial ends, so cancel before then if it is not for you. Creator has no trial.`,
+    a: `Creator and Business both come with a ${TRIAL_DAYS}-day free trial. A card is required to start it, and you are not charged until the trial ends, so cancel before then if it is not for you.`,
   },
   {
     q: "Which currency will I pay in?",

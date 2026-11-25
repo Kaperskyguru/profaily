@@ -49,7 +49,7 @@ Stay with Metricool if short video is a small part of what you post and your wee
 | TikTok status | Sent and Published both green; hover to tell them apart | Status per platform, with the platform's reason if it fails |
 | Approvals | Advanced plan | Business plan |
 | AI assistants (MCP) | ChatGPT, Claude, Cursor and others | ChatGPT and Claude: drafts, review and scheduling; nothing is scheduled until you confirm |
-| Try it | Free plan: 1 brand, 20 posts a month | 14-day trial of the Business plan, approvals included |
+| Try it | Free plan: 1 brand, 20 posts a month | 14-day free trial of Creator or Business |
 
 If the right-hand column is what you've been missing, [start the 14-day trial](/pricing) and send one real video to all three platforms.
 
