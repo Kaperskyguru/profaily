@@ -27,4 +27,6 @@ export const links = {
   deletion: `${APP_URL}/deletion`,
   /** The public roadmap: what is coming, with an upvote on each. */
   roadmap: `${APP_URL}/roadmap`,
+  /** Better Stack (Better Uptime) status page for the app and API. */
+  status: "https://status.useprofaily.com",
 };
