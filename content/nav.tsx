@@ -49,6 +49,7 @@ export const madeForLinks: NavLink[] = [
 export const learnLinks: NavLink[] = [
   { href: "/blog", title: "Blog", text: "Guides on short-form video for business", icon: "text" },
   { href: "/help", title: "Help center", text: "Step-by-step answers for using Profaily", icon: "lines" },
+  { href: "/compare", title: "Compare", text: "Profaily next to Buffer, Later and more", icon: "table" },
   { href: "/contact", title: "Contact", text: "Talk to the Profaily team", icon: "chat" },
 ];
 
@@ -98,6 +99,7 @@ export const footerGroups: { heading: string; links: { href: string; label: stri
       { href: links.privacy, label: "Privacy" },
       { href: links.terms, label: "Terms" },
       { href: links.deletion, label: "Data deletion" },
+      { href: links.status, label: "Status" },
     ],
   },
 ];
