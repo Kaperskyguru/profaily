@@ -85,6 +85,10 @@ export const rivalPricing: Record<string, RivalPricing> = {
     solo: { name: "Professional", usd: 99, brands: "Not stated", channels: "15 profiles", people: "2", posts: "Unlimited" },
     team: { name: "Professional", usd: 99, brands: "Not stated", channels: "15 profiles", people: "2", posts: "Unlimited", approvals: "Single-step", trial: "14 days" },
   },
+  "pallyy-alternative": {
+    solo: { name: "Pro", usd: 25, basis: "per social set", brands: "1 social set", channels: "11 accounts", people: "Just you", posts: "Unlimited" },
+    team: { name: "Pro", usd: 25, basis: "per social set", brands: "1 social set", channels: "11 accounts", people: "Just you", posts: "Unlimited", approvals: "Clients approve by link", trial: "14 days" },
+  },
 };
 
 /** "$18" or "$18.50". */

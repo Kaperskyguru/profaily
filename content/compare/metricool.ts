@@ -2,7 +2,7 @@ import type { ChecklistComparison } from "./types";
 
 /**
  * Profaily vs Metricool, checklist layout. Metricool cells come from Metricool's own docs (research notes in
- * research/compare/metricool.md, re-checked 20 Nov 2026). A feature its docs don't show is left out and renders as a cross.
+ * research/compare/metricool.md, re-checked 25 Nov 2026). A feature its docs don't show is left out and renders as a cross.
  */
 export const metricool: ChecklistComparison = {
   kind: "checklist",
@@ -13,7 +13,7 @@ export const metricool: ChecklistComparison = {
     description:
       "Profaily vs Metricool: every Profaily feature side by side with Metricool, from scheduling and captions to pre-post checks, retries, approvals and AI apps.",
   },
-  checked: "November 20, 2026",
+  checked: "November 25, 2026",
   hero: {
     lede:
       "Metricool is a broad social tool, strong on analytics and reports across many networks. Profaily is built for one job: getting each short video onto TikTok, Instagram Reels and YouTube the way each platform wants it, and telling you straight when one didn't make it.",
@@ -45,7 +45,7 @@ export const metricool: ChecklistComparison = {
     tiktok: { mark: "yes", text: "Yes" },
     instagram: { mark: "yes", text: "Yes" },
     youtube: { mark: "yes", text: "Yes" },
-    // Facebook: help.metricool.com/schedule-and-publish-on-facebook-ycu1b (checked 2026-11-20)
+    // Facebook: help.metricool.com/schedule-and-publish-on-facebook-ycu1b (checked 2026-11-25)
     facebook: { mark: "yes", text: "Posts, Reels and Stories on Pages" },
     captions: { mark: "yes", text: "Edit per network" },
     ytTitle: { mark: "yes", text: "A title field" },

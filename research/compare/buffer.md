@@ -1,4 +1,4 @@
-#### Buffer facts (buffer.com, checked November 20, 2026)
+#### Buffer facts (buffer.com, checked November 25, 2026)
 
 Bulk import
 - Bulk upload is a CSV file only. "Bulk upload currently supports text and single-image posts only." (support.buffer.com/articles/how-to-upload-posts-in-bulk-to-buffer-cTIhl4mv6H, updated July 25, 2026)
@@ -14,17 +14,17 @@ Composer and scheduling
 - Next Available (queue) or Set Date and Time; queue needs posting times per channel. Tags are set at the top of the composer; drafts need a channel. (same page)
 - "After you've scheduled the posts, they become separate from each other." Edits are made "for each post in each channel queue." (support.buffer.com/articles/how-do-i-schedule-posts-for-multiple-social-channels-at-the-same-time-XNPoSegb1W, no date shown)
 - Post Groups link posts made in one composer session, but "group-level editing is coming in a future update." Each post is still edited on its own. (support.buffer.com/articles/using-post-groups-in-buffer-bUZAamv7kk, no date shown)
-- Templates exist (Custom Post Templates, July 22, 2026). The help page mentions highlighted "placeholders" but no values that change per channel. (support.buffer.com/articles/using-templates-in-buffer-Gbn93vR56i; buffer.com/changelog/custom-post-templates-2)
+- Templates exist (Custom Post Templates, July 22, 2026). The help page says to swap in your own text; it no longer mentions placeholders and shows no values that change per channel. (support.buffer.com/articles/using-templates-in-buffer-Gbn93vR56i, re-checked 2026-11-25)
 
 Video handling
 - Buffer transcodes some videos: HEVC, video bitrate over 25 Mbps, audio over 128 kbps, over 1080p, and all mobile uploads. "There is no setting to turn transcoding off." Over 1080p is downscaled. X videos over 60fps are converted to 60fps. (support.buffer.com/article/935-troubleshooting-video-uploads-in-buffer, no date shown)
 - Length and aspect-ratio problems are not fixed. The page tells users to re-encode to H.264 (HandBrake, QuickTime) and crop or resize. (same page)
 - Composer: "If a linked video or image can't be used, Buffer shows an explanation right in the composer so you know what to fix." Mastodon issues are caught before scheduling. (same page)
-- Instagram help lists specs Buffer doesn't change; out-of-range media falls back to notification publishing. (support.buffer.com/articles/using-instagram-with-buffer-YSjg2dXFV8, updated November 12, 2026)
+- Instagram help lists specs Buffer doesn't change; out-of-range media falls back to notification publishing. (support.buffer.com/articles/using-instagram-with-buffer-YSjg2dXFV8, updated November 24, 2026)
 
 Channels
 - TikTok: "Automatic publishing" or "Notification publishing"; video 3 seconds to 10 minutes, up to 10 images per post. (support.buffer.com/articles/using-tiktok-with-buffer-oGEroY9Of2, no date shown)
-- Instagram: automatic for Business/Creator accounts, otherwise "Notify Me"; carousels up to 20 images and videos, mixed media allowed. (support.buffer.com/articles/using-instagram-with-buffer-YSjg2dXFV8, updated November 12, 2026)
+- Instagram: automatic for Business/Creator accounts, otherwise "Notify Me"; carousels up to 20 images and videos, mixed media allowed. (support.buffer.com/articles/using-instagram-with-buffer-YSjg2dXFV8, updated November 24, 2026)
 - YouTube: "Buffer currently supports YouTube Shorts only. We do not support long-form YouTube videos at this time." (support.buffer.com/articles/using-youtube-shorts-with-buffer-Jl8iR6jIck, no date shown)
 - YouTube title: "automatically filled in with the first line of your caption," editable, 100 characters. (same page)
 - "YouTube posts cannot be created without a video attached." (same page)
@@ -63,9 +63,9 @@ AI
 - variables: none — (no Buffer page shows per-channel values) — support.buffer.com/articles/using-templates-in-buffer-Gbn93vR56i
 - images: yes — Carousels — support.buffer.com/articles/using-instagram-with-buffer-YSjg2dXFV8
 - ytImages: no — YouTube posts need a video — support.buffer.com/articles/using-youtube-shorts-with-buffer-Jl8iR6jIck
-- ready: yes — Flags some files in the composer — support.buffer.com/article/935-troubleshooting-video-uploads-in-buffer
+- ready: partial — Flags some files in the composer — support.buffer.com/article/935-troubleshooting-video-uploads-in-buffer
 - fix: partial — Transcodes some videos on upload — support.buffer.com/article/935-troubleshooting-video-uploads-in-buffer
-- status: yes — Failed posts show the network's error — support.buffer.com/articles/facebook-error-library-x7IMglwe8J
+- status: yes — Failed posts show the error message — support.buffer.com/articles/facebook-error-library-x7IMglwe8J
 - email: yes — Email or push to the team — support.buffer.com/articles/enabling-email-notifications-in-buffer-kuKhKBU7c3
 - retry: yes — Retry a failed post — support.buffer.com/articles/facebook-error-library-x7IMglwe8J
 - team: yes — On the Team plan — buffer.com/pricing
@@ -73,7 +73,7 @@ AI
 - approvals: yes — On the Team plan — buffer.com/pricing
 - brandAccess: yes — Per channel — support.buffer.com/articles/understanding-roles-in-your-buffer-organization-7hfOl6J4fz
 - mcp: yes — Buffer MCP server — buffer.com/mcp
-- campaigns: partial — AI apps create posts one at a time — developers.buffer.com/guides/integrations/mcp (alternative: none, since no Buffer page describes campaign planning)
+- campaigns: partial — Claude drafts a week of posts via MCP — buffer.com/changelog/talk-to-your-agent-via-mcp ("Ask Claude to draft a week of posts in your voice"); create_post is one channel per call and there's no campaign tool (developers.buffer.com/guides/integrations/mcp)
 
 ## Do NOT say
 - That Buffer can't import video because "it has no bulk upload". It has CSV bulk upload, just not for video, carousels or YouTube.
@@ -88,3 +88,8 @@ AI
 - That Buffer can't edit posts together because of no grouping. Post Groups exist; group editing is "coming in a future update".
 - Old role names. Roles changed November 17, 2026 (Admin, Creator, Collaborator, Viewer).
 - Any price.
+
+## Re-check 2026-11-25
+- Every cell, step, the lede, the verdict and the price entry re-confirmed on Buffer's own pages. No mark changed.
+- Changelog newest entry is November 19, 2026 ("More tags on the free plan"); nothing on bulk video import, caption variables or YouTube images. (buffer.com/changelog)
+- Pricing re-confirmed: Essentials and Team per channel a month on monthly billing, 14-day trial, Team has unlimited team members; posts unlimited with a 5,000 per channel fair-use cap. (buffer.com/pricing)
