@@ -16,6 +16,7 @@ Status: `queued`, `pr-open #N`, `live`, `skipped: reason`.
 | Publer | publer-alternative | live | November 26, 2026 |
 | Vista Social | vista-social-alternative | live | November 21, 2026 |
 | Pallyy | pallyy-alternative | live | November 25, 2026 |
+| Sked Social | sked-social-alternative | pr-open | November 26, 2026 |
 
 ## Tier 1: short video
 
@@ -25,8 +26,8 @@ scheduling short video to TikTok, Reels and Shorts come before tools whose main 
 1. Publer: live (20 Nov 2026). Facts: `publer.md`.
 2. Vista Social: live (21 Nov 2026). Facts: `vista-social.md`.
 3. Pallyy: live (25 Nov 2026). Facts: `pallyy.md`.
-4. Sked Social: queued (next)
-5. Planoly: queued
+4. Sked Social: pr-open (needs Solomon). Facts: `sked-social.md`.
+5. Planoly: queued (next)
 6. Plannthat: queued (check the product is current before research)
 7. Blotato: queued
 8. OpusClip: queued. Main job is clipping long video; people searching for an alternative mostly want a clipper, so it sits last in the tier.

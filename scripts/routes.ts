@@ -13,6 +13,7 @@ export const ROUTES: { route: string; file: string }[] = [
   ["/compare/metricool-alternative", "compare/metricool-alternative/index.html"],
   ["/compare/pallyy-alternative", "compare/pallyy-alternative/index.html"],
   ["/compare/publer-alternative", "compare/publer-alternative/index.html"],
+  ["/compare/sked-social-alternative", "compare/sked-social-alternative/index.html"],
   ["/compare/vista-social-alternative", "compare/vista-social-alternative/index.html"],
   ["/contact", "contact.html"],
   ["/facebook", "facebook.html"],
