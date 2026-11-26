@@ -79,7 +79,7 @@ export const rivalPricing: Record<string, RivalPricing> = {
   },
   "publer-alternative": {
     solo: { name: "Professional", usd: 12, basis: "for 3 accounts", brands: "Unlimited workspaces", channels: "Paid per account", people: "Just you", posts: "Unlimited" },
-    team: { name: "Business", usd: 21, basis: "for 3 accounts", brands: "Unlimited workspaces", channels: "Paid per account", people: "Extra members cost more", posts: "Unlimited", approvals: "With extra members", trial: "Free plan instead" },
+    team: { name: "Business", usd: 21, basis: "for 3 accounts", brands: "Unlimited workspaces", channels: "Paid per account", people: "Extra members cost more", posts: "Unlimited", approvals: "With extra members", trial: "14 days" },
   },
   "vista-social-alternative": {
     solo: { name: "Professional", usd: 99, brands: "Not stated", channels: "15 profiles", people: "2", posts: "Unlimited" },

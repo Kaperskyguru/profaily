@@ -13,9 +13,9 @@ Status: `queued`, `pr-open #N`, `live`, `skipped: reason`.
 | Repurpose.io | repurpose-io-alternative | live | November 21, 2026 |
 | Later | later-alternative | live | November 25, 2026 |
 | Hootsuite | hootsuite-alternative | live | November 25, 2026 |
-| Publer | publer-alternative | live | November 20, 2026 |
+| Publer | publer-alternative | live | November 26, 2026 |
 | Vista Social | vista-social-alternative | live | November 21, 2026 |
-| Pallyy | pallyy-alternative | pr-open #44 | November 25, 2026 |
+| Pallyy | pallyy-alternative | live | November 25, 2026 |
 
 ## Tier 1: short video
 
@@ -24,7 +24,7 @@ scheduling short video to TikTok, Reels and Shorts come before tools whose main 
 
 1. Publer: live (20 Nov 2026). Facts: `publer.md`.
 2. Vista Social: live (21 Nov 2026). Facts: `vista-social.md`.
-3. Pallyy: pr-open #44. Facts: `pallyy.md`.
+3. Pallyy: live (25 Nov 2026). Facts: `pallyy.md`.
 4. Sked Social: queued (next)
 5. Planoly: queued
 6. Plannthat: queued (check the product is current before research)
