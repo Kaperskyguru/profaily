@@ -6,6 +6,7 @@ import { pallyy } from "./pallyy";
 import { postiz } from "./postiz";
 import { publer } from "./publer";
 import { repurpose } from "./repurpose";
+import { skedSocial } from "./sked-social";
 import { vistaSocial } from "./vista-social";
 import { featureGroups, type FeatureId, type FeatureRow } from "./checklist";
 import type { AnyComparison } from "./types";
@@ -14,7 +15,7 @@ export type { AnyComparison, Cell, ChecklistComparison, Mark } from "./types";
 export { featureCount, featureGroups } from "./checklist";
 
 /** Every comparison page, in the order the /compare hub lists them. Add a rival: write its file, add it here. */
-export const comparisonList: AnyComparison[] = [metricool, buffer, postiz, repurpose, later, hootsuite, publer, vistaSocial, pallyy];
+export const comparisonList: AnyComparison[] = [metricool, buffer, postiz, repurpose, later, hootsuite, publer, vistaSocial, pallyy, skedSocial];
 
 export const comparisonsBySlug: Record<string, AnyComparison> = Object.fromEntries(comparisonList.map((c) => [c.slug, c]));
 
