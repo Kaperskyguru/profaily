@@ -2,9 +2,9 @@ import type { FaqItem } from "@/components/sections/shared/Faq";
 import { liveCopy, channelsReels } from "@/content/channels";
 
 export const homeMeta = {
-  title: "Profaily | Turn short-form video into a growth engine for your business",
+  title: "Profaily | The agentic social media scheduler for short-form video",
   description:
-    `Upload a video once and Profaily posts it to ${channelsReels}, each in its own format, on a schedule. Team approvals, bulk import and AI scheduling from Claude or ChatGPT.`,
+    `The agentic social media scheduler for short-form video. Upload once, publish to ${channelsReels}, or schedule it from ChatGPT or Claude.`,
   path: "/",
 };
 
