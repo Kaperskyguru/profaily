@@ -20,13 +20,13 @@ faq:
 ## Start the trial {#start}
 
 1. Go to [useprofaily.com](/) and tap **Sign up**.
-2. Sign in with Google, TikTok or Instagram.
+2. Sign in with Google, TikTok, Instagram or Facebook.
 3. Choose **Creator** or **Business** and add your card.
 4. Connect your accounts and post your first video.
 
 ![The Profaily sign-in page, with Continue with Google, and TikTok and Instagram buttons](/assets/help/start-free-trial/sign-in.jpg)
 
-Once you're in, Profaily asks you to connect your first account. Tap **Connect** next to TikTok, Instagram or YouTube. You can add the rest later.
+Once you're in, Profaily asks you to connect your first account. Tap **Connect** next to TikTok, Instagram, YouTube or Facebook. You can add the rest later.
 
 ![A new brand's Channels panel, with a Connect button for TikTok, Instagram and YouTube](/assets/help/start-free-trial/connect-first.jpg)
 

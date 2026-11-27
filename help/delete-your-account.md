@@ -23,7 +23,7 @@ Deleting your account removes everything at once, and it **can't be undone**.
 - Your uploaded videos are deleted from storage.
 - Your account, posts and sign-in are removed.
 
-Videos already posted stay on TikTok, Instagram and YouTube. Delete those on each platform if you want them gone.
+Videos already posted stay on TikTok, Instagram, YouTube and Facebook. Delete those on each platform if you want them gone.
 
 ## Delete it {#delete}
 

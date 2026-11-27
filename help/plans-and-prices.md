@@ -17,7 +17,7 @@ faq:
     a: "You get 7 days to update your payment method, with everything still working. After that your workspace becomes read-only until the payment goes through."
 ---
 
-Profaily has two plans. Both post to TikTok, Instagram and YouTube, with scheduling and the calendar.
+Profaily has two plans. Both post to TikTok, Instagram, YouTube and Facebook, with scheduling and the calendar.
 
 ## The plans {#plans}
 

@@ -15,7 +15,7 @@ faq:
     a: "Only when the problem needs you, such as a reconnect or a video the platform won't accept. When a platform has a temporary problem, Profaily retries on its own."
 ---
 
-A post fails when TikTok, Instagram or YouTube refuses it. Profaily shows you the platform's own reason, so you know what to change.
+A post fails when TikTok, Instagram, YouTube or Facebook refuses it. Profaily shows you the platform's own reason, so you know what to change.
 
 If you're watching when it happens, the **Publishing** window marks the platform **Failed** while the others carry on:
 
